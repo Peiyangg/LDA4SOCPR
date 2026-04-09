@@ -1,0 +1,177 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.22.4",
+    "script_metadata_hash": "ae972eb59d8a3acdded5972a8105c524"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "49852b7ba12c573b74c265bb482a6598",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"so-cpr-data-exploration\">SO-CPR Data Exploration</h1>\n<span class=\"paragraph\">Explores the abundance data before LDA:</span>\n<ol>\n<li>Taxon-level sparsity and skewness</li>\n<li>Segment-level total abundance distribution</li>\n<li>Pinkerton log-normalisation preview</li>\n<li>LDA model selection metrics (Gensim K=2\u201330)</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "17c0112f0961d50590483de5dd9f1bd2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "a373a1121d7a9d8612ccdba0577053a1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-load-data\">1. Load Data</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "4c0ca795d9c808262c0cef8f2467bdd3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "b905d64c61bf4b218ed3c26d00e2f92b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "68dea39ebca95cd74951a006a292fa48",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-taxon-level-statistics\">2. Taxon-level Statistics</h2>\n<span class=\"paragraph\">Two key properties of ecological count data:</span>\n<ul>\n<li><strong>Skewness</strong> \u2014 most taxa have right-skewed distributions (many zeros, few large values)</li>\n<li><strong>Sparsity</strong> \u2014 proportion of segments where each taxon is absent</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "41d327370a5d276502c7e99ec8c4f522",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "5797e4fe8d2ab94a851f2322b8bb6dca",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "bd37ff2b39c13288c04f625c8207df68",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "9be967c9aae4fc97a23e0014f3bf9c37",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "572e89dbcd7ffda6196e25b326fe4b27",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-total-abundance-distribution\">3. Total Abundance Distribution</h2>\n<span class=\"paragraph\">Comparing raw total abundance per segment vs. segment-length-corrected\nlog concentration (Pinkerton normalisation).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "b63416e906fc9ef5c422d251f8c64bc8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "570131f896876faa4ffe7db9f792e9e2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"4-pinkerton-log-normalisation\">4. Pinkerton Log-Normalisation</h2>\n<span class=\"paragraph\">Per Pinkerton et al. (2020): for each taxon, log-transform the\nsegment-length-corrected concentration where present, keeping zeros as-is.\nAdds a presence/absence indicator column for each taxon.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "c9cd8dab4cdfd2151771da90000dfb88",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "ba6b06b829c7a0cb985e9ed36c49a54e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "495489970f75ed8bf8e02ea5c43d685b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"5-lda-model-selection-gensim-k230\">5. LDA Model Selection (Gensim, K=2\u201330)</h2>\n<span class=\"paragraph\">Vertical lines mark the 4 candidate K values: <strong>3, 7, 10, 16</strong>.</span>\n<ul>\n<li><strong>Perplexity</strong> \u2014 lower = better fit (\u4f46\u53ef\u80fd overfit)</li>\n<li><strong>Coherence (c_v)</strong> \u2014 higher = more interpretable topics</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "2a998831430bd36ee3684cd7ebb32653",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "2464dd47f8e06724a70a4e11924ced72",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "3f4d8b65faad1e12f9c4a004b90d7ff4",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "03bf8e8202943419d7614c0f52d1cf7e",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

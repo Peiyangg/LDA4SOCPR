@@ -1,0 +1,6 @@
+{
+  "num_topics": 23,
+  "coherence_score": 0.4108438895137623,
+  "method": "gensim_c_v",
+  "formula": "gensim CoherenceModel with c_v measure"
+}

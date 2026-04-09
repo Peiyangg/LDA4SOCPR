@@ -1,0 +1,191 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.22.4",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "b1bbb6df3a9db3a46aebf0df0bd51ac3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "e1a31d9fa960974bad1136343e2b336b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "2a85aedde27658c0fb7f930e78a8a0fd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"distance-matrix\">Distance matrix</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "30daded36a04fcdec9d03fd7e8fd59fa",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (KeyboardInterrupt): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "b8a05eb8007a615e041fcf89383dd8d3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "This cell was interrupted and needs to be re-run",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "ed9c4f234755568ea0a1e1f0622c9296",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "umap.plot requires pandas matplotlib datashader bokeh holoviews scikit-image and colorcet to be installed",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "/Users/huopeiyang/Library/CloudStorage/OneDrive-KULeuven/py_working/NatureScience/POLARY/CPR_DataAnalysis/.venv/lib/python3.12/site-packages/umap/plot.py:20: UserWarning: The umap.plot package requires extra plotting libraries to be installed.\n    You can install these via pip using\n\n    pip install umap-learn[plot]\n\n    or via conda using\n\n     conda install pandas matplotlib datashader bokeh holoviews colorcet scikit-image\n    \n  warn(\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/var/folders/hw/zt9zg7ds179_c08cmvx02npm0000gn/T/marimo_74281/__marimo__cell_PKri_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">umap.plot</span>\n  File <span class=\"nb\">&quot;/Users/huopeiyang/Library/CloudStorage/OneDrive-KULeuven/py_working/NatureScience/POLARY/CPR_DataAnalysis/.venv/lib/python3.12/site-packages/umap/plot.py&quot;</span>, line <span class=\"m\">31</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"ne\">ImportError</span><span class=\"p\">(</span>\n<span class=\"gr\">ImportError</span>: <span class=\"n\">umap.plot requires pandas matplotlib datashader bokeh holoviews scikit-image and colorcet to be installed</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "Xref",
+      "code_hash": "d3a8af302619dfae9fd2bad97bddf770",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"umap\">UMAP</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "73164550f0af654a462d5a8baa16cf2e",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "multiple-defs",
+          "evalue": "The variable 'umap_emb' was defined by another cell",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "499db516951f13e1252350042ebaa29d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='BYtC-0' random-id='3a9ab070-7078-8519-7d21-fff46b2b2e41'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_10:20&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2795,&#92;&quot;Longitude&#92;&quot;:88.3835,&#92;&quot;Water_Temperature&#92;&quot;:3.38,&#92;&quot;UMAP1&#92;&quot;:-9.413227081298828,&#92;&quot;UMAP2&#92;&quot;:-7.791895389556885},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_10:43&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2829,&#92;&quot;Longitude&#92;&quot;:88.2003,&#92;&quot;Water_Temperature&#92;&quot;:3.33,&#92;&quot;UMAP1&#92;&quot;:-5.730271816253662,&#92;&quot;UMAP2&#92;&quot;:-4.987546443939209},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:06&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2865,&#92;&quot;Longitude&#92;&quot;:88.0155,&#92;&quot;Water_Temperature&#92;&quot;:3.4,&#92;&quot;UMAP1&#92;&quot;:-14.405696868896484,&#92;&quot;UMAP2&#92;&quot;:-4.0940752029418945},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:30&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2886,&#92;&quot;Longitude&#92;&quot;:87.825,&#92;&quot;Water_Temperature&#92;&quot;:3.29,&#92;&quot;UMAP1&#92;&quot;:3.799213171005249,&#92;&quot;UMAP2&#92;&quot;:-10.23193073272705},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:53&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2891,&#92;&quot;Longitude&#92;&quot;:87.6385,&#92;&quot;Water_Temperature&#92;&quot;:3.04,&#92;&quot;UMAP1&#92;&quot;:17.986658096313477,&#92;&quot;UMAP2&#92;&quot;:10.215874671936035},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_12:16&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2899,&#92;&quot;Longitude&#92;&quot;:87.4539,&#92;&quot;Water_Temperature&#92;&quot;:2.93,&#92;&quot;UMAP1&#92;&quot;:-5.739560127258301,&#92;&quot;UMAP2&#92;&quot;:-4.972651958465576},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_12:39&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2903,&#92;&quot;Longitude&#92;&quot;:87.2701,&#92;&quot;Water_Temperature&#92;&quot;:2.96,&#92;&quot;UMAP1&#92;&quot;:-3.6233279705047607,&#92;&quot;UMAP2&#92;&quot;:-2.2075250148773193},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:02&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.291,&#92;&quot;Longitude&#92;&quot;:87.0856,&#92;&quot;Water_Temperature&#92;&quot;:2.7,&#92;&quot;UMAP1&#92;&quot;:-4.026515960693359,&#92;&quot;UMAP2&#92;&quot;:-1.3043328523635864},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:25&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2934,&#92;&quot;Longitude&#92;&quot;:86.9,&#92;&quot;Water_Temperature&#92;&quot;:2.8,&#92;&quot;UMAP1&#92;&quot;:-4.021312236785889,&#92;&quot;UMAP2&#92;&quot;:-1.2168607711791992},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:48&#92;&quot;,&#92;&quot;Year&#92;&quot;:1991,&#92;&quot;Season&#92;&quot;:&#92;&quot;1990-91&#92;&quot;,&#92;&quot;Latitude&#92;&quot;:-63.2966,&#92;&quot;Longitude&#92;&quot;:86.7152,&#92;&quot;Water_Temperature&#92;&quot;:2.98,&#92;&quot;UMAP1&#92;&quot;:-3.987466335296631,&#92;&quot;UMAP2&#92;&quot;:-1.3187329769134521}]&quot;' data-total-rows='56300' data-total-columns='7' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Year&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Season&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Latitude&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Longitude&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Water_Temperature&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;UMAP1&quot;,[&quot;number&quot;,&quot;float32&quot;]],[&quot;UMAP2&quot;,[&quot;number&quot;,&quot;float32&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;Segment_ID&quot;,[&quot;string&quot;,&quot;str&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "38ed32c985c91834878c7eb3adc72044",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"pcoa\">PCoA</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "048fde0c8a0ecb8a4f82175a1d8b903e",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (KeyboardInterrupt): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "80f587613ecfa1a5e12a3488fff0f86e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"kmst\">kMST</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "db02ffd806a3169b044a85484cbba3b8",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (KeyboardInterrupt): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    }
+  ]
+}

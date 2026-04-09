@@ -1,0 +1,24 @@
+Title: SCAR Retrospective Analysis of Antarctic Tracking Data
+
+Authors:
+  - BEN RAYMOND (INVESTIGATOR, TECHNICAL CONTACT, DIF AUTHOR)
+
+Owner: Commonwealth of Australia
+
+Citation: Hindell MA, Reisinger RR, Ropert-Coudert Y, et al (2020) SCAR Retrospective Analysis of Antarctic Tracking Data, Ver. 1,  <em>Australian Antarctic Data Centre</em> - <a href="http://dx.doi.org/doi:10.1038/s41586-020-2126-y">doi:10.1038/s41586-020-2126-y</a>, Accessed: 2020-07-02
+
+Revision Date: 2020-03-18
+
+Metadata URL: https://data.aad.gov.au/metadata/records/SCAR_RAATD
+
+Dataset API URL: https://data.aad.gov.au/s3/api/bucket/datasets/science/SCAR_RAATD?export=json
+
+Abstract: We assembled tracking data from seabirds (n = 12 species) and marine mammals (n = 5 species), collected between 1991 and 2016, from across the Antarctic predator research community. See https://data.aad.gov.au/metadata/records/SCAR_EGBAMM_RAATD_2018_Standardised and https://data.aad.gov.au/metadata/records/SCAR_EGBAMM_RAATD_2018_Filtered for the tracking data. Habitat selectivity modelling was applied to these tracking data in order to identify the environmental characteristics important to each species, and to produce circum-Antarctic predictions of important geographic space for each individual species. The individual species maps were then combined to identify regions important to our full suite of species. This approach enabled us to account for incomplete tracking coverage (i.e., colonies from which no animals have been tracked) and to produce an integrated and spatially explicit assessment of areas of ecological importance across the Southern Ocean.
+
+The data attached to this metadata record include the single-species maps for Adelie, emperor, king, macaroni, and royal penguins; Antarctic and white-chinned petrels; black-browed, grey-headed, light-mantled, sooty, and wandering albatross; humpback whales; Antarctic fur seal, southern elephant seals, and crabeater and Weddell seals. The data also include the integrated maps that incorporate all species (weighted by colony size, and unweighted). See the paper and its supplementary information for full details on the modelling process and discussion of the model outputs.
+
+Use Constraints: This data set conforms to the CCBY Attribution License (http://creativecommons.org/licenses/by/4.0/).
+
+ID: 4985
+Metadata ID: SCAR_RAATD
+UUID: c62c9e29-5c85-4766-9ee0-2dbe94098fe3

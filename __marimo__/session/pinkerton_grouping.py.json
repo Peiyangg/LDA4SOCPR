@@ -1,0 +1,187 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.22.4",
+    "script_metadata_hash": "ae972eb59d8a3acdded5972a8105c524"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "fe040453916cb1ef0bf8ddf8feb80341",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"pinkerton-2020-taxonomic-grouping\">Pinkerton 2020 Taxonomic Grouping</h1>\n<span class=\"paragraph\">Aggregates the SO-CPR abundance table into the 11 ecological groups\ndefined in <strong>Pinkerton et al. (2020)</strong> (Table 1).</span>\n<table>\n<thead>\n<tr>\n<th>Group</th>\n<th>Name</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td><em>Oithona similis</em> (+ unidentified Cyclopoida)</td>\n</tr>\n<tr>\n<td>2</td>\n<td>Copepoda (all other copepods)</td>\n</tr>\n<tr>\n<td>3</td>\n<td>Amphipoda</td>\n</tr>\n<tr>\n<td>4</td>\n<td>Chaetognatha</td>\n</tr>\n<tr>\n<td>5</td>\n<td>Euphausiidae (krill, all life stages)</td>\n</tr>\n<tr>\n<td>6</td>\n<td>Foraminifera</td>\n</tr>\n<tr>\n<td>7</td>\n<td><em>Fritillaria</em> spp.</td>\n</tr>\n<tr>\n<td>8</td>\n<td><em>Oikopleura</em> spp.</td>\n</tr>\n<tr>\n<td>9</td>\n<td>Ostracoda</td>\n</tr>\n<tr>\n<td>10</td>\n<td>Pteropods</td>\n</tr>\n<tr>\n<td>11</td>\n<td>Other</td>\n</tr>\n</tbody>\n</table></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "17c0112f0961d50590483de5dd9f1bd2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "a373a1121d7a9d8612ccdba0577053a1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"1-load-data\">1. Load Data</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "ae5f0c603a862e48244aad33b6272366",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "99fbaf1db914c8a0db239a5ec68e22f8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "4992bc06f5e21ed8d32e3d5cde8bbf98",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"2-define-pinkerton-groups\">2. Define Pinkerton Groups</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "05e791859f126188625397de28ab180b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "aa418ef7bea6a8802ce8948e1f26ea45",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "995ce0d5945c3ef4a5f101982aec6d4b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "cc07469fc0cf03fa62fcc44ca3c23e93",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"3-build-grouped-abundance-table\">3. Build Grouped Abundance Table</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "ab89883bdc704c573bd6aea6e858e464",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='emfo-0' random-id='27a6a19d-8bae-7e32-36ec-3d866a067f54'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_10:20&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:0,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_10:43&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:1,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:06&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:0,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:30&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:0,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_11:53&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:0,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_12:16&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:1,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_12:39&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:1,&#92;&quot;Euphausiidae&#92;&quot;:3,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:02&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:9,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:25&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:8,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0},{&#92;&quot;Segment_ID&#92;&quot;:&#92;&quot;AA_1.0_12-Jan-1991_13:48&#92;&quot;,&#92;&quot;Oithona similis&#92;&quot;:0,&#92;&quot;Copepoda&#92;&quot;:0,&#92;&quot;Amphipoda&#92;&quot;:0,&#92;&quot;Chaetognatha&#92;&quot;:0,&#92;&quot;Euphausiidae&#92;&quot;:7,&#92;&quot;Foraminifera&#92;&quot;:0,&#92;&quot;Fritillaria spp.&#92;&quot;:0,&#92;&quot;Oikopleura spp.&#92;&quot;:0,&#92;&quot;Ostracoda&#92;&quot;:0,&#92;&quot;Pteropods&#92;&quot;:0,&#92;&quot;Other&#92;&quot;:0}]&quot;' data-total-rows='56300' data-total-columns='11' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Oithona similis&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Copepoda&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Amphipoda&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Chaetognatha&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Euphausiidae&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Foraminifera&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Fritillaria spp.&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Oikopleura spp.&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Ostracoda&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Pteropods&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;Other&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;Segment_ID&quot;,[&quot;string&quot;,&quot;str&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "4426f59d27165ba6866b39719580eb40",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "a7c531603523498ce21e4a31e363b4fd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"4-group-composition-overview\">4. Group Composition Overview</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "0efeb8c9785ff904a3ca2435333335d2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "5302649f3e99c3c51249e65e73714ff0",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "3ecc9bb78279d6c22884c7f86fa83cf1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"5-export\">5. Export</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "95f95cce32194b2fa109870a5ec7810a",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

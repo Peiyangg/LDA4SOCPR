@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antarctic CPR Data Explorer</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+  <!-- Data loaded as JS variables — works with file:// (no CORS issues) -->
+  <script src="world_data.js"></script>
+  <script src="cpr_data.js"></script>
+  <script src="lda_k3.js"></script>
+  <script src="lda_k7.js"></script>
+  <script src="lda_k10.js"></script>
+  <script src="lda_k16.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────────── */
+    #sidebar {
+      width: 210px;
+      min-width: 210px;
+      background: #161b22;
+      border-right: 1px solid #30363d;
+      display: flex;
+      flex-direction: column;
+      padding: 14px 12px;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    #sidebar h1 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #58a6ff;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .ctrl-section { display: flex; flex-direction: column; gap: 6px; }
+
+    .ctrl-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: #8b949e;
+    }
+
+    select {
+      width: 100%;
+      background: #21262d;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238b949e'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 24px;
+    }
+    select:hover, select:focus { border-color: #58a6ff; }
+
+    /* Year list */
+    #year-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      overflow-y: auto;
+      flex: 1;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 3px;
+      min-height: 0;
+    }
+    #year-list::-webkit-scrollbar { width: 4px; }
+    #year-list::-webkit-scrollbar-track { background: transparent; }
+    #year-list::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+
+    .year-item {
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #8b949e;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .year-item:hover { background: #21262d; color: #c9d1d9; }
+    .year-item.active { background: #1f6feb; color: #fff; font-weight: 600; }
+
+    /* ── Map container ───────────────────────────────────────────── */
+    #map-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      background: #0d1117;
+    }
+
+    /* Two stacked canvases: bg = land/graticule, fg = data points */
+    #bg-canvas, #map-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      transform-origin: 0 0;  /* CSS transform anchor for bg pan/zoom */
+    }
+    #bg-canvas  { z-index: 0; pointer-events: none; }
+    #map-canvas { z-index: 1; cursor: grab; background: transparent; }
+    #map-canvas:active { cursor: grabbing; }
+
+    /* ── Status bar ──────────────────────────────────────────────── */
+    #status-bar {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(22, 27, 34, 0.88);
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #8b949e;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────────── */
+    #loading {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #8b949e;
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    /* ── Tooltip ─────────────────────────────────────────────────── */
+    #tooltip {
+      position: fixed;
+      background: rgba(13, 17, 23, 0.97);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 12px;
+      line-height: 1.75;
+      pointer-events: none;
+      display: none;
+      z-index: 200;
+      max-width: 230px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    }
+    #tooltip .tip-title { font-weight: 700; color: #58a6ff; margin-bottom: 3px; font-size: 12px; }
+    #tooltip .tip-row { color: #8b949e; }
+    #tooltip .tip-row span { color: #e6edf3; font-weight: 500; }
+
+    /* ── Legends ─────────────────────────────────────────────────── */
+    #legends {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .legend-box {
+      background: rgba(22, 27, 34, 0.93);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 9px 11px;
+    }
+    .legend-title {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: #8b949e;
+      margin-bottom: 7px;
+    }
+    .legend-row-vals {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: #8b949e;
+      margin-top: 3px;
+    }
+
+    /* ── LDA controls ────────────────────────────────────────────── */
+    .ctrl-section.disabled { opacity: 0.4; pointer-events: none; }
+
+    #comp-bar-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px 10px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    #comp-bar-wrap .ctrl-label { margin-bottom: 0; }
+    #comp-bar-track {
+      height: 14px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+    }
+    #comp-bar-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 6px;
+    }
+    .comp-swatch {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 9px;
+      color: #8b949e;
+    }
+    .comp-swatch-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Topic swatch legend ─────────────────────────────────────── */
+    #topic-swatches {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+    .topic-swatch-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      color: #c9d1d9;
+    }
+    .topic-swatch-rect {
+      width: 14px; height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Sidebar ──────────────────────────────────────────────────────── -->
+<div id="sidebar">
+  <h1>Antarctic CPR<br>Explorer</h1>
+
+  <div class="ctrl-section" id="taxa-section">
+    <div class="ctrl-label">Taxa Group / Colour</div>
+    <select id="group-select">
+      <option value="">Shannon Diversity</option>
+    </select>
+  </div>
+
+  <!-- LDA controls -->
+  <div class="ctrl-section">
+    <div class="ctrl-label">LDA Model (K topics)</div>
+    <select id="lda-k-select">
+      <option value="">None</option>
+      <option value="3">K = 3</option>
+      <option value="7">K = 7</option>
+      <option value="10">K = 10</option>
+      <option value="16">K = 16</option>
+    </select>
+  </div>
+
+  <div class="ctrl-section" id="lda-topic-section" style="display:none">
+    <div class="ctrl-label">Color by Topic</div>
+    <select id="lda-topic-select">
+      <option value="dominant">Dominant Topic</option>
+    </select>
+  </div>
+
+  <div id="comp-bar-wrap">
+    <div class="ctrl-label">Topic Composition (filtered)</div>
+    <div id="comp-bar-track"></div>
+    <div id="comp-bar-labels"></div>
+  </div>
+
+  <div class="ctrl-section" style="flex:1; min-height:0; display:flex; flex-direction:column;">
+    <div class="ctrl-label">Year</div>
+    <div id="year-list"></div>
+  </div>
+</div>
+
+<!-- ── Map ──────────────────────────────────────────────────────────── -->
+<div id="map-container">
+  <div id="loading">Loading data…</div>
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="map-canvas"></canvas>
+
+  <div id="status-bar">–</div>
+
+  <!-- Legends -->
+  <div id="legends">
+
+    <!-- Colour scale -->
+    <div class="legend-box">
+      <div class="legend-title" id="clr-title">Shannon Diversity</div>
+      <svg id="clr-svg" width="160" height="20"></svg>
+      <div class="legend-row-vals">
+        <span id="clr-min">0</span>
+        <span id="clr-max">max</span>
+      </div>
+    </div>
+
+    <!-- Topic swatch legend (LDA dominant mode only) -->
+    <div class="legend-box" id="topic-swatch-legend" style="display:none">
+      <div class="legend-title">Dominant Topic</div>
+      <div id="topic-swatches"></div>
+    </div>
+
+    <!-- Size -->
+    <div class="legend-box">
+      <div class="legend-title">Segment Length (nm)</div>
+      <svg id="size-svg" width="160" height="44"></svg>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div id="tooltip"></div>
+
+<!-- ── Script ───────────────────────────────────────────────────────── -->
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// CONSTANTS
+// ─────────────────────────────────────────────────────────────────────────────
+const MONTHS     = ["January","February","March","April","May",
+                    "July","August","September","October","November","December"];
+const LEN_DOMAIN = [2.5, 7.5]; // nm
+const SIZE_RANGE = [2, 7];     // base pixel radius at zoom k=1
+const N_COLORS   = 64;         // colour quantisation buckets for batched rendering
+
+// Categorical palette for up to 16 LDA topics (dark-background friendly)
+const TOPIC_PALETTE = [
+  "#4c78a8","#f58518","#54a24b","#e45756","#b279a2",
+  "#72b7b2","#eeca3b","#ff9da6","#9d755d","#bab0ac",
+  "#439894","#f2a40a","#88cc6f","#e06c56","#c097c2",
+  "#9ecae1"
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CANVAS + PROJECTION
+// ─────────────────────────────────────────────────────────────────────────────
+const mapContainer = document.getElementById("map-container");
+let W = mapContainer.clientWidth;
+let H = mapContainer.clientHeight;
+
+// Foreground canvas — data points only (transparent background)
+const canvas = document.getElementById("map-canvas");
+canvas.width = W;
+canvas.height = H;
+const ctx = canvas.getContext("2d");
+
+// Background canvas — land + graticule (CSS-transformed during zoom, redrawn on settle)
+const bgCanvas = document.getElementById("bg-canvas");
+bgCanvas.width = W;
+bgCanvas.height = H;
+const bgCtx = bgCanvas.getContext("2d");
+
+// South Polar Stereographic (EPSG:3031 approximation)
+const proj = d3.geoStereographic().rotate([0, 90]).precision(0.1);
+
+const fitFeature = {
+  type: "Feature",
+  geometry: {
+    type: "Polygon",
+    coordinates: [Array.from({length: 361}, (_, i) => [i - 180, -35])]
+  }
+};
+
+function fitProjection() {
+  proj.fitExtent([[30, 30], [W - 195, H - 30]], fitFeature);
+}
+fitProjection();
+
+// Separate geoPath renderers for each canvas context
+const geoPath   = d3.geoPath(proj, ctx);
+const bgGeoPath = d3.geoPath(proj, bgCtx);
+const rScale    = d3.scaleSqrt().domain(LEN_DOMAIN).range(SIZE_RANGE);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ZOOM / PAN
+// ─────────────────────────────────────────────────────────────────────────────
+let zoomT    = d3.zoomIdentity;
+let bgZoomT  = d3.zoomIdentity; // zoom state at which bgCanvas was last rendered
+let rafId    = null;             // pending requestAnimationFrame id
+let bgTimer  = null;             // debounce timer for background re-render
+
+// CSS transform to map bgCanvas pixels to current zoom state.
+// bgCanvas was rendered at bgZoomT; current view is zoomT.
+// Derivation: a projected point (px,py) is at pixel (px*bk+bx, py*bk+by) in bgCanvas.
+// We need it to appear at (px*k+tx, py*k+ty) on screen.
+// → CSS scale s = k/bk, tx_css = tx - bx*s, ty_css = ty - by*s
+function updateBgCssTransform() {
+  const { k, x, y } = zoomT;
+  const { k: bk, x: bx, y: by } = bgZoomT;
+  const s = k / bk;
+  bgCanvas.style.transform = `translate(${x - bx * s}px, ${y - by * s}px) scale(${s})`;
+}
+
+const zoom = d3.zoom()
+  .scaleExtent([0.5, 60])
+  .on("zoom", ({transform}) => {
+    zoomT = transform;
+    if (!colorLUT.length) return;
+
+    // 1. Instantly reposition background via CSS (GPU, 0 ms)
+    updateBgCssTransform();
+
+    // 2. Redraw data points via RAF (at most once per browser frame)
+    if (!rafId) {
+      rafId = requestAnimationFrame(() => {
+        renderFg();
+        rafId = null;
+      });
+    }
+
+    // 3. Re-render background at full quality after zoom settles
+    clearTimeout(bgTimer);
+    bgTimer = setTimeout(() => {
+      renderBg();
+      renderFg();
+    }, 180);
+  });
+
+d3.select(canvas).call(zoom);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// APP STATE
+// ─────────────────────────────────────────────────────────────────────────────
+let allSegs     = [];
+let filtered    = [];   // pre-sorted by _ci for batched rendering
+let quadtree    = null;
+let landFeature = null;
+let GROUPS      = [];
+let colorLUT    = [];   // N_COLORS pre-computed colour strings
+
+let currentYear  = "all";
+let currentGroup = "";
+let colorScale   = null;
+let colorInterp  = d3.interpolateViridis;
+
+// LDA state
+let currentLdaK  = null;   // null | 3 | 7 | 10 | 16
+let currentTopic = "dominant"; // "dominant" | 0..K-1 (number)
+
+// Pre-computed graticule (computed once, reused every frame)
+const graticule = d3.geoGraticule().step([30, 10])();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER FUNCTIONS — defined at module scope so the zoom handler can call them
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Background: land + graticule. Expensive (geoPath projection); called once on
+// load and after zoom settles, NOT on every zoom event.
+function renderBg() {
+  const k = zoomT.k;
+  bgCtx.clearRect(0, 0, W, H);
+  bgCtx.fillStyle = "#0d1117";
+  bgCtx.fillRect(0, 0, W, H);
+  bgCtx.save();
+  bgCtx.translate(zoomT.x, zoomT.y);
+  bgCtx.scale(k, k);
+
+  bgCtx.beginPath();
+  bgGeoPath(graticule);
+  bgCtx.strokeStyle = "#1c2128";
+  bgCtx.lineWidth = 0.6 / k;
+  bgCtx.stroke();
+
+  if (landFeature) {
+    bgCtx.beginPath();
+    bgGeoPath(landFeature);
+    bgCtx.fillStyle = "#21262d";
+    bgCtx.fill();
+    bgCtx.strokeStyle = "#30363d";
+    bgCtx.lineWidth = 0.5 / k;
+    bgCtx.stroke();
+  }
+  bgCtx.restore();
+
+  bgZoomT = { k: zoomT.k, x: zoomT.x, y: zoomT.y };
+  bgCanvas.style.transform = ""; // reset CSS transform — pixels are now accurate
+}
+
+// Foreground: data points only. Fast (batched fills); called every RAF frame.
+// filtered is pre-sorted by _ci → at most N_COLORS ctx.fill() calls.
+function renderFg() {
+  ctx.clearRect(0, 0, W, H);
+  if (!colorLUT.length) return;
+  const k = zoomT.k;
+  ctx.save();
+  ctx.globalAlpha = 0.72;   // transparency to reveal overlapping points
+  ctx.translate(zoomT.x, zoomT.y);
+  ctx.scale(k, k);
+  let lastCi = -1;
+  for (let i = 0; i < filtered.length; i++) {
+    const d = filtered[i];
+    if (d._ci !== lastCi) {
+      if (lastCi >= 0) ctx.fill();
+      ctx.beginPath();
+      lastCi = d._ci;
+      ctx.fillStyle = colorLUT[d._ci];
+    }
+    const r = d._baseR / k;
+    ctx.moveTo(d.px + r, d.py);
+    ctx.arc(d.px, d.py, r, 0, Math.PI * 2);
+  }
+  if (lastCi >= 0) ctx.fill();
+  ctx.restore();
+}
+
+// Full render — used on filter change / resize (background + foreground)
+function render() { renderBg(); renderFg(); }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA LOAD  (data injected as window.CPR_DATA / window.WORLD_DATA via script tags)
+// ─────────────────────────────────────────────────────────────────────────────
+Promise.resolve().then(() => {
+  const data  = window.CPR_DATA;
+  const world = window.WORLD_DATA;
+
+  if (!data) throw new Error("cpr_data.js not loaded — check the file exists next to index.html");
+
+  document.getElementById("loading").remove();
+  landFeature = world ? topojson.feature(world, world.objects.land) : null;
+  GROUPS = data.groups;
+
+  // Populate group dropdown
+  const gSel = document.getElementById("group-select");
+  const totalOpt = document.createElement("option");
+  totalOpt.value = "__total__"; totalOpt.textContent = "Total Abundance";
+  gSel.appendChild(totalOpt);
+  GROUPS.forEach(g => {
+    const o = document.createElement("option");
+    o.value = g; o.textContent = g;
+    gSel.appendChild(o);
+  });
+
+  // Parse, project, and pre-compute base radius (constant per segment)
+  allSegs = data.segments.flatMap(d => {
+    const p = proj([d[1], d[0]]); // [lon, lat]
+    if (!p || !isFinite(p[0]) || !isFinite(p[1])) return [];
+    return [{
+      lat: d[0], lon: d[1], year: d[2], monthIdx: d[3],
+      segLen: d[4], shannon: d[5],
+      ship: d[6], towNo: d[7], segNo: d[8],
+      date: d[9], time: d[10], groups: d[11],
+      px: p[0], py: p[1],
+      _baseR: rScale(d[4])  // pre-computed, never changes
+    }];
+  });
+
+  const shannonInterp = d3.interpolateYlGnBu;
+
+  // Log₁₊ₓ transform: keeps 0 as 0, compresses large values
+  function logVal(x) { return x > 0 ? Math.log1p(x) : 0; }
+
+  // ── LDA helpers ───────────────────────────────────────────────────────────
+  function attachLdaData(k) {
+    const src = window[`LDA_K${k}`];
+    if (!src) { console.warn(`LDA_K${k} not found`); return; }
+    allSegs.forEach((d, i) => {
+      d._ldaProbs = src[i] || null;
+      if (d._ldaProbs) {
+        let best = 0, bestIdx = 0;
+        for (let j = 0; j < d._ldaProbs.length; j++) {
+          if (d._ldaProbs[j] > best) { best = d._ldaProbs[j]; bestIdx = j; }
+        }
+        d._ldaDominant = bestIdx;
+      } else {
+        d._ldaDominant = 0;
+      }
+    });
+  }
+
+  function updateTopicSelectOptions(k) {
+    const sel = document.getElementById("lda-topic-select");
+    sel.innerHTML = '<option value="dominant">Dominant Topic</option>';
+    for (let t = 0; t < k; t++) {
+      const o = document.createElement("option");
+      o.value = t; o.textContent = `Topic ${t}`;
+      sel.appendChild(o);
+    }
+    currentTopic = "dominant";
+    sel.value = "dominant";
+  }
+
+  function updateTopicSwatchLegend(k) {
+    const box = document.getElementById("topic-swatch-legend");
+    const cont = document.getElementById("topic-swatches");
+    if (!currentLdaK || currentTopic !== "dominant") { box.style.display = "none"; return; }
+    box.style.display = "";
+    cont.innerHTML = "";
+    for (let t = 0; t < k; t++) {
+      const row = document.createElement("div");
+      row.className = "topic-swatch-row";
+      row.innerHTML = `<div class="topic-swatch-rect" style="background:${TOPIC_PALETTE[t]}"></div>Topic ${t}`;
+      cont.appendChild(row);
+    }
+  }
+
+  function updateCompositionBar() {
+    const wrap = document.getElementById("comp-bar-wrap");
+    if (!currentLdaK || !filtered.length) { wrap.style.display = "none"; return; }
+    wrap.style.display = "flex";
+    const k = currentLdaK;
+    // Mean probability per topic across filtered segments
+    const means = new Array(k).fill(0);
+    let count = 0;
+    filtered.forEach(d => {
+      if (d._ldaProbs) {
+        for (let t = 0; t < k; t++) means[t] += d._ldaProbs[t];
+        count++;
+      }
+    });
+    if (count > 0) for (let t = 0; t < k; t++) means[t] /= count;
+    const total = means.reduce((s, v) => s + v, 0) || 1;
+
+    // Stacked bar
+    const track = document.getElementById("comp-bar-track");
+    track.innerHTML = "";
+    for (let t = 0; t < k; t++) {
+      const seg = document.createElement("div");
+      seg.style.cssText = `flex:${means[t]/total};background:${TOPIC_PALETTE[t]};transition:flex 0.3s;`;
+      seg.title = `Topic ${t}: ${(means[t]*100).toFixed(1)}%`;
+      track.appendChild(seg);
+    }
+
+    // Swatches below bar
+    const labels = document.getElementById("comp-bar-labels");
+    labels.innerHTML = "";
+    for (let t = 0; t < k; t++) {
+      const sw = document.createElement("div");
+      sw.className = "comp-swatch";
+      sw.innerHTML = `<div class="comp-swatch-dot" style="background:${TOPIC_PALETTE[t]}"></div>T${t}: ${(means[t]*100).toFixed(0)}%`;
+      labels.appendChild(sw);
+    }
+  }
+
+  function getValue(d) {
+    if (currentLdaK) {
+      if (currentTopic === "dominant") return d._ldaDominant;
+      return d._ldaProbs ? d._ldaProbs[+currentTopic] : 0;
+    }
+    if (!currentGroup) return d.shannon;
+    if (currentGroup === "__total__") return logVal(d.groups.reduce((s, v) => s + v, 0));
+    return logVal(d.groups[GROUPS.indexOf(currentGroup)]);
+  }
+
+  // Dynamic: domain computed from filtered (current year / taxa), not global allSegs
+  function refreshColorScale() {
+    const clrBox   = document.getElementById("clr-svg").closest(".legend-box");
+    const swatchBox = document.getElementById("topic-swatch-legend");
+
+    if (currentLdaK && currentTopic === "dominant") {
+      // Categorical: one color per topic
+      colorLUT = TOPIC_PALETTE.slice(0, currentLdaK);
+      colorScale = null; // not used in categorical mode
+      clrBox.style.display = "none";
+      updateTopicSwatchLegend(currentLdaK);
+    } else if (currentLdaK) {
+      // Specific topic probability [0,1]
+      const topicIdx = +currentTopic;
+      colorInterp = d3.interpolateYlOrRd;
+      colorScale  = d3.scaleSequential(colorInterp).domain([0, 1]);
+      colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
+      clrBox.style.display = "";
+      swatchBox.style.display = "none";
+      updateColorLegend(`Topic ${topicIdx} probability`, "0", "1", colorInterp);
+    } else if (!currentGroup) {
+      const ext = d3.extent(filtered, d => d.shannon);
+      colorInterp = shannonInterp;
+      colorScale  = d3.scaleSequential(colorInterp).domain(ext);
+      colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
+      clrBox.style.display = "";
+      swatchBox.style.display = "none";
+      updateColorLegend("Shannon Diversity", ext[0].toFixed(2), ext[1].toFixed(2), colorInterp);
+    } else if (currentGroup === "__total__") {
+      const origMax = d3.max(filtered, d => d.groups.reduce((s, v) => s + v, 0));
+      colorInterp = d3.interpolateYlOrRd;
+      colorScale  = d3.scaleSequential(colorInterp).domain([0, Math.max(0.01, logVal(origMax))]);
+      colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
+      clrBox.style.display = "";
+      swatchBox.style.display = "none";
+      updateColorLegend("Total Abundance (log scale)", 0, origMax, colorInterp);
+    } else {
+      const gi      = GROUPS.indexOf(currentGroup);
+      const origMax = d3.max(filtered, d => d.groups[gi]);
+      colorInterp   = d3.interpolateYlOrRd;
+      colorScale    = d3.scaleSequential(colorInterp).domain([0, Math.max(0.01, logVal(origMax))]);
+      colorLUT      = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
+      clrBox.style.display = "";
+      swatchBox.style.display = "none";
+      updateColorLegend(`${currentGroup} (log scale)`, 0, origMax, colorInterp);
+    }
+  }
+
+  // Assign colour index to each segment and sort for batched rendering.
+  // KEY OPTIMISATION: sorting means render() can flush colour groups in a
+  // single pass with only N_COLORS ctx.fill() calls instead of one per point.
+  function presortFiltered() {
+    if (currentLdaK && currentTopic === "dominant") {
+      // Categorical: _ci = dominant topic index directly
+      filtered.forEach(d => { d._ci = d._ldaDominant || 0; });
+    } else {
+      const [dMin, dMax] = colorScale.domain();
+      const span = dMax - dMin || 1;
+      filtered.forEach(d => {
+        const t = Math.max(0, Math.min(1, (getValue(d) - dMin) / span));
+        d._ci = Math.round(t * (N_COLORS - 1));
+      });
+    }
+    filtered.sort((a, b) => a._ci - b._ci);
+    // Rebuild quadtree (order doesn't affect spatial index)
+    quadtree = d3.quadtree().x(d => d.px).y(d => d.py).addAll(filtered);
+  }
+
+  // ── Year list ─────────────────────────────────────────────────────────────
+  const years = ["all",
+    ...d3.sort([...new Set(allSegs.map(d => d.year))], d3.ascending)];
+
+  const yearList = document.getElementById("year-list");
+  years.forEach(y => {
+    const div = document.createElement("div");
+    div.className = "year-item" + (y === "all" ? " active" : "");
+    div.textContent = y === "all" ? "All Years" : y;
+    div.dataset.year = y;
+    div.addEventListener("click", () => {
+      currentYear = y;
+      yearList.querySelectorAll(".year-item").forEach(el => el.classList.remove("active"));
+      div.classList.add("active");
+      applyFilter();
+    });
+    yearList.appendChild(div);
+  });
+
+  // ── Group dropdown ────────────────────────────────────────────────────────
+  gSel.addEventListener("change", () => {
+    currentGroup = gSel.value;
+    applyFilter();
+  });
+
+  // ── LDA K dropdown ───────────────────────────────────────────────────────
+  document.getElementById("lda-k-select").addEventListener("change", e => {
+    const val = e.target.value;
+    currentLdaK = val ? +val : null;
+    const topicSection = document.getElementById("lda-topic-section");
+    const taxaSection  = document.getElementById("taxa-section");
+
+    if (currentLdaK) {
+      attachLdaData(currentLdaK);
+      updateTopicSelectOptions(currentLdaK);
+      topicSection.style.display = "";
+      taxaSection.classList.add("disabled");
+    } else {
+      topicSection.style.display = "none";
+      document.getElementById("comp-bar-wrap").style.display = "none";
+      document.getElementById("topic-swatch-legend").style.display = "none";
+      taxaSection.classList.remove("disabled");
+      // Ensure gradient legend is shown
+      document.getElementById("clr-svg").closest(".legend-box").style.display = "";
+    }
+    applyFilter();
+  });
+
+  // ── LDA topic dropdown ───────────────────────────────────────────────────
+  document.getElementById("lda-topic-select").addEventListener("change", e => {
+    const val = e.target.value;
+    currentTopic = val === "dominant" ? "dominant" : +val;
+    applyFilter();
+  });
+
+  // ── Filter ────────────────────────────────────────────────────────────────
+  function applyFilter() {
+    filtered = currentYear === "all"
+      ? allSegs.slice()  // shallow copy so sort doesn't mutate allSegs order
+      : allSegs.filter(d => d.year === +currentYear);
+
+    refreshColorScale();  // updates colorLUT
+    presortFiltered();    // assigns _ci, sorts, rebuilds quadtree
+    updateCompositionBar();
+
+    let modeLabel;
+    if (currentLdaK) {
+      modeLabel = currentTopic === "dominant"
+        ? `LDA K=${currentLdaK} dominant`
+        : `LDA K=${currentLdaK} topic ${currentTopic}`;
+    } else {
+      modeLabel = currentGroup || "Shannon diversity";
+    }
+    document.getElementById("status-bar").textContent =
+      `${currentYear === "all" ? "All years" : currentYear}` +
+      `  ·  ${filtered.length.toLocaleString()} segments` +
+      `  ·  ${modeLabel}`;
+
+    render();
+  }
+
+  // ── Hover / tooltip ───────────────────────────────────────────────────────
+  const tooltip = document.getElementById("tooltip");
+  let hoveredTowKey = null;
+
+  function drawTowHighlight(seg) {
+    const k = zoomT.k;
+    ctx.save();
+    ctx.translate(zoomT.x, zoomT.y);
+    ctx.scale(k, k);
+    ctx.strokeStyle = "rgba(255,255,255,0.8)";
+    ctx.lineWidth = 1.5 / k;
+    ctx.beginPath();
+    filtered
+      .filter(d => d.ship === seg.ship && d.towNo === seg.towNo)
+      .forEach(d => {
+        ctx.moveTo(d.px + (d._baseR + 2) / k, d.py);
+        ctx.arc(d.px, d.py, (d._baseR + 2) / k, 0, Math.PI * 2);
+      });
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  canvas.addEventListener("mousemove", e => {
+    if (!quadtree) return;
+    const rect = canvas.getBoundingClientRect();
+    const bx = (e.clientX - rect.left  - zoomT.x) / zoomT.k;
+    const by = (e.clientY - rect.top   - zoomT.y) / zoomT.k;
+    const found = quadtree.find(bx, by, 14 / zoomT.k);
+
+    if (found) {
+      const tk = `${found.ship}-${found.towNo}`;
+      if (tk !== hoveredTowKey) {
+        hoveredTowKey = tk;
+        renderFg();
+        drawTowHighlight(found);
+      }
+
+      const gi = currentGroup && currentGroup !== "__total__" ? GROUPS.indexOf(currentGroup) : -1;
+      const totalAbund = found.groups.reduce((s, v) => s + v, 0);
+
+      // Build LDA topic mini-bar for tooltip
+      let ldaHtml = "";
+      if (currentLdaK && found._ldaProbs) {
+        const k = currentLdaK;
+        const barSegs = found._ldaProbs.map((p, t) =>
+          `<div style="flex:${p};background:${TOPIC_PALETTE[t]};height:100%" title="T${t}: ${(p*100).toFixed(1)}%"></div>`
+        ).join("");
+        const domT = found._ldaDominant;
+        ldaHtml = `
+          <div class="tip-row" style="margin-top:4px">LDA K=${k} dominant: <span style="color:${TOPIC_PALETTE[domT]}">Topic ${domT}</span></div>
+          <div style="display:flex;height:8px;border-radius:3px;overflow:hidden;margin-top:4px;gap:1px">${barSegs}</div>`;
+      }
+
+      tooltip.style.display = "block";
+      tooltip.style.left = (e.clientX + 18) + "px";
+      tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
+      tooltip.innerHTML = `
+        <div class="tip-title">${found.ship} · Tow ${found.towNo} · Seg ${found.segNo}</div>
+        <div class="tip-row">Date &amp; time: <span>${found.date} ${found.time}</span></div>
+        <div class="tip-row">Lat / Lon: <span>${found.lat.toFixed(3)}°, ${found.lon.toFixed(3)}°</span></div>
+        <div class="tip-row">Month: <span>${found.monthIdx >= 0 ? MONTHS[found.monthIdx] : "–"}</span></div>
+        <div class="tip-row">Length: <span>${found.segLen} nm</span></div>
+        <div class="tip-row">Shannon H': <span>${found.shannon.toFixed(3)}</span></div>
+        <div class="tip-row">Total abundance: <span>${totalAbund}</span></div>
+        ${gi >= 0 ? `<div class="tip-row">${currentGroup}: <span>${found.groups[gi]}</span></div>` : ""}
+        ${ldaHtml}
+      `;
+    } else {
+      if (hoveredTowKey !== null) { hoveredTowKey = null; renderFg(); }
+      tooltip.style.display = "none";
+    }
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    if (hoveredTowKey !== null) { hoveredTowKey = null; renderFg(); }
+    tooltip.style.display = "none";
+  });
+
+  // ── Resize ────────────────────────────────────────────────────────────────
+  window.addEventListener("resize", () => {
+    W = mapContainer.clientWidth;
+    H = mapContainer.clientHeight;
+    canvas.width = W;   canvas.height = H;
+    bgCanvas.width = W; bgCanvas.height = H;
+    fitProjection();
+    allSegs.forEach(d => {
+      const p = proj([d.lon, d.lat]);
+      if (p && isFinite(p[0])) { d.px = p[0]; d.py = p[1]; }
+    });
+    if (filtered.length) presortFiltered();
+    render();
+  });
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  setupSizeLegend();
+  applyFilter();
+
+}).catch(err => {
+  const el = document.getElementById("loading");
+  if (el) el.textContent = "Error loading data: " + err.message;
+  console.error(err);
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LEGENDS
+// ─────────────────────────────────────────────────────────────────────────────
+
+function updateColorLegend(title, minV, maxV, interp) {
+  document.getElementById("clr-title").textContent = title;
+  document.getElementById("clr-min").textContent   = minV;
+  document.getElementById("clr-max").textContent   = maxV;
+  const svg  = d3.select("#clr-svg");
+  svg.selectAll("*").remove();
+  const grad = svg.append("defs").append("linearGradient")
+    .attr("id", "cgrad").attr("x1","0%").attr("x2","100%");
+  d3.range(0, 1.01, 0.05).forEach(t => {
+    grad.append("stop")
+      .attr("offset", `${(t * 100).toFixed(0)}%`)
+      .attr("stop-color", interp(t));
+  });
+  svg.append("rect").attr("x", 0).attr("y", 2)
+    .attr("width", 160).attr("height", 16).attr("rx", 3)
+    .attr("fill", "url(#cgrad)");
+}
+
+function setupSizeLegend() {
+  const svg = d3.select("#size-svg");
+  const sizes = [2.5, 5.0, 7.5];
+  let x = 8;
+  sizes.forEach(s => {
+    const r = rScale(s);
+    svg.append("circle")
+      .attr("cx", x + r).attr("cy", 18).attr("r", r)
+      .attr("fill", "#8b949e").attr("stroke", "#c9d1d9").attr("stroke-width", 1.5);
+    svg.append("text")
+      .attr("x", x + r).attr("y", 38).attr("text-anchor", "middle")
+      .attr("fill", "#8b949e").attr("font-size", 9).text(s + " nm");
+    x += r * 2 + 14;
+  });
+}
+</script>
+</body>
+</html>
