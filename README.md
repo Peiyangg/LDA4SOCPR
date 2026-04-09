@@ -38,6 +38,15 @@ data/             # Processed data files
 papers/           # Reference literature
 ```
 
+## Acknowledgements
+
+Data downloading and taxonomic preprocessing follow the workflow described in:
+
+> Deschepper (2026). *WoRMS tutorial for Antarctic CPR data.*
+> [https://thesnakeguy.github.io/worrms_tutorial/worrms_antarctic_tutorial.html](https://thesnakeguy.github.io/worrms_tutorial/worrms_antarctic_tutorial.html)
+
+Deschepper is also a collaborator on this project.
+
 ## Status
 
 > This project is in active exploration. Results and visualisations are preliminary.
