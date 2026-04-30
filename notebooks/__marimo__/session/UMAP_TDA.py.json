@@ -1,0 +1,132 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.0"
+  },
+  "cells": [
+    {
+      "id": "bkHC",
+      "code_hash": "2a85aedde27658c0fb7f930e78a8a0fd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h2 id=\"distance-matrix\">Distance matrix</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "d3a8af302619dfae9fd2bad97bddf770",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"umap\">UMAP</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "38ed32c985c91834878c7eb3adc72044",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"pcoa\">PCoA</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "80f587613ecfa1a5e12a3488fff0f86e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"kmst\">kMST</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "b1bbb6df3a9db3a46aebf0df0bd51ac3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "7a5e7ea9f21c7f1ca8247cd0c7356ac1",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "e1a31d9fa960974bad1136343e2b336b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "30daded36a04fcdec9d03fd7e8fd59fa",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "b8a05eb8007a615e041fcf89383dd8d3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "eb2cd95d254cea92067dcc86ccbec58d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "b7d475f9143d2d9e4efaff5c81a81e90",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "8df2e9b1ed131a28686605f5eba56516",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "499db516951f13e1252350042ebaa29d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "048fde0c8a0ecb8a4f82175a1d8b903e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "36078f839ea76a2d5bd2a0c5c8298ee2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "db02ffd806a3169b044a85484cbba3b8",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

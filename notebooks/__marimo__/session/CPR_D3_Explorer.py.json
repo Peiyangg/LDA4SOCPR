@@ -1,0 +1,60 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.0"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "31b30344ab5a1e62eb3b64b7c9463e54",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "772ae967511725e903ffcfc7ef2983f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "d93adf23edba3e8029d646fb1e8b7ab8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<span class=\"markdown prose dark:prose-invert\"><h3 id=\"antarctic-cpr-data-explorer\">Antarctic CPR Data Explorer</h3>\n<span class=\"paragraph\">Serving visualization on <code>localhost:56895</code></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "e09226eab275622cf86728bec9d1ec9c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<iframe src=\"http://localhost:56895/index.html\" width=\"100%\" height=\"900\" style=\"border:none; border-radius:8px;\"></iframe>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

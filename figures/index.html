@@ -9,6 +9,9 @@
   <!-- Data loaded as JS variables — works with file:// (no CORS issues) -->
   <script src="world_data.js"></script>
   <script src="cpr_data.js"></script>
+  <script src="hex_res2.js"></script>
+  <script src="hex_res3.js"></script>
+  <script src="fronts_data.js"></script>
   <script src="lda_k3.js"></script>
   <script src="lda_k7.js"></script>
   <script src="lda_k10.js"></script>
@@ -74,6 +77,70 @@
     }
     select:hover, select:focus { border-color: #58a6ff; }
 
+    /* Toggle button group */
+    .btn-group {
+      display: flex;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #30363d;
+    }
+    .btn-group button {
+      flex: 1;
+      background: #21262d;
+      color: #8b949e;
+      border: none;
+      padding: 5px 8px;
+      font-size: 11px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-group button:not(:last-child) { border-right: 1px solid #30363d; }
+    .btn-group button:hover { background: #30363d; color: #c9d1d9; }
+    .btn-group button.active { background: #1f6feb; color: #fff; }
+
+    /* Checkbox toggle */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 11px;
+      color: #8b949e;
+      user-select: none;
+    }
+    .toggle-row input[type="checkbox"] {
+      accent-color: #58a6ff;
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+    .toggle-row:hover { color: #c9d1d9; }
+
+    /* Range slider */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: #30363d;
+      border-radius: 2px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px; height: 14px;
+      background: #58a6ff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .slider-val {
+      font-size: 12px;
+      color: #e6edf3;
+      font-weight: 600;
+      text-align: center;
+    }
+
     /* Year list */
     #year-list {
       display: flex;
@@ -110,11 +177,10 @@
       background: #0d1117;
     }
 
-    /* Two stacked canvases: bg = land/graticule, fg = data points */
     #bg-canvas, #map-canvas {
       position: absolute;
       top: 0; left: 0;
-      transform-origin: 0 0;  /* CSS transform anchor for bg pan/zoom */
+      transform-origin: 0 0;
     }
     #bg-canvas  { z-index: 0; pointer-events: none; }
     #map-canvas { z-index: 1; cursor: grab; background: transparent; }
@@ -157,7 +223,7 @@
       pointer-events: none;
       display: none;
       z-index: 200;
-      max-width: 230px;
+      max-width: 260px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.5);
     }
     #tooltip .tip-title { font-weight: 700; color: #58a6ff; margin-bottom: 3px; font-size: 12px; }
@@ -255,6 +321,24 @@
       border-radius: 2px;
       flex-shrink: 0;
     }
+
+    /* ── Front legend ──────────────────────────────────────────── */
+    #front-legend {
+      display: none;
+    }
+    .front-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: #c9d1d9;
+    }
+    .front-legend-line {
+      width: 18px;
+      height: 2px;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
   </style>
 </head>
 <body>
@@ -263,6 +347,32 @@
 <div id="sidebar">
   <h1>Antarctic CPR<br>Explorer</h1>
 
+  <!-- View mode toggle -->
+  <div class="ctrl-section">
+    <div class="ctrl-label">View Mode</div>
+    <div class="btn-group" id="view-toggle">
+      <button class="active" data-mode="raw">Raw Points</button>
+      <button data-mode="hex">Hexbin</button>
+    </div>
+  </div>
+
+  <!-- Hex resolution (only visible in hex mode) -->
+  <div class="ctrl-section" id="hex-res-section" style="display:none">
+    <div class="ctrl-label">Hex Resolution</div>
+    <div class="btn-group" id="hex-res-toggle">
+      <button data-res="2">Res 2 (~158 km)</button>
+      <button class="active" data-res="3">Res 3 (~59 km)</button>
+    </div>
+  </div>
+
+  <!-- Fronts toggle -->
+  <div class="ctrl-section">
+    <label class="toggle-row">
+      <input type="checkbox" id="fronts-toggle">
+      Show Ocean Fronts
+    </label>
+  </div>
+
   <div class="ctrl-section" id="taxa-section">
     <div class="ctrl-label">Taxa Group / Colour</div>
     <select id="group-select">
@@ -270,8 +380,29 @@
     </select>
   </div>
 
+  <!-- Multi-year coverage toggle (hex mode only) -->
+  <div class="ctrl-section" id="multiyear-section" style="display:none">
+    <label class="toggle-row">
+      <input type="checkbox" id="multiyear-toggle">
+      Multi-Year Coverage
+    </label>
+  </div>
+
+  <!-- Min years sampled filter (hex mode only) -->
+  <div class="ctrl-section" id="minyears-section" style="display:none">
+    <div class="ctrl-label">Min Years Sampled</div>
+    <input type="range" id="minyears-slider" min="1" max="30" value="1">
+    <div class="slider-val">≥ <span id="minyears-val">1</span> years</div>
+  </div>
+
+  <!-- Hex colour metric (only in hex mode, populated dynamically) -->
+  <div class="ctrl-section" id="hex-color-section" style="display:none">
+    <div class="ctrl-label">Hex Colour</div>
+    <select id="hex-color-select"></select>
+  </div>
+
   <!-- LDA controls -->
-  <div class="ctrl-section">
+  <div class="ctrl-section" id="lda-section">
     <div class="ctrl-label">LDA Model (K topics)</div>
     <select id="lda-k-select">
       <option value="">None</option>
@@ -303,11 +434,11 @@
 
 <!-- ── Map ──────────────────────────────────────────────────────────── -->
 <div id="map-container">
-  <div id="loading">Loading data…</div>
+  <div id="loading">Loading data...</div>
   <canvas id="bg-canvas"></canvas>
   <canvas id="map-canvas"></canvas>
 
-  <div id="status-bar">–</div>
+  <div id="status-bar"></div>
 
   <!-- Legends -->
   <div id="legends">
@@ -328,8 +459,14 @@
       <div id="topic-swatches"></div>
     </div>
 
-    <!-- Size -->
-    <div class="legend-box">
+    <!-- Front legend -->
+    <div class="legend-box" id="front-legend">
+      <div class="legend-title">Ocean Fronts (Orsi 1995)</div>
+      <div id="front-legend-items"></div>
+    </div>
+
+    <!-- Size (raw mode only) -->
+    <div class="legend-box" id="size-legend">
       <div class="legend-title">Segment Length (nm)</div>
       <svg id="size-svg" width="160" height="44"></svg>
     </div>
@@ -347,11 +484,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 const MONTHS     = ["January","February","March","April","May",
                     "July","August","September","October","November","December"];
-const LEN_DOMAIN = [2.5, 7.5]; // nm
-const SIZE_RANGE = [2, 7];     // base pixel radius at zoom k=1
-const N_COLORS   = 64;         // colour quantisation buckets for batched rendering
+const LEN_DOMAIN = [2.5, 7.5];
+const SIZE_RANGE = [2, 7];
+const N_COLORS   = 64;
 
-// Categorical palette for up to 16 LDA topics (dark-background friendly)
 const TOPIC_PALETTE = [
   "#4c78a8","#f58518","#54a24b","#e45756","#b279a2",
   "#72b7b2","#eeca3b","#ff9da6","#9d755d","#bab0ac",
@@ -366,19 +502,14 @@ const mapContainer = document.getElementById("map-container");
 let W = mapContainer.clientWidth;
 let H = mapContainer.clientHeight;
 
-// Foreground canvas — data points only (transparent background)
 const canvas = document.getElementById("map-canvas");
-canvas.width = W;
-canvas.height = H;
+canvas.width = W; canvas.height = H;
 const ctx = canvas.getContext("2d");
 
-// Background canvas — land + graticule (CSS-transformed during zoom, redrawn on settle)
 const bgCanvas = document.getElementById("bg-canvas");
-bgCanvas.width = W;
-bgCanvas.height = H;
+bgCanvas.width = W; bgCanvas.height = H;
 const bgCtx = bgCanvas.getContext("2d");
 
-// South Polar Stereographic (EPSG:3031 approximation)
 const proj = d3.geoStereographic().rotate([0, 90]).precision(0.1);
 
 const fitFeature = {
@@ -394,7 +525,6 @@ function fitProjection() {
 }
 fitProjection();
 
-// Separate geoPath renderers for each canvas context
 const geoPath   = d3.geoPath(proj, ctx);
 const bgGeoPath = d3.geoPath(proj, bgCtx);
 const rScale    = d3.scaleSqrt().domain(LEN_DOMAIN).range(SIZE_RANGE);
@@ -403,15 +533,10 @@ const rScale    = d3.scaleSqrt().domain(LEN_DOMAIN).range(SIZE_RANGE);
 // ZOOM / PAN
 // ─────────────────────────────────────────────────────────────────────────────
 let zoomT    = d3.zoomIdentity;
-let bgZoomT  = d3.zoomIdentity; // zoom state at which bgCanvas was last rendered
-let rafId    = null;             // pending requestAnimationFrame id
-let bgTimer  = null;             // debounce timer for background re-render
+let bgZoomT  = d3.zoomIdentity;
+let rafId    = null;
+let bgTimer  = null;
 
-// CSS transform to map bgCanvas pixels to current zoom state.
-// bgCanvas was rendered at bgZoomT; current view is zoomT.
-// Derivation: a projected point (px,py) is at pixel (px*bk+bx, py*bk+by) in bgCanvas.
-// We need it to appear at (px*k+tx, py*k+ty) on screen.
-// → CSS scale s = k/bk, tx_css = tx - bx*s, ty_css = ty - by*s
 function updateBgCssTransform() {
   const { k, x, y } = zoomT;
   const { k: bk, x: bx, y: by } = bgZoomT;
@@ -424,24 +549,12 @@ const zoom = d3.zoom()
   .on("zoom", ({transform}) => {
     zoomT = transform;
     if (!colorLUT.length) return;
-
-    // 1. Instantly reposition background via CSS (GPU, 0 ms)
     updateBgCssTransform();
-
-    // 2. Redraw data points via RAF (at most once per browser frame)
     if (!rafId) {
-      rafId = requestAnimationFrame(() => {
-        renderFg();
-        rafId = null;
-      });
+      rafId = requestAnimationFrame(() => { renderFg(); rafId = null; });
     }
-
-    // 3. Re-render background at full quality after zoom settles
     clearTimeout(bgTimer);
-    bgTimer = setTimeout(() => {
-      renderBg();
-      renderFg();
-    }, 180);
+    bgTimer = setTimeout(() => { renderBg(); renderFg(); }, 180);
   });
 
 d3.select(canvas).call(zoom);
@@ -450,30 +563,46 @@ d3.select(canvas).call(zoom);
 // APP STATE
 // ─────────────────────────────────────────────────────────────────────────────
 let allSegs     = [];
-let filtered    = [];   // pre-sorted by _ci for batched rendering
+let filtered    = [];
 let quadtree    = null;
 let landFeature = null;
 let GROUPS      = [];
-let colorLUT    = [];   // N_COLORS pre-computed colour strings
+let colorLUT    = [];
 
-let currentYear  = "all";
-let currentGroup = "";
-let colorScale   = null;
-let colorInterp  = d3.interpolateViridis;
+let currentYear   = "all";
+let currentGroup  = "";
+let colorScale    = null;
+let colorInterp   = d3.interpolateViridis;
 
-// LDA state
-let currentLdaK  = null;   // null | 3 | 7 | 10 | 16
-let currentTopic = "dominant"; // "dominant" | 0..K-1 (number)
+let currentLdaK   = null;
+let currentTopic  = "dominant";
 
-// Pre-computed graticule (computed once, reused every frame)
+let viewMode      = "raw";      // "raw" | "hex"
+let hexResolution = 3;          // 2 | 3
+let showFronts    = false;
+let hexColorMetric = "shannon";
+let showMultiYear = false;
+let minYearsSampled = 1;
+
+// Hex data (parsed from hex_res{2,3}.js — year-specific records)
+let hexGeoRes2    = {};   // cell → {boundary, center}
+let hexGeoRes3    = {};
+let hexDataRes2   = [];   // [{cell, year, n, sh, ri, g, t, sa, fl, pc, pa, ss, ic}, ...]
+let hexDataRes3   = [];
+let filteredHex   = [];   // year-filtered, with projected boundaries attached
+let hexQuadtree   = null;
+let HEX_GROUPS    = [];
+let cellYearsRes2 = {};  // cell → sorted array of years
+let cellYearsRes3 = {};
+
+// Fronts data (parsed from fronts_data.js)
+let frontsFeatures = [];
+
 const graticule = d3.geoGraticule().step([30, 10])();
 
 // ─────────────────────────────────────────────────────────────────────────────
-// RENDER FUNCTIONS — defined at module scope so the zoom handler can call them
+// RENDER: BACKGROUND (land + graticule + fronts)
 // ─────────────────────────────────────────────────────────────────────────────
-
-// Background: land + graticule. Expensive (geoPath projection); called once on
-// load and after zoom settles, NOT on every zoom event.
 function renderBg() {
   const k = zoomT.k;
   bgCtx.clearRect(0, 0, W, H);
@@ -498,20 +627,47 @@ function renderBg() {
     bgCtx.lineWidth = 0.5 / k;
     bgCtx.stroke();
   }
-  bgCtx.restore();
 
+  bgCtx.restore();
   bgZoomT = { k: zoomT.k, x: zoomT.x, y: zoomT.y };
-  bgCanvas.style.transform = ""; // reset CSS transform — pixels are now accurate
+  bgCanvas.style.transform = "";
 }
 
-// Foreground: data points only. Fast (batched fills); called every RAF frame.
-// filtered is pre-sorted by _ci → at most N_COLORS ctx.fill() calls.
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER: FOREGROUND (points or hexagons)
+// ─────────────────────────────────────────────────────────────────────────────
 function renderFg() {
   ctx.clearRect(0, 0, W, H);
   if (!colorLUT.length) return;
+  if (viewMode === "hex") {
+    renderHexFg();
+  } else {
+    renderPointsFg();
+  }
+  renderFronts();
+}
+
+function renderFronts() {
+  if (!showFronts || !frontsFeatures.length) return;
   const k = zoomT.k;
   ctx.save();
-  ctx.globalAlpha = 0.72;   // transparency to reveal overlapping points
+  ctx.globalAlpha = 1;
+  ctx.translate(zoomT.x, zoomT.y);
+  ctx.scale(k, k);
+  frontsFeatures.forEach(f => {
+    ctx.beginPath();
+    geoPath(f);
+    ctx.strokeStyle = f.properties.color;
+    ctx.lineWidth = 2 / k;
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
+function renderPointsFg() {
+  const k = zoomT.k;
+  ctx.save();
+  ctx.globalAlpha = 0.72;
   ctx.translate(zoomT.x, zoomT.y);
   ctx.scale(k, k);
   let lastCi = -1;
@@ -531,23 +687,151 @@ function renderFg() {
   ctx.restore();
 }
 
-// Full render — used on filter change / resize (background + foreground)
+function renderHexFg() {
+  const k = zoomT.k;
+  const geoDict = hexResolution === 2 ? hexGeoRes2 : hexGeoRes3;
+  const filledCells = new Set(filteredHex.map(h => h.cell));
+
+  ctx.save();
+  ctx.translate(zoomT.x, zoomT.y);
+  ctx.scale(k, k);
+
+  // Draw empty hex outlines (all cells that have NO data in filtered set)
+  ctx.globalAlpha = 0.3;
+  ctx.strokeStyle = "#30363d";
+  ctx.lineWidth = 0.4 / k;
+  for (const cell in geoDict) {
+    if (filledCells.has(cell)) continue;
+    const pts = geoDict[cell]._proj;
+    if (!pts || pts.length < 3) continue;
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  // Draw filled hexagons
+  for (let i = 0; i < filteredHex.length; i++) {
+    const h = filteredHex[i];
+    const pts = h._projBoundary;
+    if (!pts || pts.length < 3) continue;
+
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+    ctx.closePath();
+
+    ctx.globalAlpha = 0.75;
+    ctx.fillStyle = colorLUT[h._ci] || "#333";
+    ctx.fill();
+
+    ctx.globalAlpha = 0.9;
+    ctx.strokeStyle = "#58a6ff";
+    ctx.lineWidth = 0.5 / k;
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
 function render() { renderBg(); renderFg(); }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DATA LOAD  (data injected as window.CPR_DATA / window.WORLD_DATA via script tags)
+// DATA LOAD
 // ─────────────────────────────────────────────────────────────────────────────
 Promise.resolve().then(() => {
   const data  = window.CPR_DATA;
   const world = window.WORLD_DATA;
 
-  if (!data) throw new Error("cpr_data.js not loaded — check the file exists next to index.html");
+  if (!data) throw new Error("cpr_data.js not loaded");
 
   document.getElementById("loading").remove();
   landFeature = world ? topojson.feature(world, world.objects.land) : null;
   GROUPS = data.groups;
 
-  // Populate group dropdown
+  // --- Parse fronts ---
+  if (window.FRONTS_DATA && window.FRONTS_DATA.features) {
+    frontsFeatures = window.FRONTS_DATA.features;
+    const legendCont = document.getElementById("front-legend-items");
+    frontsFeatures.forEach(f => {
+      const row = document.createElement("div");
+      row.className = "front-legend-row";
+      row.innerHTML = `<div class="front-legend-line" style="background:${f.properties.color}"></div>${f.properties.name}`;
+      legendCont.appendChild(row);
+    });
+  }
+
+  // --- Parse hex data (year-specific) ---
+  if (window.HEX_RES2) {
+    HEX_GROUPS = window.HEX_RES2.groups || GROUPS;
+    hexGeoRes2 = window.HEX_RES2.geo || {};
+    hexDataRes2 = window.HEX_RES2.data || [];
+  }
+  if (window.HEX_RES3) {
+    if (!HEX_GROUPS.length) HEX_GROUPS = window.HEX_RES3.groups || GROUPS;
+    hexGeoRes3 = window.HEX_RES3.geo || {};
+    hexDataRes3 = window.HEX_RES3.data || [];
+  }
+  projectHexGeo(hexGeoRes2);
+  projectHexGeo(hexGeoRes3);
+
+  // Precompute which years each cell was sampled
+  hexDataRes2.forEach(d => {
+    if (!cellYearsRes2[d.cell]) cellYearsRes2[d.cell] = [];
+    cellYearsRes2[d.cell].push(d.year);
+  });
+  hexDataRes3.forEach(d => {
+    if (!cellYearsRes3[d.cell]) cellYearsRes3[d.cell] = [];
+    cellYearsRes3[d.cell].push(d.year);
+  });
+  for (const c in cellYearsRes2) cellYearsRes2[c].sort();
+  for (const c in cellYearsRes3) cellYearsRes3[c].sort();
+
+  // --- Populate hex colour dropdown (summary metrics + env + taxa groups) ---
+  {
+    const hcSel = document.getElementById("hex-color-select");
+    const staticOptions = [
+      ["shannon", "Shannon Diversity"],
+      ["richness", "Species Richness"],
+      ["effort", "Sampling Effort"],
+      ["total", "Total Abundance"],
+    ];
+    const envOptions = [
+      ["sst", "SST (HadISST)"],
+      ["ice", "Sea Ice Conc. (HadISST)"],
+      ["temp", "Water Temperature (in-situ)"],
+      ["salinity", "Salinity (in-situ)"],
+      ["fluorescence", "Fluorescence (in-situ)"],
+      ["pci", "Phytoplankton Colour Index"],
+      ["par", "PAR"],
+    ];
+    staticOptions.forEach(([v, t]) => {
+      const o = document.createElement("option");
+      o.value = v; o.textContent = t;
+      hcSel.appendChild(o);
+    });
+    // Separator
+    const sep1 = document.createElement("option");
+    sep1.disabled = true; sep1.textContent = "── Environment ──";
+    hcSel.appendChild(sep1);
+    envOptions.forEach(([v, t]) => {
+      const o = document.createElement("option");
+      o.value = v; o.textContent = t;
+      hcSel.appendChild(o);
+    });
+    // Taxa groups
+    const sep2 = document.createElement("option");
+    sep2.disabled = true; sep2.textContent = "── Taxa Groups ──";
+    hcSel.appendChild(sep2);
+    HEX_GROUPS.forEach((g, i) => {
+      const o = document.createElement("option");
+      o.value = `group_${i}`; o.textContent = g;
+      hcSel.appendChild(o);
+    });
+  }
+
+  // --- Populate group dropdown ---
   const gSel = document.getElementById("group-select");
   const totalOpt = document.createElement("option");
   totalOpt.value = "__total__"; totalOpt.textContent = "Total Abundance";
@@ -558,9 +842,9 @@ Promise.resolve().then(() => {
     gSel.appendChild(o);
   });
 
-  // Parse, project, and pre-compute base radius (constant per segment)
+  // --- Parse & project segments ---
   allSegs = data.segments.flatMap(d => {
-    const p = proj([d[1], d[0]]); // [lon, lat]
+    const p = proj([d[1], d[0]]);
     if (!p || !isFinite(p[0]) || !isFinite(p[1])) return [];
     return [{
       lat: d[0], lon: d[1], year: d[2], monthIdx: d[3],
@@ -568,16 +852,149 @@ Promise.resolve().then(() => {
       ship: d[6], towNo: d[7], segNo: d[8],
       date: d[9], time: d[10], groups: d[11],
       px: p[0], py: p[1],
-      _baseR: rScale(d[4])  // pre-computed, never changes
+      _baseR: rScale(d[4])
     }];
   });
 
   const shannonInterp = d3.interpolateYlGnBu;
-
-  // Log₁₊ₓ transform: keeps 0 as 0, compresses large values
   function logVal(x) { return x > 0 ? Math.log1p(x) : 0; }
 
-  // ── LDA helpers ───────────────────────────────────────────────────────────
+  // ── Hex helpers ─────────────────────────────────────────────────────────
+  function projectHexGeo(geoDict) {
+    for (const cell in geoDict) {
+      const g = geoDict[cell];
+      g._proj = g.boundary.map(c => proj([c[0], c[1]])).filter(p => p && isFinite(p[0]));
+      g._cx = g._proj.length ? d3.mean(g._proj, p => p[0]) : 0;
+      g._cy = g._proj.length ? d3.mean(g._proj, p => p[1]) : 0;
+    }
+  }
+
+  function buildFilteredHex(geoDict, dataArr, year) {
+    if (year !== "all") {
+      const yr = +year;
+      return dataArr.filter(d => d.year === yr).map(d => {
+        const geo = geoDict[d.cell];
+        if (!geo) return null;
+        return { ...d, _projBoundary: geo._proj, _cx: geo._cx, _cy: geo._cy };
+      }).filter(Boolean);
+    }
+    // "All years": aggregate per cell
+    const byCell = {};
+    dataArr.forEach(d => {
+      if (!byCell[d.cell]) byCell[d.cell] = [];
+      byCell[d.cell].push(d);
+    });
+    const meanOf = (arr, key) => {
+      const vals = arr.map(d => d[key]).filter(v => v != null);
+      return vals.length ? vals.reduce((s,v) => s+v, 0) / vals.length : null;
+    };
+    return Object.entries(byCell).map(([cell, records]) => {
+      const geo = geoDict[cell];
+      if (!geo) return null;
+      const nGroups = records[0].g.length;
+      const gSum = new Array(nGroups).fill(0);
+      let totalN = 0;
+      records.forEach(r => { totalN += r.n; r.g.forEach((v,i) => gSum[i] += v); });
+      return {
+        cell, year: "all", n: totalN,
+        sh: meanOf(records, "sh"), ri: Math.max(...records.map(r => r.ri)),
+        g: gSum,
+        t: meanOf(records, "t"), sa: meanOf(records, "sa"),
+        fl: meanOf(records, "fl"), pc: meanOf(records, "pc"),
+        pa: meanOf(records, "pa"), ss: meanOf(records, "ss"),
+        ic: meanOf(records, "ic"),
+        _projBoundary: geo._proj, _cx: geo._cx, _cy: geo._cy,
+      };
+    }).filter(Boolean);
+  }
+
+  function getHexValue(h) {
+    if (hexColorMetric.startsWith("group_")) {
+      const gi = +hexColorMetric.split("_")[1];
+      return logVal(h.g[gi] || 0);
+    }
+    switch (hexColorMetric) {
+      case "shannon": return h.sh;
+      case "richness": return h.ri;
+      case "effort": return h.n;
+      case "total": return logVal(h.g.reduce((s,v) => s+v, 0));
+      case "temp": return h.t;
+      case "salinity": return h.sa;
+      case "fluorescence": return h.fl;
+      case "pci": return h.pc;
+      case "par": return h.pa;
+      case "sst": return h.ss;
+      case "ice": return h.ic;
+      default: return h.sh;
+    }
+  }
+
+  function getHexMetricLabel() {
+    if (hexColorMetric.startsWith("group_")) {
+      const gi = +hexColorMetric.split("_")[1];
+      return (HEX_GROUPS[gi] || "Group") + " (log)";
+    }
+    const labels = {
+      shannon: "Shannon Diversity",
+      richness: "Species Richness",
+      effort: "Sampling Effort",
+      total: "Total Abundance (log)",
+      temp: "Water Temperature",
+      salinity: "Salinity",
+      fluorescence: "Fluorescence",
+      pci: "Phytoplankton Colour Index",
+      par: "PAR",
+      sst: "SST (HadISST) °C",
+      ice: "Sea Ice Concentration",
+    };
+    return labels[hexColorMetric] || hexColorMetric;
+  }
+
+  function refreshHexColorScale() {
+    const clrBox = document.getElementById("clr-svg").closest(".legend-box");
+    const swatchBox = document.getElementById("topic-swatch-legend");
+    swatchBox.style.display = "none";
+    clrBox.style.display = "";
+
+    const vals = filteredHex.map(h => getHexValue(h)).filter(v => v != null && isFinite(v));
+    if (!vals.length) {
+      colorLUT = ["#333"];
+      filteredHex.forEach(h => { h._ci = 0; });
+      return;
+    }
+    const ext = d3.extent(vals);
+    const useLog = hexColorMetric === "total";
+    const reversedTemp = hexColorMetric === "temp" || hexColorMetric === "sst";
+    colorInterp = reversedTemp ? d3.interpolateRdYlBu :
+                  hexColorMetric === "ice" ? d3.interpolateBlues :
+                  hexColorMetric === "effort" ? d3.interpolateYlOrBr :
+                  hexColorMetric === "salinity" ? d3.interpolatePuBuGn :
+                  d3.interpolateYlGnBu;
+
+    if (reversedTemp) {
+      colorScale = d3.scaleSequential(t => colorInterp(1 - t)).domain(ext);
+    } else {
+      colorScale = d3.scaleSequential(colorInterp).domain(ext);
+    }
+    colorLUT = d3.range(N_COLORS).map(i => colorScale(ext[0] + (ext[1] - ext[0]) * i / (N_COLORS - 1)));
+
+    const span = ext[1] - ext[0] || 1;
+    filteredHex.forEach(h => {
+      const v = getHexValue(h);
+      if (v == null || !isFinite(v)) { h._ci = 0; return; }
+      const t = Math.max(0, Math.min(1, (v - ext[0]) / span));
+      h._ci = Math.round(t * (N_COLORS - 1));
+    });
+
+    const label = getHexMetricLabel();
+    const minLabel = hexColorMetric === "total" ? "0" : ext[0].toFixed(1);
+    const maxLabel = hexColorMetric === "total" ? Math.exp(ext[1]).toFixed(0) : ext[1].toFixed(1);
+    updateColorLegend(label, minLabel, maxLabel, reversedTemp ? (t => colorInterp(1-t)) : colorInterp);
+
+    hexQuadtree = d3.quadtree().x(d => d._cx).y(d => d._cy).addAll(filteredHex);
+  }
+
+  // ── LDA helpers ─────────────────────────────────────────────────────────
   function attachLdaData(k) {
     const src = window[`LDA_K${k}`];
     if (!src) { console.warn(`LDA_K${k} not found`); return; }
@@ -626,7 +1043,6 @@ Promise.resolve().then(() => {
     if (!currentLdaK || !filtered.length) { wrap.style.display = "none"; return; }
     wrap.style.display = "flex";
     const k = currentLdaK;
-    // Mean probability per topic across filtered segments
     const means = new Array(k).fill(0);
     let count = 0;
     filtered.forEach(d => {
@@ -638,7 +1054,6 @@ Promise.resolve().then(() => {
     if (count > 0) for (let t = 0; t < k; t++) means[t] /= count;
     const total = means.reduce((s, v) => s + v, 0) || 1;
 
-    // Stacked bar
     const track = document.getElementById("comp-bar-track");
     track.innerHTML = "";
     for (let t = 0; t < k; t++) {
@@ -648,7 +1063,6 @@ Promise.resolve().then(() => {
       track.appendChild(seg);
     }
 
-    // Swatches below bar
     const labels = document.getElementById("comp-bar-labels");
     labels.innerHTML = "";
     for (let t = 0; t < k; t++) {
@@ -669,19 +1083,16 @@ Promise.resolve().then(() => {
     return logVal(d.groups[GROUPS.indexOf(currentGroup)]);
   }
 
-  // Dynamic: domain computed from filtered (current year / taxa), not global allSegs
   function refreshColorScale() {
     const clrBox   = document.getElementById("clr-svg").closest(".legend-box");
     const swatchBox = document.getElementById("topic-swatch-legend");
 
     if (currentLdaK && currentTopic === "dominant") {
-      // Categorical: one color per topic
       colorLUT = TOPIC_PALETTE.slice(0, currentLdaK);
-      colorScale = null; // not used in categorical mode
+      colorScale = null;
       clrBox.style.display = "none";
       updateTopicSwatchLegend(currentLdaK);
     } else if (currentLdaK) {
-      // Specific topic probability [0,1]
       const topicIdx = +currentTopic;
       colorInterp = d3.interpolateYlOrRd;
       colorScale  = d3.scaleSequential(colorInterp).domain([0, 1]);
@@ -717,12 +1128,8 @@ Promise.resolve().then(() => {
     }
   }
 
-  // Assign colour index to each segment and sort for batched rendering.
-  // KEY OPTIMISATION: sorting means render() can flush colour groups in a
-  // single pass with only N_COLORS ctx.fill() calls instead of one per point.
   function presortFiltered() {
     if (currentLdaK && currentTopic === "dominant") {
-      // Categorical: _ci = dominant topic index directly
       filtered.forEach(d => { d._ci = d._ldaDominant || 0; });
     } else {
       const [dMin, dMax] = colorScale.domain();
@@ -733,11 +1140,10 @@ Promise.resolve().then(() => {
       });
     }
     filtered.sort((a, b) => a._ci - b._ci);
-    // Rebuild quadtree (order doesn't affect spatial index)
     quadtree = d3.quadtree().x(d => d.px).y(d => d.py).addAll(filtered);
   }
 
-  // ── Year list ─────────────────────────────────────────────────────────────
+  // ── Year list ─────────────────────────────────────────────────────────
   const years = ["all",
     ...d3.sort([...new Set(allSegs.map(d => d.year))], d3.ascending)];
 
@@ -756,13 +1162,92 @@ Promise.resolve().then(() => {
     yearList.appendChild(div);
   });
 
-  // ── Group dropdown ────────────────────────────────────────────────────────
+  // ── View mode toggle ──────────────────────────────────────────────────
+  document.querySelectorAll("#view-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      viewMode = btn.dataset.mode;
+      document.querySelectorAll("#view-toggle button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const hexResSection = document.getElementById("hex-res-section");
+      const hexColorSection = document.getElementById("hex-color-section");
+      const taxaSection = document.getElementById("taxa-section");
+      const ldaSection = document.getElementById("lda-section");
+      const sizeLegend = document.getElementById("size-legend");
+
+      const multiYearSection = document.getElementById("multiyear-section");
+      const minYearsSection = document.getElementById("minyears-section");
+      if (viewMode === "hex") {
+        hexResSection.style.display = "";
+        hexColorSection.style.display = showMultiYear ? "none" : "";
+        multiYearSection.style.display = "";
+        minYearsSection.style.display = "";
+        taxaSection.style.display = "none";
+        ldaSection.style.display = "none";
+        document.getElementById("lda-topic-section").style.display = "none";
+        document.getElementById("comp-bar-wrap").style.display = "none";
+        document.getElementById("topic-swatch-legend").style.display = "none";
+        sizeLegend.style.display = "none";
+      } else {
+        hexResSection.style.display = "none";
+        hexColorSection.style.display = "none";
+        multiYearSection.style.display = "none";
+        minYearsSection.style.display = "none";
+        taxaSection.style.display = "";
+        ldaSection.style.display = "";
+        sizeLegend.style.display = "";
+      }
+      applyFilter();
+    });
+  });
+
+  // ── Hex resolution toggle ─────────────────────────────────────────────
+  document.querySelectorAll("#hex-res-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      hexResolution = +btn.dataset.res;
+      document.querySelectorAll("#hex-res-toggle button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyFilter();
+    });
+  });
+
+  // ── Hex colour dropdown ───────────────────────────────────────────────
+  document.getElementById("hex-color-select").addEventListener("change", e => {
+    hexColorMetric = e.target.value;
+    applyFilter();
+  });
+
+  // ── Fronts toggle ─────────────────────────────────────────────────────
+  document.getElementById("fronts-toggle").addEventListener("change", e => {
+    showFronts = e.target.checked;
+    document.getElementById("front-legend").style.display = showFronts ? "" : "none";
+    render();
+  });
+
+  // ── Multi-year coverage toggle ────────────────────────────────────────
+  document.getElementById("multiyear-toggle").addEventListener("change", e => {
+    showMultiYear = e.target.checked;
+    const hexColorSection = document.getElementById("hex-color-section");
+    hexColorSection.style.display = showMultiYear ? "none" : "";
+    applyFilter();
+  });
+
+  // ── Min years sampled slider ──────────────────────────────────────────
+  const minYearsSlider = document.getElementById("minyears-slider");
+  const minYearsValEl = document.getElementById("minyears-val");
+  minYearsSlider.addEventListener("input", e => {
+    minYearsSampled = +e.target.value;
+    minYearsValEl.textContent = minYearsSampled;
+    applyFilter();
+  });
+
+  // ── Group dropdown ────────────────────────────────────────────────────
   gSel.addEventListener("change", () => {
     currentGroup = gSel.value;
     applyFilter();
   });
 
-  // ── LDA K dropdown ───────────────────────────────────────────────────────
+  // ── LDA K dropdown ───────────────────────────────────────────────────
   document.getElementById("lda-k-select").addEventListener("change", e => {
     const val = e.target.value;
     currentLdaK = val ? +val : null;
@@ -779,48 +1264,116 @@ Promise.resolve().then(() => {
       document.getElementById("comp-bar-wrap").style.display = "none";
       document.getElementById("topic-swatch-legend").style.display = "none";
       taxaSection.classList.remove("disabled");
-      // Ensure gradient legend is shown
       document.getElementById("clr-svg").closest(".legend-box").style.display = "";
     }
     applyFilter();
   });
 
-  // ── LDA topic dropdown ───────────────────────────────────────────────────
+  // ── LDA topic dropdown ───────────────────────────────────────────────
   document.getElementById("lda-topic-select").addEventListener("change", e => {
     const val = e.target.value;
     currentTopic = val === "dominant" ? "dominant" : +val;
     applyFilter();
   });
 
-  // ── Filter ────────────────────────────────────────────────────────────────
-  function applyFilter() {
-    filtered = currentYear === "all"
-      ? allSegs.slice()  // shallow copy so sort doesn't mutate allSegs order
-      : allSegs.filter(d => d.year === +currentYear);
-
-    refreshColorScale();  // updates colorLUT
-    presortFiltered();    // assigns _ci, sorts, rebuilds quadtree
-    updateCompositionBar();
-
-    let modeLabel;
-    if (currentLdaK) {
-      modeLabel = currentTopic === "dominant"
-        ? `LDA K=${currentLdaK} dominant`
-        : `LDA K=${currentLdaK} topic ${currentTopic}`;
-    } else {
-      modeLabel = currentGroup || "Shannon diversity";
+  // ── Year range formatting for tooltip ──────────────────────────────────
+  function formatYearRanges(years) {
+    if (!years.length) return "–";
+    const ranges = [];
+    let start = years[0], end = years[0];
+    for (let i = 1; i < years.length; i++) {
+      if (years[i] === end + 1) { end = years[i]; }
+      else { ranges.push(start === end ? String(start) : `${start}–${end}`); start = end = years[i]; }
     }
-    document.getElementById("status-bar").textContent =
-      `${currentYear === "all" ? "All years" : currentYear}` +
-      `  ·  ${filtered.length.toLocaleString()} segments` +
-      `  ·  ${modeLabel}`;
+    ranges.push(start === end ? String(start) : `${start}–${end}`);
+    return ranges.join(", ");
+  }
 
+  // ── Filter ────────────────────────────────────────────────────────────
+  function applyFilter() {
+    if (viewMode === "hex") {
+      const geoDict = hexResolution === 2 ? hexGeoRes2 : hexGeoRes3;
+      const dataArr = hexResolution === 2 ? hexDataRes2 : hexDataRes3;
+      const cellYears = hexResolution === 2 ? cellYearsRes2 : cellYearsRes3;
+
+      // Set to filter cells by minimum years sampled
+      const eligibleCells = new Set(
+        Object.entries(cellYears)
+          .filter(([, yrs]) => yrs.length >= minYearsSampled)
+          .map(([cell]) => cell)
+      );
+
+      if (showMultiYear) {
+        // Multi-year coverage: one record per cell, colored by year count
+        filteredHex = Object.entries(cellYears)
+          .filter(([cell]) => eligibleCells.has(cell))
+          .map(([cell, years]) => {
+            const geo = geoDict[cell];
+            if (!geo) return null;
+            return {
+              cell, year: "coverage", n: years.length,
+              _nYears: years.length, _years: years,
+              sh: 0, ri: 0, g: [], t: null, sa: null, fl: null,
+              pc: null, pa: null, ss: null, ic: null,
+              _projBoundary: geo._proj, _cx: geo._cx, _cy: geo._cy,
+            };
+          }).filter(Boolean);
+
+        // Color by number of years
+        const maxYears = d3.max(filteredHex, d => d._nYears) || 1;
+        colorInterp = d3.interpolateYlOrRd;
+        colorScale = d3.scaleSequential(colorInterp).domain([1, maxYears]);
+        colorLUT = d3.range(N_COLORS).map(i => colorScale(1 + (maxYears - 1) * i / (N_COLORS - 1)));
+        filteredHex.forEach(h => {
+          const t = Math.max(0, Math.min(1, (h._nYears - 1) / (maxYears - 1 || 1)));
+          h._ci = Math.round(t * (N_COLORS - 1));
+        });
+        hexQuadtree = d3.quadtree().x(d => d._cx).y(d => d._cy).addAll(filteredHex);
+        document.getElementById("clr-svg").closest(".legend-box").style.display = "";
+        document.getElementById("topic-swatch-legend").style.display = "none";
+        updateColorLegend("Years Sampled", "1", String(maxYears), colorInterp);
+
+        document.getElementById("status-bar").textContent =
+          `Multi-year coverage  ·  ${filteredHex.length} hexagons (res ${hexResolution})` +
+          `  ·  max ${maxYears} years`;
+      } else {
+        filteredHex = buildFilteredHex(geoDict, dataArr, currentYear)
+          .filter(h => eligibleCells.has(h.cell));
+        refreshHexColorScale();
+
+        document.getElementById("status-bar").textContent =
+          `${currentYear === "all" ? "All years" : currentYear}` +
+          `  ·  ${filteredHex.length} hexagons (res ${hexResolution})` +
+          `  ·  min ${minYearsSampled}yr  ·  ${getHexMetricLabel()}`;
+      }
+    } else {
+      filtered = currentYear === "all"
+        ? allSegs.slice()
+        : allSegs.filter(d => d.year === +currentYear);
+
+      refreshColorScale();
+      presortFiltered();
+      updateCompositionBar();
+
+      let modeLabel;
+      if (currentLdaK) {
+        modeLabel = currentTopic === "dominant"
+          ? `LDA K=${currentLdaK} dominant`
+          : `LDA K=${currentLdaK} topic ${currentTopic}`;
+      } else {
+        modeLabel = currentGroup || "Shannon diversity";
+      }
+      document.getElementById("status-bar").textContent =
+        `${currentYear === "all" ? "All years" : currentYear}` +
+        `  ·  ${filtered.length.toLocaleString()} segments` +
+        `  ·  ${modeLabel}`;
+    }
     render();
   }
 
-  // ── Hover / tooltip ───────────────────────────────────────────────────────
+  // ── Hover / tooltip ───────────────────────────────────────────────────
   const tooltip = document.getElementById("tooltip");
-  let hoveredTowKey = null;
+  let hoveredKey = null;
 
   function drawTowHighlight(seg) {
     const k = zoomT.k;
@@ -840,63 +1393,173 @@ Promise.resolve().then(() => {
     ctx.restore();
   }
 
+  function drawHexHighlight(hex) {
+    const k = zoomT.k;
+    const pts = hex._projBoundary;
+    if (!pts || pts.length < 3) return;
+    ctx.save();
+    ctx.translate(zoomT.x, zoomT.y);
+    ctx.scale(k, k);
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+    ctx.closePath();
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 2 / k;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function findHexUnderMouse(bx, by) {
+    if (!hexQuadtree) return null;
+    const candidates = [];
+    const searchR = 200 / zoomT.k;
+    hexQuadtree.visit((node, x0, y0, x1, y1) => {
+      if (node.data) candidates.push(node.data);
+      return x0 > bx + searchR || x1 < bx - searchR || y0 > by + searchR || y1 < by - searchR;
+    });
+
+    for (const h of candidates) {
+      const pts = h._projBoundary;
+      if (!pts || pts.length < 3) continue;
+      if (pointInPolygon(bx, by, pts)) return h;
+    }
+    return null;
+  }
+
+  function pointInPolygon(x, y, polygon) {
+    let inside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+      const xi = polygon[i][0], yi = polygon[i][1];
+      const xj = polygon[j][0], yj = polygon[j][1];
+      if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
   canvas.addEventListener("mousemove", e => {
-    if (!quadtree) return;
     const rect = canvas.getBoundingClientRect();
-    const bx = (e.clientX - rect.left  - zoomT.x) / zoomT.k;
-    const by = (e.clientY - rect.top   - zoomT.y) / zoomT.k;
-    const found = quadtree.find(bx, by, 14 / zoomT.k);
+    const bx = (e.clientX - rect.left - zoomT.x) / zoomT.k;
+    const by = (e.clientY - rect.top  - zoomT.y) / zoomT.k;
 
-    if (found) {
-      const tk = `${found.ship}-${found.towNo}`;
-      if (tk !== hoveredTowKey) {
-        hoveredTowKey = tk;
-        renderFg();
-        drawTowHighlight(found);
+    if (viewMode === "hex") {
+      const hex = findHexUnderMouse(bx, by);
+      if (hex) {
+        const hk = hex.cell;
+        if (hk !== hoveredKey) {
+          hoveredKey = hk;
+          renderFg();
+          drawHexHighlight(hex);
+        }
+
+        const groups = HEX_GROUPS;
+        let groupHtml = "";
+        if (hex.g && groups.length) {
+          const topGroups = hex.g
+            .map((v, i) => ({name: groups[i], count: v}))
+            .filter(g => g.count > 0)
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5);
+          groupHtml = topGroups.map(g =>
+            `<div class="tip-row">${g.name}: <span>${g.count}</span></div>`
+          ).join("");
+        }
+
+        tooltip.style.display = "block";
+        tooltip.style.left = (e.clientX + 18) + "px";
+        tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
+
+        if (showMultiYear) {
+          const cellYears = hexResolution === 2 ? cellYearsRes2 : cellYearsRes3;
+          const yrs = cellYears[hex.cell] || [];
+          const yrRanges = formatYearRanges(yrs);
+          tooltip.innerHTML = `
+            <div class="tip-title">H3 Hex (res ${hexResolution}) · Coverage</div>
+            <div class="tip-row">Years sampled: <span>${yrs.length}</span></div>
+            <div class="tip-row">Range: <span>${yrs.length ? yrs[0] + "–" + yrs[yrs.length-1] : "–"}</span></div>
+            <div style="margin-top:4px;border-top:1px solid #30363d;padding-top:4px">
+              <div class="tip-row" style="color:#58a6ff;font-weight:600;margin-bottom:2px">Sampled years:</div>
+              <div class="tip-row" style="line-height:1.5"><span>${yrRanges}</span></div>
+            </div>
+          `;
+        } else {
+          tooltip.innerHTML = `
+            <div class="tip-title">H3 Hex (res ${hexResolution}) · ${hex.year}</div>
+            <div class="tip-row">Segments: <span>${hex.n}</span></div>
+            <div class="tip-row">Shannon H': <span>${hex.sh != null ? hex.sh.toFixed(3) : "–"}</span></div>
+            <div class="tip-row">Richness: <span>${hex.ri} taxa</span></div>
+            ${hex.ss != null ? `<div class="tip-row">SST (HadISST): <span>${hex.ss.toFixed(1)} °C</span></div>` : ""}
+            ${hex.ic != null ? `<div class="tip-row">Sea Ice: <span>${(hex.ic * 100).toFixed(1)}%</span></div>` : ""}
+            ${hex.t != null ? `<div class="tip-row">Water Temp (in-situ): <span>${hex.t.toFixed(1)} °C</span></div>` : ""}
+            ${hex.sa != null ? `<div class="tip-row">Salinity: <span>${hex.sa.toFixed(1)}</span></div>` : ""}
+            ${hex.fl != null ? `<div class="tip-row">Fluorescence: <span>${hex.fl.toFixed(1)}</span></div>` : ""}
+            ${hex.pc != null ? `<div class="tip-row">PCI: <span>${hex.pc.toFixed(1)}</span></div>` : ""}
+            <div style="margin-top:4px;border-top:1px solid #30363d;padding-top:4px">
+              <div class="tip-row" style="color:#58a6ff;font-weight:600;margin-bottom:2px">Top groups:</div>
+              ${groupHtml}
+            </div>
+          `;
+        }
+      } else {
+        if (hoveredKey !== null) { hoveredKey = null; renderFg(); }
+        tooltip.style.display = "none";
       }
-
-      const gi = currentGroup && currentGroup !== "__total__" ? GROUPS.indexOf(currentGroup) : -1;
-      const totalAbund = found.groups.reduce((s, v) => s + v, 0);
-
-      // Build LDA topic mini-bar for tooltip
-      let ldaHtml = "";
-      if (currentLdaK && found._ldaProbs) {
-        const k = currentLdaK;
-        const barSegs = found._ldaProbs.map((p, t) =>
-          `<div style="flex:${p};background:${TOPIC_PALETTE[t]};height:100%" title="T${t}: ${(p*100).toFixed(1)}%"></div>`
-        ).join("");
-        const domT = found._ldaDominant;
-        ldaHtml = `
-          <div class="tip-row" style="margin-top:4px">LDA K=${k} dominant: <span style="color:${TOPIC_PALETTE[domT]}">Topic ${domT}</span></div>
-          <div style="display:flex;height:8px;border-radius:3px;overflow:hidden;margin-top:4px;gap:1px">${barSegs}</div>`;
-      }
-
-      tooltip.style.display = "block";
-      tooltip.style.left = (e.clientX + 18) + "px";
-      tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
-      tooltip.innerHTML = `
-        <div class="tip-title">${found.ship} · Tow ${found.towNo} · Seg ${found.segNo}</div>
-        <div class="tip-row">Date &amp; time: <span>${found.date} ${found.time}</span></div>
-        <div class="tip-row">Lat / Lon: <span>${found.lat.toFixed(3)}°, ${found.lon.toFixed(3)}°</span></div>
-        <div class="tip-row">Month: <span>${found.monthIdx >= 0 ? MONTHS[found.monthIdx] : "–"}</span></div>
-        <div class="tip-row">Length: <span>${found.segLen} nm</span></div>
-        <div class="tip-row">Shannon H': <span>${found.shannon.toFixed(3)}</span></div>
-        <div class="tip-row">Total abundance: <span>${totalAbund}</span></div>
-        ${gi >= 0 ? `<div class="tip-row">${currentGroup}: <span>${found.groups[gi]}</span></div>` : ""}
-        ${ldaHtml}
-      `;
     } else {
-      if (hoveredTowKey !== null) { hoveredTowKey = null; renderFg(); }
-      tooltip.style.display = "none";
+      if (!quadtree) return;
+      const found = quadtree.find(bx, by, 14 / zoomT.k);
+
+      if (found) {
+        const tk = `${found.ship}-${found.towNo}`;
+        if (tk !== hoveredKey) {
+          hoveredKey = tk;
+          renderFg();
+          drawTowHighlight(found);
+        }
+
+        const gi = currentGroup && currentGroup !== "__total__" ? GROUPS.indexOf(currentGroup) : -1;
+        const totalAbund = found.groups.reduce((s, v) => s + v, 0);
+
+        let ldaHtml = "";
+        if (currentLdaK && found._ldaProbs) {
+          const k = currentLdaK;
+          const barSegs = found._ldaProbs.map((p, t) =>
+            `<div style="flex:${p};background:${TOPIC_PALETTE[t]};height:100%" title="T${t}: ${(p*100).toFixed(1)}%"></div>`
+          ).join("");
+          const domT = found._ldaDominant;
+          ldaHtml = `
+            <div class="tip-row" style="margin-top:4px">LDA K=${k} dominant: <span style="color:${TOPIC_PALETTE[domT]}">Topic ${domT}</span></div>
+            <div style="display:flex;height:8px;border-radius:3px;overflow:hidden;margin-top:4px;gap:1px">${barSegs}</div>`;
+        }
+
+        tooltip.style.display = "block";
+        tooltip.style.left = (e.clientX + 18) + "px";
+        tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
+        tooltip.innerHTML = `
+          <div class="tip-title">${found.ship} · Tow ${found.towNo} · Seg ${found.segNo}</div>
+          <div class="tip-row">Date &amp; time: <span>${found.date} ${found.time}</span></div>
+          <div class="tip-row">Lat / Lon: <span>${found.lat.toFixed(3)}°, ${found.lon.toFixed(3)}°</span></div>
+          <div class="tip-row">Month: <span>${found.monthIdx >= 0 ? MONTHS[found.monthIdx] : "–"}</span></div>
+          <div class="tip-row">Length: <span>${found.segLen} nm</span></div>
+          <div class="tip-row">Shannon H': <span>${found.shannon.toFixed(3)}</span></div>
+          <div class="tip-row">Total abundance: <span>${totalAbund}</span></div>
+          ${gi >= 0 ? `<div class="tip-row">${currentGroup}: <span>${found.groups[gi]}</span></div>` : ""}
+          ${ldaHtml}
+        `;
+      } else {
+        if (hoveredKey !== null) { hoveredKey = null; renderFg(); }
+        tooltip.style.display = "none";
+      }
     }
   });
 
   canvas.addEventListener("mouseleave", () => {
-    if (hoveredTowKey !== null) { hoveredTowKey = null; renderFg(); }
+    if (hoveredKey !== null) { hoveredKey = null; renderFg(); }
     tooltip.style.display = "none";
   });
 
-  // ── Resize ────────────────────────────────────────────────────────────────
+  // ── Resize ────────────────────────────────────────────────────────────
   window.addEventListener("resize", () => {
     W = mapContainer.clientWidth;
     H = mapContainer.clientHeight;
@@ -907,11 +1570,13 @@ Promise.resolve().then(() => {
       const p = proj([d.lon, d.lat]);
       if (p && isFinite(p[0])) { d.px = p[0]; d.py = p[1]; }
     });
+    projectHexGeo(hexGeoRes2);
+    projectHexGeo(hexGeoRes3);
     if (filtered.length) presortFiltered();
-    render();
+    applyFilter();
   });
 
-  // ── Init ─────────────────────────────────────────────────────────────────
+  // ── Init ─────────────────────────────────────────────────────────────
   setupSizeLegend();
   applyFilter();
 
@@ -924,7 +1589,6 @@ Promise.resolve().then(() => {
 // ─────────────────────────────────────────────────────────────────────────────
 // LEGENDS
 // ─────────────────────────────────────────────────────────────────────────────
-
 function updateColorLegend(title, minV, maxV, interp) {
   document.getElementById("clr-title").textContent = title;
   document.getElementById("clr-min").textContent   = minV;
