@@ -14,3 +14,9 @@ wheels/
 
 # Mallet (large binary)
 mallet-2.1.0/
+
+# Large environmental NetCDF data (download locally, do not commit)
+data/environmental/*.nc
+
+# Local blueant download cache
+data/blueant_cache/
