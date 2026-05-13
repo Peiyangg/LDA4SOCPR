@@ -5,8 +5,8 @@ import numpy as np
 import json
 from pathlib import Path
 
-BASE = Path(__file__).parent / "data"
-OUT = Path(__file__).parent / "figures" / "cpr_data.json"
+BASE = Path(__file__).resolve().parent.parent / "data"
+OUT = Path(__file__).resolve().parent.parent / "figures" / "cpr_data.json"
 
 print("Loading data...")
 meta = pd.read_csv(BASE / "metadata" / "segment_metadata.csv")
@@ -65,8 +65,10 @@ for _, row in meta.iterrows():
     except (ValueError, TypeError):
         tow_no = 0
 
+    season = str(row["Season"]).strip() if pd.notna(row.get("Season")) else ""
+
     # Record layout (compact array):
-    # [lat, lon, year, month_idx, seg_len, shannon, ship, tow_no, seg_no, date, time, [groups...]]
+    # [lat, lon, year, month_idx, seg_len, shannon, ship, tow_no, seg_no, date, time, [groups...], season]
     records.append([
         round(lat, 4),
         round(lon, 4),
@@ -80,6 +82,7 @@ for _, row in meta.iterrows():
         str(row["Date"]).strip(),
         str(row["Time"]).strip(),
         g,
+        season,
     ])
 
 output = {
@@ -88,8 +91,8 @@ output = {
     "segments": records,
 }
 
-JS_CPR   = Path(__file__).parent / "figures" / "cpr_data.js"
-JS_WORLD = Path(__file__).parent / "figures" / "world_data.js"
+JS_CPR   = Path(__file__).resolve().parent.parent / "figures" / "cpr_data.js"
+JS_WORLD = Path(__file__).resolve().parent.parent / "figures" / "world_data.js"
 
 # --- Write CPR data as a JS variable (works with file:// protocol) ---
 print(f"Writing {len(records):,} segments to {JS_CPR} ...")
@@ -121,52 +124,4 @@ except Exception as e:
 
 print("Done!")
 
-# --- LDA topic distributions (one JS file per K) ---
-LDA_BASE = Path(__file__).parent / "LDA_gensim" / "lda_results" / "topic_distributions"
-LDA_Ks   = [3, 7, 10, 16]
-
-# Build a lookup: Segment_ID → index in records (same order as cpr_data.js)
-seg_index = {r[11][0] if False else None: i for i, r in enumerate(records)}  # placeholder
-# Actually: build from the records list (field 0 is not segment_id, we need to re-derive)
-# Re-read metadata to get Segment_ID order matching records
-meta2 = pd.read_csv(BASE / "metadata" / "segment_metadata.csv")
-seg_to_idx = {}
-idx = 0
-for _, row in meta2.iterrows():
-    sid = row["Segment_ID"]
-    try:
-        float(row["Latitude"]); float(row["Longitude"]); float(row["Segment_Length"]); int(row["Year"])
-    except (ValueError, TypeError):
-        continue
-    seg_to_idx[sid] = idx
-    idx += 1
-
-n_segs = len(records)
-
-for k in LDA_Ks:
-    csv_path = LDA_BASE / f"K{k}_segment_topic_probs.csv"
-    if not csv_path.exists():
-        print(f"Warning: {csv_path} not found, skipping")
-        continue
-
-    df_lda = pd.read_csv(csv_path, index_col="Segment_ID")
-    topic_cols = list(df_lda.columns)  # K{k}_MC0 ... K{k}_MC{k-1}
-
-    # Build array: probs[i] = [p0, p1, ...] for segment at index i
-    probs = [[None] * k for _ in range(n_segs)]
-    missing = 0
-    for sid, i in seg_to_idx.items():
-        if sid in df_lda.index:
-            probs[i] = [round(float(df_lda.at[sid, c]), 4) for c in topic_cols]
-        else:
-            probs[i] = [round(1/k, 4)] * k  # fallback: uniform
-            missing += 1
-
-    js_out = Path(__file__).parent / "figures" / f"lda_k{k}.js"
-    with open(js_out, "w") as f:
-        f.write(f"window.LDA_K{k}=")
-        json.dump(probs, f, separators=(",", ":"))
-        f.write(";")
-
-    sz = os.path.getsize(js_out) / 1024
-    print(f"lda_k{k}.js: {sz:.0f} KB  (missing: {missing})")
+print("\nNote: LDA JS files are no longer generated. Use preprocess_nmf_viz.py for NMF data.")

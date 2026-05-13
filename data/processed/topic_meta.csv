@@ -1,0 +1,610 @@
+group_id,ship,n_segments,n_tows_merged,best_k,component,period_start,period_end,folder,year,topic_label,dominant_species,topic_idx
+0,AA,26,1,2,component_1,1991-01-12,1991-01-12,group_0000_AA,1991,G0_component_1,Euphausia superba,0
+0,AA,26,1,2,component_2,1991-01-12,1991-01-12,group_0000_AA,1991,G0_component_2,Thysanoessa macrura,1
+1,AA,11,2,2,component_1,1991-03-06,1991-03-06,group_0001_AA,1991,G1_component_1,Calanus propinquus,2
+1,AA,11,2,2,component_2,1991-03-06,1991-03-06,group_0001_AA,1991,G1_component_2,Oithona similis,3
+2,AA,175,6,2,component_1,1991-03-09,1991-03-13,group_0002_AA,1991,G2_component_1,Calanus propinquus,4
+2,AA,175,6,2,component_2,1991-03-09,1991-03-13,group_0002_AA,1991,G2_component_2,Calanoida indet (small),5
+3,AA,91,1,4,component_1,1993-01-13,1993-01-14,group_0003_AA,1993,G3_component_1,Thysanoessa macrura,6
+3,AA,91,1,4,component_2,1993-01-13,1993-01-14,group_0003_AA,1993,G3_component_2,Euphausia superba,7
+3,AA,91,1,4,component_3,1993-01-13,1993-01-14,group_0003_AA,1993,G3_component_3,Thysanoessa macrura furcilia,8
+3,AA,91,1,4,component_4,1993-01-13,1993-01-14,group_0003_AA,1993,G3_component_4,Clio pyramidata,9
+4,AA,17,1,3,component_1,1993-02-27,1993-02-27,group_0004_AA,1993,G4_component_1,Thysanoessa macrura furcilia,10
+4,AA,17,1,3,component_2,1993-02-27,1993-02-27,group_0004_AA,1993,G4_component_2,Euphausia superba,11
+4,AA,17,1,3,component_3,1993-02-27,1993-02-27,group_0004_AA,1993,G4_component_3,Calanoida indet (small),12
+5,AA,94,1,2,component_1,1994-02-05,1994-02-07,group_0005_AA,1994,G5_component_1,Limacina sp.,13
+5,AA,94,1,2,component_2,1994-02-05,1994-02-07,group_0005_AA,1994,G5_component_2,Calanoides acutus,14
+6,AA,82,1,2,component_1,1997-11-03,1997-11-04,group_0006_AA,1997,G6_component_1,Oithona similis,15
+6,AA,82,1,2,component_2,1997-11-03,1997-11-04,group_0006_AA,1997,G6_component_2,Calanoida indet (small),16
+7,AA,183,2,2,component_1,1997-12-02,1997-12-04,group_0007_AA,1997,G7_component_1,Oithona similis,17
+7,AA,183,2,2,component_2,1997-12-02,1997-12-04,group_0007_AA,1997,G7_component_2,Foraminifera indet,18
+8,AA,160,2,2,component_1,1998-01-11,1998-01-14,group_0008_AA,1998,G8_component_1,Oithona similis,19
+8,AA,160,2,2,component_2,1998-01-11,1998-01-14,group_0008_AA,1998,G8_component_2,Oithona similis,20
+9,AA,461,6,2,component_1,1998-01-29,1998-02-06,group_0009_AA,1998,G9_component_1,Oithona similis,21
+9,AA,461,6,2,component_2,1998-01-29,1998-02-06,group_0009_AA,1998,G9_component_2,Calanoida indet (small),22
+10,AA,105,3,2,component_1,1998-02-15,1998-02-18,group_0010_AA,1998,G10_component_1,Oithona similis,23
+10,AA,105,3,2,component_2,1998-02-15,1998-02-18,group_0010_AA,1998,G10_component_2,Calanoida indet (small),24
+11,AA,134,2,2,component_1,1998-02-19,1998-02-21,group_0011_AA,1998,G11_component_1,Limacina sp.,25
+11,AA,134,2,2,component_2,1998-02-19,1998-02-21,group_0011_AA,1998,G11_component_2,Oithona similis,26
+12,AA,132,2,2,component_1,1998-11-02,1998-11-05,group_0012_AA,1998,G12_component_1,Foraminifera indet,27
+12,AA,132,2,2,component_2,1998-11-02,1998-11-05,group_0012_AA,1998,G12_component_2,Oithona similis,28
+13,AA,88,1,2,component_1,1999-03-14,1999-03-16,group_0013_AA,1999,G13_component_1,Calanoida indet (small),29
+13,AA,88,1,2,component_2,1999-03-14,1999-03-16,group_0013_AA,1999,G13_component_2,Oithona similis,30
+14,AA,89,1,2,component_1,1999-03-18,1999-03-20,group_0014_AA,1999,G14_component_1,Oithona similis,31
+14,AA,89,1,2,component_2,1999-03-18,1999-03-20,group_0014_AA,1999,G14_component_2,Calanoida indet (small),32
+15,AA,18,1,3,component_1,1999-11-12,1999-11-12,group_0015_AA,1999,G15_component_1,Oithona similis,33
+15,AA,18,1,3,component_2,1999-11-12,1999-11-12,group_0015_AA,1999,G15_component_2,Oithona similis,34
+15,AA,18,1,3,component_3,1999-11-12,1999-11-12,group_0015_AA,1999,G15_component_3,Calanoida indet (small),35
+16,AA,86,2,2,component_1,1999-12-01,1999-12-02,group_0016_AA,1999,G16_component_1,Oithona similis,36
+16,AA,86,2,2,component_2,1999-12-01,1999-12-02,group_0016_AA,1999,G16_component_2,Calanoida indet (small),37
+17,AA,177,3,5,component_1,2000-01-13,2000-01-15,group_0017_AA,2000,G17_component_1,Oithona similis,38
+17,AA,177,3,5,component_2,2000-01-13,2000-01-15,group_0017_AA,2000,G17_component_2,Calanoida indet (small),39
+17,AA,177,3,5,component_3,2000-01-13,2000-01-15,group_0017_AA,2000,G17_component_3,Foraminifera indet,40
+17,AA,177,3,5,component_4,2000-01-13,2000-01-15,group_0017_AA,2000,G17_component_4,Calanoida indet (small),41
+17,AA,177,3,5,component_5,2000-01-13,2000-01-15,group_0017_AA,2000,G17_component_5,Oithona similis,42
+18,AA,236,3,3,component_1,2000-01-25,2000-01-31,group_0018_AA,2000,G18_component_1,Calanoida indet (small),43
+18,AA,236,3,3,component_2,2000-01-25,2000-01-31,group_0018_AA,2000,G18_component_2,Oithona similis,44
+18,AA,236,3,3,component_3,2000-01-25,2000-01-31,group_0018_AA,2000,G18_component_3,Calanoida indet (small),45
+19,AA,250,3,3,component_1,2000-02-08,2000-02-11,group_0019_AA,2000,G19_component_1,Calanoida indet (small),46
+19,AA,250,3,3,component_2,2000-02-08,2000-02-11,group_0019_AA,2000,G19_component_2,Oithona similis,47
+19,AA,250,3,3,component_3,2000-02-08,2000-02-11,group_0019_AA,2000,G19_component_3,Fritillaria sp.,48
+20,AA,183,2,3,component_1,2000-02-23,2000-02-26,group_0020_AA,2000,G20_component_1,Oithona similis,49
+20,AA,183,2,3,component_2,2000-02-23,2000-02-26,group_0020_AA,2000,G20_component_2,Calanoida indet (small),50
+20,AA,183,2,3,component_3,2000-02-23,2000-02-26,group_0020_AA,2000,G20_component_3,Thysanoessa macrura furcilia,51
+21,AA,90,1,2,component_1,2000-03-17,2000-03-19,group_0021_AA,2000,G21_component_1,Calanoida indet (small),52
+21,AA,90,1,2,component_2,2000-03-17,2000-03-19,group_0021_AA,2000,G21_component_2,Oithona similis,53
+22,AA,55,1,2,component_1,2000-11-08,2000-11-09,group_0022_AA,2000,G22_component_1,Oithona similis,54
+22,AA,55,1,2,component_2,2000-11-08,2000-11-09,group_0022_AA,2000,G22_component_2,Fritillaria sp.,55
+23,AA,85,1,2,component_1,2000-12-01,2000-12-02,group_0023_AA,2000,G23_component_1,Oithona similis,56
+23,AA,85,1,2,component_2,2000-12-01,2000-12-02,group_0023_AA,2000,G23_component_2,Oithona similis,57
+24,AA,249,4,2,component_1,2000-12-20,2000-12-25,group_0024_AA,2000,G24_component_1,Oithona similis,58
+24,AA,249,4,2,component_2,2000-12-20,2000-12-25,group_0024_AA,2000,G24_component_2,Calanoida indet (small),59
+25,AA,20,1,2,component_1,2001-01-03,2001-01-03,group_0025_AA,2001,G25_component_1,Calanoida indet (small),60
+25,AA,20,1,2,component_2,2001-01-03,2001-01-03,group_0025_AA,2001,G25_component_2,Oikopleura sp.,61
+26,AA,361,8,2,component_1,2001-01-05,2001-01-12,group_0026_AA,2001,G26_component_1,Oithona similis,62
+26,AA,361,8,2,component_2,2001-01-05,2001-01-12,group_0026_AA,2001,G26_component_2,Calanoida indet (small),63
+27,AA,347,4,2,component_1,2001-03-02,2001-03-07,group_0027_AA,2001,G27_component_1,Calanoida indet (small),64
+27,AA,347,4,2,component_2,2001-03-02,2001-03-07,group_0027_AA,2001,G27_component_2,Oithona similis,65
+28,AA,259,3,2,component_1,2001-03-14,2001-03-18,group_0028_AA,2001,G28_component_1,Calanoida indet (small),66
+28,AA,259,3,2,component_2,2001-03-14,2001-03-18,group_0028_AA,2001,G28_component_2,Calanus simillimus,67
+29,AA,81,1,4,component_1,2001-03-23,2001-03-24,group_0029_AA,2001,G29_component_1,Calanoida indet (small),68
+29,AA,81,1,4,component_2,2001-03-23,2001-03-24,group_0029_AA,2001,G29_component_2,Oithona similis,69
+29,AA,81,1,4,component_3,2001-03-23,2001-03-24,group_0029_AA,2001,G29_component_3,Calanoida indet (small),70
+29,AA,81,1,4,component_4,2001-03-23,2001-03-24,group_0029_AA,2001,G29_component_4,Oithona similis,71
+30,AA,129,6,2,component_1,2001-12-07,2001-12-11,group_0030_AA,2001,G30_component_1,Foraminifera indet,72
+30,AA,129,6,2,component_2,2001-12-07,2001-12-11,group_0030_AA,2001,G30_component_2,Oithona similis,73
+31,AA,7,1,2,component_1,2001-12-17,2001-12-17,group_0031_AA,2001,G31_component_1,Calanoida indet (small),74
+31,AA,7,1,2,component_2,2001-12-17,2001-12-17,group_0031_AA,2001,G31_component_2,Oithona similis,75
+32,AA,7,1,2,component_1,2001-12-19,2001-12-19,group_0032_AA,2001,G32_component_1,Calanoida indet (small),76
+32,AA,7,1,2,component_2,2001-12-19,2001-12-19,group_0032_AA,2001,G32_component_2,Foraminifera indet,77
+33,AA,365,4,2,component_1,2002-01-15,2002-01-19,group_0033_AA,2002,G33_component_1,Calanoida indet (small),78
+33,AA,365,4,2,component_2,2002-01-15,2002-01-19,group_0033_AA,2002,G33_component_2,Oithona similis,79
+34,AA,366,4,2,component_1,2002-01-28,2002-02-05,group_0034_AA,2002,G34_component_1,Calanoida indet (small),80
+34,AA,366,4,2,component_2,2002-01-28,2002-02-05,group_0034_AA,2002,G34_component_2,Calanus simillimus,81
+35,AA,323,8,2,component_1,2002-02-27,2002-03-06,group_0035_AA,2002,G35_component_1,Calanoida indet (small),82
+35,AA,323,8,2,component_2,2002-02-27,2002-03-06,group_0035_AA,2002,G35_component_2,Calanus simillimus,83
+36,AA,6,1,2,component_1,2002-11-10,2002-11-10,group_0036_AA,2002,G36_component_1,Foraminifera indet,84
+36,AA,6,1,2,component_2,2002-11-10,2002-11-10,group_0036_AA,2002,G36_component_2,Oithona similis,85
+37,AA,99,1,2,component_1,2002-11-12,2002-11-14,group_0037_AA,2002,G37_component_1,Oithona similis,86
+37,AA,99,1,2,component_2,2002-11-12,2002-11-14,group_0037_AA,2002,G37_component_2,Calanoida indet (small),87
+38,AA,363,4,2,component_1,2002-11-24,2002-12-02,group_0038_AA,2002,G38_component_1,Oithona similis,88
+38,AA,363,4,2,component_2,2002-11-24,2002-12-02,group_0038_AA,2002,G38_component_2,Calanoida indet (small),89
+39,AA,453,5,3,component_1,2002-12-17,2002-12-23,group_0039_AA,2002,G39_component_1,Oithona similis,90
+39,AA,453,5,3,component_2,2002-12-17,2002-12-23,group_0039_AA,2002,G39_component_2,Ctenocalanus citer,91
+39,AA,453,5,3,component_3,2002-12-17,2002-12-23,group_0039_AA,2002,G39_component_3,Calanoida indet (small),92
+40,AA,411,6,2,component_1,2003-01-05,2003-01-13,group_0040_AA,2003,G40_component_1,Oithona similis,93
+40,AA,411,6,2,component_2,2003-01-05,2003-01-13,group_0040_AA,2003,G40_component_2,Calanoida indet (small),94
+41,AA,128,2,2,component_1,2003-03-06,2003-03-08,group_0041_AA,2003,G41_component_1,Oithona similis,95
+41,AA,128,2,2,component_2,2003-03-06,2003-03-08,group_0041_AA,2003,G41_component_2,Ctenocalanus citer,96
+42,AA,301,4,2,component_1,2003-03-09,2003-03-14,group_0042_AA,2003,G42_component_1,Ctenocalanus citer,97
+42,AA,301,4,2,component_2,2003-03-09,2003-03-14,group_0042_AA,2003,G42_component_2,Limacina sp.,98
+43,AA,289,4,2,component_1,2003-11-06,2003-11-12,group_0043_AA,2003,G43_component_1,Oithona similis,99
+43,AA,289,4,2,component_2,2003-11-06,2003-11-12,group_0043_AA,2003,G43_component_2,Calanoida indet (small),100
+44,AA,210,3,2,component_1,2003-11-26,2003-11-29,group_0044_AA,2003,G44_component_1,Oithona similis,101
+44,AA,210,3,2,component_2,2003-11-26,2003-11-29,group_0044_AA,2003,G44_component_2,Limacina sp.,102
+45,AA,127,4,2,component_1,2003-12-14,2003-12-17,group_0045_AA,2003,G45_component_1,Calanoida indet (small),103
+45,AA,127,4,2,component_2,2003-12-14,2003-12-17,group_0045_AA,2003,G45_component_2,Limacina sp.,104
+46,AA,105,2,2,component_1,2004-01-28,2004-01-30,group_0046_AA,2004,G46_component_1,Calanoida indet (small),105
+46,AA,105,2,2,component_2,2004-01-28,2004-01-30,group_0046_AA,2004,G46_component_2,Oithona similis,106
+47,AA,445,6,3,component_1,2004-02-04,2004-02-11,group_0047_AA,2004,G47_component_1,Calanoida indet (small),107
+47,AA,445,6,3,component_2,2004-02-04,2004-02-11,group_0047_AA,2004,G47_component_2,Calanus simillimus,108
+47,AA,445,6,3,component_3,2004-02-04,2004-02-11,group_0047_AA,2004,G47_component_3,Oithona similis,109
+48,AA,266,3,2,component_1,2004-02-20,2004-02-25,group_0048_AA,2004,G48_component_1,Oithona similis,110
+48,AA,266,3,2,component_2,2004-02-20,2004-02-25,group_0048_AA,2004,G48_component_2,Calanoida indet (small),111
+49,AA,133,2,2,component_1,2004-02-28,2004-03-01,group_0049_AA,2004,G49_component_1,Oithona similis,112
+49,AA,133,2,2,component_2,2004-02-28,2004-03-01,group_0049_AA,2004,G49_component_2,Calanoida indet (small),113
+50,AA,33,1,2,component_1,2004-03-03,2004-03-03,group_0050_AA,2004,G50_component_1,Calanus simillimus,114
+50,AA,33,1,2,component_2,2004-03-03,2004-03-03,group_0050_AA,2004,G50_component_2,Calanoida indet (small),115
+51,AA,170,2,2,component_1,2004-11-07,2004-11-10,group_0051_AA,2004,G51_component_1,Oithona similis,116
+51,AA,170,2,2,component_2,2004-11-07,2004-11-10,group_0051_AA,2004,G51_component_2,Calanoida indet (small),117
+52,AA,236,3,2,component_1,2004-12-11,2004-12-14,group_0052_AA,2004,G52_component_1,Calanoida indet (small),118
+52,AA,236,3,2,component_2,2004-12-11,2004-12-14,group_0052_AA,2004,G52_component_2,Copepoda nauplius indet,119
+53,AA,173,2,2,component_1,2005-02-23,2005-02-26,group_0053_AA,2005,G53_component_1,Calanoida indet (small),120
+53,AA,173,2,2,component_2,2005-02-23,2005-02-26,group_0053_AA,2005,G53_component_2,Foraminifera indet,121
+54,AA,70,1,2,component_1,2005-02-28,2005-03-01,group_0054_AA,2005,G54_component_1,Calanoida indet (small),122
+54,AA,70,1,2,component_2,2005-02-28,2005-03-01,group_0054_AA,2005,G54_component_2,Oithona similis,123
+55,AA,84,1,2,component_1,2005-03-19,2005-03-20,group_0055_AA,2005,G55_component_1,Calanoida indet (small),124
+55,AA,84,1,2,component_2,2005-03-19,2005-03-20,group_0055_AA,2005,G55_component_2,Oithona similis,125
+56,AA,89,1,2,component_1,2005-03-22,2005-03-23,group_0056_AA,2005,G56_component_1,Calanoida indet (small),126
+56,AA,89,1,2,component_2,2005-03-22,2005-03-23,group_0056_AA,2005,G56_component_2,Calanus simillimus,127
+57,AA,318,4,2,component_1,2005-11-17,2005-11-21,group_0057_AA,2005,G57_component_1,Oithona similis,128
+57,AA,318,4,2,component_2,2005-11-17,2005-11-21,group_0057_AA,2005,G57_component_2,Foraminifera indet,129
+58,AA,81,1,2,component_1,2005-12-04,2005-12-05,group_0058_AA,2005,G58_component_1,Oithona similis,130
+58,AA,81,1,2,component_2,2005-12-04,2005-12-05,group_0058_AA,2005,G58_component_2,Neocalanus tonsus,131
+59,AA,175,2,2,component_1,2005-12-07,2005-12-09,group_0059_AA,2005,G59_component_1,Oithona similis,132
+59,AA,175,2,2,component_2,2005-12-07,2005-12-09,group_0059_AA,2005,G59_component_2,Foraminifera indet,133
+60,AA,251,3,2,component_1,2005-12-20,2005-12-23,group_0060_AA,2005,G60_component_1,Oithona similis,134
+60,AA,251,3,2,component_2,2005-12-20,2005-12-23,group_0060_AA,2005,G60_component_2,Calanoida indet (small),135
+61,AA,242,4,2,component_1,2006-01-06,2006-01-10,group_0061_AA,2006,G61_component_1,Oithona similis,136
+61,AA,242,4,2,component_2,2006-01-06,2006-01-10,group_0061_AA,2006,G61_component_2,Calanus simillimus,137
+62,AA,358,5,2,component_1,2006-03-04,2006-03-09,group_0062_AA,2006,G62_component_1,Limacina sp.,138
+62,AA,358,5,2,component_2,2006-03-04,2006-03-09,group_0062_AA,2006,G62_component_2,Calanus simillimus,139
+63,AA,166,3,2,component_1,2006-03-18,2006-03-21,group_0063_AA,2006,G63_component_1,Calanoida indet (small),140
+63,AA,166,3,2,component_2,2006-03-18,2006-03-21,group_0063_AA,2006,G63_component_2,Foraminifera indet,141
+64,AA,83,1,2,component_1,2006-03-30,2006-03-31,group_0064_AA,2006,G64_component_1,Foraminifera indet,142
+64,AA,83,1,2,component_2,2006-03-30,2006-03-31,group_0064_AA,2006,G64_component_2,Calanoida indet (small),143
+65,AA,275,4,2,component_1,2006-11-24,2006-11-28,group_0065_AA,2006,G65_component_1,Oithona similis,144
+65,AA,275,4,2,component_2,2006-11-24,2006-11-28,group_0065_AA,2006,G65_component_2,Foraminifera indet,145
+66,AA,171,2,2,component_1,2007-01-07,2007-01-10,group_0066_AA,2007,G66_component_1,Calanoida indet (small),146
+66,AA,171,2,2,component_2,2007-01-07,2007-01-10,group_0066_AA,2007,G66_component_2,Oithona similis,147
+67,AA,21,1,2,component_1,2007-02-25,2007-02-25,group_0067_AA,2007,G67_component_1,Thysanoessa macrura F6,148
+67,AA,21,1,2,component_2,2007-02-25,2007-02-25,group_0067_AA,2007,G67_component_2,Limacina sp.,149
+68,AA,328,5,2,component_1,2007-02-26,2007-03-05,group_0068_AA,2007,G68_component_1,Calanus simillimus,150
+68,AA,328,5,2,component_2,2007-02-26,2007-03-05,group_0068_AA,2007,G68_component_2,Calanoida indet (small),151
+69,AA,244,3,2,component_1,2007-03-26,2007-03-30,group_0069_AA,2007,G69_component_1,Calanoida indet (small),152
+69,AA,244,3,2,component_2,2007-03-26,2007-03-30,group_0069_AA,2007,G69_component_2,Calanus simillimus,153
+70,AA,358,4,2,component_1,2007-11-25,2007-11-30,group_0070_AA,2007,G70_component_1,Calanoida indet (small),154
+70,AA,358,4,2,component_2,2007-11-25,2007-11-30,group_0070_AA,2007,G70_component_2,Oithona similis,155
+71,AA,210,3,2,component_1,2007-12-17,2007-12-21,group_0071_AA,2007,G71_component_1,Calanoida indet (small),156
+71,AA,210,3,2,component_2,2007-12-17,2007-12-21,group_0071_AA,2007,G71_component_2,Oithona similis,157
+72,AA,166,2,2,component_1,2008-01-21,2008-01-24,group_0072_AA,2008,G72_component_1,Calanoida indet (small),158
+72,AA,166,2,2,component_2,2008-01-21,2008-01-24,group_0072_AA,2008,G72_component_2,Calanus simillimus,159
+73,AA,253,3,2,component_1,2008-02-02,2008-02-07,group_0073_AA,2008,G73_component_1,Oithona similis,160
+73,AA,253,3,2,component_2,2008-02-02,2008-02-07,group_0073_AA,2008,G73_component_2,Calanus simillimus,161
+74,AA,254,3,2,component_1,2008-03-10,2008-03-14,group_0074_AA,2008,G74_component_1,Calanoida indet (small),162
+74,AA,254,3,2,component_2,2008-03-10,2008-03-14,group_0074_AA,2008,G74_component_2,Oithona similis,163
+75,AA,254,6,2,component_1,2008-03-22,2008-03-27,group_0075_AA,2008,G75_component_1,Calanoida indet (small),164
+75,AA,254,6,2,component_2,2008-03-22,2008-03-27,group_0075_AA,2008,G75_component_2,Oithona similis,165
+76,AA,209,3,3,component_1,2008-11-25,2008-11-28,group_0076_AA,2008,G76_component_1,Calanoida indet (small),166
+76,AA,209,3,3,component_2,2008-11-25,2008-11-28,group_0076_AA,2008,G76_component_2,Oithona similis,167
+76,AA,209,3,3,component_3,2008-11-25,2008-11-28,group_0076_AA,2008,G76_component_3,Neocalanus tonsus,168
+77,AA,470,9,2,component_1,2009-01-03,2009-01-11,group_0077_AA,2009,G77_component_1,Calanoida indet (small),169
+77,AA,470,9,2,component_2,2009-01-03,2009-01-11,group_0077_AA,2009,G77_component_2,Calanus simillimus,170
+78,AA,200,4,2,component_1,2009-02-15,2009-02-18,group_0078_AA,2009,G78_component_1,Calanoida indet (small),171
+78,AA,200,4,2,component_2,2009-02-15,2009-02-18,group_0078_AA,2009,G78_component_2,Neocalanus tonsus,172
+79,AA,175,3,2,component_1,2009-02-25,2009-03-01,group_0079_AA,2009,G79_component_1,Calanoida indet (small),173
+79,AA,175,3,2,component_2,2009-02-25,2009-03-01,group_0079_AA,2009,G79_component_2,Oithona similis,174
+80,AA,186,3,2,component_1,2009-03-03,2009-03-07,group_0080_AA,2009,G80_component_1,Oithona similis,175
+80,AA,186,3,2,component_2,2009-03-03,2009-03-07,group_0080_AA,2009,G80_component_2,Calanoida indet (small),176
+81,AA,293,4,2,component_1,2009-11-01,2009-11-07,group_0081_AA,2009,G81_component_1,Oithona similis,177
+81,AA,293,4,2,component_2,2009-11-01,2009-11-07,group_0081_AA,2009,G81_component_2,Calanoida indet (small),178
+82,AA,216,4,2,component_1,2009-12-09,2009-12-13,group_0082_AA,2009,G82_component_1,Foraminifera indet,179
+82,AA,216,4,2,component_2,2009-12-09,2009-12-13,group_0082_AA,2009,G82_component_2,Oithona similis,180
+83,AA,363,6,2,component_1,2010-01-26,2010-02-03,group_0083_AA,2010,G83_component_1,Calanoida indet (small),181
+83,AA,363,6,2,component_2,2010-01-26,2010-02-03,group_0083_AA,2010,G83_component_2,Oithona similis,182
+84,AA,487,6,2,component_1,2010-02-17,2010-02-26,group_0084_AA,2010,G84_component_1,Calanoida indet (small),183
+84,AA,487,6,2,component_2,2010-02-17,2010-02-26,group_0084_AA,2010,G84_component_2,Oithona similis,184
+85,AA,355,4,2,component_1,2010-03-22,2010-03-27,group_0085_AA,2010,G85_component_1,Oithona similis,185
+85,AA,355,4,2,component_2,2010-03-22,2010-03-27,group_0085_AA,2010,G85_component_2,Calanoida indet (small),186
+86,AA,339,4,2,component_1,2010-12-10,2010-12-16,group_0086_AA,2010,G86_component_1,Calanoida indet (small),187
+86,AA,339,4,2,component_2,2010-12-10,2010-12-16,group_0086_AA,2010,G86_component_2,Oithona similis,188
+87,AA,70,1,2,component_1,2011-02-01,2011-02-02,group_0087_AA,2011,G87_component_1,Oithona similis,189
+87,AA,70,1,2,component_2,2011-02-01,2011-02-02,group_0087_AA,2011,G87_component_2,Calanoida indet (small),190
+88,AA,63,1,3,component_1,2011-02-04,2011-02-05,group_0088_AA,2011,G88_component_1,Clausocalanus brevipes,191
+88,AA,63,1,3,component_2,2011-02-04,2011-02-05,group_0088_AA,2011,G88_component_2,Neocalanus tonsus,192
+88,AA,63,1,3,component_3,2011-02-04,2011-02-05,group_0088_AA,2011,G88_component_3,Oithona similis,193
+89,AA,502,7,2,component_1,2011-02-08,2011-02-18,group_0089_AA,2011,G89_component_1,Calanoida indet (small),194
+89,AA,502,7,2,component_2,2011-02-08,2011-02-18,group_0089_AA,2011,G89_component_2,Calanus simillimus,195
+90,AA,464,6,2,component_1,2011-03-19,2011-03-28,group_0090_AA,2011,G90_component_1,Calanoida indet (small),196
+90,AA,464,6,2,component_2,2011-03-19,2011-03-28,group_0090_AA,2011,G90_component_2,Limacina sp.,197
+91,AA,253,3,2,component_1,2011-12-02,2011-12-07,group_0091_AA,2011,G91_component_1,Oithona similis,198
+91,AA,253,3,2,component_2,2011-12-02,2011-12-07,group_0091_AA,2011,G91_component_2,Calanoida indet (small),199
+92,AA,177,2,2,component_1,2012-01-06,2012-01-09,group_0092_AA,2012,G92_component_1,Calanoida indet (small),200
+92,AA,177,2,2,component_2,2012-01-06,2012-01-09,group_0092_AA,2012,G92_component_2,Calanus simillimus,201
+93,AA,302,4,2,component_1,2012-02-18,2012-02-23,group_0093_AA,2012,G93_component_1,Calanoida indet (small),202
+93,AA,302,4,2,component_2,2012-02-18,2012-02-23,group_0093_AA,2012,G93_component_2,Calanus simillimus,203
+94,AA,417,5,2,component_1,2012-03-17,2012-03-26,group_0094_AA,2012,G94_component_1,Calanoida indet (small),204
+94,AA,417,5,2,component_2,2012-03-17,2012-03-26,group_0094_AA,2012,G94_component_2,Oithona similis,205
+95,AA,259,3,2,component_1,2012-11-11,2012-11-15,group_0095_AA,2012,G95_component_1,Oithona similis,206
+95,AA,259,3,2,component_2,2012-11-11,2012-11-15,group_0095_AA,2012,G95_component_2,Calanoida indet (small),207
+96,AA,405,5,2,component_1,2012-11-19,2012-11-26,group_0096_AA,2012,G96_component_1,Oithona similis,208
+96,AA,405,5,2,component_2,2012-11-19,2012-11-26,group_0096_AA,2012,G96_component_2,Calanoida indet (small),209
+97,AA,251,4,3,component_1,2012-12-17,2012-12-23,group_0097_AA,2012,G97_component_1,Oithona similis,210
+97,AA,251,4,3,component_2,2012-12-17,2012-12-23,group_0097_AA,2012,G97_component_2,Calanoida indet (small),211
+97,AA,251,4,3,component_3,2012-12-17,2012-12-23,group_0097_AA,2012,G97_component_3,Neocalanus tonsus,212
+98,AA,300,5,2,component_1,2013-01-02,2013-01-07,group_0098_AA,2013,G98_component_1,Oithona similis,213
+98,AA,300,5,2,component_2,2013-01-02,2013-01-07,group_0098_AA,2013,G98_component_2,Calanoida indet (small),214
+99,AA,368,5,2,component_1,2013-02-15,2013-02-21,group_0099_AA,2013,G99_component_1,Oithona similis,215
+99,AA,368,5,2,component_2,2013-02-15,2013-02-21,group_0099_AA,2013,G99_component_2,Calanoida indet (small),216
+100,AA,245,3,2,component_1,2013-12-15,2013-12-19,group_0100_AA,2013,G100_component_1,Oithona similis,217
+100,AA,245,3,2,component_2,2013-12-15,2013-12-19,group_0100_AA,2013,G100_component_2,Calanoida indet (small),218
+101,AA,270,4,2,component_1,2014-01-16,2014-01-20,group_0101_AA,2014,G101_component_1,Calanoida indet (small),219
+101,AA,270,4,2,component_2,2014-01-16,2014-01-20,group_0101_AA,2014,G101_component_2,Oithona similis,220
+102,AA,435,5,2,component_1,2014-02-20,2014-02-26,group_0102_AA,2014,G102_component_1,Oithona similis,221
+102,AA,435,5,2,component_2,2014-02-20,2014-02-26,group_0102_AA,2014,G102_component_2,Calanus simillimus,222
+103,AA,247,3,2,component_1,2014-12-07,2014-12-11,group_0103_AA,2014,G103_component_1,Calanoida indet (small),223
+103,AA,247,3,2,component_2,2014-12-07,2014-12-11,group_0103_AA,2014,G103_component_2,Oithona similis,224
+104,AA,387,5,2,component_1,2015-01-30,2015-02-05,group_0104_AA,2015,G104_component_1,Calanoida indet (small),225
+104,AA,387,5,2,component_2,2015-01-30,2015-02-05,group_0104_AA,2015,G104_component_2,Limacina sp.,226
+105,AA,197,4,2,component_1,2015-11-01,2015-11-04,group_0105_AA,2015,G105_component_1,Calanoida indet (small),227
+105,AA,197,4,2,component_2,2015-11-01,2015-11-04,group_0105_AA,2015,G105_component_2,Oithona similis,228
+106,AA,266,3,2,component_1,2015-12-11,2015-12-16,group_0106_AA,2015,G106_component_1,Calanoida indet (small),229
+106,AA,266,3,2,component_2,2015-12-11,2015-12-16,group_0106_AA,2015,G106_component_2,Oithona similis,230
+107,AA,274,3,2,component_1,2016-01-01,2016-01-05,group_0107_AA,2016,G107_component_1,Calanoida indet (small),231
+107,AA,274,3,2,component_2,2016-01-01,2016-01-05,group_0107_AA,2016,G107_component_2,Calanoida indet (small),232
+108,AA,334,4,2,component_1,2016-01-13,2016-01-20,group_0108_AA,2016,G108_component_1,Calanoida indet (small),233
+108,AA,334,4,2,component_2,2016-01-13,2016-01-20,group_0108_AA,2016,G108_component_2,Oithona similis,234
+109,AA,107,2,2,component_1,2016-11-01,2016-11-03,group_0109_AA,2016,G109_component_1,Calanoida indet (small),235
+109,AA,107,2,2,component_2,2016-11-01,2016-11-03,group_0109_AA,2016,G109_component_2,Oithona similis,236
+110,AA,249,4,2,component_1,2016-12-09,2016-12-14,group_0110_AA,2016,G110_component_1,Oithona similis,237
+110,AA,249,4,2,component_2,2016-12-09,2016-12-14,group_0110_AA,2016,G110_component_2,Calanoida indet (small),238
+111,AA,89,1,2,component_1,2017-01-16,2017-01-18,group_0111_AA,2017,G111_component_1,Calanoida indet (small),239
+111,AA,89,1,2,component_2,2017-01-16,2017-01-18,group_0111_AA,2017,G111_component_2,Oithona similis,240
+112,AA,368,5,2,component_1,2017-01-26,2017-02-03,group_0112_AA,2017,G112_component_1,Oithona similis,241
+112,AA,368,5,2,component_2,2017-01-26,2017-02-03,group_0112_AA,2017,G112_component_2,Calanoida indet (small),242
+113,AA,9,1,2,component_1,2017-02-04,2017-02-04,group_0113_AA,2017,G113_component_1,Oithona similis,243
+113,AA,9,1,2,component_2,2017-02-04,2017-02-04,group_0113_AA,2017,G113_component_2,Calanoida indet (small),244
+114,AA,315,4,2,component_1,2017-11-02,2017-11-09,group_0114_AA,2017,G114_component_1,Calanoida indet (small),245
+114,AA,315,4,2,component_2,2017-11-02,2017-11-09,group_0114_AA,2017,G114_component_2,Fritillaria sp.,246
+115,AA,303,5,2,component_1,2017-12-13,2017-12-19,group_0115_AA,2017,G115_component_1,Calanoida indet (small),247
+115,AA,303,5,2,component_2,2017-12-13,2017-12-19,group_0115_AA,2017,G115_component_2,Oithona similis,248
+116,AA,67,1,2,component_1,2018-01-09,2018-01-10,group_0116_AA,2018,G116_component_1,Oithona similis,249
+116,AA,67,1,2,component_2,2018-01-09,2018-01-10,group_0116_AA,2018,G116_component_2,Calanoida indet (small),250
+117,AA,250,3,2,component_1,2018-01-17,2018-01-22,group_0117_AA,2018,G117_component_1,Calanoida indet (small),251
+117,AA,250,3,2,component_2,2018-01-17,2018-01-22,group_0117_AA,2018,G117_component_2,Neocalanus tonsus,252
+118,AA,73,1,2,component_1,2018-03-09,2018-03-11,group_0118_AA,2018,G118_component_1,Clausocalanus brevipes,253
+118,AA,73,1,2,component_2,2018-03-09,2018-03-11,group_0118_AA,2018,G118_component_2,Calanoida indet (small),254
+119,AA,72,1,2,component_1,2018-03-22,2018-03-24,group_0119_AA,2018,G119_component_1,Calanoida indet (small),255
+119,AA,72,1,2,component_2,2018-03-22,2018-03-24,group_0119_AA,2018,G119_component_2,Calanoida indet (small),256
+120,AA,187,3,2,component_1,2018-12-07,2018-12-10,group_0120_AA,2018,G120_component_1,Oithona similis,257
+120,AA,187,3,2,component_2,2018-12-07,2018-12-10,group_0120_AA,2018,G120_component_2,Calanoida indet (small),258
+121,AA,225,3,2,component_1,2019-01-15,2019-01-18,group_0121_AA,2019,G121_component_1,Calanoida indet (small),259
+121,AA,225,3,2,component_2,2019-01-15,2019-01-18,group_0121_AA,2019,G121_component_2,Calanus simillimus,260
+122,AA,153,2,2,component_1,2019-11-01,2019-11-04,group_0122_AA,2019,G122_component_1,Calanoida indet (small),261
+122,AA,153,2,2,component_2,2019-11-01,2019-11-04,group_0122_AA,2019,G122_component_2,Oithona similis,262
+123,AA,24,1,2,component_1,2019-12-23,2019-12-23,group_0123_AA,2019,G123_component_1,Calanoida indet (small),263
+123,AA,24,1,2,component_2,2019-12-23,2019-12-23,group_0123_AA,2019,G123_component_2,Clausocalanus brevipes,264
+124,AA,21,1,2,component_1,2020-01-22,2020-01-22,group_0124_AA,2020,G124_component_1,Neocalanus tonsus,265
+124,AA,21,1,2,component_2,2020-01-22,2020-01-22,group_0124_AA,2020,G124_component_2,Oithona similis,266
+125,AF,176,2,2,component_1,2008-01-26,2008-01-29,group_0125_AF,2008,G125_component_1,Calanoida indet (small),267
+125,AF,176,2,2,component_2,2008-01-26,2008-01-29,group_0125_AF,2008,G125_component_2,Oithona similis,268
+126,AF,88,1,2,component_1,2008-02-17,2008-02-18,group_0126_AF,2008,G126_component_1,Euphausia superba,269
+126,AF,88,1,2,component_2,2008-02-17,2008-02-18,group_0126_AF,2008,G126_component_2,Oithona similis,270
+127,HM,20,1,2,component_1,2002-01-10,2002-01-10,group_0127_HM,2002,G127_component_1,Fritillaria sp.,271
+127,HM,20,1,2,component_2,2002-01-10,2002-01-10,group_0127_HM,2002,G127_component_2,Oithona similis,272
+128,HM,36,3,2,component_1,2002-01-13,2002-01-14,group_0128_HM,2002,G128_component_1,Oithona similis,273
+128,HM,36,3,2,component_2,2002-01-13,2002-01-14,group_0128_HM,2002,G128_component_2,Fritillaria sp.,274
+129,HM,11,1,2,component_1,2002-01-15,2002-01-15,group_0129_HM,2002,G129_component_1,Oithona similis,275
+129,HM,11,1,2,component_2,2002-01-15,2002-01-15,group_0129_HM,2002,G129_component_2,Oithona similis,276
+130,HM,96,2,2,component_1,2002-01-17,2002-01-19,group_0130_HM,2002,G130_component_1,Foraminifera indet,277
+130,HM,96,2,2,component_2,2002-01-17,2002-01-19,group_0130_HM,2002,G130_component_2,Oithona similis,278
+131,IN,193,5,2,component_1,2019-01-20,2019-01-25,group_0131_IN,2019,G131_component_1,Calanoida indet (small),279
+131,IN,193,5,2,component_2,2019-01-20,2019-01-25,group_0131_IN,2019,G131_component_2,Calanus simillimus,280
+132,IN,29,2,2,component_1,2019-02-26,2019-02-27,group_0132_IN,2019,G132_component_1,Calanus simillimus,281
+132,IN,29,2,2,component_2,2019-02-26,2019-02-27,group_0132_IN,2019,G132_component_2,Foraminifera indet,282
+133,IN,5,1,2,component_1,2019-02-28,2019-03-01,group_0133_IN,2019,G133_component_1,Calanus simillimus,283
+133,IN,5,1,2,component_2,2019-02-28,2019-03-01,group_0133_IN,2019,G133_component_2,Calanoida indet (small),284
+134,IN,35,1,2,component_1,2019-03-02,2019-03-02,group_0134_IN,2019,G134_component_1,Calanoida indet (small),285
+134,IN,35,1,2,component_2,2019-03-02,2019-03-02,group_0134_IN,2019,G134_component_2,Calanoida indet (small),286
+135,IN,373,6,2,component_1,2021-01-30,2021-02-08,group_0135_IN,2021,G135_component_1,Oithona similis,287
+135,IN,373,6,2,component_2,2021-01-30,2021-02-08,group_0135_IN,2021,G135_component_2,Neocalanus tonsus,288
+136,IN,10,1,2,component_1,2021-03-22,2021-03-22,group_0136_IN,2021,G136_component_1,Calanoida indet (small),289
+136,IN,10,1,2,component_2,2021-03-22,2021-03-22,group_0136_IN,2021,G136_component_2,Oikopleura sp.,290
+137,IN,85,2,2,component_1,2023-02-13,2023-02-15,group_0137_IN,2023,G137_component_1,Calanoida indet (small),291
+137,IN,85,2,2,component_2,2023-02-13,2023-02-15,group_0137_IN,2023,G137_component_2,Oithona similis,292
+138,IN,92,2,2,component_1,2023-02-16,2023-02-18,group_0138_IN,2023,G138_component_1,Calanus simillimus,293
+138,IN,92,2,2,component_2,2023-02-16,2023-02-18,group_0138_IN,2023,G138_component_2,Oithona similis,294
+139,KM,98,4,2,component_1,1999-11-24,1999-11-25,group_0139_KM,1999,G139_component_1,Oithona similis,295
+139,KM,98,4,2,component_2,1999-11-24,1999-11-25,group_0139_KM,1999,G139_component_2,Calanoida indet (small),296
+140,KM,180,2,2,component_1,2000-02-07,2000-02-09,group_0140_KM,2000,G140_component_1,Calanoida indet (small),297
+140,KM,180,2,2,component_2,2000-02-07,2000-02-09,group_0140_KM,2000,G140_component_2,Oithona similis,298
+141,PS,19,1,2,component_1,2004-03-31,2004-03-31,group_0141_PS,2004,G141_component_1,Clausocalanus laticeps,299
+141,PS,19,1,2,component_2,2004-03-31,2004-03-31,group_0141_PS,2004,G141_component_2,Calanoida indet (small),300
+142,PS,113,2,2,component_1,2007-12-02,2007-12-05,group_0142_PS,2007,G142_component_1,Calanoida indet (small),301
+142,PS,113,2,2,component_2,2007-12-02,2007-12-05,group_0142_PS,2007,G142_component_2,Oithona similis,302
+143,PS,96,2,2,component_1,2007-12-07,2007-12-09,group_0143_PS,2007,G143_component_1,Oithona similis,303
+143,PS,96,2,2,component_2,2007-12-07,2007-12-09,group_0143_PS,2007,G143_component_2,Fritillaria sp.,304
+144,PS,28,1,2,component_1,2008-01-30,2008-01-31,group_0144_PS,2008,G144_component_1,Calanus simillimus,305
+144,PS,28,1,2,component_2,2008-01-30,2008-01-31,group_0144_PS,2008,G144_component_2,Calanoida indet (small),306
+145,SA,86,3,2,component_1,2008-12-19,2008-12-21,group_0145_SA,2008,G145_component_1,Calanoida indet (small),307
+145,SA,86,3,2,component_2,2008-12-19,2008-12-21,group_0145_SA,2008,G145_component_2,Oithona similis,308
+146,SA,94,2,2,component_1,2008-12-23,2008-12-26,group_0146_SA,2008,G146_component_1,Foraminifera indet,309
+146,SA,94,2,2,component_2,2008-12-23,2008-12-26,group_0146_SA,2008,G146_component_2,Copepoda nauplius indet,310
+147,SA,36,1,2,component_1,2009-01-23,2009-01-23,group_0147_SA,2009,G147_component_1,Calanoides acutus,311
+147,SA,36,1,2,component_2,2009-01-23,2009-01-23,group_0147_SA,2009,G147_component_2,Fritillaria sp.,312
+148,SA,245,5,2,component_1,2009-01-27,2009-02-02,group_0148_SA,2009,G148_component_1,Foraminifera indet,313
+148,SA,245,5,2,component_2,2009-01-27,2009-02-02,group_0148_SA,2009,G148_component_2,Calanoida indet (small),314
+149,SA,162,2,2,component_1,2009-12-13,2009-12-17,group_0149_SA,2009,G149_component_1,Fritillaria sp.,315
+149,SA,162,2,2,component_2,2009-12-13,2009-12-17,group_0149_SA,2009,G149_component_2,Oithona similis,316
+150,SA,306,4,2,component_1,2010-02-09,2010-02-17,group_0150_SA,2010,G150_component_1,Oithona similis,317
+150,SA,306,4,2,component_2,2010-02-09,2010-02-17,group_0150_SA,2010,G150_component_2,Calanoida indet (small),318
+151,SA,192,3,2,component_1,2010-11-23,2010-11-27,group_0151_SA,2010,G151_component_1,Calanoida indet (small),319
+151,SA,192,3,2,component_2,2010-11-23,2010-11-27,group_0151_SA,2010,G151_component_2,Fritillaria sp.,320
+152,SA,161,4,2,component_1,2011-01-15,2011-01-18,group_0152_SA,2011,G152_component_1,Oithona similis,321
+152,SA,161,4,2,component_2,2011-01-15,2011-01-18,group_0152_SA,2011,G152_component_2,Oithona similis,322
+153,SA,189,3,2,component_1,2011-01-19,2011-01-23,group_0153_SA,2011,G153_component_1,Calanoida indet (small),323
+153,SA,189,3,2,component_2,2011-01-19,2011-01-23,group_0153_SA,2011,G153_component_2,Paracalanus sp.,324
+154,SA,227,4,2,component_1,2011-11-28,2011-12-04,group_0154_SA,2011,G154_component_1,Oithona similis,325
+154,SA,227,4,2,component_2,2011-11-28,2011-12-04,group_0154_SA,2011,G154_component_2,Ctenocalanus sp.,326
+155,SA,177,2,2,component_1,2012-02-22,2012-02-26,group_0155_SA,2012,G155_component_1,Oithona similis,327
+155,SA,177,2,2,component_2,2012-02-22,2012-02-26,group_0155_SA,2012,G155_component_2,Fritillaria sp.,328
+156,SA,37,1,2,component_1,2012-12-03,2012-12-04,group_0156_SA,2012,G156_component_1,Oithona similis,329
+156,SA,37,1,2,component_2,2012-12-03,2012-12-04,group_0156_SA,2012,G156_component_2,Fritillaria sp.,330
+157,SA,84,2,3,component_1,2012-12-06,2012-12-08,group_0157_SA,2012,G157_component_1,Oithona similis,331
+157,SA,84,2,3,component_2,2012-12-06,2012-12-08,group_0157_SA,2012,G157_component_2,Foraminifera indet,332
+157,SA,84,2,3,component_3,2012-12-06,2012-12-08,group_0157_SA,2012,G157_component_3,Calanoida indet (small),333
+158,SA,59,1,2,component_1,2013-01-26,2013-01-27,group_0158_SA,2013,G158_component_1,Limacina sp.,334
+158,SA,59,1,2,component_2,2013-01-26,2013-01-27,group_0158_SA,2013,G158_component_2,Calanoida indet (small),335
+159,SA,324,5,2,component_1,2013-02-14,2013-02-24,group_0159_SA,2013,G159_component_1,Clausocalanus sp.,336
+159,SA,324,5,2,component_2,2013-02-14,2013-02-24,group_0159_SA,2013,G159_component_2,Oithona similis,337
+160,SA,8,1,3,component_1,2013-11-30,2013-11-30,group_0160_SA,2013,G160_component_1,Paracalanus sp.,338
+160,SA,8,1,3,component_2,2013-11-30,2013-11-30,group_0160_SA,2013,G160_component_2,Calanoida indet (small),339
+160,SA,8,1,3,component_3,2013-11-30,2013-11-30,group_0160_SA,2013,G160_component_3,Acartia sp.,340
+161,SA,168,3,2,component_1,2013-12-04,2013-12-09,group_0161_SA,2013,G161_component_1,Oithona similis,341
+161,SA,168,3,2,component_2,2013-12-04,2013-12-09,group_0161_SA,2013,G161_component_2,Foraminifera indet,342
+162,SA,225,4,2,component_1,2014-02-03,2014-02-09,group_0162_SA,2014,G162_component_1,Calanus simillimus,343
+162,SA,225,4,2,component_2,2014-02-03,2014-02-09,group_0162_SA,2014,G162_component_2,Oithona similis,344
+163,SA,48,1,3,component_1,2014-02-10,2014-02-11,group_0163_SA,2014,G163_component_1,Foraminifera indet,345
+163,SA,48,1,3,component_2,2014-02-10,2014-02-11,group_0163_SA,2014,G163_component_2,Paracalanus sp.,346
+163,SA,48,1,3,component_3,2014-02-10,2014-02-11,group_0163_SA,2014,G163_component_3,Acartia sp.,347
+164,SA,108,2,2,component_1,2014-12-06,2014-12-08,group_0164_SA,2014,G164_component_1,Oithona similis,348
+164,SA,108,2,2,component_2,2014-12-06,2014-12-08,group_0164_SA,2014,G164_component_2,Fritillaria sp.,349
+165,SA,94,3,3,component_1,2015-02-02,2015-02-04,group_0165_SA,2015,G165_component_1,Limacina sp.,350
+165,SA,94,3,3,component_2,2015-02-02,2015-02-04,group_0165_SA,2015,G165_component_2,Oithona similis,351
+165,SA,94,3,3,component_3,2015-02-02,2015-02-04,group_0165_SA,2015,G165_component_3,Fritillaria sp.,352
+166,SA,80,2,2,component_1,2015-02-23,2015-02-25,group_0166_SA,2015,G166_component_1,Fritillaria sp.,353
+166,SA,80,2,2,component_2,2015-02-23,2015-02-25,group_0166_SA,2015,G166_component_2,Ctenocalanus sp.,354
+167,SA,167,2,3,component_1,2015-02-26,2015-03-03,group_0167_SA,2015,G167_component_1,Foraminifera indet,355
+167,SA,167,2,3,component_2,2015-02-26,2015-03-03,group_0167_SA,2015,G167_component_2,Calanus simillimus,356
+167,SA,167,2,3,component_3,2015-02-26,2015-03-03,group_0167_SA,2015,G167_component_3,Calanoida indet (small),357
+168,SA,72,1,3,component_1,2015-11-24,2015-11-25,group_0168_SA,2015,G168_component_1,Foraminifera indet,358
+168,SA,72,1,3,component_2,2015-11-24,2015-11-25,group_0168_SA,2015,G168_component_2,Calanoida indet (small),359
+168,SA,72,1,3,component_3,2015-11-24,2015-11-25,group_0168_SA,2015,G168_component_3,Metridia lucens,360
+169,SA,8,1,2,component_1,2015-11-27,2015-11-28,group_0169_SA,2015,G169_component_1,Fritillaria sp.,361
+169,SA,8,1,2,component_2,2015-11-27,2015-11-28,group_0169_SA,2015,G169_component_2,Foraminifera indet,362
+170,SA,385,5,2,component_1,2016-02-04,2016-02-13,group_0170_SA,2016,G170_component_1,Fritillaria sp.,363
+170,SA,385,5,2,component_2,2016-02-04,2016-02-13,group_0170_SA,2016,G170_component_2,Foraminifera indet,364
+172,SA,50,1,2,component_1,2016-12-31,2017-01-02,group_0172_SA,2016,G172_component_1,Fritillaria sp.,365
+172,SA,50,1,2,component_2,2016-12-31,2017-01-02,group_0172_SA,2016,G172_component_2,Pleuragramma antarctica,366
+173,SA,385,4,2,component_1,2017-01-11,2017-01-19,group_0173_SA,2017,G173_component_1,Oithona similis,367
+173,SA,385,4,2,component_2,2017-01-11,2017-01-19,group_0173_SA,2017,G173_component_2,Fritillaria sp.,368
+174,SA,82,1,2,component_1,2017-11-18,2017-11-20,group_0174_SA,2017,G174_component_1,Oithona similis,369
+174,SA,82,1,2,component_2,2017-11-18,2017-11-20,group_0174_SA,2017,G174_component_2,Foraminifera indet,370
+175,SA,83,1,2,component_1,2017-11-22,2017-11-24,group_0175_SA,2017,G175_component_1,Oithona similis,371
+175,SA,83,1,2,component_2,2017-11-22,2017-11-24,group_0175_SA,2017,G175_component_2,Foraminifera indet,372
+176,SA,273,4,2,component_1,2018-01-28,2018-02-03,group_0176_SA,2018,G176_component_1,Oithona similis,373
+176,SA,273,4,2,component_2,2018-01-28,2018-02-03,group_0176_SA,2018,G176_component_2,Copepoda nauplius indet,374
+177,SA,49,1,2,component_1,2018-02-05,2018-02-06,group_0177_SA,2018,G177_component_1,Limacina sp.,375
+177,SA,49,1,2,component_2,2018-02-05,2018-02-06,group_0177_SA,2018,G177_component_2,Globigerina bulloides,376
+178,SA,60,2,2,component_1,2019-01-06,2019-01-08,group_0178_SA,2019,G178_component_1,Oithona similis,377
+178,SA,60,2,2,component_2,2019-01-06,2019-01-08,group_0178_SA,2019,G178_component_2,Euphausiidae metanauplius indet,378
+179,SA,48,1,2,component_1,2019-01-19,2019-01-20,group_0179_SA,2019,G179_component_1,Copepoda nauplius indet,379
+179,SA,48,1,2,component_2,2019-01-19,2019-01-20,group_0179_SA,2019,G179_component_2,Oithona similis,380
+180,SA,367,4,3,component_1,2019-01-23,2019-01-31,group_0180_SA,2019,G180_component_1,Oithona similis,381
+180,SA,367,4,3,component_2,2019-01-23,2019-01-31,group_0180_SA,2019,G180_component_2,Calanus simillimus,382
+180,SA,367,4,3,component_3,2019-01-23,2019-01-31,group_0180_SA,2019,G180_component_3,Copepoda nauplius indet,383
+181,SA,223,3,2,component_1,2019-11-19,2019-11-25,group_0181_SA,2019,G181_component_1,Oithona similis,384
+181,SA,223,3,2,component_2,2019-11-19,2019-11-25,group_0181_SA,2019,G181_component_2,Fritillaria sp.,385
+182,SA,32,1,2,component_1,2020-11-23,2020-11-23,group_0182_SA,2020,G182_component_1,Oithona similis,386
+182,SA,32,1,2,component_2,2020-11-23,2020-11-23,group_0182_SA,2020,G182_component_2,Clausocalanus sp.,387
+183,SA,67,1,2,component_1,2020-11-26,2020-11-27,group_0183_SA,2020,G183_component_1,Copepoda nauplius indet,388
+183,SA,67,1,2,component_2,2020-11-26,2020-11-27,group_0183_SA,2020,G183_component_2,Oithona similis,389
+184,SA,12,1,2,component_1,2021-01-14,2021-01-15,group_0184_SA,2021,G184_component_1,Euphausia superba,390
+184,SA,12,1,2,component_2,2021-01-14,2021-01-15,group_0184_SA,2021,G184_component_2,Euphausia superba,391
+185,SA,25,1,2,component_1,2021-01-27,2021-01-28,group_0185_SA,2021,G185_component_1,Oithona similis,392
+185,SA,25,1,2,component_2,2021-01-27,2021-01-28,group_0185_SA,2021,G185_component_2,Limacina sp.,393
+186,SA,234,3,2,component_1,2021-02-01,2021-02-06,group_0186_SA,2021,G186_component_1,Copepoda nauplius indet,394
+186,SA,234,3,2,component_2,2021-02-01,2021-02-06,group_0186_SA,2021,G186_component_2,Oithona similis,395
+187,SA,148,2,2,component_1,2021-11-17,2021-11-20,group_0187_SA,2021,G187_component_1,Globigerina bulloides,396
+187,SA,148,2,2,component_2,2021-11-17,2021-11-20,group_0187_SA,2021,G187_component_2,Ctenocalanus sp.,397
+188,SA,58,1,3,component_1,2022-01-06,2022-01-07,group_0188_SA,2022,G188_component_1,Globigerina bulloides,398
+188,SA,58,1,3,component_2,2022-01-06,2022-01-07,group_0188_SA,2022,G188_component_2,Euphausia superba,399
+188,SA,58,1,3,component_3,2022-01-06,2022-01-07,group_0188_SA,2022,G188_component_3,Limacina sp.,400
+189,SA,72,1,2,component_1,2022-02-01,2022-02-04,group_0189_SA,2022,G189_component_1,Neocalanus tonsus,401
+189,SA,72,1,2,component_2,2022-02-01,2022-02-04,group_0189_SA,2022,G189_component_2,Calanoida indet (small),402
+190,SA,144,2,2,component_1,2022-11-24,2022-11-27,group_0190_SA,2022,G190_component_1,Oithona similis,403
+190,SA,144,2,2,component_2,2022-11-24,2022-11-27,group_0190_SA,2022,G190_component_2,Calanoida indet (small),404
+191,SA,208,3,2,component_1,2023-01-10,2023-01-14,group_0191_SA,2023,G191_component_1,Oithona similis,405
+191,SA,208,3,2,component_2,2023-01-10,2023-01-14,group_0191_SA,2023,G191_component_2,Copepoda indet,406
+192,SH,110,3,2,component_1,1999-12-07,1999-12-09,group_0192_SH,1999,G192_component_1,Oithona similis,407
+192,SH,110,3,2,component_2,1999-12-07,1999-12-09,group_0192_SH,1999,G192_component_2,Calanoida indet (small),408
+193,SH,275,5,2,component_1,2000-03-09,2000-03-16,group_0193_SH,2000,G193_component_1,Limacina sp.,409
+193,SH,275,5,2,component_2,2000-03-09,2000-03-16,group_0193_SH,2000,G193_component_2,Oithona similis,410
+194,SH,61,1,2,component_1,2000-12-06,2000-12-07,group_0194_SH,2000,G194_component_1,Oithona similis,411
+194,SH,61,1,2,component_2,2000-12-06,2000-12-07,group_0194_SH,2000,G194_component_2,Calanoida indet (small),412
+195,SH,188,3,2,component_1,2000-12-08,2000-12-11,group_0195_SH,2000,G195_component_1,Oithona similis,413
+195,SH,188,3,2,component_2,2000-12-08,2000-12-11,group_0195_SH,2000,G195_component_2,Nauplius indet,414
+196,SH,138,3,2,component_1,2001-03-14,2001-03-16,group_0196_SH,2001,G196_component_1,Limacina sp.,415
+196,SH,138,3,2,component_2,2001-03-14,2001-03-16,group_0196_SH,2001,G196_component_2,Calanoida indet (small),416
+197,SH,98,2,2,component_1,2001-12-06,2001-12-08,group_0197_SH,2001,G197_component_1,Oithona similis,417
+197,SH,98,2,2,component_2,2001-12-06,2001-12-08,group_0197_SH,2001,G197_component_2,Calanoida indet (small),418
+198,SH,111,2,2,component_1,2002-03-05,2002-03-07,group_0198_SH,2002,G198_component_1,Calanoida indet (small),419
+198,SH,111,2,2,component_2,2002-03-05,2002-03-07,group_0198_SH,2002,G198_component_2,Fritillaria sp.,420
+199,SH,59,2,2,component_1,2002-03-10,2002-03-11,group_0199_SH,2002,G199_component_1,Oithona similis,421
+199,SH,59,2,2,component_2,2002-03-10,2002-03-11,group_0199_SH,2002,G199_component_2,Ctenocalanus citer,422
+200,SH,217,4,2,component_1,2002-03-13,2002-03-17,group_0200_SH,2002,G200_component_1,Calanus simillimus,423
+200,SH,217,4,2,component_2,2002-03-13,2002-03-17,group_0200_SH,2002,G200_component_2,Oithona similis,424
+201,SH,130,2,2,component_1,2002-12-07,2002-12-09,group_0201_SH,2002,G201_component_1,Calanoida indet (small),425
+201,SH,130,2,2,component_2,2002-12-07,2002-12-09,group_0201_SH,2002,G201_component_2,Foraminifera indet,426
+202,SH,63,1,2,component_1,2003-03-14,2003-03-15,group_0202_SH,2003,G202_component_1,Calanoida indet (small),427
+202,SH,63,1,2,component_2,2003-03-14,2003-03-15,group_0202_SH,2003,G202_component_2,Oithona similis,428
+203,SH,59,1,2,component_1,2003-03-17,2003-03-17,group_0203_SH,2003,G203_component_1,Calanoida indet (small),429
+203,SH,59,1,2,component_2,2003-03-17,2003-03-17,group_0203_SH,2003,G203_component_2,Oithona similis,430
+204,SH,124,2,2,component_1,2004-03-11,2004-03-14,group_0204_SH,2004,G204_component_1,Oithona similis,431
+204,SH,124,2,2,component_2,2004-03-11,2004-03-14,group_0204_SH,2004,G204_component_2,Foraminifera indet,432
+205,SH,173,3,2,component_1,2004-12-06,2004-12-09,group_0205_SH,2004,G205_component_1,Oithona similis,433
+205,SH,173,3,2,component_2,2004-12-06,2004-12-09,group_0205_SH,2004,G205_component_2,Calanoida indet (small),434
+206,SH,171,3,2,component_1,2005-03-14,2005-03-17,group_0206_SH,2005,G206_component_1,Calanoida indet (small),435
+206,SH,171,3,2,component_2,2005-03-14,2005-03-17,group_0206_SH,2005,G206_component_2,Oithona similis,436
+207,SH,124,2,2,component_1,2005-12-07,2005-12-09,group_0207_SH,2005,G207_component_1,Oithona similis,437
+207,SH,124,2,2,component_2,2005-12-07,2005-12-09,group_0207_SH,2005,G207_component_2,Calanoida indet (small),438
+208,SH,156,3,2,component_1,2006-03-13,2006-03-16,group_0208_SH,2006,G208_component_1,Calanoida indet (small),439
+208,SH,156,3,2,component_2,2006-03-13,2006-03-16,group_0208_SH,2006,G208_component_2,Oithona similis,440
+209,SH,180,3,2,component_1,2006-12-06,2006-12-09,group_0209_SH,2006,G209_component_1,Oithona similis,441
+209,SH,180,3,2,component_2,2006-12-06,2006-12-09,group_0209_SH,2006,G209_component_2,Calanoida indet (small),442
+210,SH,99,2,2,component_1,2007-03-12,2007-03-14,group_0210_SH,2007,G210_component_1,Oithona similis,443
+210,SH,99,2,2,component_2,2007-03-12,2007-03-14,group_0210_SH,2007,G210_component_2,Oithona similis,444
+211,SH,116,2,2,component_1,2007-03-15,2007-03-17,group_0211_SH,2007,G211_component_1,Clausocalanus laticeps,445
+211,SH,116,2,2,component_2,2007-03-15,2007-03-17,group_0211_SH,2007,G211_component_2,Oithona similis,446
+212,SH,21,1,2,component_1,2007-12-06,2007-12-06,group_0212_SH,2007,G212_component_1,Calanoida indet (small),447
+212,SH,21,1,2,component_2,2007-12-06,2007-12-06,group_0212_SH,2007,G212_component_2,Neocalanus tonsus,448
+213,SH,47,1,2,component_1,2007-12-08,2007-12-09,group_0213_SH,2007,G213_component_1,Oithona similis,449
+213,SH,47,1,2,component_2,2007-12-08,2007-12-09,group_0213_SH,2007,G213_component_2,Ctenocalanus citer,450
+214,SH,107,2,2,component_1,2008-03-12,2008-03-13,group_0214_SH,2008,G214_component_1,Ctenocalanus citer,451
+214,SH,107,2,2,component_2,2008-03-12,2008-03-13,group_0214_SH,2008,G214_component_2,Calanus simillimus,452
+215,SH,44,1,2,component_1,2008-03-15,2008-03-15,group_0215_SH,2008,G215_component_1,Ctenocalanus citer,453
+215,SH,44,1,2,component_2,2008-03-15,2008-03-15,group_0215_SH,2008,G215_component_2,Fritillaria sp.,454
+216,SH2,165,3,2,component_1,2009-12-02,2009-12-05,group_0216_SH2,2009,G216_component_1,Calanoida indet (small),455
+216,SH2,165,3,2,component_2,2009-12-02,2009-12-05,group_0216_SH2,2009,G216_component_2,Oithona similis,456
+217,SH2,184,3,2,component_1,2010-03-07,2010-03-12,group_0217_SH2,2010,G217_component_1,Foraminifera indet,457
+217,SH2,184,3,2,component_2,2010-03-07,2010-03-12,group_0217_SH2,2010,G217_component_2,Ctenocalanus citer,458
+218,SH2,177,4,2,component_1,2010-12-03,2010-12-06,group_0218_SH2,2010,G218_component_1,Ctenocalanus sp.,459
+218,SH2,177,4,2,component_2,2010-12-03,2010-12-06,group_0218_SH2,2010,G218_component_2,Oithona similis,460
+219,SH2,147,3,2,component_1,2011-03-10,2011-03-13,group_0219_SH2,2011,G219_component_1,Ctenocalanus sp.,461
+219,SH2,147,3,2,component_2,2011-03-10,2011-03-13,group_0219_SH2,2011,G219_component_2,Calanoida indet (small),462
+220,SH2,182,4,2,component_1,2011-12-03,2011-12-06,group_0220_SH2,2011,G220_component_1,Calanoida indet (small),463
+220,SH2,182,4,2,component_2,2011-12-03,2011-12-06,group_0220_SH2,2011,G220_component_2,Oithona similis,464
+221,SH2,185,3,2,component_1,2012-03-10,2012-03-13,group_0221_SH2,2012,G221_component_1,Calanoida indet (small),465
+221,SH2,185,3,2,component_2,2012-03-10,2012-03-13,group_0221_SH2,2012,G221_component_2,Oithona similis,466
+222,SH2,184,3,2,component_1,2012-12-03,2012-12-06,group_0222_SH2,2012,G222_component_1,Calanoida indet (small),467
+222,SH2,184,3,2,component_2,2012-12-03,2012-12-06,group_0222_SH2,2012,G222_component_2,Oithona similis,468
+223,SH2,37,1,2,component_1,2013-03-10,2013-03-10,group_0223_SH2,2013,G223_component_1,Oithona similis,469
+223,SH2,37,1,2,component_2,2013-03-10,2013-03-10,group_0223_SH2,2013,G223_component_2,Limacina sp.,470
+224,SH2,82,1,2,component_1,2013-03-12,2013-03-13,group_0224_SH2,2013,G224_component_1,Calanoida indet (small),471
+224,SH2,82,1,2,component_2,2013-03-12,2013-03-13,group_0224_SH2,2013,G224_component_2,Fritillaria sp.,472
+225,SH2,108,2,2,component_1,2013-12-01,2013-12-02,group_0225_SH2,2013,G225_component_1,Calanoida indet (small),473
+225,SH2,108,2,2,component_2,2013-12-01,2013-12-02,group_0225_SH2,2013,G225_component_2,Oithona similis,474
+226,SH2,171,4,2,component_1,2014-03-06,2014-03-10,group_0226_SH2,2014,G226_component_1,Oithona similis,475
+226,SH2,171,4,2,component_2,2014-03-06,2014-03-10,group_0226_SH2,2014,G226_component_2,Calanoida indet (small),476
+227,SH2,177,3,2,component_1,2014-12-03,2014-12-06,group_0227_SH2,2014,G227_component_1,Oithona similis,477
+227,SH2,177,3,2,component_2,2014-12-03,2014-12-06,group_0227_SH2,2014,G227_component_2,Calanoida indet (small),478
+228,SH2,167,3,2,component_1,2015-02-28,2015-03-03,group_0228_SH2,2015,G228_component_1,Calanoida indet (small),479
+228,SH2,167,3,2,component_2,2015-02-28,2015-03-03,group_0228_SH2,2015,G228_component_2,Oithona similis,480
+229,SH2,177,3,2,component_1,2015-12-09,2015-12-13,group_0229_SH2,2015,G229_component_1,Calanoida indet (small),481
+229,SH2,177,3,2,component_2,2015-12-09,2015-12-13,group_0229_SH2,2015,G229_component_2,Oithona similis,482
+230,SH2,170,3,2,component_1,2016-03-16,2016-03-20,group_0230_SH2,2016,G230_component_1,Calanus simillimus,483
+230,SH2,170,3,2,component_2,2016-03-16,2016-03-20,group_0230_SH2,2016,G230_component_2,Oithona similis,484
+231,SH2,179,3,2,component_1,2016-12-05,2016-12-08,group_0231_SH2,2016,G231_component_1,Oithona similis,485
+231,SH2,179,3,2,component_2,2016-12-05,2016-12-08,group_0231_SH2,2016,G231_component_2,Calanoida indet (small),486
+232,SH2,169,3,2,component_1,2017-03-12,2017-03-15,group_0232_SH2,2017,G232_component_1,Calanoida indet (small),487
+232,SH2,169,3,2,component_2,2017-03-12,2017-03-15,group_0232_SH2,2017,G232_component_2,Oithona similis,488
+233,SH2,121,2,2,component_1,2017-12-06,2017-12-08,group_0233_SH2,2017,G233_component_1,Oithona similis,489
+233,SH2,121,2,2,component_2,2017-12-06,2017-12-08,group_0233_SH2,2017,G233_component_2,Calanoida indet (small),490
+234,SH2,48,1,2,component_1,2018-03-11,2018-03-11,group_0234_SH2,2018,G234_component_1,Calanoida indet (small),491
+234,SH2,48,1,2,component_2,2018-03-11,2018-03-11,group_0234_SH2,2018,G234_component_2,Calanoida indet (small),492
+235,SH2,117,2,2,component_1,2018-12-04,2018-12-05,group_0235_SH2,2018,G235_component_1,Oithona similis,493
+235,SH2,117,2,2,component_2,2018-12-04,2018-12-05,group_0235_SH2,2018,G235_component_2,Calanoida indet (small),494
+236,SH2,49,1,2,component_1,2019-03-10,2019-03-11,group_0236_SH2,2019,G236_component_1,Calanoida indet (small),495
+236,SH2,49,1,2,component_2,2019-03-10,2019-03-11,group_0236_SH2,2019,G236_component_2,Calanoides acutus,496
+237,SH2,180,3,2,component_1,2019-12-05,2019-12-07,group_0237_SH2,2019,G237_component_1,Oithona similis,497
+237,SH2,180,3,2,component_2,2019-12-05,2019-12-07,group_0237_SH2,2019,G237_component_2,Calanoida indet (small),498
+238,SH2,60,1,2,component_1,2020-03-13,2020-03-14,group_0238_SH2,2020,G238_component_1,Calanoida indet (small),499
+238,SH2,60,1,2,component_2,2020-03-13,2020-03-14,group_0238_SH2,2020,G238_component_2,Neocalanus tonsus,500
+239,SH2,60,1,2,component_1,2021-12-01,2021-12-02,group_0239_SH2,2021,G239_component_1,Calanoida indet (small),501
+239,SH2,60,1,2,component_2,2021-12-01,2021-12-02,group_0239_SH2,2021,G239_component_2,Oithona similis,502
+240,SH2,60,1,2,component_1,2022-12-06,2022-12-07,group_0240_SH2,2022,G240_component_1,Oithona similis,503
+240,SH2,60,1,2,component_2,2022-12-06,2022-12-07,group_0240_SH2,2022,G240_component_2,Ctenocalanus sp.,504
+241,TA,100,1,2,component_1,2002-02-07,2002-02-09,group_0241_TA,2002,G241_component_1,Foraminifera indet,505
+241,TA,100,1,2,component_2,2002-02-07,2002-02-09,group_0241_TA,2002,G241_component_2,Foraminifera indet,506
+242,TA,63,1,2,component_1,2002-02-11,2002-02-12,group_0242_TA,2002,G242_component_1,Oithona similis,507
+242,TA,63,1,2,component_2,2002-02-11,2002-02-12,group_0242_TA,2002,G242_component_2,Fritillaria sp.,508
+243,TA,47,5,2,component_1,2002-02-19,2002-02-22,group_0243_TA,2002,G243_component_1,Oithona similis,509
+243,TA,47,5,2,component_2,2002-02-19,2002-02-22,group_0243_TA,2002,G243_component_2,Ctenocalanus citer,510
+244,TA,115,2,2,component_1,2002-02-25,2002-02-27,group_0244_TA,2002,G244_component_1,Oithona similis,511
+244,TA,115,2,2,component_2,2002-02-25,2002-02-27,group_0244_TA,2002,G244_component_2,Fritillaria sp.,512
+245,TA,128,2,2,component_1,2002-02-28,2002-03-03,group_0245_TA,2002,G245_component_1,Foraminifera indet,513
+245,TA,128,2,2,component_2,2002-02-28,2002-03-03,group_0245_TA,2002,G245_component_2,Ctenocalanus citer,514
+246,TA,363,5,2,component_1,2006-01-30,2006-02-06,group_0246_TA,2006,G246_component_1,Calanoida indet (small),515
+246,TA,363,5,2,component_2,2006-01-30,2006-02-06,group_0246_TA,2006,G246_component_2,Calanus simillimus,516
+247,TA,64,2,2,component_1,2006-02-18,2006-02-20,group_0247_TA,2006,G247_component_1,Limacina sp.,517
+247,TA,64,2,2,component_2,2006-02-18,2006-02-20,group_0247_TA,2006,G247_component_2,Calanoida indet (small),518
+248,TA,70,1,2,component_1,2006-03-06,2006-03-07,group_0248_TA,2006,G248_component_1,Oithona similis,519
+248,TA,70,1,2,component_2,2006-03-06,2006-03-07,group_0248_TA,2006,G248_component_2,Calanoida indet (small),520
+249,TA,87,1,2,component_1,2006-03-11,2006-03-13,group_0249_TA,2006,G249_component_1,Oithona similis,521
+249,TA,87,1,2,component_2,2006-03-11,2006-03-13,group_0249_TA,2006,G249_component_2,Calanus simillimus,522
+250,TA,287,5,2,component_1,2008-01-31,2008-02-06,group_0250_TA,2008,G250_component_1,Calanoida indet (small),523
+250,TA,287,5,2,component_2,2008-01-31,2008-02-06,group_0250_TA,2008,G250_component_2,Oithona similis,524
+251,TA,201,3,2,component_1,2008-03-14,2008-03-18,group_0251_TA,2008,G251_component_1,Calanoida indet (small),525
+251,TA,201,3,2,component_2,2008-03-14,2008-03-18,group_0251_TA,2008,G251_component_2,Oithona similis,526
+252,TA,399,5,2,component_1,2010-02-02,2010-02-09,group_0252_TA,2010,G252_component_1,Calanus simillimus,527
+252,TA,399,5,2,component_2,2010-02-02,2010-02-09,group_0252_TA,2010,G252_component_2,Calanoida indet (small),528
+253,TA,235,5,2,component_1,2013-02-05,2013-02-09,group_0253_TA,2013,G253_component_1,Calanus simillimus,529
+253,TA,235,5,2,component_2,2013-02-05,2013-02-09,group_0253_TA,2013,G253_component_2,Calanoida indet (small),530
+254,TA,37,7,2,component_1,2013-02-11,2013-02-14,group_0254_TA,2013,G254_component_1,Calanoida indet (small),531
+254,TA,37,7,2,component_2,2013-02-11,2013-02-14,group_0254_TA,2013,G254_component_2,Oithona similis,532
+255,UM,274,4,2,component_1,2005-01-02,2005-01-06,group_0255_UM,2005,G255_component_1,Oithona similis,533
+255,UM,274,4,2,component_2,2005-01-02,2005-01-06,group_0255_UM,2005,G255_component_2,Foraminifera indet,534
+256,UM,358,6,2,component_1,2005-01-15,2005-01-20,group_0256_UM,2005,G256_component_1,Foraminifera indet,535
+256,UM,358,6,2,component_2,2005-01-15,2005-01-20,group_0256_UM,2005,G256_component_2,Calanoida indet (small),536
+257,UM,218,5,2,component_1,2005-02-01,2005-02-04,group_0257_UM,2005,G257_component_1,Calanoida indet (small),537
+257,UM,218,5,2,component_2,2005-02-01,2005-02-04,group_0257_UM,2005,G257_component_2,Copepoda indet,538
+258,UM,199,4,2,component_1,2005-02-15,2005-02-18,group_0258_UM,2005,G258_component_1,Calanus simillimus,539
+258,UM,199,4,2,component_2,2005-02-15,2005-02-18,group_0258_UM,2005,G258_component_2,Calanoida indet (small),540
+259,UM,203,4,2,component_1,2006-01-06,2006-01-09,group_0259_UM,2006,G259_component_1,Oithona similis,541
+259,UM,203,4,2,component_2,2006-01-06,2006-01-09,group_0259_UM,2006,G259_component_2,Foraminifera indet,542
+260,UM,299,11,2,component_1,2006-01-20,2006-01-26,group_0260_UM,2006,G260_component_1,Oithona similis,543
+260,UM,299,11,2,component_2,2006-01-20,2006-01-26,group_0260_UM,2006,G260_component_2,Calanus simillimus,544
+261,UM,279,4,2,component_1,2007-12-26,2007-12-30,group_0261_UM,2007,G261_component_1,Oithona similis,545
+261,UM,279,4,2,component_2,2007-12-26,2007-12-30,group_0261_UM,2007,G261_component_2,Fritillaria sp.,546
+262,UM,405,7,2,component_1,2008-01-10,2008-01-16,group_0262_UM,2008,G262_component_1,Oithona similis,547
+262,UM,405,7,2,component_2,2008-01-10,2008-01-16,group_0262_UM,2008,G262_component_2,Foraminifera indet,548
+263,UM,269,4,2,component_1,2008-01-25,2008-01-28,group_0263_UM,2008,G263_component_1,Oithona similis,549
+263,UM,269,4,2,component_2,2008-01-25,2008-01-28,group_0263_UM,2008,G263_component_2,Calanus simillimus,550
+264,UM,249,6,2,component_1,2008-02-12,2008-02-16,group_0264_UM,2008,G264_component_1,Oithona similis,551
+264,UM,249,6,2,component_2,2008-02-12,2008-02-16,group_0264_UM,2008,G264_component_2,Ctenocalanus citer,552
+265,UM,211,3,2,component_1,2009-01-09,2009-01-12,group_0265_UM,2009,G265_component_1,Oithona similis,553
+265,UM,211,3,2,component_2,2009-01-09,2009-01-12,group_0265_UM,2009,G265_component_2,Calanoida indet (small),554
+266,UM,303,5,2,component_1,2009-01-27,2009-02-02,group_0266_UM,2009,G266_component_1,Oithona similis,555
+266,UM,303,5,2,component_2,2009-01-27,2009-02-02,group_0266_UM,2009,G266_component_2,Calanus simillimus,556
+267,UM,185,5,2,component_1,2010-12-27,2010-12-30,group_0267_UM,2010,G267_component_1,Ctenocalanus sp.,557
+267,UM,185,5,2,component_2,2010-12-27,2010-12-30,group_0267_UM,2010,G267_component_2,Calanus simillimus,558
+268,UM,49,2,2,component_1,2011-01-16,2011-01-16,group_0268_UM,2011,G268_component_1,Oithona similis,559
+268,UM,49,2,2,component_2,2011-01-16,2011-01-16,group_0268_UM,2011,G268_component_2,Calanoida indet (small),560
+269,UM,60,1,2,component_1,2011-12-29,2011-12-29,group_0269_UM,2011,G269_component_1,Calanoida indet (small),561
+269,UM,60,1,2,component_2,2011-12-29,2011-12-29,group_0269_UM,2011,G269_component_2,Neocalanus tonsus,562
+270,UM,121,3,2,component_1,2011-12-31,2012-01-02,group_0270_UM,2011,G270_component_1,Oithona similis,563
+270,UM,121,3,2,component_2,2011-12-31,2012-01-02,group_0270_UM,2011,G270_component_2,Calanoida indet (small),564
+271,UM,167,4,2,component_1,2012-01-27,2012-01-30,group_0271_UM,2012,G271_component_1,Calanoida indet (small),565
+271,UM,167,4,2,component_2,2012-01-27,2012-01-30,group_0271_UM,2012,G271_component_2,Calanus simillimus,566
+272,UM,180,4,2,component_1,2013-01-03,2013-01-06,group_0272_UM,2013,G272_component_1,Calanoida indet (small),567
+272,UM,180,4,2,component_2,2013-01-03,2013-01-06,group_0272_UM,2013,G272_component_2,Oithona similis,568
+273,UM,207,3,2,component_1,2013-01-18,2013-01-21,group_0273_UM,2013,G273_component_1,Oithona similis,569
+273,UM,207,3,2,component_2,2013-01-18,2013-01-21,group_0273_UM,2013,G273_component_2,Calanoida indet (small),570
+274,UM,150,3,2,component_1,2014-01-14,2014-01-17,group_0274_UM,2014,G274_component_1,Calanoida indet (small),571
+274,UM,150,3,2,component_2,2014-01-14,2014-01-17,group_0274_UM,2014,G274_component_2,Oithona similis,572
+275,UM,211,3,2,component_1,2014-01-29,2014-02-01,group_0275_UM,2014,G275_component_1,Calanoida indet (small),573
+275,UM,211,3,2,component_2,2014-01-29,2014-02-01,group_0275_UM,2014,G275_component_2,Oithona similis,574
+276,UM,177,5,2,component_1,2015-01-14,2015-01-18,group_0276_UM,2015,G276_component_1,Calanoida indet (small),575
+276,UM,177,5,2,component_2,2015-01-14,2015-01-18,group_0276_UM,2015,G276_component_2,Oithona similis,576
+277,UM,204,5,2,component_1,2015-01-29,2015-02-02,group_0277_UM,2015,G277_component_1,Calanoida indet (small),577
+277,UM,204,5,2,component_2,2015-01-29,2015-02-02,group_0277_UM,2015,G277_component_2,Oithona similis,578
+278,UM,174,5,2,component_1,2016-01-19,2016-01-23,group_0278_UM,2016,G278_component_1,Calanoida indet (small),579
+278,UM,174,5,2,component_2,2016-01-19,2016-01-23,group_0278_UM,2016,G278_component_2,Oithona similis,580
+279,UM,229,4,2,component_1,2016-01-30,2016-02-03,group_0279_UM,2016,G279_component_1,Oithona similis,581
+279,UM,229,4,2,component_2,2016-01-30,2016-02-03,group_0279_UM,2016,G279_component_2,Calanoida indet (small),582
+280,UM,170,6,2,component_1,2017-01-03,2017-01-06,group_0280_UM,2017,G280_component_1,Oithona similis,583
+280,UM,170,6,2,component_2,2017-01-03,2017-01-06,group_0280_UM,2017,G280_component_2,Calanoida indet (small),584
+281,UM,186,3,2,component_1,2017-01-22,2017-01-24,group_0281_UM,2017,G281_component_1,Oithona similis,585
+281,UM,186,3,2,component_2,2017-01-22,2017-01-24,group_0281_UM,2017,G281_component_2,Calanus simillimus,586
+282,UM,176,4,2,component_1,2018-01-03,2018-01-07,group_0282_UM,2018,G282_component_1,Calanoida indet (small),587
+282,UM,176,4,2,component_2,2018-01-03,2018-01-07,group_0282_UM,2018,G282_component_2,Oithona similis,588
+283,UM,215,3,2,component_1,2018-01-16,2018-01-19,group_0283_UM,2018,G283_component_1,Oithona similis,589
+283,UM,215,3,2,component_2,2018-01-16,2018-01-19,group_0283_UM,2018,G283_component_2,Calanoida indet (small),590
+284,UM,182,4,2,component_1,2019-01-05,2019-01-09,group_0284_UM,2019,G284_component_1,Calanoida indet (small),591
+284,UM,182,4,2,component_2,2019-01-05,2019-01-09,group_0284_UM,2019,G284_component_2,Oithona similis,592
+285,UM,201,3,2,component_1,2019-01-23,2019-01-25,group_0285_UM,2019,G285_component_1,Calanoida indet (small),593
+285,UM,201,3,2,component_2,2019-01-23,2019-01-25,group_0285_UM,2019,G285_component_2,Calanoida indet (small),594
+286,UM,190,4,2,component_1,2020-01-11,2020-01-15,group_0286_UM,2020,G286_component_1,Calanoida indet (small),595
+286,UM,190,4,2,component_2,2020-01-11,2020-01-15,group_0286_UM,2020,G286_component_2,Oithona similis,596
+287,UM,212,3,2,component_1,2020-01-29,2020-02-01,group_0287_UM,2020,G287_component_1,Oithona similis,597
+287,UM,212,3,2,component_2,2020-01-29,2020-02-01,group_0287_UM,2020,G287_component_2,Calanus simillimus,598
+288,UM,180,3,2,component_1,2023-01-20,2023-01-23,group_0288_UM,2023,G288_component_1,Calanoida indet (small),599
+288,UM,180,3,2,component_2,2023-01-20,2023-01-23,group_0288_UM,2023,G288_component_2,Neocalanus tonsus,600
+289,UM,194,3,2,component_1,2023-01-31,2023-02-03,group_0289_UM,2023,G289_component_1,Calanoida indet (small),601
+289,UM,194,3,2,component_2,2023-01-31,2023-02-03,group_0289_UM,2023,G289_component_2,Oithona similis,602
+290,YU,51,1,2,component_1,2008-01-12,2008-01-13,group_0290_YU,2008,G290_component_1,Calanoida indet (small),603
+290,YU,51,1,2,component_2,2008-01-12,2008-01-13,group_0290_YU,2008,G290_component_2,Thysanoessa macrura,604
+291,YU,47,2,2,component_1,2008-02-15,2008-02-15,group_0291_YU,2008,G291_component_1,Oithona similis,605
+291,YU,47,2,2,component_2,2008-02-15,2008-02-15,group_0291_YU,2008,G291_component_2,Calanoida indet (small),606
+292,YU,44,1,2,component_1,2008-03-12,2008-03-13,group_0292_YU,2008,G292_component_1,Oithona similis,607
+292,YU,44,1,2,component_2,2008-03-12,2008-03-13,group_0292_YU,2008,G292_component_2,Calanoida indet (small),608

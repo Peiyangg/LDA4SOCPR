@@ -1,0 +1,26 @@
+{
+  "group_id": 176,
+  "ship": "SA",
+  "n_tows_merged": 4,
+  "tow_numbers": [
+    1018.0,
+    1019.0,
+    1020.0,
+    1021.0
+  ],
+  "period_start": "2018-01-28 00:35:00",
+  "period_end": "2018-02-03 21:50:00",
+  "n_segments": 273,
+  "n_active_species": 93,
+  "total_abundance": 76116.0,
+  "cv_scores": {
+    "2": 5165.475251,
+    "3": 5323.819196,
+    "4": 5364.008032,
+    "5": 5367.957718
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 1690.347038751531,
+  "nmf_iterations": 94,
+  "nmf_converged": true
+}

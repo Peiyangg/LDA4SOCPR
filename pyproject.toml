@@ -27,4 +27,5 @@ dependencies = [
     "netcdf4>=1.7.4",
     "cartopy>=0.25.0",
     "geopandas>=1.1.3",
+    "graph-widget>=0.1.17",
 ]

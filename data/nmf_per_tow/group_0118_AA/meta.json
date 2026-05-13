@@ -1,0 +1,23 @@
+{
+  "group_id": 118,
+  "ship": "AA",
+  "n_tows_merged": 1,
+  "tow_numbers": [
+    1023.0
+  ],
+  "period_start": "2018-03-09 20:30:00",
+  "period_end": "2018-03-11 02:01:00",
+  "n_segments": 73,
+  "n_active_species": 64,
+  "total_abundance": 5954.0,
+  "cv_scores": {
+    "2": 161.135466,
+    "3": 176.845447,
+    "4": 200.299415,
+    "5": 206.089524
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 141.61094195114703,
+  "nmf_iterations": 94,
+  "nmf_converged": true
+}

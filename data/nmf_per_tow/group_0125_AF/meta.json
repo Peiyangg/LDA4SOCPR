@@ -1,0 +1,24 @@
+{
+  "group_id": 125,
+  "ship": "AF",
+  "n_tows_merged": 2,
+  "tow_numbers": [
+    408.0,
+    411.0
+  ],
+  "period_start": "2008-01-26 20:58:00",
+  "period_end": "2008-01-29 05:14:00",
+  "n_segments": 176,
+  "n_active_species": 26,
+  "total_abundance": 16731.0,
+  "cv_scores": {
+    "2": 2769.555438,
+    "3": 2810.228768,
+    "4": 2806.739312,
+    "5": 2809.115748
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 136.49842336017252,
+  "nmf_iterations": 1000,
+  "nmf_converged": false
+}

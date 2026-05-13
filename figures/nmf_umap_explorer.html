@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMF Topic UMAP + Spatial Explorer</title>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #232734; --border: #2e3345;
+  --text: #e2e4ea; --text2: #9ba0b0; --accent: #6c8cff; --accent2: #4ecdc4;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'SF Mono','Consolas',monospace; background:var(--bg); color:var(--text); overflow:hidden; }
+
+.container { display:flex; width:100vw; height:100vh; }
+.panel { position:relative; flex:1; border-right:1px solid var(--border); }
+.panel:last-child { border-right:none; }
+
+canvas { width:100%; height:100%; display:block; }
+
+.controls { position:absolute; top:10px; left:10px; z-index:10; display:flex; flex-direction:column; gap:6px; }
+.ctrl-row { display:flex; gap:6px; align-items:center; }
+.ctrl-label { font-size:11px; color:var(--text2); min-width:60px; }
+select, button { background:var(--surface); border:1px solid var(--border); color:var(--text); font-size:11px; padding:3px 8px; border-radius:4px; cursor:pointer; font-family:inherit; }
+select:hover, button:hover { border-color:var(--accent); }
+button.active { background:var(--accent); color:var(--bg); }
+
+.legend { position:absolute; bottom:10px; left:10px; z-index:10; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:8px 10px; max-width:220px; }
+.legend-title { font-size:10px; color:var(--text2); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+.legend-item { display:flex; align-items:center; gap:6px; font-size:10px; margin:2px 0; cursor:pointer; }
+.legend-item:hover { color:var(--accent); }
+.legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+.colorbar { position:absolute; bottom:10px; right:10px; z-index:10; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:8px 10px; }
+.colorbar-title { font-size:10px; color:var(--text2); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; text-align:center; }
+.colorbar-gradient { width:20px; height:150px; border-radius:2px; margin:0 auto; }
+.colorbar-labels { display:flex; flex-direction:column; justify-content:space-between; height:150px; margin-left:26px; margin-top:-150px; font-size:9px; color:var(--text2); }
+
+.tooltip { position:absolute; z-index:100; background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:8px 10px; font-size:11px; pointer-events:none; display:none; max-width:300px; line-height:1.4; }
+.tooltip .tt-label { color:var(--accent); font-weight:bold; }
+.tooltip .tt-detail { color:var(--text2); }
+
+.info { position:absolute; top:10px; right:10px; z-index:10; font-size:10px; color:var(--text2); background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:6px 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- UMAP Panel -->
+  <div class="panel" id="umap-panel">
+    <canvas id="umap-canvas"></canvas>
+    <div class="controls">
+      <div class="ctrl-row">
+        <span class="ctrl-label">Color:</span>
+        <select id="umap-color">
+          <option value="species">Dominant species (top 10)</option>
+          <option value="ship">Ship</option>
+          <option value="k">Best k</option>
+        </select>
+      </div>
+      <div class="ctrl-row">
+        <button id="btn-clear">Clear selection</button>
+        <button id="btn-lasso" class="active">Lasso select</button>
+      </div>
+    </div>
+    <div class="legend" id="umap-legend"></div>
+    <div class="tooltip" id="umap-tooltip"></div>
+    <div class="info" id="umap-info">609 topics</div>
+  </div>
+
+  <!-- Map Panel -->
+  <div class="panel" id="map-panel">
+    <canvas id="map-canvas"></canvas>
+    <div class="controls">
+      <div class="ctrl-row">
+        <span class="ctrl-label">Layer:</span>
+        <select id="map-layer">
+          <option value="weight">Topic weight</option>
+          <option value="sst">SST summer mean</option>
+          <option value="sstsd">SST summer SD</option>
+          <option value="sstg">SST gradient</option>
+          <option value="ice">Sea ice freq (>15%)</option>
+          <option value="icesd">Sea ice SD</option>
+        </select>
+        <button id="btn-reset-zoom">Reset zoom</button>
+      </div>
+    </div>
+    <div class="colorbar" id="map-colorbar">
+      <div class="colorbar-title" id="cb-title">Topic weight</div>
+      <div class="colorbar-gradient" id="cb-gradient"></div>
+      <div class="colorbar-labels" id="cb-labels">
+        <span id="cb-max">1.0</span>
+        <span id="cb-mid">0.5</span>
+        <span id="cb-min">0.0</span>
+      </div>
+    </div>
+    <div class="tooltip" id="map-tooltip"></div>
+    <div class="info" id="map-info">50,229 segments</div>
+  </div>
+</div>
+
+<script src="nmf_umap_data.js"></script>
+<script>
+const {topics, segments, coast, fronts, top10} = VIZ_DATA;
+
+// Color palettes
+const SPECIES_COLORS = {};
+const PALETTE = ['#6c8cff','#4ecdc4','#ffb347','#ff6b6b','#b197fc','#ff85a2','#45b7d1','#96ceb4','#ffeaa7','#a29bfe'];
+top10.forEach((sp, i) => SPECIES_COLORS[sp] = PALETTE[i]);
+SPECIES_COLORS["Other"] = "#555555";
+
+const SHIP_COLORS = {};
+const SHIP_PAL = ['#e6194b','#3cb44b','#ffe119','#4363d8','#f58231','#911eb4','#42d4f4','#f032e6','#bfef45','#fabed4','#469990','#dcbeff'];
+const ships = [...new Set(topics.map(t => t.ship))].sort();
+ships.forEach((s, i) => SHIP_COLORS[s] = SHIP_PAL[i % SHIP_PAL.length]);
+
+const K_COLORS = {2:'#6c8cff', 3:'#4ecdc4', 4:'#ffb347', 5:'#ff6b6b'};
+
+// Viridis-like colormap
+function viridis(t) {
+  t = Math.max(0, Math.min(1, t));
+  const r = Math.round(68 + t * (253 - 68) * (1 - t) + t * t * (231 - 68));
+  const g = Math.round(1 + t * 215);
+  const b = Math.round(84 + (1 - t) * (158 - 84) + t * (37 - 84) * (1 - t));
+  // Simplified viridis approximation
+  const r2 = Math.round(68*(1-t)*(1-t) + 33*2*t*(1-t) + 253*t*t);
+  const g2 = Math.round(1*(1-t)*(1-t) + 145*2*t*(1-t) + 231*t*t);
+  const b2 = Math.round(84*(1-t)*(1-t) + 140*2*t*(1-t) + 37*t*t);
+  return `rgb(${r2},${g2},${b2})`;
+}
+
+function viridisRGB(t) {
+  t = Math.max(0, Math.min(1, t));
+  const r = Math.round(68*(1-t)*(1-t) + 33*2*t*(1-t) + 253*t*t);
+  const g = Math.round(1*(1-t)*(1-t) + 145*2*t*(1-t) + 231*t*t);
+  const b = Math.round(84*(1-t)*(1-t) + 140*2*t*(1-t) + 37*t*t);
+  return [r, g, b];
+}
+
+// Blues colorscale: white (t=0) → dark blue (t=1)
+function blues(t) {
+  t = Math.max(0, Math.min(1, t));
+  const r = Math.round(247 - t * 239);
+  const g = Math.round(251 - t * 233);
+  const b = Math.round(255 - t * 137);
+  return `rgb(${r},${g},${b})`;
+}
+
+function bluesRGB(t) {
+  t = Math.max(0, Math.min(1, t));
+  return [Math.round(247 - t * 239), Math.round(251 - t * 233), Math.round(255 - t * 137)];
+}
+
+// ═══════ UMAP PANEL ═══════
+const umapCanvas = document.getElementById('umap-canvas');
+const umapCtx = umapCanvas.getContext('2d');
+let umapW, umapH;
+let umapXRange, umapYRange, umapPadding = 40;
+
+// Compute UMAP bounds
+const u1vals = topics.map(t => t.u1);
+const u2vals = topics.map(t => t.u2);
+const u1min = Math.min(...u1vals), u1max = Math.max(...u1vals);
+const u2min = Math.min(...u2vals), u2max = Math.max(...u2vals);
+const u1span = u1max - u1min || 1;
+const u2span = u2max - u2min || 1;
+
+function umapToScreen(u1, u2) {
+  const x = umapPadding + (u1 - u1min) / u1span * (umapW - 2*umapPadding);
+  const y = umapPadding + (1 - (u2 - u2min) / u2span) * (umapH - 2*umapPadding);
+  return [x, y];
+}
+
+function screenToUmap(sx, sy) {
+  const u1 = u1min + (sx - umapPadding) / (umapW - 2*umapPadding) * u1span;
+  const u2 = u2min + (1 - (sy - umapPadding) / (umapH - 2*umapPadding)) * u2span;
+  return [u1, u2];
+}
+
+let selectedTopicIndices = new Set();
+let lassoPoints = [];
+let isLassoing = false;
+let colorMode = 'species';
+
+function getTopicColor(t) {
+  if (colorMode === 'species') return SPECIES_COLORS[t.dsp] || '#555';
+  if (colorMode === 'ship') return SHIP_COLORS[t.ship] || '#555';
+  if (colorMode === 'k') return K_COLORS[t.k] || '#555';
+  return '#6c8cff';
+}
+
+function drawUMAP() {
+  umapCtx.fillStyle = '#0f1117';
+  umapCtx.fillRect(0, 0, umapW, umapH);
+
+  // Draw points
+  for (let i = 0; i < topics.length; i++) {
+    const t = topics[i];
+    const [x, y] = umapToScreen(t.u1, t.u2);
+    const selected = selectedTopicIndices.has(i);
+    const r = selected ? 7 : 5;
+    const alpha = selectedTopicIndices.size === 0 ? 0.85 : (selected ? 1.0 : 0.15);
+
+    umapCtx.beginPath();
+    umapCtx.arc(x, y, r, 0, Math.PI*2);
+    umapCtx.fillStyle = getTopicColor(t);
+    umapCtx.globalAlpha = alpha;
+    umapCtx.fill();
+    if (selected) {
+      umapCtx.strokeStyle = 'white';
+      umapCtx.lineWidth = 1.5;
+      umapCtx.stroke();
+    }
+  }
+  umapCtx.globalAlpha = 1;
+
+  // Draw lasso
+  if (lassoPoints.length > 1) {
+    umapCtx.beginPath();
+    umapCtx.moveTo(lassoPoints[0][0], lassoPoints[0][1]);
+    for (let i = 1; i < lassoPoints.length; i++) {
+      umapCtx.lineTo(lassoPoints[i][0], lassoPoints[i][1]);
+    }
+    umapCtx.strokeStyle = 'rgba(108,140,255,0.8)';
+    umapCtx.lineWidth = 2;
+    umapCtx.setLineDash([4,4]);
+    umapCtx.stroke();
+    umapCtx.setLineDash([]);
+    umapCtx.fillStyle = 'rgba(108,140,255,0.1)';
+    umapCtx.fill();
+  }
+}
+
+function buildLegend() {
+  const el = document.getElementById('umap-legend');
+  let items = [];
+  if (colorMode === 'species') {
+    items = top10.map(sp => ({label: sp, color: SPECIES_COLORS[sp]}));
+    items.push({label: 'Other', color: '#555'});
+  } else if (colorMode === 'ship') {
+    items = ships.map(s => ({label: s, color: SHIP_COLORS[s]}));
+  } else if (colorMode === 'k') {
+    items = [2,3,4,5].map(k => ({label: `k=${k}`, color: K_COLORS[k]}));
+  }
+  el.innerHTML = `<div class="legend-title">${colorMode}</div>` +
+    items.map(it => `<div class="legend-item"><div class="legend-dot" style="background:${it.color}"></div>${it.label}</div>`).join('');
+}
+
+// Lasso hit test (point in polygon)
+function pointInPoly(x, y, poly) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const xi = poly[i][0], yi = poly[i][1];
+    const xj = poly[j][0], yj = poly[j][1];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+function finishLasso() {
+  if (lassoPoints.length < 3) { lassoPoints = []; drawUMAP(); return; }
+  selectedTopicIndices.clear();
+  for (let i = 0; i < topics.length; i++) {
+    const [x, y] = umapToScreen(topics[i].u1, topics[i].u2);
+    if (pointInPoly(x, y, lassoPoints)) {
+      selectedTopicIndices.add(i);
+    }
+  }
+  lassoPoints = [];
+  drawUMAP();
+  drawMap();
+  updateInfo();
+}
+
+// UMAP events
+umapCanvas.addEventListener('mousedown', (e) => {
+  const rect = umapCanvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (umapCanvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (umapCanvas.height / rect.height);
+  isLassoing = true;
+  lassoPoints = [[x, y]];
+});
+
+umapCanvas.addEventListener('mousemove', (e) => {
+  const rect = umapCanvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (umapCanvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (umapCanvas.height / rect.height);
+
+  if (isLassoing) {
+    lassoPoints.push([x, y]);
+    drawUMAP();
+    return;
+  }
+
+  // Tooltip
+  const tooltip = document.getElementById('umap-tooltip');
+  let hit = -1;
+  for (let i = 0; i < topics.length; i++) {
+    const [tx, ty] = umapToScreen(topics[i].u1, topics[i].u2);
+    if (Math.hypot(x - tx, y - ty) < 8) { hit = i; break; }
+  }
+  if (hit >= 0) {
+    const t = topics[hit];
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX - umapCanvas.getBoundingClientRect().left + 12) + 'px';
+    tooltip.style.top = (e.clientY - umapCanvas.getBoundingClientRect().top - 10) + 'px';
+    tooltip.innerHTML = `<div class="tt-label">${t.lbl}</div><div class="tt-detail">${t.ds}<br>${t.t3}<br>Ship: ${t.ship}, k=${t.k}, ${t.ns} segs<br>${t.ps} → ${t.pe}</div>`;
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+
+umapCanvas.addEventListener('mouseup', () => { isLassoing = false; finishLasso(); });
+umapCanvas.addEventListener('mouseleave', () => { if (isLassoing) { isLassoing = false; finishLasso(); } });
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  selectedTopicIndices.clear(); lassoPoints = []; drawUMAP(); drawMap(); updateInfo();
+});
+
+document.getElementById('umap-color').addEventListener('change', (e) => {
+  colorMode = e.target.value; buildLegend(); drawUMAP();
+});
+
+// ═══════ MAP PANEL ═══════
+const mapCanvas = document.getElementById('map-canvas');
+const mapCtx = mapCanvas.getContext('2d');
+let mapW, mapH;
+let mapLayer = 'weight';
+
+// Map projection bounds (Antarctic stereographic)
+const allX = segments.map(s => s.x);
+const allY = segments.map(s => s.y);
+const mapXMin = Math.min(...allX), mapXMax = Math.max(...allX);
+const mapYMin = Math.min(...allY), mapYMax = Math.max(...allY);
+const mapXSpan = mapXMax - mapXMin || 1;
+const mapYSpan = mapYMax - mapYMin || 1;
+const mapPad = 30;
+
+// Zoom & pan state (in projected coordinates)
+let mapZoom = 1;
+let mapPanX = 0, mapPanY = 0;
+
+function mapBaseScale() {
+  return Math.min((mapW - 2*mapPad) / mapXSpan, (mapH - 2*mapPad) / mapYSpan);
+}
+
+function mapToScreen(px, py) {
+  const s = mapBaseScale() * mapZoom;
+  const ox = (mapXMin + mapXMax) / 2, oy = (mapYMin + mapYMax) / 2;
+  const x = mapW / 2 + (px - ox + mapPanX) * s;
+  const y = mapH / 2 - (py - oy + mapPanY) * s;
+  return [x, y];
+}
+
+function screenToMap(sx, sy) {
+  const s = mapBaseScale() * mapZoom;
+  const ox = (mapXMin + mapXMax) / 2, oy = (mapYMin + mapYMax) / 2;
+  const px = (sx - mapW / 2) / s + ox - mapPanX;
+  const py = -(sy - mapH / 2) / s + oy - mapPanY;
+  return [px, py];
+}
+
+function getLayerValue(seg) {
+  if (mapLayer === 'weight') return null;  // handled separately
+  if (mapLayer === 'sst') return seg.sst;
+  if (mapLayer === 'sstsd') return seg.sstsd;
+  if (mapLayer === 'sstg') return seg.sstg;
+  if (mapLayer === 'ice') return seg.ice;
+  if (mapLayer === 'icesd') return seg.icesd;
+  return null;
+}
+
+const LAYER_RANGES = {
+  sst: [-1.5, 16], sstsd: [0.3, 1.7], sstg: [0, 3], ice: [0, 1], icesd: [0, 0.44], weight: [0, 1]
+};
+const LAYER_TITLES = {
+  weight: 'Topic weight', sst: 'SST summer (°C)', sstsd: 'SST SD (°C)',
+  sstg: 'SST gradient', ice: 'Ice freq (>15%)', icesd: 'Ice SD'
+};
+
+function drawMap() {
+  mapCtx.fillStyle = 'rgb(210,230,250)';
+  mapCtx.fillRect(0, 0, mapW, mapH);
+
+  // Draw coastline
+  mapCtx.strokeStyle = 'rgb(100,100,100)';
+  mapCtx.fillStyle = 'rgb(230,230,230)';
+  mapCtx.lineWidth = 1;
+  for (const line of coast) {
+    if (line.length < 2) continue;
+    mapCtx.beginPath();
+    const [sx, sy] = mapToScreen(line[0][0], line[0][1]);
+    mapCtx.moveTo(sx, sy);
+    for (let i = 1; i < line.length; i++) {
+      const [px, py] = mapToScreen(line[i][0], line[i][1]);
+      mapCtx.lineTo(px, py);
+    }
+    mapCtx.closePath();
+    mapCtx.fill();
+    mapCtx.stroke();
+  }
+
+  // Draw segments
+  const selectedGroups = new Set();
+  const selectedComps = {};
+  for (const i of selectedTopicIndices) {
+    const t = topics[i];
+    selectedGroups.add(t.g);
+    if (!selectedComps[t.g]) selectedComps[t.g] = new Set();
+    selectedComps[t.g].add(t.comp);
+  }
+
+  const hasSelection = selectedGroups.size > 0;
+  const range = LAYER_RANGES[mapLayer];
+
+  for (const seg of segments) {
+    const [sx, sy] = mapToScreen(seg.x, seg.y);
+
+    if (hasSelection && !selectedGroups.has(seg.g)) {
+      // Background: very faint
+      mapCtx.fillStyle = 'rgba(150,150,150,0.04)';
+      mapCtx.fillRect(sx-1, sy-1, 2, 2);
+      continue;
+    }
+
+    if (!hasSelection && mapLayer === 'weight') {
+      mapCtx.fillStyle = 'rgba(108,140,255,0.2)';
+      mapCtx.fillRect(sx-1, sy-1, 2, 2);
+      continue;
+    }
+
+    let val;
+    if (mapLayer === 'weight') {
+      // Get max weight for selected components in this group
+      const comps = selectedComps[seg.g];
+      if (!comps) { mapCtx.fillStyle='rgba(150,150,150,0.04)'; mapCtx.fillRect(sx-1,sy-1,2,2); continue; }
+      val = 0;
+      for (const c of comps) {
+        const cnum = c.replace('component_', 'c');
+        if (seg[cnum] !== undefined) val = Math.max(val, seg[cnum]);
+      }
+    } else {
+      val = getLayerValue(seg);
+      if (val === undefined || val === null) continue;
+    }
+
+    const t = Math.max(0, Math.min(1, (val - range[0]) / (range[1] - range[0])));
+    const [r, g, b] = mapLayer === 'weight' ? bluesRGB(t) : viridisRGB(t);
+    const size = hasSelection && selectedGroups.has(seg.g) ? 3 : 2;
+    mapCtx.fillStyle = `rgba(${r},${g},${b},${hasSelection && selectedGroups.has(seg.g) ? 0.9 : 0.5})`;
+    mapCtx.fillRect(sx - size/2, sy - size/2, size, size);
+  }
+
+  // Draw fronts on top
+  for (const front of fronts) {
+    mapCtx.strokeStyle = front.color;
+    mapCtx.lineWidth = 2;
+    for (const seg of front.coords) {
+      if (seg.length < 2) continue;
+      mapCtx.beginPath();
+      const [sx, sy] = mapToScreen(seg[0][0], seg[0][1]);
+      mapCtx.moveTo(sx, sy);
+      for (let i = 1; i < seg.length; i++) {
+        const [px, py] = mapToScreen(seg[i][0], seg[i][1]);
+        mapCtx.lineTo(px, py);
+      }
+      mapCtx.stroke();
+    }
+  }
+}
+
+function updateColorbar() {
+  const gradient = document.getElementById('cb-gradient');
+  const range = LAYER_RANGES[mapLayer];
+  const colorFn = mapLayer === 'weight' ? blues : viridis;
+  let grad = 'linear-gradient(to top,';
+  for (let i = 0; i <= 10; i++) {
+    const t = i / 10;
+    grad += colorFn(t) + (i < 10 ? ',' : '');
+  }
+  grad += ')';
+  gradient.style.background = grad;
+  document.getElementById('cb-title').textContent = LAYER_TITLES[mapLayer];
+  document.getElementById('cb-max').textContent = range[1].toFixed(2);
+  document.getElementById('cb-mid').textContent = ((range[0]+range[1])/2).toFixed(2);
+  document.getElementById('cb-min').textContent = range[0].toFixed(2);
+}
+
+function updateInfo() {
+  const n = selectedTopicIndices.size;
+  document.getElementById('umap-info').textContent = n > 0 ? `${n} topics selected` : '609 topics';
+  if (n > 0) {
+    const groups = new Set();
+    for (const i of selectedTopicIndices) groups.add(topics[i].g);
+    const nsegs = segments.filter(s => groups.has(s.g)).length;
+    document.getElementById('map-info').textContent = `${nsegs} segments from ${groups.size} group(s)`;
+  } else {
+    document.getElementById('map-info').textContent = '50,229 segments';
+  }
+}
+
+document.getElementById('map-layer').addEventListener('change', (e) => {
+  mapLayer = e.target.value; updateColorbar(); drawMap();
+});
+
+document.getElementById('btn-reset-zoom').addEventListener('click', () => {
+  mapZoom = 1; mapPanX = 0; mapPanY = 0; drawMap();
+});
+
+// Map tooltip
+let mapDragging = false, mapDragLastX = 0, mapDragLastY = 0;
+
+mapCanvas.addEventListener('mousemove', (e) => {
+  const rect = mapCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (mapCanvas.width / rect.width) / devicePixelRatio;
+  const my = (e.clientY - rect.top) * (mapCanvas.height / rect.height) / devicePixelRatio;
+
+  if (mapDragging) {
+    const dx = (e.clientX - mapDragLastX);
+    const dy = (e.clientY - mapDragLastY);
+    const s = mapBaseScale() * mapZoom;
+    mapPanX += dx / s;
+    mapPanY -= dy / s;
+    mapDragLastX = e.clientX;
+    mapDragLastY = e.clientY;
+    drawMap();
+    return;
+  }
+
+  const tooltip = document.getElementById('map-tooltip');
+  let hit = null;
+  let minDist = 10;
+  for (const seg of segments) {
+    const [sx, sy] = mapToScreen(seg.x, seg.y);
+    const d = Math.hypot(mx - sx, my - sy);
+    if (d < minDist) { minDist = d; hit = seg; }
+  }
+
+  if (hit && minDist < 6) {
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+    tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+    tooltip.innerHTML = `<div class="tt-label">Group ${hit.g}</div><div class="tt-detail">` +
+      `Lat: ${hit.lat}, Lon: ${hit.lon}<br>${hit.mo} ${hit.yr}<br>` +
+      `SST: ${hit.sst?.toFixed(2) ?? 'N/A'}°C, Ice: ${(hit.ice*100)?.toFixed(1) ?? 'N/A'}%<br>` +
+      `Weight c1: ${hit.c1?.toFixed(3)}, c2: ${hit.c2?.toFixed(3)}</div>`;
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+
+mapCanvas.addEventListener('mousedown', (e) => {
+  mapDragging = true;
+  mapDragLastX = e.clientX;
+  mapDragLastY = e.clientY;
+  mapCanvas.style.cursor = 'grabbing';
+});
+
+mapCanvas.addEventListener('mouseup', () => {
+  mapDragging = false;
+  mapCanvas.style.cursor = 'grab';
+});
+
+mapCanvas.addEventListener('mouseleave', () => {
+  mapDragging = false;
+  mapCanvas.style.cursor = 'grab';
+});
+
+mapCanvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const rect = mapCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (mapCanvas.width / rect.width) / devicePixelRatio;
+  const my = (e.clientY - rect.top) * (mapCanvas.height / rect.height) / devicePixelRatio;
+
+  const [projBefore_x, projBefore_y] = screenToMap(mx, my);
+  const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+  mapZoom = Math.max(0.5, Math.min(20, mapZoom * factor));
+  const [projAfter_x, projAfter_y] = screenToMap(mx, my);
+
+  mapPanX += projAfter_x - projBefore_x;
+  mapPanY += projAfter_y - projBefore_y;
+  drawMap();
+}, {passive: false});
+
+mapCanvas.style.cursor = 'grab';
+
+// ═══════ RESIZE + INIT ═══════
+function resize() {
+  const panels = document.querySelectorAll('.panel');
+  panels.forEach(p => {
+    const rect = p.getBoundingClientRect();
+    const canvas = p.querySelector('canvas');
+    canvas.width = rect.width * devicePixelRatio;
+    canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+  });
+  umapW = umapCanvas.width; umapH = umapCanvas.height;
+  mapW = mapCanvas.width; mapH = mapCanvas.height;
+  umapCtx.scale(devicePixelRatio, devicePixelRatio);
+  mapCtx.scale(devicePixelRatio, devicePixelRatio);
+  umapW /= devicePixelRatio; umapH /= devicePixelRatio;
+  mapW /= devicePixelRatio; mapH /= devicePixelRatio;
+  drawUMAP(); drawMap();
+}
+
+window.addEventListener('resize', resize);
+buildLegend();
+updateColorbar();
+resize();
+</script>
+</body>
+</html>

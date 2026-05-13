@@ -1,0 +1,23 @@
+{
+  "group_id": 127,
+  "ship": "HM",
+  "n_tows_merged": 1,
+  "tow_numbers": [
+    128.0
+  ],
+  "period_start": "2002-01-10 06:10:00",
+  "period_end": "2002-01-10 14:00:00",
+  "n_segments": 20,
+  "n_active_species": 27,
+  "total_abundance": 12243.0,
+  "cv_scores": {
+    "2": 11974.966839,
+    "3": 12837.145644,
+    "4": 12972.736608,
+    "5": 13033.741112
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 143.12365779546633,
+  "nmf_iterations": 165,
+  "nmf_converged": true
+}

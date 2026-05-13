@@ -1,0 +1,23 @@
+{
+  "group_id": 144,
+  "ship": "PS",
+  "n_tows_merged": 1,
+  "tow_numbers": [
+    412.0
+  ],
+  "period_start": "2008-01-30 20:49:00",
+  "period_end": "2008-01-31 09:03:00",
+  "n_segments": 28,
+  "n_active_species": 20,
+  "total_abundance": 1212.0,
+  "cv_scores": {
+    "2": 127.186563,
+    "3": 128.391879,
+    "4": 133.168273,
+    "5": 132.625065
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 32.00948382505036,
+  "nmf_iterations": 98,
+  "nmf_converged": true
+}

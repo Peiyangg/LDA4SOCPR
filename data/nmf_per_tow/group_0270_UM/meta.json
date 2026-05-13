@@ -1,0 +1,25 @@
+{
+  "group_id": 270,
+  "ship": "UM",
+  "n_tows_merged": 3,
+  "tow_numbers": [
+    618.0,
+    620.0,
+    622.0
+  ],
+  "period_start": "2011-12-31 07:31:00",
+  "period_end": "2012-01-02 19:38:00",
+  "n_segments": 121,
+  "n_active_species": 35,
+  "total_abundance": 35807.0,
+  "cv_scores": {
+    "2": 2006.390094,
+    "3": 2703.022687,
+    "4": 2741.506379,
+    "5": 2769.985675
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 238.8558335724856,
+  "nmf_iterations": 93,
+  "nmf_converged": true
+}

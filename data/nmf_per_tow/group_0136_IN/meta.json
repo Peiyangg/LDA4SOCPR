@@ -1,0 +1,23 @@
+{
+  "group_id": 136,
+  "ship": "IN",
+  "n_tows_merged": 1,
+  "tow_numbers": [
+    1131.0
+  ],
+  "period_start": "2021-03-22 05:56:00",
+  "period_end": "2021-03-22 10:51:00",
+  "n_segments": 10,
+  "n_active_species": 21,
+  "total_abundance": 267.0,
+  "cv_scores": {
+    "2": 8.171407,
+    "3": 9.157959,
+    "4": 11.012211,
+    "5": 11.818557
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 12.894519875523365,
+  "nmf_iterations": 57,
+  "nmf_converged": true
+}

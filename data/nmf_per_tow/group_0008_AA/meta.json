@@ -1,0 +1,24 @@
+{
+  "group_id": 8,
+  "ship": "AA",
+  "n_tows_merged": 2,
+  "tow_numbers": [
+    22.0,
+    23.0
+  ],
+  "period_start": "1998-01-11 13:28:00",
+  "period_end": "1998-01-14 12:51:00",
+  "n_segments": 160,
+  "n_active_species": 29,
+  "total_abundance": 27822.0,
+  "cv_scores": {
+    "2": 5010.305881,
+    "3": 5403.886218,
+    "4": 5411.957147,
+    "5": 5413.325797
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 322.8916423633884,
+  "nmf_iterations": 634,
+  "nmf_converged": true
+}

@@ -1,0 +1,26 @@
+{
+  "group_id": 139,
+  "ship": "KM",
+  "n_tows_merged": 4,
+  "tow_numbers": [
+    53.0,
+    54.0,
+    55.0,
+    56.0
+  ],
+  "period_start": "1999-11-24 00:41:00",
+  "period_end": "1999-11-25 11:38:00",
+  "n_segments": 98,
+  "n_active_species": 28,
+  "total_abundance": 7040.0,
+  "cv_scores": {
+    "2": 533.5546,
+    "3": 586.389519,
+    "4": 589.628885,
+    "5": 594.727393
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 123.0533412353481,
+  "nmf_iterations": 210,
+  "nmf_converged": true
+}

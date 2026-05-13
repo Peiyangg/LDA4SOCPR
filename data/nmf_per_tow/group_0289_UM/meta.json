@@ -1,0 +1,25 @@
+{
+  "group_id": 289,
+  "ship": "UM",
+  "n_tows_merged": 3,
+  "tow_numbers": [
+    1147.0,
+    1148.0,
+    1149.0
+  ],
+  "period_start": "2023-01-31 08:13:00",
+  "period_end": "2023-02-03 23:36:00",
+  "n_segments": 194,
+  "n_active_species": 43,
+  "total_abundance": 23785.0,
+  "cv_scores": {
+    "2": 633.43146,
+    "3": 749.621614,
+    "4": 803.677043,
+    "5": 805.465642
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 250.09829479085678,
+  "nmf_iterations": 738,
+  "nmf_converged": true
+}

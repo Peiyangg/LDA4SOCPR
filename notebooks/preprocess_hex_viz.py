@@ -97,11 +97,11 @@ def safe_mean(series):
 
 def build_hex_year_data(meta, groups_df, abund, resolution):
     """
-    Aggregate CPR segments into H3 cells per year.
-    Returns: hex_geo (dict of cell boundaries), hex_year_records (list of per-year dicts),
+    Aggregate CPR segments into H3 cells per austral season.
+    Returns: hex_geo (dict of cell boundaries), hex_year_records (list of per-season dicts),
              feature_rows, metadata_rows, effort_rows.
     """
-    print(f"\n  Building H3 res {resolution} hexagons (per year)...")
+    print(f"\n  Building H3 res {resolution} hexagons (per austral season)...")
 
     meta = meta.copy()
     meta["h3_cell"] = [
@@ -118,7 +118,7 @@ def build_hex_year_data(meta, groups_df, abund, resolution):
     metadata_rows = []
     effort_rows = []
 
-    for (cell, year), cell_meta in meta.groupby(["h3_cell", "Year"]):
+    for (cell, season), cell_meta in meta.groupby(["h3_cell", "Season"]):
         sids = cell_meta["Segment_ID"].values
         n_segments = len(sids)
 
@@ -156,7 +156,7 @@ def build_hex_year_data(meta, groups_df, abund, resolution):
         # --- D3 record ---
         hex_year_records.append({
             "cell": cell,
-            "year": int(year),
+            "season": str(season),
             "n": n_segments,
             "sh": round(shannon, 4),
             "ri": richness,
@@ -171,7 +171,7 @@ def build_hex_year_data(meta, groups_df, abund, resolution):
         })
 
         # --- Features CSV row (raw 272 species) ---
-        feat_row = {"h3_cell": cell, "year": int(year)}
+        feat_row = {"h3_cell": cell, "season": str(season)}
         for col in species_cols:
             feat_row[col] = int(species_totals[col])
         feature_rows.append(feat_row)
@@ -181,7 +181,7 @@ def build_hex_year_data(meta, groups_df, abund, resolution):
         n_ships = int(cell_meta["Ship_Code"].nunique())
         metadata_rows.append({
             "h3_cell": cell,
-            "year": int(year),
+            "season": str(season),
             "center_lat": round(float(cell_meta["Latitude"].mean()), 4),
             "center_lon": round(float(cell_meta["Longitude"].mean()), 4),
             "n_segments": n_segments,
@@ -203,7 +203,7 @@ def build_hex_year_data(meta, groups_df, abund, resolution):
             "mean_hadisst_ice": round(mean_ice, 3) if mean_ice is not None else None,
         })
 
-        effort_rows.append({"h3_cell": cell, "year": int(year), "n_segments": n_segments})
+        effort_rows.append({"h3_cell": cell, "season": str(season), "n_segments": n_segments})
 
     n_cells = len(hex_geo)
     n_records = len(hex_year_records)
@@ -286,10 +286,10 @@ def main():
         df_meta.to_csv(meta_path, index=False)
         print(f"  → {meta_path.name}: {len(df_meta)} rows × {len(df_meta.columns)} cols")
 
-        # --- Effort pivot: hex × year ---
+        # --- Effort pivot: hex × season ---
         df_effort = pd.DataFrame(effort_rows)
         pivot = df_effort.pivot_table(
-            index="h3_cell", columns="year", values="n_segments", fill_value=0
+            index="h3_cell", columns="season", values="n_segments", fill_value=0
         )
         pivot.columns = [str(c) for c in pivot.columns]
         effort_path = DATA / f"hex_effort_res{resolution}.csv"

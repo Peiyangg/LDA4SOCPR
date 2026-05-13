@@ -1,0 +1,27 @@
+{
+  "group_id": 104,
+  "ship": "AA",
+  "n_tows_merged": 5,
+  "tow_numbers": [
+    855.0,
+    859.0,
+    864.0,
+    865.0,
+    868.0
+  ],
+  "period_start": "2015-01-30 07:18:00",
+  "period_end": "2015-02-05 23:56:00",
+  "n_segments": 387,
+  "n_active_species": 100,
+  "total_abundance": 78879.0,
+  "cv_scores": {
+    "2": 1633.694746,
+    "3": 1698.297022,
+    "4": 1832.663269,
+    "5": 1883.950395
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 1223.0839459848105,
+  "nmf_iterations": 16,
+  "nmf_converged": true
+}

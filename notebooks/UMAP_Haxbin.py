@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.17.0"
+__generated_with = "0.22.4"
 app = marimo.App(width="full")
 
 
@@ -16,6 +16,7 @@ def _():
     from sklearn.manifold import MDS
     import seaborn as sns
     import matplotlib.pyplot as plt
+
     return mo, pd, plt, umap
 
 
@@ -54,7 +55,9 @@ def _(hex_r2, hex_r2_meta, hex_r3, hex_r3_meta):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## NMF""")
+    mo.md(r"""
+    ## NMF
+    """)
     return
 
 
@@ -63,6 +66,7 @@ def _():
     from cvanmf import denovo, combine, data, stability
     import plotnine as pn
     import pathlib
+
     return denovo, pathlib, pn
 
 
@@ -101,6 +105,7 @@ def _(pathlib):
         plot.save(out_path.with_suffix('.pdf'))
         plot.data.to_csv(out_path.with_suffix('.tsv'), sep='\t')
         return plot
+
     return PUB, figure_output
 
 
@@ -125,7 +130,9 @@ def _(PUB, denovo, figure_output, pn, rank_res):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## UMAP_r3""")
+    mo.md(r"""
+    ## UMAP_r3
+    """)
     return
 
 
@@ -179,7 +186,9 @@ def _(hex_r3_effort, plt):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## 5-Year UMAP Analysis""")
+    mo.md(r"""
+    ## 5-Year UMAP Analysis
+    """)
     return
 
 
@@ -219,7 +228,6 @@ def _(hex_r3_clean, hex_r3_meta):
     print(f"Created {len(subdf_dict)} 5-year periods (anchored on max year {_max_year}):")
     for _period, _info in subdf_dict.items():
         print(f"  {_period}: {len(_info['data']):>4d} samples | actual years present: {_info['actual_years']}")
-
     return (subdf_dict,)
 
 
@@ -443,7 +451,7 @@ def _(all_embeddings, df_umap_5yr, plt):
 
     for _k, _period in enumerate(_periods):
         _ax = _axes_flat[_k]
-    
+
         # Background: all other periods in light grey
         _ax.scatter(
             df_umap_5yr['UMAP1'],
@@ -453,7 +461,7 @@ def _(all_embeddings, df_umap_5yr, plt):
             alpha=0.3,
             rasterized=True,
         )
-    
+
         # Foreground: current period, using FIXED 1991-2019 norm
         _emb = all_embeddings[_period]['embedding']
         _meta = all_embeddings[_period]['meta']
@@ -468,7 +476,7 @@ def _(all_embeddings, df_umap_5yr, plt):
             edgecolor='k',
             linewidth=0.2,
         )
-    
+
         _ax.set_title(f"{_period} (n={len(_emb)})")
         _ax.set_xlim(_x_min - _pad_x, _x_max + _pad_x)
         _ax.set_ylim(_y_min - _pad_y, _y_max + _pad_y)
@@ -530,7 +538,7 @@ def _(all_embeddings, df_umap_5yr, plt):
 
     for _k, _period in enumerate(_periods):
         _ax = _axes_flat[_k]
-    
+
         # Background: all other periods in light grey
         _ax.scatter(
             df_umap_5yr['UMAP1'],
@@ -540,7 +548,7 @@ def _(all_embeddings, df_umap_5yr, plt):
             alpha=0.3,
             rasterized=True,
         )
-    
+
         # Foreground: current period colored by its OWN year range
         _emb = all_embeddings[_period]['embedding']
         _meta = all_embeddings[_period]['meta']
@@ -554,7 +562,7 @@ def _(all_embeddings, df_umap_5yr, plt):
             edgecolor='k',
             linewidth=0.2,
         )
-    
+
         _ax.set_title(f"{_period} (n={len(_emb)})")
         _ax.set_xlim(_x_min - _pad_x, _x_max + _pad_x)
         _ax.set_ylim(_y_min - _pad_y, _y_max + _pad_y)

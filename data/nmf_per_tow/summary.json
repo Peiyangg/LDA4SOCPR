@@ -1,0 +1,7288 @@
+{
+  "n_groups": 292,
+  "k_range": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_folds": 5,
+  "mask_fraction": 0.2,
+  "max_iter": 1000,
+  "k_distribution": {
+    "2": 271,
+    "3": 18,
+    "4": 2,
+    "5": 1
+  },
+  "converged": 245,
+  "not_converged": 47,
+  "elapsed_seconds": 21.5,
+  "all_results": [
+    {
+      "group_id": 0,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1.0
+      ],
+      "period_start": "1991-01-12 10:20:00",
+      "period_end": "1991-01-12 20:06:00",
+      "n_segments": 26,
+      "n_active_species": 5,
+      "total_abundance": 141.0,
+      "cv_scores": {
+        "2": 52.235813,
+        "3": 52.382115,
+        "4": 52.396916,
+        "5": Infinity
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 2.0814952748295052,
+      "nmf_iterations": 9,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 1,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        2.0,
+        3.0
+      ],
+      "period_start": "1991-03-06 03:01:00",
+      "period_end": "1991-03-06 09:09:00",
+      "n_segments": 11,
+      "n_active_species": 5,
+      "total_abundance": 11.0,
+      "cv_scores": {
+        "2": 2.6,
+        "3": 2.6,
+        "4": 2.6,
+        "5": Infinity
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1.4083266625326956,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 2,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0
+      ],
+      "period_start": "1991-03-09 03:16:00",
+      "period_end": "1991-03-13 06:42:00",
+      "n_segments": 175,
+      "n_active_species": 22,
+      "total_abundance": 9052.0,
+      "cv_scores": {
+        "2": 947.175867,
+        "3": 975.34239,
+        "4": 1023.329145,
+        "5": 1037.63114
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 297.83450135819197,
+      "nmf_iterations": 30,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 3,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        10.0
+      ],
+      "period_start": "1993-01-13 12:26:00",
+      "period_end": "1993-01-14 22:10:00",
+      "n_segments": 91,
+      "n_active_species": 8,
+      "total_abundance": 130.0,
+      "cv_scores": {
+        "2": 6.866667,
+        "3": 6.866667,
+        "4": 6.866667,
+        "5": 6.866667
+      },
+      "best_k": 4,
+      "nmf_reconstruction_error": 2.8097192475160204,
+      "nmf_iterations": 6,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 4,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        11.0
+      ],
+      "period_start": "1993-02-27 05:56:00",
+      "period_end": "1993-02-27 12:31:00",
+      "n_segments": 17,
+      "n_active_species": 8,
+      "total_abundance": 84.0,
+      "cv_scores": {
+        "2": 25.877481,
+        "3": 25.79981,
+        "4": 25.802283,
+        "5": 25.804756
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 1.858363056472756,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 5,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        12.0
+      ],
+      "period_start": "1994-02-05 18:32:00",
+      "period_end": "1994-02-07 01:19:00",
+      "n_segments": 94,
+      "n_active_species": 15,
+      "total_abundance": 568.0,
+      "cv_scores": {
+        "2": 40.720204,
+        "3": 41.051539,
+        "4": 41.646733,
+        "5": 41.926892
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 17.751193476337278,
+      "nmf_iterations": 8,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 6,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        19.0
+      ],
+      "period_start": "1997-11-03 08:29:00",
+      "period_end": "1997-11-04 23:32:00",
+      "n_segments": 82,
+      "n_active_species": 42,
+      "total_abundance": 16209.0,
+      "cv_scores": {
+        "2": 1190.021262,
+        "3": 1206.170637,
+        "4": 1218.01106,
+        "5": 1226.253587
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 144.3413865415146,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 7,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        20.0,
+        21.0
+      ],
+      "period_start": "1997-12-02 03:31:00",
+      "period_end": "1997-12-04 13:39:00",
+      "n_segments": 183,
+      "n_active_species": 32,
+      "total_abundance": 36452.0,
+      "cv_scores": {
+        "2": 3947.581908,
+        "3": 4059.415572,
+        "4": 4151.637328,
+        "5": 4159.958979
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 238.66264443206887,
+      "nmf_iterations": 229,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 8,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        22.0,
+        23.0
+      ],
+      "period_start": "1998-01-11 13:28:00",
+      "period_end": "1998-01-14 12:51:00",
+      "n_segments": 160,
+      "n_active_species": 29,
+      "total_abundance": 27822.0,
+      "cv_scores": {
+        "2": 5010.305881,
+        "3": 5403.886218,
+        "4": 5411.957147,
+        "5": 5413.325797
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 322.8916423633884,
+      "nmf_iterations": 634,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 9,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        24.0,
+        25.0,
+        26.0,
+        27.0,
+        28.0,
+        29.0
+      ],
+      "period_start": "1998-01-29 05:36:00",
+      "period_end": "1998-02-06 07:45:00",
+      "n_segments": 461,
+      "n_active_species": 48,
+      "total_abundance": 45578.0,
+      "cv_scores": {
+        "2": 2795.792299,
+        "3": 2798.244019,
+        "4": 2819.53711,
+        "5": 2824.584145
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 557.0052558601775,
+      "nmf_iterations": 240,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 10,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        30.0,
+        31.0,
+        32.0
+      ],
+      "period_start": "1998-02-15 09:26:00",
+      "period_end": "1998-02-18 00:25:00",
+      "n_segments": 105,
+      "n_active_species": 26,
+      "total_abundance": 9183.0,
+      "cv_scores": {
+        "2": 1806.029283,
+        "3": 1831.323337,
+        "4": 1829.406701,
+        "5": 1827.222601
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 68.4848009515764,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 11,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        33.0,
+        34.0
+      ],
+      "period_start": "1998-02-19 04:22:00",
+      "period_end": "1998-02-21 06:00:00",
+      "n_segments": 134,
+      "n_active_species": 37,
+      "total_abundance": 11905.0,
+      "cv_scores": {
+        "2": 1586.85004,
+        "3": 1744.986137,
+        "4": 1864.970239,
+        "5": 1870.02446
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 216.7164505629834,
+      "nmf_iterations": 17,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 12,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        38.0,
+        39.0
+      ],
+      "period_start": "1998-11-02 03:42:00",
+      "period_end": "1998-11-05 01:12:00",
+      "n_segments": 132,
+      "n_active_species": 39,
+      "total_abundance": 15093.0,
+      "cv_scores": {
+        "2": 1270.351053,
+        "3": 1418.556801,
+        "4": 1464.9841,
+        "5": 1478.32431
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 369.23062787666976,
+      "nmf_iterations": 12,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 13,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        40.0
+      ],
+      "period_start": "1999-03-14 07:58:00",
+      "period_end": "1999-03-16 08:50:00",
+      "n_segments": 88,
+      "n_active_species": 44,
+      "total_abundance": 5739.0,
+      "cv_scores": {
+        "2": 381.683784,
+        "3": 388.018295,
+        "4": 391.287417,
+        "5": 391.294524
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 63.55074769317423,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 14,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        41.0
+      ],
+      "period_start": "1999-03-18 09:02:00",
+      "period_end": "1999-03-20 09:15:00",
+      "n_segments": 89,
+      "n_active_species": 22,
+      "total_abundance": 5405.0,
+      "cv_scores": {
+        "2": 1057.259436,
+        "3": 1061.043489,
+        "4": 1061.334849,
+        "5": 1061.148762
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 35.12869203945125,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 15,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        52.0
+      ],
+      "period_start": "1999-11-12 12:52:00",
+      "period_end": "1999-11-12 19:02:00",
+      "n_segments": 18,
+      "n_active_species": 31,
+      "total_abundance": 3216.0,
+      "cv_scores": {
+        "2": 1600.661177,
+        "3": 1600.474818,
+        "4": 1602.01633,
+        "5": 1602.912979
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 14.234540684221756,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 16,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        57.0,
+        58.0
+      ],
+      "period_start": "1999-12-01 09:37:00",
+      "period_end": "1999-12-02 15:43:00",
+      "n_segments": 86,
+      "n_active_species": 44,
+      "total_abundance": 9418.0,
+      "cv_scores": {
+        "2": 628.496891,
+        "3": 651.336102,
+        "4": 677.998722,
+        "5": 679.357612
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 125.37623113985688,
+      "nmf_iterations": 730,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 17,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        62.0,
+        63.0,
+        64.0
+      ],
+      "period_start": "2000-01-13 04:36:00",
+      "period_end": "2000-01-15 23:01:00",
+      "n_segments": 177,
+      "n_active_species": 41,
+      "total_abundance": 52724.0,
+      "cv_scores": {
+        "2": 7212.007625,
+        "3": 7216.695349,
+        "4": 7221.175566,
+        "5": 7210.652593
+      },
+      "best_k": 5,
+      "nmf_reconstruction_error": 69.6143459385158,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 18,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        65.0,
+        66.0,
+        67.0
+      ],
+      "period_start": "2000-01-25 22:17:00",
+      "period_end": "2000-01-31 01:00:00",
+      "n_segments": 236,
+      "n_active_species": 45,
+      "total_abundance": 60081.0,
+      "cv_scores": {
+        "2": 6532.436408,
+        "3": 6511.556575,
+        "4": 6529.322443,
+        "5": 6533.385162
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 147.4598481153795,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 19,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        69.0,
+        71.0,
+        72.0
+      ],
+      "period_start": "2000-02-08 07:56:00",
+      "period_end": "2000-02-11 21:29:00",
+      "n_segments": 250,
+      "n_active_species": 37,
+      "total_abundance": 41042.0,
+      "cv_scores": {
+        "2": 4750.827721,
+        "3": 4739.260285,
+        "4": 4747.325846,
+        "5": 4752.871527
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 87.13213186835782,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 20,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        73.0,
+        74.0
+      ],
+      "period_start": "2000-02-23 11:30:00",
+      "period_end": "2000-02-26 21:05:00",
+      "n_segments": 183,
+      "n_active_species": 31,
+      "total_abundance": 18079.0,
+      "cv_scores": {
+        "2": 1593.118161,
+        "3": 1592.191476,
+        "4": 1595.856305,
+        "5": 1596.918218
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 77.0801062501925,
+      "nmf_iterations": 573,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 21,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        80.0
+      ],
+      "period_start": "2000-03-17 12:24:00",
+      "period_end": "2000-03-19 03:00:00",
+      "n_segments": 90,
+      "n_active_species": 23,
+      "total_abundance": 3383.0,
+      "cv_scores": {
+        "2": 160.071791,
+        "3": 161.728341,
+        "4": 163.873215,
+        "5": 164.009519
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 39.357279864480226,
+      "nmf_iterations": 268,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 22,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        84.0
+      ],
+      "period_start": "2000-11-08 02:18:00",
+      "period_end": "2000-11-09 01:10:00",
+      "n_segments": 55,
+      "n_active_species": 16,
+      "total_abundance": 2175.0,
+      "cv_scores": {
+        "2": 654.912993,
+        "3": 662.626034,
+        "4": 662.960676,
+        "5": 662.975261
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 23.519563493260108,
+      "nmf_iterations": 121,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 23,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        85.0
+      ],
+      "period_start": "2000-12-01 01:37:00",
+      "period_end": "2000-12-02 10:02:00",
+      "n_segments": 85,
+      "n_active_species": 21,
+      "total_abundance": 5693.0,
+      "cv_scores": {
+        "2": 1465.602959,
+        "3": 1476.342072,
+        "4": 1477.764408,
+        "5": 1477.856499
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 31.70837171635288,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 24,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        90.0,
+        91.0,
+        92.0,
+        93.0
+      ],
+      "period_start": "2000-12-20 23:34:00",
+      "period_end": "2000-12-25 00:02:00",
+      "n_segments": 249,
+      "n_active_species": 35,
+      "total_abundance": 21563.0,
+      "cv_scores": {
+        "2": 1319.420863,
+        "3": 1320.315189,
+        "4": 1320.716422,
+        "5": 1320.96842
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 71.73551853707892,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 25,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        94.0
+      ],
+      "period_start": "2001-01-03 09:37:00",
+      "period_end": "2001-01-03 17:54:00",
+      "n_segments": 20,
+      "n_active_species": 25,
+      "total_abundance": 2277.0,
+      "cv_scores": {
+        "2": 541.247229,
+        "3": 626.660925,
+        "4": 625.994619,
+        "5": 632.582768
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 40.975689146034306,
+      "nmf_iterations": 315,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 26,
+      "ship": "AA",
+      "n_tows_merged": 8,
+      "tow_numbers": [
+        95.0,
+        96.0,
+        97.0,
+        98.0,
+        99.0,
+        100.0,
+        101.0,
+        102.0
+      ],
+      "period_start": "2001-01-05 05:33:00",
+      "period_end": "2001-01-12 18:27:00",
+      "n_segments": 361,
+      "n_active_species": 40,
+      "total_abundance": 28901.0,
+      "cv_scores": {
+        "2": 1910.952489,
+        "3": 1924.985328,
+        "4": 1926.298049,
+        "5": 1929.115272
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 158.99832764541063,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 27,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        103.0,
+        104.0,
+        105.0,
+        106.0
+      ],
+      "period_start": "2001-03-02 09:41:00",
+      "period_end": "2001-03-07 14:00:00",
+      "n_segments": 347,
+      "n_active_species": 48,
+      "total_abundance": 27044.0,
+      "cv_scores": {
+        "2": 1489.370371,
+        "3": 1498.484383,
+        "4": 1497.951087,
+        "5": 1497.937626
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 144.66093685806496,
+      "nmf_iterations": 843,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 28,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        107.0,
+        110.0,
+        112.0
+      ],
+      "period_start": "2001-03-14 02:28:00",
+      "period_end": "2001-03-18 15:21:00",
+      "n_segments": 259,
+      "n_active_species": 40,
+      "total_abundance": 23812.0,
+      "cv_scores": {
+        "2": 1344.248647,
+        "3": 1496.852812,
+        "4": 1501.299992,
+        "5": 1502.542008
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 326.88379668820477,
+      "nmf_iterations": 39,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 29,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        113.0
+      ],
+      "period_start": "2001-03-23 05:29:00",
+      "period_end": "2001-03-24 15:24:00",
+      "n_segments": 81,
+      "n_active_species": 24,
+      "total_abundance": 4921.0,
+      "cv_scores": {
+        "2": 503.516467,
+        "3": 503.382522,
+        "4": 503.295534,
+        "5": 503.588371
+      },
+      "best_k": 4,
+      "nmf_reconstruction_error": 16.848483140193416,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 30,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        120.0,
+        121.0,
+        122.0,
+        123.0,
+        124.0,
+        125.0
+      ],
+      "period_start": "2001-12-07 08:17:00",
+      "period_end": "2001-12-11 08:13:00",
+      "n_segments": 129,
+      "n_active_species": 54,
+      "total_abundance": 43928.0,
+      "cv_scores": {
+        "2": 2470.525021,
+        "3": 2906.782253,
+        "4": 3173.413126,
+        "5": 3296.45819
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 538.1794050173271,
+      "nmf_iterations": 223,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 31,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        126.0
+      ],
+      "period_start": "2001-12-17 21:26:00",
+      "period_end": "2001-12-17 23:17:00",
+      "n_segments": 7,
+      "n_active_species": 18,
+      "total_abundance": 780.0,
+      "cv_scores": {
+        "2": 1534.50914,
+        "3": 1539.665197,
+        "4": 1537.699581,
+        "5": 1540.02342
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 11.770612270636732,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 32,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        127.0
+      ],
+      "period_start": "2001-12-19 01:08:00",
+      "period_end": "2001-12-19 03:03:00",
+      "n_segments": 7,
+      "n_active_species": 16,
+      "total_abundance": 932.0,
+      "cv_scores": {
+        "2": 4145.212636,
+        "3": 4178.51546,
+        "4": 4181.186803,
+        "5": 4181.228523
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 13.008768893713269,
+      "nmf_iterations": 994,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 33,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        132.0,
+        134.0,
+        135.0,
+        137.0
+      ],
+      "period_start": "2002-01-15 02:06:00",
+      "period_end": "2002-01-19 21:02:00",
+      "n_segments": 365,
+      "n_active_species": 46,
+      "total_abundance": 52731.0,
+      "cv_scores": {
+        "2": 6529.500065,
+        "3": 6567.95528,
+        "4": 6590.083577,
+        "5": 6590.955461
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 375.6335498241145,
+      "nmf_iterations": 508,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 34,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        139.0,
+        140.0,
+        141.0,
+        142.0
+      ],
+      "period_start": "2002-01-28 05:41:00",
+      "period_end": "2002-02-05 01:36:00",
+      "n_segments": 366,
+      "n_active_species": 55,
+      "total_abundance": 42830.0,
+      "cv_scores": {
+        "2": 2121.043191,
+        "3": 2431.612794,
+        "4": 2431.708871,
+        "5": 2431.802127
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 590.7902294901811,
+      "nmf_iterations": 47,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 35,
+      "ship": "AA",
+      "n_tows_merged": 8,
+      "tow_numbers": [
+        152.0,
+        153.0,
+        156.0,
+        157.0,
+        158.0,
+        159.0,
+        161.0,
+        162.0
+      ],
+      "period_start": "2002-02-27 09:34:00",
+      "period_end": "2002-03-06 03:21:00",
+      "n_segments": 323,
+      "n_active_species": 52,
+      "total_abundance": 31920.0,
+      "cv_scores": {
+        "2": 1477.067559,
+        "3": 1674.668437,
+        "4": 1675.329319,
+        "5": 1676.499045
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 352.11502883172886,
+      "nmf_iterations": 128,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 36,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        172.0
+      ],
+      "period_start": "2002-11-10 00:20:00",
+      "period_end": "2002-11-10 02:03:00",
+      "n_segments": 6,
+      "n_active_species": 7,
+      "total_abundance": 92.0,
+      "cv_scores": {
+        "2": 40.49891,
+        "3": 40.974335,
+        "4": 41.250085,
+        "5": 41.331667
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 2.9974925613424146,
+      "nmf_iterations": 42,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 37,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        173.0
+      ],
+      "period_start": "2002-11-12 23:04:00",
+      "period_end": "2002-11-14 23:07:00",
+      "n_segments": 99,
+      "n_active_species": 41,
+      "total_abundance": 3485.0,
+      "cv_scores": {
+        "2": 162.470047,
+        "3": 170.168466,
+        "4": 172.111344,
+        "5": 173.613481
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 60.43749310849723,
+      "nmf_iterations": 126,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 38,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        174.0,
+        175.0,
+        176.0,
+        177.0
+      ],
+      "period_start": "2002-11-24 09:34:00",
+      "period_end": "2002-12-02 01:31:00",
+      "n_segments": 363,
+      "n_active_species": 58,
+      "total_abundance": 36596.0,
+      "cv_scores": {
+        "2": 655.577594,
+        "3": 1065.809994,
+        "4": 1080.638708,
+        "5": 1081.045075
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 372.3395728540589,
+      "nmf_iterations": 21,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 39,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        180.0,
+        181.0,
+        182.0,
+        183.0,
+        184.0
+      ],
+      "period_start": "2002-12-17 00:45:00",
+      "period_end": "2002-12-23 13:05:00",
+      "n_segments": 453,
+      "n_active_species": 80,
+      "total_abundance": 107764.0,
+      "cv_scores": {
+        "2": 5150.470924,
+        "3": 5128.340065,
+        "4": 5247.718833,
+        "5": 5324.444946
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 626.2689326513687,
+      "nmf_iterations": 431,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 40,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        185.0,
+        186.0,
+        187.0,
+        188.0,
+        189.0,
+        190.0
+      ],
+      "period_start": "2003-01-05 13:57:00",
+      "period_end": "2003-01-13 22:40:00",
+      "n_segments": 411,
+      "n_active_species": 60,
+      "total_abundance": 40476.0,
+      "cv_scores": {
+        "2": 1056.440375,
+        "3": 1066.13961,
+        "4": 1142.79652,
+        "5": 1216.74714
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 839.8313849686949,
+      "nmf_iterations": 42,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 41,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        199.0,
+        200.0
+      ],
+      "period_start": "2003-03-06 02:34:00",
+      "period_end": "2003-03-08 07:03:00",
+      "n_segments": 128,
+      "n_active_species": 36,
+      "total_abundance": 21557.0,
+      "cv_scores": {
+        "2": 2895.366181,
+        "3": 2940.37896,
+        "4": 2965.02212,
+        "5": 2971.538772
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 156.47636945423733,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 42,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        201.0,
+        202.0,
+        203.0,
+        204.0
+      ],
+      "period_start": "2003-03-09 16:35:00",
+      "period_end": "2003-03-14 03:05:00",
+      "n_segments": 301,
+      "n_active_species": 46,
+      "total_abundance": 29202.0,
+      "cv_scores": {
+        "2": 1760.194696,
+        "3": 1976.632944,
+        "4": 2063.960517,
+        "5": 2065.739889
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 466.22440839138665,
+      "nmf_iterations": 168,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 43,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        210.0,
+        211.0,
+        212.0,
+        213.0
+      ],
+      "period_start": "2003-11-06 10:46:00",
+      "period_end": "2003-11-12 12:06:00",
+      "n_segments": 289,
+      "n_active_species": 63,
+      "total_abundance": 29057.0,
+      "cv_scores": {
+        "2": 486.685609,
+        "3": 540.625965,
+        "4": 559.593529,
+        "5": 568.874463
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 314.3260122170593,
+      "nmf_iterations": 291,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 44,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        214.0,
+        215.0,
+        216.0
+      ],
+      "period_start": "2003-11-26 06:10:00",
+      "period_end": "2003-11-29 08:30:00",
+      "n_segments": 210,
+      "n_active_species": 59,
+      "total_abundance": 33836.0,
+      "cv_scores": {
+        "2": 1116.222715,
+        "3": 1322.953697,
+        "4": 1366.880737,
+        "5": 1379.552114
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 423.811822415382,
+      "nmf_iterations": 82,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 45,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        220.0,
+        221.0,
+        222.0,
+        223.0
+      ],
+      "period_start": "2003-12-14 12:31:00",
+      "period_end": "2003-12-17 07:51:00",
+      "n_segments": 127,
+      "n_active_species": 62,
+      "total_abundance": 14450.0,
+      "cv_scores": {
+        "2": 309.486062,
+        "3": 408.716038,
+        "4": 417.926652,
+        "5": 425.861763
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 239.64039870640065,
+      "nmf_iterations": 88,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 46,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        224.0,
+        225.0
+      ],
+      "period_start": "2004-01-28 07:22:00",
+      "period_end": "2004-01-30 03:45:00",
+      "n_segments": 105,
+      "n_active_species": 41,
+      "total_abundance": 27098.0,
+      "cv_scores": {
+        "2": 4650.808174,
+        "3": 4931.021425,
+        "4": 4981.622097,
+        "5": 5012.931197
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 417.1387975032158,
+      "nmf_iterations": 619,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 47,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        226.0,
+        227.0,
+        228.0,
+        229.0,
+        230.0,
+        231.0
+      ],
+      "period_start": "2004-02-04 04:32:00",
+      "period_end": "2004-02-11 11:53:00",
+      "n_segments": 445,
+      "n_active_species": 61,
+      "total_abundance": 67152.0,
+      "cv_scores": {
+        "2": 1918.973471,
+        "3": 1899.859861,
+        "4": 1956.138392,
+        "5": 1966.107597
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 431.09562128165203,
+      "nmf_iterations": 407,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 48,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        232.0,
+        233.0,
+        234.0
+      ],
+      "period_start": "2004-02-20 00:27:00",
+      "period_end": "2004-02-25 01:48:00",
+      "n_segments": 266,
+      "n_active_species": 64,
+      "total_abundance": 30268.0,
+      "cv_scores": {
+        "2": 616.564558,
+        "3": 799.831961,
+        "4": 802.078369,
+        "5": 826.234954
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 376.48370309629587,
+      "nmf_iterations": 43,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 49,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        235.0,
+        236.0
+      ],
+      "period_start": "2004-02-28 09:50:00",
+      "period_end": "2004-03-01 23:21:00",
+      "n_segments": 133,
+      "n_active_species": 36,
+      "total_abundance": 25107.0,
+      "cv_scores": {
+        "2": 3162.217684,
+        "3": 3562.638305,
+        "4": 3657.693449,
+        "5": 3754.832864
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 374.849963946052,
+      "nmf_iterations": 83,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 50,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        237.0
+      ],
+      "period_start": "2004-03-03 04:17:00",
+      "period_end": "2004-03-03 16:01:00",
+      "n_segments": 33,
+      "n_active_species": 32,
+      "total_abundance": 2304.0,
+      "cv_scores": {
+        "2": 128.521827,
+        "3": 140.166251,
+        "4": 143.979126,
+        "5": 145.50114
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 59.47038090765588,
+      "nmf_iterations": 109,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 51,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        256.0,
+        257.0
+      ],
+      "period_start": "2004-11-07 23:31:00",
+      "period_end": "2004-11-10 17:59:00",
+      "n_segments": 170,
+      "n_active_species": 53,
+      "total_abundance": 21935.0,
+      "cv_scores": {
+        "2": 281.248127,
+        "3": 420.40644,
+        "4": 491.918771,
+        "5": 492.822652
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 236.44180302977162,
+      "nmf_iterations": 382,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 52,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        261.0,
+        262.0,
+        263.0
+      ],
+      "period_start": "2004-12-11 05:43:00",
+      "period_end": "2004-12-14 13:03:00",
+      "n_segments": 236,
+      "n_active_species": 56,
+      "total_abundance": 42119.0,
+      "cv_scores": {
+        "2": 787.208147,
+        "3": 1066.020453,
+        "4": 1086.238163,
+        "5": 1153.912306
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 480.00742401839136,
+      "nmf_iterations": 40,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 53,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        283.0,
+        284.0
+      ],
+      "period_start": "2005-02-23 03:43:00",
+      "period_end": "2005-02-26 10:58:00",
+      "n_segments": 173,
+      "n_active_species": 41,
+      "total_abundance": 9164.0,
+      "cv_scores": {
+        "2": 170.017718,
+        "3": 237.790158,
+        "4": 245.02431,
+        "5": 260.960049
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 250.0408159014289,
+      "nmf_iterations": 124,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 54,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        285.0
+      ],
+      "period_start": "2005-02-28 02:31:00",
+      "period_end": "2005-03-01 13:03:00",
+      "n_segments": 70,
+      "n_active_species": 29,
+      "total_abundance": 5304.0,
+      "cv_scores": {
+        "2": 481.502287,
+        "3": 493.074653,
+        "4": 499.533281,
+        "5": 500.154201
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 66.86193632768263,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 55,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        289.0
+      ],
+      "period_start": "2005-03-19 03:42:00",
+      "period_end": "2005-03-20 23:46:00",
+      "n_segments": 84,
+      "n_active_species": 30,
+      "total_abundance": 4230.0,
+      "cv_scores": {
+        "2": 339.007525,
+        "3": 341.743106,
+        "4": 344.118453,
+        "5": 345.154353
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 60.361725325639,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 56,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        290.0
+      ],
+      "period_start": "2005-03-22 11:39:00",
+      "period_end": "2005-03-23 22:40:00",
+      "n_segments": 89,
+      "n_active_species": 36,
+      "total_abundance": 4952.0,
+      "cv_scores": {
+        "2": 101.009502,
+        "3": 114.578182,
+        "4": 133.897813,
+        "5": 134.270715
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 108.4956441433348,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 57,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        293.0,
+        294.0,
+        295.0,
+        296.0
+      ],
+      "period_start": "2005-11-17 09:22:00",
+      "period_end": "2005-11-21 14:50:00",
+      "n_segments": 318,
+      "n_active_species": 70,
+      "total_abundance": 70706.0,
+      "cv_scores": {
+        "2": 1144.97988,
+        "3": 1572.456394,
+        "4": 1627.917601,
+        "5": 1635.345673
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 623.077993307554,
+      "nmf_iterations": 116,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 58,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        299.0
+      ],
+      "period_start": "2005-12-04 09:37:00",
+      "period_end": "2005-12-05 13:05:00",
+      "n_segments": 81,
+      "n_active_species": 45,
+      "total_abundance": 4308.0,
+      "cv_scores": {
+        "2": 1021.076046,
+        "3": 1022.289324,
+        "4": 1023.246381,
+        "5": 1025.276874
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 115.68072253060548,
+      "nmf_iterations": 13,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 59,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        300.0,
+        302.0
+      ],
+      "period_start": "2005-12-07 00:48:00",
+      "period_end": "2005-12-09 19:01:00",
+      "n_segments": 175,
+      "n_active_species": 39,
+      "total_abundance": 19929.0,
+      "cv_scores": {
+        "2": 827.110319,
+        "3": 880.015653,
+        "4": 882.443032,
+        "5": 883.72331
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 228.4478279311376,
+      "nmf_iterations": 209,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 60,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        304.0,
+        305.0,
+        306.0
+      ],
+      "period_start": "2005-12-20 06:31:00",
+      "period_end": "2005-12-23 20:03:00",
+      "n_segments": 251,
+      "n_active_species": 67,
+      "total_abundance": 47515.0,
+      "cv_scores": {
+        "2": 1897.117746,
+        "3": 1916.930097,
+        "4": 1927.070907,
+        "5": 1939.789933
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 367.2943538452652,
+      "nmf_iterations": 87,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 61,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        308.0,
+        311.0,
+        314.0,
+        316.0
+      ],
+      "period_start": "2006-01-06 10:35:00",
+      "period_end": "2006-01-10 14:35:00",
+      "n_segments": 242,
+      "n_active_species": 65,
+      "total_abundance": 44324.0,
+      "cv_scores": {
+        "2": 1046.784704,
+        "3": 1307.204517,
+        "4": 1380.606708,
+        "5": 1409.260033
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 648.4129209575777,
+      "nmf_iterations": 33,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 62,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        335.0,
+        336.0,
+        338.0,
+        339.0,
+        340.0
+      ],
+      "period_start": "2006-03-04 01:44:00",
+      "period_end": "2006-03-09 22:28:00",
+      "n_segments": 358,
+      "n_active_species": 63,
+      "total_abundance": 34633.0,
+      "cv_scores": {
+        "2": 622.287013,
+        "3": 688.524283,
+        "4": 765.678235,
+        "5": 765.644655
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 442.36121300512974,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 63,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        345.0,
+        346.0,
+        347.0
+      ],
+      "period_start": "2006-03-18 09:20:00",
+      "period_end": "2006-03-21 20:33:00",
+      "n_segments": 166,
+      "n_active_species": 54,
+      "total_abundance": 7220.0,
+      "cv_scores": {
+        "2": 107.921002,
+        "3": 134.035622,
+        "4": 141.436682,
+        "5": 141.867293
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 177.34441749745147,
+      "nmf_iterations": 798,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 64,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        348.0
+      ],
+      "period_start": "2006-03-30 04:23:00",
+      "period_end": "2006-03-31 14:34:00",
+      "n_segments": 83,
+      "n_active_species": 29,
+      "total_abundance": 4212.0,
+      "cv_scores": {
+        "2": 234.553507,
+        "3": 282.175433,
+        "4": 301.427706,
+        "5": 301.816124
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 106.47916099128872,
+      "nmf_iterations": 41,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 65,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        351.0,
+        352.0,
+        353.0,
+        354.0
+      ],
+      "period_start": "2006-11-24 12:45:00",
+      "period_end": "2006-11-28 21:50:00",
+      "n_segments": 275,
+      "n_active_species": 59,
+      "total_abundance": 51931.0,
+      "cv_scores": {
+        "2": 1372.432947,
+        "3": 1665.091763,
+        "4": 1699.888681,
+        "5": 1714.655099
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 654.2736644463362,
+      "nmf_iterations": 31,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 66,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        358.0,
+        359.0
+      ],
+      "period_start": "2007-01-07 06:20:00",
+      "period_end": "2007-01-10 07:17:00",
+      "n_segments": 171,
+      "n_active_species": 45,
+      "total_abundance": 29873.0,
+      "cv_scores": {
+        "2": 2495.531543,
+        "3": 2574.7022,
+        "4": 2575.862087,
+        "5": 2580.093199
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 292.6499704452069,
+      "nmf_iterations": 177,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 67,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        360.0
+      ],
+      "period_start": "2007-02-25 05:40:00",
+      "period_end": "2007-02-25 15:07:00",
+      "n_segments": 21,
+      "n_active_species": 31,
+      "total_abundance": 1362.0,
+      "cv_scores": {
+        "2": 144.436546,
+        "3": 147.539539,
+        "4": 152.799677,
+        "5": 157.090799
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 65.87676776297774,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 68,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        361.0,
+        362.0,
+        363.0,
+        364.0,
+        365.0
+      ],
+      "period_start": "2007-02-26 22:38:00",
+      "period_end": "2007-03-05 08:58:00",
+      "n_segments": 328,
+      "n_active_species": 61,
+      "total_abundance": 54500.0,
+      "cv_scores": {
+        "2": 1434.649389,
+        "3": 1626.354992,
+        "4": 1670.586268,
+        "5": 1675.734911
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 866.8892042354981,
+      "nmf_iterations": 88,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 69,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        370.0,
+        371.0,
+        372.0
+      ],
+      "period_start": "2007-03-26 08:03:00",
+      "period_end": "2007-03-30 13:43:00",
+      "n_segments": 244,
+      "n_active_species": 57,
+      "total_abundance": 28273.0,
+      "cv_scores": {
+        "2": 259.952557,
+        "3": 373.632365,
+        "4": 396.275999,
+        "5": 405.69804
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 350.976585886101,
+      "nmf_iterations": 80,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 70,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        379.0,
+        380.0,
+        381.0,
+        382.0
+      ],
+      "period_start": "2007-11-25 07:53:00",
+      "period_end": "2007-11-30 21:08:00",
+      "n_segments": 358,
+      "n_active_species": 60,
+      "total_abundance": 70076.0,
+      "cv_scores": {
+        "2": 3082.516681,
+        "3": 3222.463045,
+        "4": 3229.428641,
+        "5": 3243.696657
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 775.7915460406529,
+      "nmf_iterations": 467,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 71,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        389.0,
+        390.0,
+        391.0
+      ],
+      "period_start": "2007-12-17 21:47:00",
+      "period_end": "2007-12-21 13:54:00",
+      "n_segments": 210,
+      "n_active_species": 44,
+      "total_abundance": 20915.0,
+      "cv_scores": {
+        "2": 1216.299727,
+        "3": 1231.448271,
+        "4": 1242.775248,
+        "5": 1260.651997
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 364.26430044249906,
+      "nmf_iterations": 367,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 72,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        404.0,
+        405.0
+      ],
+      "period_start": "2008-01-21 09:46:00",
+      "period_end": "2008-01-24 12:57:00",
+      "n_segments": 166,
+      "n_active_species": 44,
+      "total_abundance": 20832.0,
+      "cv_scores": {
+        "2": 1943.842006,
+        "3": 1982.039079,
+        "4": 1991.180161,
+        "5": 1993.570351
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 305.3387952074015,
+      "nmf_iterations": 34,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 73,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        415.0,
+        418.0,
+        420.0
+      ],
+      "period_start": "2008-02-02 06:26:00",
+      "period_end": "2008-02-07 15:59:00",
+      "n_segments": 253,
+      "n_active_species": 56,
+      "total_abundance": 37486.0,
+      "cv_scores": {
+        "2": 1224.742851,
+        "3": 1227.372906,
+        "4": 1227.328515,
+        "5": 1246.209394
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 334.46302394117566,
+      "nmf_iterations": 57,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 74,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        445.0,
+        446.0,
+        450.0
+      ],
+      "period_start": "2008-03-10 10:34:00",
+      "period_end": "2008-03-14 10:08:00",
+      "n_segments": 254,
+      "n_active_species": 46,
+      "total_abundance": 38207.0,
+      "cv_scores": {
+        "2": 698.149058,
+        "3": 709.814068,
+        "4": 771.435845,
+        "5": 781.212693
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 442.19663721648175,
+      "nmf_iterations": 256,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 75,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        455.0,
+        456.0,
+        457.0,
+        458.0,
+        459.0,
+        460.0
+      ],
+      "period_start": "2008-03-22 09:40:00",
+      "period_end": "2008-03-27 22:27:00",
+      "n_segments": 254,
+      "n_active_species": 75,
+      "total_abundance": 18060.0,
+      "cv_scores": {
+        "2": 317.231837,
+        "3": 331.091966,
+        "4": 337.244848,
+        "5": 337.059811
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 225.22517038864595,
+      "nmf_iterations": 146,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 76,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        464.0,
+        465.0,
+        466.0
+      ],
+      "period_start": "2008-11-25 14:00:00",
+      "period_end": "2008-11-28 14:58:00",
+      "n_segments": 209,
+      "n_active_species": 49,
+      "total_abundance": 10811.0,
+      "cv_scores": {
+        "2": 402.031205,
+        "3": 402.030774,
+        "4": 417.749357,
+        "5": 452.124872
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 270.76555702594925,
+      "nmf_iterations": 16,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 77,
+      "ship": "AA",
+      "n_tows_merged": 9,
+      "tow_numbers": [
+        472.0,
+        473.0,
+        475.0,
+        476.0,
+        477.0,
+        478.0,
+        479.0,
+        481.0,
+        483.0
+      ],
+      "period_start": "2009-01-03 04:34:00",
+      "period_end": "2009-01-11 10:57:00",
+      "n_segments": 470,
+      "n_active_species": 68,
+      "total_abundance": 51405.0,
+      "cv_scores": {
+        "2": 2063.049694,
+        "3": 2152.887598,
+        "4": 2154.915656,
+        "5": 2163.399525
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 771.1138479491183,
+      "nmf_iterations": 70,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 78,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        497.0,
+        498.0,
+        499.0,
+        500.0
+      ],
+      "period_start": "2009-02-15 01:54:00",
+      "period_end": "2009-02-18 21:01:00",
+      "n_segments": 200,
+      "n_active_species": 52,
+      "total_abundance": 13496.0,
+      "cv_scores": {
+        "2": 494.654845,
+        "3": 507.559136,
+        "4": 514.597889,
+        "5": 577.867726
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 395.04548696989696,
+      "nmf_iterations": 14,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 79,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        501.0,
+        502.0,
+        503.0
+      ],
+      "period_start": "2009-02-25 21:52:00",
+      "period_end": "2009-03-01 09:56:00",
+      "n_segments": 175,
+      "n_active_species": 51,
+      "total_abundance": 24399.0,
+      "cv_scores": {
+        "2": 561.319025,
+        "3": 612.838155,
+        "4": 627.800809,
+        "5": 651.424993
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 389.35527064109226,
+      "nmf_iterations": 308,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 80,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        504.0,
+        505.0,
+        506.0
+      ],
+      "period_start": "2009-03-03 04:48:00",
+      "period_end": "2009-03-07 04:34:00",
+      "n_segments": 186,
+      "n_active_species": 46,
+      "total_abundance": 41002.0,
+      "cv_scores": {
+        "2": 1558.241322,
+        "3": 1586.964735,
+        "4": 1614.843975,
+        "5": 1637.031953
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 280.60638232582573,
+      "nmf_iterations": 760,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 81,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        507.0,
+        508.0,
+        509.0,
+        510.0
+      ],
+      "period_start": "2009-11-01 02:19:00",
+      "period_end": "2009-11-07 13:15:00",
+      "n_segments": 293,
+      "n_active_species": 66,
+      "total_abundance": 29267.0,
+      "cv_scores": {
+        "2": 437.799507,
+        "3": 466.744157,
+        "4": 473.402858,
+        "5": 475.335938
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 206.82270523669146,
+      "nmf_iterations": 130,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 82,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        514.0,
+        515.0,
+        516.0,
+        517.0
+      ],
+      "period_start": "2009-12-09 22:25:00",
+      "period_end": "2009-12-13 19:18:00",
+      "n_segments": 216,
+      "n_active_species": 46,
+      "total_abundance": 35670.0,
+      "cv_scores": {
+        "2": 1409.825969,
+        "3": 1489.167905,
+        "4": 1503.953468,
+        "5": 1538.454373
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 489.0545207674674,
+      "nmf_iterations": 121,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 83,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        520.0,
+        521.0,
+        522.0,
+        523.0,
+        524.0,
+        526.0
+      ],
+      "period_start": "2010-01-26 23:01:00",
+      "period_end": "2010-02-03 01:31:00",
+      "n_segments": 363,
+      "n_active_species": 61,
+      "total_abundance": 74601.0,
+      "cv_scores": {
+        "2": 4145.630573,
+        "3": 4256.153922,
+        "4": 4251.498239,
+        "5": 4289.720857
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 502.83583383009227,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 84,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        535.0,
+        536.0,
+        537.0,
+        538.0,
+        539.0,
+        540.0
+      ],
+      "period_start": "2010-02-17 11:09:00",
+      "period_end": "2010-02-26 03:32:00",
+      "n_segments": 487,
+      "n_active_species": 88,
+      "total_abundance": 65276.0,
+      "cv_scores": {
+        "2": 1079.895589,
+        "3": 1085.056658,
+        "4": 1101.948477,
+        "5": 1117.562835
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 508.12094633130215,
+      "nmf_iterations": 200,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 85,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        545.0,
+        546.0,
+        547.0,
+        549.0
+      ],
+      "period_start": "2010-03-22 00:37:00",
+      "period_end": "2010-03-27 03:30:00",
+      "n_segments": 355,
+      "n_active_species": 57,
+      "total_abundance": 18387.0,
+      "cv_scores": {
+        "2": 175.823646,
+        "3": 190.273206,
+        "4": 223.923545,
+        "5": 224.430985
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 357.201619541026,
+      "nmf_iterations": 24,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 86,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        561.0,
+        562.0,
+        563.0,
+        564.0
+      ],
+      "period_start": "2010-12-10 21:49:00",
+      "period_end": "2010-12-16 19:34:00",
+      "n_segments": 339,
+      "n_active_species": 85,
+      "total_abundance": 72883.0,
+      "cv_scores": {
+        "2": 1823.014476,
+        "3": 1910.711346,
+        "4": 2005.94806,
+        "5": 2126.455
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1206.8741031156867,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 87,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        581.0
+      ],
+      "period_start": "2011-02-01 02:46:00",
+      "period_end": "2011-02-02 06:05:00",
+      "n_segments": 70,
+      "n_active_species": 30,
+      "total_abundance": 6611.0,
+      "cv_scores": {
+        "2": 484.005312,
+        "3": 493.624119,
+        "4": 497.688565,
+        "5": 498.287337
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 77.6849418573343,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 88,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        582.0
+      ],
+      "period_start": "2011-02-04 06:34:00",
+      "period_end": "2011-02-05 08:54:00",
+      "n_segments": 63,
+      "n_active_species": 48,
+      "total_abundance": 2732.0,
+      "cv_scores": {
+        "2": 210.212051,
+        "3": 197.458885,
+        "4": 213.157525,
+        "5": 218.707229
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 84.58999972397612,
+      "nmf_iterations": 9,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 89,
+      "ship": "AA",
+      "n_tows_merged": 7,
+      "tow_numbers": [
+        583.0,
+        584.0,
+        585.0,
+        586.0,
+        587.0,
+        588.0,
+        589.0
+      ],
+      "period_start": "2011-02-08 22:37:00",
+      "period_end": "2011-02-18 11:05:00",
+      "n_segments": 502,
+      "n_active_species": 92,
+      "total_abundance": 80903.0,
+      "cv_scores": {
+        "2": 1510.286445,
+        "3": 1840.872528,
+        "4": 1941.949749,
+        "5": 1945.780205
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1115.2637117557827,
+      "nmf_iterations": 28,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 90,
+      "ship": "AA",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        593.0,
+        594.0,
+        595.0,
+        596.0,
+        597.0,
+        598.0
+      ],
+      "period_start": "2011-03-19 21:31:00",
+      "period_end": "2011-03-28 04:26:00",
+      "n_segments": 464,
+      "n_active_species": 87,
+      "total_abundance": 46384.0,
+      "cv_scores": {
+        "2": 271.171877,
+        "3": 346.180942,
+        "4": 370.626683,
+        "5": 374.327907
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 480.5176752730638,
+      "nmf_iterations": 118,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 91,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        607.0,
+        610.0,
+        612.0
+      ],
+      "period_start": "2011-12-02 22:33:00",
+      "period_end": "2011-12-07 02:32:00",
+      "n_segments": 253,
+      "n_active_species": 73,
+      "total_abundance": 44097.0,
+      "cv_scores": {
+        "2": 1417.410268,
+        "3": 1522.738041,
+        "4": 1531.170818,
+        "5": 1544.109337
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 450.72605260959136,
+      "nmf_iterations": 253,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 92,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        623.0,
+        624.0
+      ],
+      "period_start": "2012-01-06 22:58:00",
+      "period_end": "2012-01-09 21:27:00",
+      "n_segments": 177,
+      "n_active_species": 60,
+      "total_abundance": 27840.0,
+      "cv_scores": {
+        "2": 2186.978608,
+        "3": 2887.836493,
+        "4": 2913.19989,
+        "5": 2935.334459
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 727.2727249176326,
+      "nmf_iterations": 28,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 93,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        632.0,
+        633.0,
+        634.0,
+        635.0
+      ],
+      "period_start": "2012-02-18 09:15:00",
+      "period_end": "2012-02-23 13:59:00",
+      "n_segments": 302,
+      "n_active_species": 70,
+      "total_abundance": 41738.0,
+      "cv_scores": {
+        "2": 699.394095,
+        "3": 1051.722699,
+        "4": 1054.517253,
+        "5": 1058.20562
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 455.7366771662699,
+      "nmf_iterations": 58,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 94,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        641.0,
+        642.0,
+        643.0,
+        644.0,
+        645.0
+      ],
+      "period_start": "2012-03-17 22:08:00",
+      "period_end": "2012-03-26 04:37:00",
+      "n_segments": 417,
+      "n_active_species": 80,
+      "total_abundance": 52605.0,
+      "cv_scores": {
+        "2": 827.910912,
+        "3": 865.315143,
+        "4": 893.679121,
+        "5": 901.875627
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 408.13853975109737,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 95,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        660.0,
+        661.0,
+        662.0
+      ],
+      "period_start": "2012-11-11 18:32:00",
+      "period_end": "2012-11-15 03:01:00",
+      "n_segments": 259,
+      "n_active_species": 80,
+      "total_abundance": 33275.0,
+      "cv_scores": {
+        "2": 367.477451,
+        "3": 529.848072,
+        "4": 546.100625,
+        "5": 554.996153
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 434.65016861145625,
+      "nmf_iterations": 40,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 96,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        663.0,
+        664.0,
+        665.0,
+        666.0,
+        667.0
+      ],
+      "period_start": "2012-11-19 05:36:00",
+      "period_end": "2012-11-26 15:43:00",
+      "n_segments": 405,
+      "n_active_species": 92,
+      "total_abundance": 92379.0,
+      "cv_scores": {
+        "2": 1175.888843,
+        "3": 1284.239705,
+        "4": 1365.38649,
+        "5": 1394.995373
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 799.0414221412971,
+      "nmf_iterations": 43,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 97,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        674.0,
+        675.0,
+        676.0,
+        677.0
+      ],
+      "period_start": "2012-12-17 21:37:00",
+      "period_end": "2012-12-23 11:42:00",
+      "n_segments": 251,
+      "n_active_species": 83,
+      "total_abundance": 51692.0,
+      "cv_scores": {
+        "2": 1702.274871,
+        "3": 1702.056145,
+        "4": 1713.162547,
+        "5": 1754.498248
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 410.54582442766844,
+      "nmf_iterations": 517,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 98,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        678.0,
+        679.0,
+        681.0,
+        684.0,
+        686.0
+      ],
+      "period_start": "2013-01-02 21:42:00",
+      "period_end": "2013-01-07 08:57:00",
+      "n_segments": 300,
+      "n_active_species": 111,
+      "total_abundance": 43896.0,
+      "cv_scores": {
+        "2": 992.973506,
+        "3": 1052.647555,
+        "4": 1056.272241,
+        "5": 1053.471232
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 485.22972062749227,
+      "nmf_iterations": 90,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 99,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        710.0,
+        713.0,
+        717.0,
+        719.0,
+        722.0
+      ],
+      "period_start": "2013-02-15 03:49:00",
+      "period_end": "2013-02-21 02:16:00",
+      "n_segments": 368,
+      "n_active_species": 135,
+      "total_abundance": 61867.0,
+      "cv_scores": {
+        "2": 979.830892,
+        "3": 1027.539803,
+        "4": 1038.975176,
+        "5": 1042.365656
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 730.2228270059956,
+      "nmf_iterations": 135,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 100,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        749.0,
+        750.0,
+        751.0
+      ],
+      "period_start": "2013-12-15 10:07:00",
+      "period_end": "2013-12-19 12:31:00",
+      "n_segments": 245,
+      "n_active_species": 54,
+      "total_abundance": 50132.0,
+      "cv_scores": {
+        "2": 1531.702068,
+        "3": 1663.503139,
+        "4": 1689.410741,
+        "5": 1699.299739
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 382.37647980577856,
+      "nmf_iterations": 65,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 101,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        759.0,
+        762.0,
+        763.0,
+        766.0
+      ],
+      "period_start": "2014-01-16 01:01:00",
+      "period_end": "2014-01-20 09:58:00",
+      "n_segments": 270,
+      "n_active_species": 76,
+      "total_abundance": 56318.0,
+      "cv_scores": {
+        "2": 1327.470705,
+        "3": 1342.636578,
+        "4": 1386.159181,
+        "5": 1498.78742
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 617.3116928869937,
+      "nmf_iterations": 81,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 102,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        794.0,
+        795.0,
+        796.0,
+        797.0,
+        798.0
+      ],
+      "period_start": "2014-02-20 01:00:00",
+      "period_end": "2014-02-26 23:40:00",
+      "n_segments": 435,
+      "n_active_species": 86,
+      "total_abundance": 60380.0,
+      "cv_scores": {
+        "2": 327.455697,
+        "3": 521.481793,
+        "4": 531.760807,
+        "5": 535.308616
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 606.8449617670808,
+      "nmf_iterations": 40,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 103,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        824.0,
+        826.0,
+        827.0
+      ],
+      "period_start": "2014-12-07 08:23:00",
+      "period_end": "2014-12-11 13:04:00",
+      "n_segments": 247,
+      "n_active_species": 80,
+      "total_abundance": 53923.0,
+      "cv_scores": {
+        "2": 839.719846,
+        "3": 881.481205,
+        "4": 907.901707,
+        "5": 930.564671
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 477.4130496066162,
+      "nmf_iterations": 599,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 104,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        855.0,
+        859.0,
+        864.0,
+        865.0,
+        868.0
+      ],
+      "period_start": "2015-01-30 07:18:00",
+      "period_end": "2015-02-05 23:56:00",
+      "n_segments": 387,
+      "n_active_species": 100,
+      "total_abundance": 78879.0,
+      "cv_scores": {
+        "2": 1633.694746,
+        "3": 1698.297022,
+        "4": 1832.663269,
+        "5": 1883.950395
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1223.0839459848105,
+      "nmf_iterations": 16,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 105,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        905.0,
+        906.0,
+        907.0,
+        908.0
+      ],
+      "period_start": "2015-11-01 00:17:00",
+      "period_end": "2015-11-04 10:58:00",
+      "n_segments": 197,
+      "n_active_species": 63,
+      "total_abundance": 27623.0,
+      "cv_scores": {
+        "2": 467.377728,
+        "3": 470.669026,
+        "4": 479.713778,
+        "5": 491.510909
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 255.83937808825132,
+      "nmf_iterations": 703,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 106,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        915.0,
+        917.0,
+        918.0
+      ],
+      "period_start": "2015-12-11 05:16:00",
+      "period_end": "2015-12-16 02:08:00",
+      "n_segments": 266,
+      "n_active_species": 69,
+      "total_abundance": 34367.0,
+      "cv_scores": {
+        "2": 502.183101,
+        "3": 514.026174,
+        "4": 530.116571,
+        "5": 534.242593
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 214.72664155491043,
+      "nmf_iterations": 328,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 107,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        919.0,
+        920.0,
+        921.0
+      ],
+      "period_start": "2016-01-01 00:13:00",
+      "period_end": "2016-01-05 08:58:00",
+      "n_segments": 274,
+      "n_active_species": 68,
+      "total_abundance": 54464.0,
+      "cv_scores": {
+        "2": 1199.634625,
+        "3": 1377.736652,
+        "4": 1448.360098,
+        "5": 1467.487623
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 430.0831270574789,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 108,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        924.0,
+        925.0,
+        926.0,
+        927.0
+      ],
+      "period_start": "2016-01-13 08:03:00",
+      "period_end": "2016-01-20 21:51:00",
+      "n_segments": 334,
+      "n_active_species": 87,
+      "total_abundance": 49420.0,
+      "cv_scores": {
+        "2": 547.529846,
+        "3": 556.190993,
+        "4": 557.681975,
+        "5": 558.563356
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 392.21058752079773,
+      "nmf_iterations": 558,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 109,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        947.0,
+        948.0
+      ],
+      "period_start": "2016-11-01 00:27:00",
+      "period_end": "2016-11-03 01:33:00",
+      "n_segments": 107,
+      "n_active_species": 47,
+      "total_abundance": 13239.0,
+      "cv_scores": {
+        "2": 399.966632,
+        "3": 413.731027,
+        "4": 422.072767,
+        "5": 428.588374
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 107.81726847196143,
+      "nmf_iterations": 222,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 110,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        955.0,
+        956.0,
+        957.0,
+        958.0
+      ],
+      "period_start": "2016-12-09 21:50:00",
+      "period_end": "2016-12-14 09:03:00",
+      "n_segments": 249,
+      "n_active_species": 54,
+      "total_abundance": 27988.0,
+      "cv_scores": {
+        "2": 337.980029,
+        "3": 363.714867,
+        "4": 367.539083,
+        "5": 373.434235
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 217.47076056757774,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 111,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        969.0
+      ],
+      "period_start": "2017-01-16 23:12:00",
+      "period_end": "2017-01-18 09:03:00",
+      "n_segments": 89,
+      "n_active_species": 51,
+      "total_abundance": 11419.0,
+      "cv_scores": {
+        "2": 841.946409,
+        "3": 921.153783,
+        "4": 930.487206,
+        "5": 940.782838
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 196.44498977003258,
+      "nmf_iterations": 162,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 112,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        977.0,
+        978.0,
+        979.0,
+        980.0,
+        981.0
+      ],
+      "period_start": "2017-01-26 14:16:00",
+      "period_end": "2017-02-03 04:58:00",
+      "n_segments": 368,
+      "n_active_species": 80,
+      "total_abundance": 36224.0,
+      "cv_scores": {
+        "2": 501.695942,
+        "3": 512.644317,
+        "4": 521.713627,
+        "5": 526.955426
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 395.9075750879676,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 113,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        982.0
+      ],
+      "period_start": "2017-02-04 06:10:00",
+      "period_end": "2017-02-04 11:10:00",
+      "n_segments": 9,
+      "n_active_species": 16,
+      "total_abundance": 164.0,
+      "cv_scores": {
+        "2": 18.379561,
+        "3": 18.713293,
+        "4": 18.828734,
+        "5": 18.968622
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 5.354159245826981,
+      "nmf_iterations": 146,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 114,
+      "ship": "AA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        987.0,
+        988.0,
+        989.0,
+        990.0
+      ],
+      "period_start": "2017-11-02 01:27:00",
+      "period_end": "2017-11-09 03:29:00",
+      "n_segments": 315,
+      "n_active_species": 83,
+      "total_abundance": 44879.0,
+      "cv_scores": {
+        "2": 446.276209,
+        "3": 481.68863,
+        "4": 484.881801,
+        "5": 491.974056
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 332.82332900696605,
+      "nmf_iterations": 650,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 115,
+      "ship": "AA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        996.0,
+        997.0,
+        998.0,
+        999.0,
+        1000.0
+      ],
+      "period_start": "2017-12-13 19:09:00",
+      "period_end": "2017-12-19 23:33:00",
+      "n_segments": 303,
+      "n_active_species": 69,
+      "total_abundance": 40210.0,
+      "cv_scores": {
+        "2": 618.715893,
+        "3": 652.155509,
+        "4": 660.775117,
+        "5": 661.694511
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 238.5819622849982,
+      "nmf_iterations": 746,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 116,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1007.0
+      ],
+      "period_start": "2018-01-09 00:36:00",
+      "period_end": "2018-01-10 02:02:00",
+      "n_segments": 67,
+      "n_active_species": 53,
+      "total_abundance": 8717.0,
+      "cv_scores": {
+        "2": 312.214611,
+        "3": 331.503108,
+        "4": 345.202958,
+        "5": 365.798646
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 131.1077457013163,
+      "nmf_iterations": 566,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 117,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1012.0,
+        1014.0,
+        1015.0
+      ],
+      "period_start": "2018-01-17 09:24:00",
+      "period_end": "2018-01-22 05:04:00",
+      "n_segments": 250,
+      "n_active_species": 82,
+      "total_abundance": 42710.0,
+      "cv_scores": {
+        "2": 435.427237,
+        "3": 657.163078,
+        "4": 683.696131,
+        "5": 691.879535
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 484.1681644968344,
+      "nmf_iterations": 17,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 118,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1023.0
+      ],
+      "period_start": "2018-03-09 20:30:00",
+      "period_end": "2018-03-11 02:01:00",
+      "n_segments": 73,
+      "n_active_species": 64,
+      "total_abundance": 5954.0,
+      "cv_scores": {
+        "2": 161.135466,
+        "3": 176.845447,
+        "4": 200.299415,
+        "5": 206.089524
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 141.61094195114703,
+      "nmf_iterations": 94,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 119,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1025.0
+      ],
+      "period_start": "2018-03-22 22:29:00",
+      "period_end": "2018-03-24 02:02:00",
+      "n_segments": 72,
+      "n_active_species": 64,
+      "total_abundance": 8951.0,
+      "cv_scores": {
+        "2": 573.35082,
+        "3": 644.185489,
+        "4": 684.532407,
+        "5": 744.927616
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 151.3232016847467,
+      "nmf_iterations": 392,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 120,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1035.0,
+        1036.0,
+        1037.0
+      ],
+      "period_start": "2018-12-07 12:12:00",
+      "period_end": "2018-12-10 16:53:00",
+      "n_segments": 187,
+      "n_active_species": 70,
+      "total_abundance": 22725.0,
+      "cv_scores": {
+        "2": 321.493087,
+        "3": 329.823773,
+        "4": 332.061807,
+        "5": 336.240506
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 218.89773873885014,
+      "nmf_iterations": 130,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 121,
+      "ship": "AA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1048.0,
+        1049.0,
+        1050.0
+      ],
+      "period_start": "2019-01-15 02:28:00",
+      "period_end": "2019-01-18 23:10:00",
+      "n_segments": 225,
+      "n_active_species": 74,
+      "total_abundance": 38629.0,
+      "cv_scores": {
+        "2": 452.702297,
+        "3": 656.148396,
+        "4": 661.039711,
+        "5": 683.6692
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 431.2358729633345,
+      "nmf_iterations": 61,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 122,
+      "ship": "AA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1079.0,
+        1080.0
+      ],
+      "period_start": "2019-11-01 00:16:00",
+      "period_end": "2019-11-04 01:09:00",
+      "n_segments": 153,
+      "n_active_species": 52,
+      "total_abundance": 31406.0,
+      "cv_scores": {
+        "2": 589.542375,
+        "3": 620.216069,
+        "4": 631.999167,
+        "5": 631.139333
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 157.56860397343453,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 123,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1088.0
+      ],
+      "period_start": "2019-12-23 11:33:00",
+      "period_end": "2019-12-23 21:02:00",
+      "n_segments": 24,
+      "n_active_species": 51,
+      "total_abundance": 3002.0,
+      "cv_scores": {
+        "2": 113.594208,
+        "3": 119.837549,
+        "4": 135.655446,
+        "5": 145.542211
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 66.04455290678062,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 124,
+      "ship": "AA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1097.0
+      ],
+      "period_start": "2020-01-22 01:05:00",
+      "period_end": "2020-01-22 08:59:00",
+      "n_segments": 21,
+      "n_active_species": 33,
+      "total_abundance": 1337.0,
+      "cv_scores": {
+        "2": 941.162022,
+        "3": 960.282667,
+        "4": 963.149143,
+        "5": 963.46326
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 35.3693062105799,
+      "nmf_iterations": 6,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 125,
+      "ship": "AF",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        408.0,
+        411.0
+      ],
+      "period_start": "2008-01-26 20:58:00",
+      "period_end": "2008-01-29 05:14:00",
+      "n_segments": 176,
+      "n_active_species": 26,
+      "total_abundance": 16731.0,
+      "cv_scores": {
+        "2": 2769.555438,
+        "3": 2810.228768,
+        "4": 2806.739312,
+        "5": 2809.115748
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 136.49842336017252,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 126,
+      "ship": "AF",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        440.0
+      ],
+      "period_start": "2008-02-17 14:01:00",
+      "period_end": "2008-02-18 20:48:00",
+      "n_segments": 88,
+      "n_active_species": 11,
+      "total_abundance": 335.0,
+      "cv_scores": {
+        "2": 50.674217,
+        "3": 50.678177,
+        "4": 50.678253,
+        "5": 50.687087
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 7.096672258203962,
+      "nmf_iterations": 9,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 127,
+      "ship": "HM",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        128.0
+      ],
+      "period_start": "2002-01-10 06:10:00",
+      "period_end": "2002-01-10 14:00:00",
+      "n_segments": 20,
+      "n_active_species": 27,
+      "total_abundance": 12243.0,
+      "cv_scores": {
+        "2": 11974.966839,
+        "3": 12837.145644,
+        "4": 12972.736608,
+        "5": 13033.741112
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 143.12365779546633,
+      "nmf_iterations": 165,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 128,
+      "ship": "HM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        129.0,
+        130.0,
+        131.0
+      ],
+      "period_start": "2002-01-13 00:19:00",
+      "period_end": "2002-01-14 04:50:00",
+      "n_segments": 36,
+      "n_active_species": 32,
+      "total_abundance": 45762.0,
+      "cv_scores": {
+        "2": 57382.784196,
+        "3": 60402.140593,
+        "4": 61687.838678,
+        "5": 62167.938158
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 585.0945347555108,
+      "nmf_iterations": 395,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 129,
+      "ship": "HM",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        133.0
+      ],
+      "period_start": "2002-01-15 16:43:00",
+      "period_end": "2002-01-15 20:19:00",
+      "n_segments": 11,
+      "n_active_species": 27,
+      "total_abundance": 16393.0,
+      "cv_scores": {
+        "2": 22379.839986,
+        "3": 29511.85784,
+        "4": 32630.882811,
+        "5": 33650.17065
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 305.69083344691364,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 130,
+      "ship": "HM",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        136.0,
+        138.0
+      ],
+      "period_start": "2002-01-17 18:44:00",
+      "period_end": "2002-01-19 12:25:00",
+      "n_segments": 96,
+      "n_active_species": 68,
+      "total_abundance": 13846.0,
+      "cv_scores": {
+        "2": 435.978081,
+        "3": 453.810172,
+        "4": 494.968074,
+        "5": 501.330938
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 253.94256232036426,
+      "nmf_iterations": 209,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 131,
+      "ship": "IN",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        1055.0,
+        1056.0,
+        1058.0,
+        1061.0,
+        1062.0
+      ],
+      "period_start": "2019-01-20 22:50:00",
+      "period_end": "2019-01-25 05:53:00",
+      "n_segments": 193,
+      "n_active_species": 63,
+      "total_abundance": 25546.0,
+      "cv_scores": {
+        "2": 414.569232,
+        "3": 444.248714,
+        "4": 453.984066,
+        "5": 459.308318
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 222.4327287297859,
+      "nmf_iterations": 950,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 132,
+      "ship": "IN",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1067.0,
+        1068.0
+      ],
+      "period_start": "2019-02-26 11:25:00",
+      "period_end": "2019-02-27 03:45:00",
+      "n_segments": 29,
+      "n_active_species": 37,
+      "total_abundance": 3742.0,
+      "cv_scores": {
+        "2": 676.315313,
+        "3": 698.504155,
+        "4": 730.825756,
+        "5": 733.433751
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 119.76898203222306,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 133,
+      "ship": "IN",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1069.0
+      ],
+      "period_start": "2019-02-28 23:45:00",
+      "period_end": "2019-03-01 01:50:00",
+      "n_segments": 5,
+      "n_active_species": 28,
+      "total_abundance": 839.0,
+      "cv_scores": {
+        "2": 767.833496,
+        "3": 790.477534,
+        "4": 795.862289,
+        "5": Infinity
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 34.18535227751061,
+      "nmf_iterations": 18,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 134,
+      "ship": "IN",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1070.0
+      ],
+      "period_start": "2019-03-02 06:00:00",
+      "period_end": "2019-03-02 21:39:00",
+      "n_segments": 35,
+      "n_active_species": 44,
+      "total_abundance": 3671.0,
+      "cv_scores": {
+        "2": 435.083179,
+        "3": 457.55488,
+        "4": 480.873668,
+        "5": 483.361202
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 85.46985358590476,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 135,
+      "ship": "IN",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        1113.0,
+        1114.0,
+        1116.0,
+        1118.0,
+        1120.0,
+        1121.0
+      ],
+      "period_start": "2021-01-30 15:48:00",
+      "period_end": "2021-02-08 03:22:00",
+      "n_segments": 373,
+      "n_active_species": 71,
+      "total_abundance": 46889.0,
+      "cv_scores": {
+        "2": 231.496192,
+        "3": 472.23714,
+        "4": 475.443337,
+        "5": 481.244144
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 337.6312375103684,
+      "nmf_iterations": 19,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 136,
+      "ship": "IN",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1131.0
+      ],
+      "period_start": "2021-03-22 05:56:00",
+      "period_end": "2021-03-22 10:51:00",
+      "n_segments": 10,
+      "n_active_species": 21,
+      "total_abundance": 267.0,
+      "cv_scores": {
+        "2": 8.171407,
+        "3": 9.157959,
+        "4": 11.012211,
+        "5": 11.818557
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 12.894519875523365,
+      "nmf_iterations": 57,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 137,
+      "ship": "IN",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1150.0,
+        1151.0
+      ],
+      "period_start": "2023-02-13 09:00:00",
+      "period_end": "2023-02-15 00:10:00",
+      "n_segments": 85,
+      "n_active_species": 49,
+      "total_abundance": 14117.0,
+      "cv_scores": {
+        "2": 876.576612,
+        "3": 1002.059233,
+        "4": 1008.715454,
+        "5": 1015.039773
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 125.11997388088854,
+      "nmf_iterations": 77,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 138,
+      "ship": "IN",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1152.0,
+        1153.0
+      ],
+      "period_start": "2023-02-16 08:46:00",
+      "period_end": "2023-02-18 00:31:00",
+      "n_segments": 92,
+      "n_active_species": 51,
+      "total_abundance": 9900.0,
+      "cv_scores": {
+        "2": 140.85012,
+        "3": 176.038994,
+        "4": 246.611944,
+        "5": 249.437986
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 179.01668872650805,
+      "nmf_iterations": 36,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 139,
+      "ship": "KM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        53.0,
+        54.0,
+        55.0,
+        56.0
+      ],
+      "period_start": "1999-11-24 00:41:00",
+      "period_end": "1999-11-25 11:38:00",
+      "n_segments": 98,
+      "n_active_species": 28,
+      "total_abundance": 7040.0,
+      "cv_scores": {
+        "2": 533.5546,
+        "3": 586.389519,
+        "4": 589.628885,
+        "5": 594.727393
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 123.0533412353481,
+      "nmf_iterations": 210,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 140,
+      "ship": "KM",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        68.0,
+        70.0
+      ],
+      "period_start": "2000-02-07 15:57:00",
+      "period_end": "2000-02-09 13:21:00",
+      "n_segments": 180,
+      "n_active_species": 20,
+      "total_abundance": 21841.0,
+      "cv_scores": {
+        "2": 7081.375954,
+        "3": 7189.809268,
+        "4": 7198.463624,
+        "5": 7199.899238
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 190.77775952217192,
+      "nmf_iterations": 264,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 141,
+      "ship": "PS",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        240.0
+      ],
+      "period_start": "2004-03-31 13:53:00",
+      "period_end": "2004-03-31 23:41:00",
+      "n_segments": 19,
+      "n_active_species": 36,
+      "total_abundance": 1214.0,
+      "cv_scores": {
+        "2": 128.770336,
+        "3": 143.116718,
+        "4": 144.666076,
+        "5": 145.96552
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 33.93065306980998,
+      "nmf_iterations": 192,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 142,
+      "ship": "PS",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        383.0,
+        384.0
+      ],
+      "period_start": "2007-12-02 08:58:00",
+      "period_end": "2007-12-05 11:46:00",
+      "n_segments": 113,
+      "n_active_species": 33,
+      "total_abundance": 5329.0,
+      "cv_scores": {
+        "2": 193.718541,
+        "3": 194.024193,
+        "4": 194.525291,
+        "5": 194.790119
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 47.11595870558675,
+      "nmf_iterations": 122,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 143,
+      "ship": "PS",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        386.0,
+        388.0
+      ],
+      "period_start": "2007-12-07 12:31:00",
+      "period_end": "2007-12-09 23:01:00",
+      "n_segments": 96,
+      "n_active_species": 17,
+      "total_abundance": 1325.0,
+      "cv_scores": {
+        "2": 24.924722,
+        "3": 28.444884,
+        "4": 29.848148,
+        "5": 30.13045
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 38.1694168379371,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 144,
+      "ship": "PS",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        412.0
+      ],
+      "period_start": "2008-01-30 20:49:00",
+      "period_end": "2008-01-31 09:03:00",
+      "n_segments": 28,
+      "n_active_species": 20,
+      "total_abundance": 1212.0,
+      "cv_scores": {
+        "2": 127.186563,
+        "3": 128.391879,
+        "4": 133.168273,
+        "5": 132.625065
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 32.00948382505036,
+      "nmf_iterations": 98,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 145,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        467.0,
+        468.0,
+        469.0
+      ],
+      "period_start": "2008-12-19 07:39:00",
+      "period_end": "2008-12-21 16:28:00",
+      "n_segments": 86,
+      "n_active_species": 63,
+      "total_abundance": 67905.0,
+      "cv_scores": {
+        "2": 42255.838639,
+        "3": 42702.457712,
+        "4": 43207.821188,
+        "5": 43545.444136
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1506.862462109123,
+      "nmf_iterations": 947,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 146,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        470.0,
+        471.0
+      ],
+      "period_start": "2008-12-23 20:30:00",
+      "period_end": "2008-12-26 10:45:00",
+      "n_segments": 94,
+      "n_active_species": 29,
+      "total_abundance": 55618.0,
+      "cv_scores": {
+        "2": 7362.840413,
+        "3": 8758.159511,
+        "4": 9893.205721,
+        "5": 10342.676163
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 804.8845058309163,
+      "nmf_iterations": 131,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 147,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        486.0
+      ],
+      "period_start": "2009-01-23 02:32:00",
+      "period_end": "2009-01-23 20:30:00",
+      "n_segments": 36,
+      "n_active_species": 17,
+      "total_abundance": 285.0,
+      "cv_scores": {
+        "2": 10.481771,
+        "3": 11.846354,
+        "4": 13.181176,
+        "5": 13.628913
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 15.323880507884441,
+      "nmf_iterations": 9,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 148,
+      "ship": "SA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        488.0,
+        490.0,
+        492.0,
+        494.0,
+        495.0
+      ],
+      "period_start": "2009-01-27 10:34:00",
+      "period_end": "2009-02-02 21:00:00",
+      "n_segments": 245,
+      "n_active_species": 44,
+      "total_abundance": 55957.0,
+      "cv_scores": {
+        "2": 3199.911456,
+        "3": 3680.669522,
+        "4": 3868.42787,
+        "5": 3995.003802
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 851.2457509453409,
+      "nmf_iterations": 352,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 149,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        518.0,
+        519.0
+      ],
+      "period_start": "2009-12-13 23:33:00",
+      "period_end": "2009-12-17 18:10:00",
+      "n_segments": 162,
+      "n_active_species": 51,
+      "total_abundance": 194386.0,
+      "cv_scores": {
+        "2": 73300.278558,
+        "3": 75188.439393,
+        "4": 76328.912986,
+        "5": 76535.591709
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1493.518513094922,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 150,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        531.0,
+        532.0,
+        533.0,
+        534.0
+      ],
+      "period_start": "2010-02-09 20:16:00",
+      "period_end": "2010-02-17 04:41:00",
+      "n_segments": 306,
+      "n_active_species": 78,
+      "total_abundance": 84154.0,
+      "cv_scores": {
+        "2": 5545.59109,
+        "3": 6267.470489,
+        "4": 6582.704177,
+        "5": 6769.390982
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1280.0980880169595,
+      "nmf_iterations": 63,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 151,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        554.0,
+        555.0,
+        556.0
+      ],
+      "period_start": "2010-11-23 02:42:00",
+      "period_end": "2010-11-27 21:20:00",
+      "n_segments": 192,
+      "n_active_species": 57,
+      "total_abundance": 101795.0,
+      "cv_scores": {
+        "2": 10731.355524,
+        "3": 14342.571061,
+        "4": 15494.521021,
+        "5": 15481.701662
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1997.9702507301295,
+      "nmf_iterations": 24,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 152,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        571.0,
+        572.0,
+        575.0,
+        577.0
+      ],
+      "period_start": "2011-01-15 01:49:00",
+      "period_end": "2011-01-18 23:20:00",
+      "n_segments": 161,
+      "n_active_species": 34,
+      "total_abundance": 49925.0,
+      "cv_scores": {
+        "2": 21836.832,
+        "3": 23187.574502,
+        "4": 24179.519726,
+        "5": 24370.337783
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 785.7863942673503,
+      "nmf_iterations": 665,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 153,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        578.0,
+        579.0,
+        580.0
+      ],
+      "period_start": "2011-01-19 23:37:00",
+      "period_end": "2011-01-23 23:20:00",
+      "n_segments": 189,
+      "n_active_species": 60,
+      "total_abundance": 54632.0,
+      "cv_scores": {
+        "2": 10683.57876,
+        "3": 10781.094294,
+        "4": 11526.780965,
+        "5": 11521.944693
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1216.4180127949705,
+      "nmf_iterations": 46,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 154,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        603.0,
+        604.0,
+        605.0,
+        606.0
+      ],
+      "period_start": "2011-11-28 10:04:00",
+      "period_end": "2011-12-04 03:24:00",
+      "n_segments": 227,
+      "n_active_species": 65,
+      "total_abundance": 66739.0,
+      "cv_scores": {
+        "2": 4774.201113,
+        "3": 5190.665051,
+        "4": 5497.144545,
+        "5": 5576.764516
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1198.7561250375782,
+      "nmf_iterations": 19,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 155,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        636.0,
+        637.0
+      ],
+      "period_start": "2012-02-22 04:52:00",
+      "period_end": "2012-02-26 10:30:00",
+      "n_segments": 177,
+      "n_active_species": 34,
+      "total_abundance": 32329.0,
+      "cv_scores": {
+        "2": 3310.652567,
+        "3": 3560.94722,
+        "4": 3795.822601,
+        "5": 3974.286209
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 522.4105333068752,
+      "nmf_iterations": 132,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 156,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        669.0
+      ],
+      "period_start": "2012-12-03 08:49:00",
+      "period_end": "2012-12-04 08:08:00",
+      "n_segments": 37,
+      "n_active_species": 23,
+      "total_abundance": 26576.0,
+      "cv_scores": {
+        "2": 28877.998147,
+        "3": 33624.462641,
+        "4": 34430.066123,
+        "5": 35197.475684
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 989.2554760610057,
+      "nmf_iterations": 98,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 157,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        672.0,
+        673.0
+      ],
+      "period_start": "2012-12-06 09:05:00",
+      "period_end": "2012-12-08 12:14:00",
+      "n_segments": 84,
+      "n_active_species": 37,
+      "total_abundance": 21814.0,
+      "cv_scores": {
+        "2": 2419.363129,
+        "3": 2393.27944,
+        "4": 2577.749196,
+        "5": 2721.387872
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 323.45794544850867,
+      "nmf_iterations": 225,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 158,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        690.0
+      ],
+      "period_start": "2013-01-26 04:02:00",
+      "period_end": "2013-01-27 18:00:00",
+      "n_segments": 59,
+      "n_active_species": 15,
+      "total_abundance": 1560.0,
+      "cv_scores": {
+        "2": 53.264839,
+        "3": 65.953685,
+        "4": 72.839141,
+        "5": 74.53973
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 48.01144281041752,
+      "nmf_iterations": 57,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 159,
+      "ship": "SA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        709.0,
+        712.0,
+        715.0,
+        720.0,
+        725.0
+      ],
+      "period_start": "2013-02-14 21:12:00",
+      "period_end": "2013-02-24 11:55:00",
+      "n_segments": 324,
+      "n_active_species": 66,
+      "total_abundance": 42980.0,
+      "cv_scores": {
+        "2": 2336.126966,
+        "3": 2452.644672,
+        "4": 2768.833849,
+        "5": 2869.162213
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1214.5708426978308,
+      "nmf_iterations": 15,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 160,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        743.0
+      ],
+      "period_start": "2013-11-30 05:57:00",
+      "period_end": "2013-11-30 11:34:00",
+      "n_segments": 8,
+      "n_active_species": 39,
+      "total_abundance": 7007.0,
+      "cv_scores": {
+        "2": 12587.727135,
+        "3": 12347.17395,
+        "4": 13054.251693,
+        "5": 13341.968117
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 108.93727094803808,
+      "nmf_iterations": 555,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 161,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        746.0,
+        747.0,
+        748.0
+      ],
+      "period_start": "2013-12-04 22:29:00",
+      "period_end": "2013-12-09 19:20:00",
+      "n_segments": 168,
+      "n_active_species": 68,
+      "total_abundance": 52446.0,
+      "cv_scores": {
+        "2": 4448.523494,
+        "3": 5106.22547,
+        "4": 5562.786506,
+        "5": 6045.294734
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1192.0487052622957,
+      "nmf_iterations": 53,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 162,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        782.0,
+        783.0,
+        786.0,
+        792.0
+      ],
+      "period_start": "2014-02-03 04:48:00",
+      "period_end": "2014-02-09 15:13:00",
+      "n_segments": 225,
+      "n_active_species": 64,
+      "total_abundance": 46085.0,
+      "cv_scores": {
+        "2": 1511.19097,
+        "3": 1881.65173,
+        "4": 2209.714254,
+        "5": 2424.960226
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1040.7605701205791,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 163,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        793.0
+      ],
+      "period_start": "2014-02-10 17:46:00",
+      "period_end": "2014-02-11 16:00:00",
+      "n_segments": 48,
+      "n_active_species": 51,
+      "total_abundance": 5159.0,
+      "cv_scores": {
+        "2": 605.089323,
+        "3": 582.238633,
+        "4": 647.733973,
+        "5": 681.046562
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 211.87153416907688,
+      "nmf_iterations": 31,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 164,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        823.0,
+        825.0
+      ],
+      "period_start": "2014-12-06 02:09:00",
+      "period_end": "2014-12-08 15:55:00",
+      "n_segments": 108,
+      "n_active_species": 62,
+      "total_abundance": 62682.0,
+      "cv_scores": {
+        "2": 5334.32811,
+        "3": 6049.407422,
+        "4": 6532.053881,
+        "5": 7097.42396
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1003.4793709305308,
+      "nmf_iterations": 181,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 165,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        862.0,
+        866.0,
+        867.0
+      ],
+      "period_start": "2015-02-02 01:22:00",
+      "period_end": "2015-02-04 14:55:00",
+      "n_segments": 94,
+      "n_active_species": 49,
+      "total_abundance": 17118.0,
+      "cv_scores": {
+        "2": 3401.256654,
+        "3": 3399.340249,
+        "4": 3914.814354,
+        "5": 3996.548547
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 389.70241027921406,
+      "nmf_iterations": 56,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 166,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        877.0,
+        878.0
+      ],
+      "period_start": "2015-02-23 11:56:00",
+      "period_end": "2015-02-25 09:35:00",
+      "n_segments": 80,
+      "n_active_species": 22,
+      "total_abundance": 6227.0,
+      "cv_scores": {
+        "2": 936.699101,
+        "3": 983.951058,
+        "4": 995.50059,
+        "5": 995.715282
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 106.52428769901096,
+      "nmf_iterations": 8,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 167,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        880.0,
+        882.0
+      ],
+      "period_start": "2015-02-26 23:04:00",
+      "period_end": "2015-03-03 01:25:00",
+      "n_segments": 167,
+      "n_active_species": 76,
+      "total_abundance": 33549.0,
+      "cv_scores": {
+        "2": 2813.579424,
+        "3": 2738.62823,
+        "4": 3014.272845,
+        "5": 3084.901768
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 630.7784037059416,
+      "nmf_iterations": 11,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 168,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        909.0
+      ],
+      "period_start": "2015-11-24 08:31:00",
+      "period_end": "2015-11-25 23:55:00",
+      "n_segments": 72,
+      "n_active_species": 64,
+      "total_abundance": 40287.0,
+      "cv_scores": {
+        "2": 11355.000798,
+        "3": 11201.06101,
+        "4": 11404.901185,
+        "5": 11622.898434
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 1257.6549509632734,
+      "nmf_iterations": 73,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 169,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        911.0
+      ],
+      "period_start": "2015-11-27 21:17:00",
+      "period_end": "2015-11-28 01:17:00",
+      "n_segments": 8,
+      "n_active_species": 36,
+      "total_abundance": 4923.0,
+      "cv_scores": {
+        "2": 4920.955182,
+        "3": 6465.171293,
+        "4": 6656.487286,
+        "5": 6834.053375
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 143.13814034986297,
+      "nmf_iterations": 96,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 170,
+      "ship": "SA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        937.0,
+        938.0,
+        939.0,
+        940.0,
+        941.0
+      ],
+      "period_start": "2016-02-04 04:33:00",
+      "period_end": "2016-02-13 00:55:00",
+      "n_segments": 385,
+      "n_active_species": 101,
+      "total_abundance": 86943.0,
+      "cv_scores": {
+        "2": 3327.274188,
+        "3": 3698.958083,
+        "4": 3731.299904,
+        "5": 3851.045612
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 2247.9436639121523,
+      "nmf_iterations": 13,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 172,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        959.0
+      ],
+      "period_start": "2016-12-31 22:28:00",
+      "period_end": "2017-01-02 00:50:00",
+      "n_segments": 50,
+      "n_active_species": 26,
+      "total_abundance": 1971.0,
+      "cv_scores": {
+        "2": 379.39009,
+        "3": 403.969971,
+        "4": 404.065509,
+        "5": 404.154947
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 71.14673240332577,
+      "nmf_iterations": 11,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 173,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        966.0,
+        967.0,
+        968.0,
+        970.0
+      ],
+      "period_start": "2017-01-11 21:35:00",
+      "period_end": "2017-01-19 17:55:00",
+      "n_segments": 385,
+      "n_active_species": 84,
+      "total_abundance": 62157.0,
+      "cv_scores": {
+        "2": 2909.879398,
+        "3": 2973.584539,
+        "4": 2993.970483,
+        "5": 3028.603685
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 842.6670834223391,
+      "nmf_iterations": 316,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 174,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        991.0
+      ],
+      "period_start": "2017-11-18 03:33:00",
+      "period_end": "2017-11-20 01:10:00",
+      "n_segments": 82,
+      "n_active_species": 70,
+      "total_abundance": 34404.0,
+      "cv_scores": {
+        "2": 4372.219179,
+        "3": 4517.422172,
+        "4": 4565.080006,
+        "5": 4601.871845
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 804.2108928759093,
+      "nmf_iterations": 85,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 175,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        992.0
+      ],
+      "period_start": "2017-11-22 03:53:00",
+      "period_end": "2017-11-24 02:30:00",
+      "n_segments": 83,
+      "n_active_species": 57,
+      "total_abundance": 56110.0,
+      "cv_scores": {
+        "2": 6327.3156,
+        "3": 7321.737036,
+        "4": 7489.096044,
+        "5": 7581.838649
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 632.3399624920804,
+      "nmf_iterations": 266,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 176,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        1018.0,
+        1019.0,
+        1020.0,
+        1021.0
+      ],
+      "period_start": "2018-01-28 00:35:00",
+      "period_end": "2018-02-03 21:50:00",
+      "n_segments": 273,
+      "n_active_species": 93,
+      "total_abundance": 76116.0,
+      "cv_scores": {
+        "2": 5165.475251,
+        "3": 5323.819196,
+        "4": 5364.008032,
+        "5": 5367.957718
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1690.347038751531,
+      "nmf_iterations": 94,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 177,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1022.0
+      ],
+      "period_start": "2018-02-05 01:05:00",
+      "period_end": "2018-02-06 04:20:00",
+      "n_segments": 49,
+      "n_active_species": 36,
+      "total_abundance": 6495.0,
+      "cv_scores": {
+        "2": 3140.762863,
+        "3": 3142.681875,
+        "4": 3166.29835,
+        "5": 3191.008011
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 228.2783149877348,
+      "nmf_iterations": 19,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 178,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1041.0,
+        1043.0
+      ],
+      "period_start": "2019-01-06 14:00:00",
+      "period_end": "2019-01-08 01:40:00",
+      "n_segments": 60,
+      "n_active_species": 27,
+      "total_abundance": 4193.0,
+      "cv_scores": {
+        "2": 381.114734,
+        "3": 429.253054,
+        "4": 502.156358,
+        "5": 523.825786
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 168.14467579130488,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 179,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1052.0
+      ],
+      "period_start": "2019-01-19 17:35:00",
+      "period_end": "2019-01-20 14:00:00",
+      "n_segments": 48,
+      "n_active_species": 23,
+      "total_abundance": 7388.0,
+      "cv_scores": {
+        "2": 901.684787,
+        "3": 962.911599,
+        "4": 971.593105,
+        "5": 996.432688
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 154.22902136793533,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 180,
+      "ship": "SA",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        1059.0,
+        1064.0,
+        1065.0,
+        1066.0
+      ],
+      "period_start": "2019-01-23 19:48:00",
+      "period_end": "2019-01-31 12:05:00",
+      "n_segments": 367,
+      "n_active_species": 110,
+      "total_abundance": 38105.0,
+      "cv_scores": {
+        "2": 1718.120948,
+        "3": 1664.655127,
+        "4": 1708.002623,
+        "5": 1751.630361
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 750.7053860223909,
+      "nmf_iterations": 169,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 181,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1081.0,
+        1082.0,
+        1083.0
+      ],
+      "period_start": "2019-11-19 07:15:00",
+      "period_end": "2019-11-25 03:00:00",
+      "n_segments": 223,
+      "n_active_species": 98,
+      "total_abundance": 99633.0,
+      "cv_scores": {
+        "2": 3709.208218,
+        "3": 3934.410091,
+        "4": 4024.746733,
+        "5": 4278.039006
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 1576.9281524570501,
+      "nmf_iterations": 122,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 182,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1107.0
+      ],
+      "period_start": "2020-11-23 02:25:00",
+      "period_end": "2020-11-23 18:53:00",
+      "n_segments": 32,
+      "n_active_species": 35,
+      "total_abundance": 9227.0,
+      "cv_scores": {
+        "2": 3788.140988,
+        "3": 4172.968397,
+        "4": 4231.757491,
+        "5": 4287.54718
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 234.06336505006388,
+      "nmf_iterations": 24,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 183,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1108.0
+      ],
+      "period_start": "2020-11-26 02:10:00",
+      "period_end": "2020-11-27 13:41:00",
+      "n_segments": 67,
+      "n_active_species": 44,
+      "total_abundance": 24759.0,
+      "cv_scores": {
+        "2": 9387.023704,
+        "3": 10241.585786,
+        "4": 10377.998542,
+        "5": 10372.335592
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 479.4201424215343,
+      "nmf_iterations": 131,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 184,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1109.0
+      ],
+      "period_start": "2021-01-14 22:32:00",
+      "period_end": "2021-01-15 04:38:00",
+      "n_segments": 12,
+      "n_active_species": 10,
+      "total_abundance": 81.0,
+      "cv_scores": {
+        "2": 67.994167,
+        "3": 68.044783,
+        "4": 68.046632,
+        "5": 68.05
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 2.4767160469799343,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 185,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1110.0
+      ],
+      "period_start": "2021-01-27 18:04:00",
+      "period_end": "2021-01-28 05:55:00",
+      "n_segments": 25,
+      "n_active_species": 17,
+      "total_abundance": 5879.0,
+      "cv_scores": {
+        "2": 1782.020476,
+        "3": 1993.255299,
+        "4": 2232.874813,
+        "5": 2347.726366
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 218.12066163539376,
+      "nmf_iterations": 151,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 186,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1115.0,
+        1117.0,
+        1119.0
+      ],
+      "period_start": "2021-02-01 03:15:00",
+      "period_end": "2021-02-06 20:00:00",
+      "n_segments": 234,
+      "n_active_species": 62,
+      "total_abundance": 12203.0,
+      "cv_scores": {
+        "2": 685.641205,
+        "3": 826.954663,
+        "4": 857.902227,
+        "5": 933.488508
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 375.22089774566143,
+      "nmf_iterations": 25,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 187,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1133.0,
+        1134.0
+      ],
+      "period_start": "2021-11-17 04:30:00",
+      "period_end": "2021-11-20 08:32:00",
+      "n_segments": 148,
+      "n_active_species": 53,
+      "total_abundance": 28176.0,
+      "cv_scores": {
+        "2": 744.242984,
+        "3": 849.029366,
+        "4": 923.603294,
+        "5": 989.876917
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 573.1081917969453,
+      "nmf_iterations": 172,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 188,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1136.0
+      ],
+      "period_start": "2022-01-06 14:10:00",
+      "period_end": "2022-01-07 20:37:00",
+      "n_segments": 58,
+      "n_active_species": 13,
+      "total_abundance": 144.0,
+      "cv_scores": {
+        "2": 12.255811,
+        "3": 11.904122,
+        "4": 11.954718,
+        "5": 12.146648
+      },
+      "best_k": 3,
+      "nmf_reconstruction_error": 10.151418263465233,
+      "nmf_iterations": 7,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 189,
+      "ship": "SA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1137.0
+      ],
+      "period_start": "2022-02-01 23:27:00",
+      "period_end": "2022-02-04 00:45:00",
+      "n_segments": 72,
+      "n_active_species": 43,
+      "total_abundance": 3030.0,
+      "cv_scores": {
+        "2": 161.900264,
+        "3": 207.479453,
+        "4": 229.401421,
+        "5": 236.084473
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 85.23295164278957,
+      "nmf_iterations": 311,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 190,
+      "ship": "SA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1138.0,
+        1139.0
+      ],
+      "period_start": "2022-11-24 02:17:00",
+      "period_end": "2022-11-27 17:25:00",
+      "n_segments": 144,
+      "n_active_species": 63,
+      "total_abundance": 29046.0,
+      "cv_scores": {
+        "2": 696.497737,
+        "3": 848.453702,
+        "4": 941.271139,
+        "5": 1000.46728
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 434.98954728909354,
+      "nmf_iterations": 144,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 191,
+      "ship": "SA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1141.0,
+        1142.0,
+        1143.0
+      ],
+      "period_start": "2023-01-10 01:26:00",
+      "period_end": "2023-01-14 17:55:00",
+      "n_segments": 208,
+      "n_active_species": 65,
+      "total_abundance": 30366.0,
+      "cv_scores": {
+        "2": 930.6746,
+        "3": 964.46111,
+        "4": 1004.067844,
+        "5": 1010.096387
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 587.8159507231758,
+      "nmf_iterations": 100,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 192,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        59.0,
+        60.0,
+        61.0
+      ],
+      "period_start": "1999-12-07 09:21:00",
+      "period_end": "1999-12-09 06:00:00",
+      "n_segments": 110,
+      "n_active_species": 33,
+      "total_abundance": 18664.0,
+      "cv_scores": {
+        "2": 2872.035438,
+        "3": 2893.771297,
+        "4": 2904.745666,
+        "5": 2906.410619
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 93.15198542229398,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 193,
+      "ship": "SH",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        75.0,
+        76.0,
+        77.0,
+        78.0,
+        79.0
+      ],
+      "period_start": "2000-03-09 08:31:00",
+      "period_end": "2000-03-16 04:28:00",
+      "n_segments": 275,
+      "n_active_species": 35,
+      "total_abundance": 19726.0,
+      "cv_scores": {
+        "2": 1928.076857,
+        "3": 1937.394494,
+        "4": 1938.914902,
+        "5": 1942.449573
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 165.40098781171508,
+      "nmf_iterations": 43,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 194,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        86.0
+      ],
+      "period_start": "2000-12-06 08:28:00",
+      "period_end": "2000-12-07 05:46:00",
+      "n_segments": 61,
+      "n_active_species": 20,
+      "total_abundance": 3624.0,
+      "cv_scores": {
+        "2": 259.181849,
+        "3": 267.091485,
+        "4": 267.959483,
+        "5": 268.511503
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 38.358227680594524,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 195,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        87.0,
+        88.0,
+        89.0
+      ],
+      "period_start": "2000-12-08 07:39:00",
+      "period_end": "2000-12-11 09:53:00",
+      "n_segments": 188,
+      "n_active_species": 20,
+      "total_abundance": 14921.0,
+      "cv_scores": {
+        "2": 867.687862,
+        "3": 888.529085,
+        "4": 888.667364,
+        "5": 889.296403
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 96.44137974739917,
+      "nmf_iterations": 204,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 196,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        108.0,
+        109.0,
+        111.0
+      ],
+      "period_start": "2001-03-14 06:59:00",
+      "period_end": "2001-03-16 21:20:00",
+      "n_segments": 138,
+      "n_active_species": 26,
+      "total_abundance": 14744.0,
+      "cv_scores": {
+        "2": 904.300447,
+        "3": 1167.429075,
+        "4": 1179.021104,
+        "5": 1179.535909
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 280.343487950501,
+      "nmf_iterations": 48,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 197,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        118.0,
+        119.0
+      ],
+      "period_start": "2001-12-06 09:07:00",
+      "period_end": "2001-12-08 06:04:00",
+      "n_segments": 98,
+      "n_active_species": 24,
+      "total_abundance": 32436.0,
+      "cv_scores": {
+        "2": 4294.871093,
+        "3": 4610.742113,
+        "4": 4750.272107,
+        "5": 4788.167627
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 232.79656754348906,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 198,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        160.0,
+        163.0
+      ],
+      "period_start": "2002-03-05 08:06:00",
+      "period_end": "2002-03-07 05:51:00",
+      "n_segments": 111,
+      "n_active_species": 21,
+      "total_abundance": 3095.0,
+      "cv_scores": {
+        "2": 35.922768,
+        "3": 43.371816,
+        "4": 44.939168,
+        "5": 45.884464
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 61.93267632801646,
+      "nmf_iterations": 158,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 199,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        164.0,
+        165.0
+      ],
+      "period_start": "2002-03-10 07:31:00",
+      "period_end": "2002-03-11 22:46:00",
+      "n_segments": 59,
+      "n_active_species": 44,
+      "total_abundance": 8701.0,
+      "cv_scores": {
+        "2": 870.860737,
+        "3": 951.336699,
+        "4": 1037.753179,
+        "5": 1062.674781
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 279.41918416036185,
+      "nmf_iterations": 73,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 200,
+      "ship": "SH",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        166.0,
+        167.0,
+        168.0,
+        169.0
+      ],
+      "period_start": "2002-03-13 05:45:00",
+      "period_end": "2002-03-17 02:51:00",
+      "n_segments": 217,
+      "n_active_species": 69,
+      "total_abundance": 8013.0,
+      "cv_scores": {
+        "2": 59.333105,
+        "3": 67.667623,
+        "4": 75.477869,
+        "5": 78.519885
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 170.40785451751418,
+      "nmf_iterations": 41,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 201,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        178.0,
+        179.0
+      ],
+      "period_start": "2002-12-07 09:02:00",
+      "period_end": "2002-12-09 05:30:00",
+      "n_segments": 130,
+      "n_active_species": 28,
+      "total_abundance": 16218.0,
+      "cv_scores": {
+        "2": 542.213478,
+        "3": 731.901053,
+        "4": 838.109967,
+        "5": 850.286456
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 168.83779519885582,
+      "nmf_iterations": 22,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 202,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        205.0
+      ],
+      "period_start": "2003-03-14 23:52:00",
+      "period_end": "2003-03-15 22:04:00",
+      "n_segments": 63,
+      "n_active_species": 28,
+      "total_abundance": 6350.0,
+      "cv_scores": {
+        "2": 279.266999,
+        "3": 327.372022,
+        "4": 332.579633,
+        "5": 335.258475
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 71.49930812399712,
+      "nmf_iterations": 787,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 203,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        206.0
+      ],
+      "period_start": "2003-03-17 00:32:00",
+      "period_end": "2003-03-17 22:20:00",
+      "n_segments": 59,
+      "n_active_species": 22,
+      "total_abundance": 2289.0,
+      "cv_scores": {
+        "2": 392.651176,
+        "3": 393.350479,
+        "4": 394.672424,
+        "5": 396.985159
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 35.05784126042795,
+      "nmf_iterations": 22,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 204,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        238.0,
+        239.0
+      ],
+      "period_start": "2004-03-11 02:46:00",
+      "period_end": "2004-03-14 02:53:00",
+      "n_segments": 124,
+      "n_active_species": 31,
+      "total_abundance": 3546.0,
+      "cv_scores": {
+        "2": 83.622244,
+        "3": 97.600708,
+        "4": 103.254858,
+        "5": 104.321946
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 84.28235501376933,
+      "nmf_iterations": 57,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 205,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        258.0,
+        259.0,
+        260.0
+      ],
+      "period_start": "2004-12-06 10:27:00",
+      "period_end": "2004-12-09 05:40:00",
+      "n_segments": 173,
+      "n_active_species": 46,
+      "total_abundance": 78985.0,
+      "cv_scores": {
+        "2": 4479.894498,
+        "3": 5807.196555,
+        "4": 6135.188462,
+        "5": 6392.722552
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 720.6543282129941,
+      "nmf_iterations": 311,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 206,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        286.0,
+        287.0,
+        288.0
+      ],
+      "period_start": "2005-03-14 04:58:00",
+      "period_end": "2005-03-17 02:45:00",
+      "n_segments": 171,
+      "n_active_species": 43,
+      "total_abundance": 20506.0,
+      "cv_scores": {
+        "2": 989.688079,
+        "3": 995.356586,
+        "4": 1046.507662,
+        "5": 1053.201816
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 260.39066817982285,
+      "nmf_iterations": 476,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 207,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        301.0,
+        303.0
+      ],
+      "period_start": "2005-12-07 08:57:00",
+      "period_end": "2005-12-09 06:00:00",
+      "n_segments": 124,
+      "n_active_species": 45,
+      "total_abundance": 40827.0,
+      "cv_scores": {
+        "2": 5551.000919,
+        "3": 5667.063277,
+        "4": 5679.084822,
+        "5": 5685.65887
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 200.188343897919,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 208,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        342.0,
+        343.0,
+        344.0
+      ],
+      "period_start": "2006-03-13 07:28:00",
+      "period_end": "2006-03-16 03:00:00",
+      "n_segments": 156,
+      "n_active_species": 43,
+      "total_abundance": 17195.0,
+      "cv_scores": {
+        "2": 565.917293,
+        "3": 623.83435,
+        "4": 628.752946,
+        "5": 636.235619
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 221.21818572081008,
+      "nmf_iterations": 119,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 209,
+      "ship": "SH",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        355.0,
+        356.0,
+        357.0
+      ],
+      "period_start": "2006-12-06 09:45:00",
+      "period_end": "2006-12-09 06:04:00",
+      "n_segments": 180,
+      "n_active_species": 49,
+      "total_abundance": 57813.0,
+      "cv_scores": {
+        "2": 5273.324154,
+        "3": 5332.426041,
+        "4": 5432.435744,
+        "5": 5468.883168
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 501.00467921495266,
+      "nmf_iterations": 427,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 210,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        366.0,
+        367.0
+      ],
+      "period_start": "2007-03-12 08:17:00",
+      "period_end": "2007-03-14 03:07:00",
+      "n_segments": 99,
+      "n_active_species": 35,
+      "total_abundance": 9279.0,
+      "cv_scores": {
+        "2": 368.404056,
+        "3": 397.305467,
+        "4": 399.899627,
+        "5": 399.931636
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 113.38451402328597,
+      "nmf_iterations": 413,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 211,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        368.0,
+        369.0
+      ],
+      "period_start": "2007-03-15 11:05:00",
+      "period_end": "2007-03-17 03:03:00",
+      "n_segments": 116,
+      "n_active_species": 37,
+      "total_abundance": 10149.0,
+      "cv_scores": {
+        "2": 320.706619,
+        "3": 424.574157,
+        "4": 506.430795,
+        "5": 533.206998
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 134.52372517203463,
+      "nmf_iterations": 99,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 212,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        385.0
+      ],
+      "period_start": "2007-12-06 04:55:00",
+      "period_end": "2007-12-06 11:30:00",
+      "n_segments": 21,
+      "n_active_species": 23,
+      "total_abundance": 4069.0,
+      "cv_scores": {
+        "2": 492.413502,
+        "3": 634.255126,
+        "4": 692.132475,
+        "5": 708.070661
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 76.28041544319078,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 213,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        387.0
+      ],
+      "period_start": "2007-12-08 10:37:00",
+      "period_end": "2007-12-09 01:04:00",
+      "n_segments": 47,
+      "n_active_species": 24,
+      "total_abundance": 11426.0,
+      "cv_scores": {
+        "2": 1090.514764,
+        "3": 1498.277426,
+        "4": 1582.882724,
+        "5": 1628.698245
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 153.81484530888915,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 214,
+      "ship": "SH",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        447.0,
+        449.0
+      ],
+      "period_start": "2008-03-12 01:17:00",
+      "period_end": "2008-03-13 22:10:00",
+      "n_segments": 107,
+      "n_active_species": 43,
+      "total_abundance": 12615.0,
+      "cv_scores": {
+        "2": 324.79519,
+        "3": 348.5283,
+        "4": 380.371323,
+        "5": 405.233283
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 223.73769828070272,
+      "nmf_iterations": 198,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 215,
+      "ship": "SH",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        452.0
+      ],
+      "period_start": "2008-03-15 07:42:00",
+      "period_end": "2008-03-15 22:02:00",
+      "n_segments": 44,
+      "n_active_species": 33,
+      "total_abundance": 5618.0,
+      "cv_scores": {
+        "2": 146.346917,
+        "3": 152.115297,
+        "4": 185.451113,
+        "5": 210.8834
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 152.15329186502217,
+      "nmf_iterations": 23,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 216,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        511.0,
+        512.0,
+        513.0
+      ],
+      "period_start": "2009-12-02 02:20:00",
+      "period_end": "2009-12-05 00:39:00",
+      "n_segments": 165,
+      "n_active_species": 47,
+      "total_abundance": 36187.0,
+      "cv_scores": {
+        "2": 838.301893,
+        "3": 954.718162,
+        "4": 1243.436338,
+        "5": 1316.98737
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 566.6745032494887,
+      "nmf_iterations": 71,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 217,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        542.0,
+        543.0,
+        544.0
+      ],
+      "period_start": "2010-03-07 00:58:00",
+      "period_end": "2010-03-12 06:05:00",
+      "n_segments": 184,
+      "n_active_species": 46,
+      "total_abundance": 10534.0,
+      "cv_scores": {
+        "2": 90.977822,
+        "3": 113.789824,
+        "4": 120.128516,
+        "5": 122.161261
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 177.04527788893068,
+      "nmf_iterations": 120,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 218,
+      "ship": "SH2",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        557.0,
+        558.0,
+        559.0,
+        560.0
+      ],
+      "period_start": "2010-12-03 02:19:00",
+      "period_end": "2010-12-06 06:52:00",
+      "n_segments": 177,
+      "n_active_species": 50,
+      "total_abundance": 34231.0,
+      "cv_scores": {
+        "2": 1391.98566,
+        "3": 1470.43907,
+        "4": 1505.91329,
+        "5": 1539.716207
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 535.4197017847373,
+      "nmf_iterations": 109,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 219,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        590.0,
+        591.0,
+        592.0
+      ],
+      "period_start": "2011-03-10 22:06:00",
+      "period_end": "2011-03-13 04:57:00",
+      "n_segments": 147,
+      "n_active_species": 42,
+      "total_abundance": 15412.0,
+      "cv_scores": {
+        "2": 725.364386,
+        "3": 783.665666,
+        "4": 853.904669,
+        "5": 860.905643
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 392.24796689280976,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 220,
+      "ship": "SH2",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        608.0,
+        609.0,
+        611.0,
+        613.0
+      ],
+      "period_start": "2011-12-03 08:13:00",
+      "period_end": "2011-12-06 05:51:00",
+      "n_segments": 182,
+      "n_active_species": 50,
+      "total_abundance": 26583.0,
+      "cv_scores": {
+        "2": 736.266956,
+        "3": 1022.769818,
+        "4": 1022.786661,
+        "5": 1038.365761
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 305.152364613538,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 221,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        638.0,
+        639.0,
+        640.0
+      ],
+      "period_start": "2012-03-10 07:22:00",
+      "period_end": "2012-03-13 00:34:00",
+      "n_segments": 185,
+      "n_active_species": 46,
+      "total_abundance": 32851.0,
+      "cv_scores": {
+        "2": 1352.850757,
+        "3": 1733.6734,
+        "4": 1848.280782,
+        "5": 1853.691687
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 291.5122716974759,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 222,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        668.0,
+        670.0,
+        671.0
+      ],
+      "period_start": "2012-12-03 02:43:00",
+      "period_end": "2012-12-06 01:07:00",
+      "n_segments": 184,
+      "n_active_species": 49,
+      "total_abundance": 36080.0,
+      "cv_scores": {
+        "2": 650.822099,
+        "3": 927.128223,
+        "4": 988.759636,
+        "5": 1018.469464
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 341.5978127001324,
+      "nmf_iterations": 321,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 223,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        733.0
+      ],
+      "period_start": "2013-03-10 00:16:00",
+      "period_end": "2013-03-10 20:42:00",
+      "n_segments": 37,
+      "n_active_species": 20,
+      "total_abundance": 2602.0,
+      "cv_scores": {
+        "2": 141.511382,
+        "3": 163.798513,
+        "4": 170.639796,
+        "5": 178.908652
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 47.57860437874895,
+      "nmf_iterations": 311,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 224,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        734.0
+      ],
+      "period_start": "2013-03-12 07:24:00",
+      "period_end": "2013-03-13 21:58:00",
+      "n_segments": 82,
+      "n_active_species": 40,
+      "total_abundance": 12738.0,
+      "cv_scores": {
+        "2": 579.031035,
+        "3": 814.485868,
+        "4": 868.375938,
+        "5": 874.292689
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 219.309679614321,
+      "nmf_iterations": 22,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 225,
+      "ship": "SH2",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        744.0,
+        745.0
+      ],
+      "period_start": "2013-12-01 03:02:00",
+      "period_end": "2013-12-02 21:00:00",
+      "n_segments": 108,
+      "n_active_species": 35,
+      "total_abundance": 23271.0,
+      "cv_scores": {
+        "2": 2429.45506,
+        "3": 3524.951724,
+        "4": 3591.955177,
+        "5": 3615.312109
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 278.01796796260703,
+      "nmf_iterations": 60,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 226,
+      "ship": "SH2",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        799.0,
+        800.0,
+        801.0,
+        802.0
+      ],
+      "period_start": "2014-03-06 09:44:00",
+      "period_end": "2014-03-10 21:58:00",
+      "n_segments": 171,
+      "n_active_species": 46,
+      "total_abundance": 15073.0,
+      "cv_scores": {
+        "2": 529.707536,
+        "3": 554.085315,
+        "4": 555.851411,
+        "5": 561.621943
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 170.7245550016396,
+      "nmf_iterations": 349,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 227,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        818.0,
+        820.0,
+        821.0
+      ],
+      "period_start": "2014-12-03 02:41:00",
+      "period_end": "2014-12-06 07:58:00",
+      "n_segments": 177,
+      "n_active_species": 44,
+      "total_abundance": 21591.0,
+      "cv_scores": {
+        "2": 510.239387,
+        "3": 526.258384,
+        "4": 539.692328,
+        "5": 545.804565
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 228.0858307004559,
+      "nmf_iterations": 140,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 228,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        881.0,
+        883.0,
+        884.0
+      ],
+      "period_start": "2015-02-28 01:19:00",
+      "period_end": "2015-03-03 00:55:00",
+      "n_segments": 167,
+      "n_active_species": 43,
+      "total_abundance": 10184.0,
+      "cv_scores": {
+        "2": 309.284641,
+        "3": 347.300375,
+        "4": 352.435836,
+        "5": 354.864622
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 159.88024905916916,
+      "nmf_iterations": 167,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 229,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        912.0,
+        914.0,
+        916.0
+      ],
+      "period_start": "2015-12-09 10:47:00",
+      "period_end": "2015-12-13 06:16:00",
+      "n_segments": 177,
+      "n_active_species": 50,
+      "total_abundance": 20532.0,
+      "cv_scores": {
+        "2": 1071.26377,
+        "3": 1101.351841,
+        "4": 1110.921833,
+        "5": 1142.794838
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 254.69225560603195,
+      "nmf_iterations": 128,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 230,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        942.0,
+        943.0,
+        944.0
+      ],
+      "period_start": "2016-03-16 22:19:00",
+      "period_end": "2016-03-20 01:04:00",
+      "n_segments": 170,
+      "n_active_species": 47,
+      "total_abundance": 13246.0,
+      "cv_scores": {
+        "2": 176.874089,
+        "3": 270.850748,
+        "4": 295.804173,
+        "5": 304.735253
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 172.35689679674766,
+      "nmf_iterations": 32,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 231,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        951.0,
+        952.0,
+        953.0
+      ],
+      "period_start": "2016-12-05 02:18:00",
+      "period_end": "2016-12-08 00:54:00",
+      "n_segments": 179,
+      "n_active_species": 44,
+      "total_abundance": 28425.0,
+      "cv_scores": {
+        "2": 631.923677,
+        "3": 724.412412,
+        "4": 770.156444,
+        "5": 786.719911
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 313.58417873910577,
+      "nmf_iterations": 60,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 232,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        983.0,
+        984.0,
+        985.0
+      ],
+      "period_start": "2017-03-12 23:22:00",
+      "period_end": "2017-03-15 21:50:00",
+      "n_segments": 169,
+      "n_active_species": 50,
+      "total_abundance": 13687.0,
+      "cv_scores": {
+        "2": 137.971394,
+        "3": 175.235741,
+        "4": 192.31868,
+        "5": 230.89961
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 259.7300812716086,
+      "nmf_iterations": 41,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 233,
+      "ship": "SH2",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        993.0,
+        994.0
+      ],
+      "period_start": "2017-12-06 02:28:00",
+      "period_end": "2017-12-08 00:36:00",
+      "n_segments": 121,
+      "n_active_species": 32,
+      "total_abundance": 16718.0,
+      "cv_scores": {
+        "2": 996.573955,
+        "3": 1206.721354,
+        "4": 1211.049344,
+        "5": 1217.934508
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 205.41085463244045,
+      "nmf_iterations": 482,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 234,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1024.0
+      ],
+      "period_start": "2018-03-11 05:56:00",
+      "period_end": "2018-03-11 23:53:00",
+      "n_segments": 48,
+      "n_active_species": 32,
+      "total_abundance": 5787.0,
+      "cv_scores": {
+        "2": 261.245094,
+        "3": 302.661405,
+        "4": 325.581368,
+        "5": 327.754294
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 76.85732980525587,
+      "nmf_iterations": 356,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 235,
+      "ship": "SH2",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        1032.0,
+        1033.0
+      ],
+      "period_start": "2018-12-04 03:37:00",
+      "period_end": "2018-12-05 23:51:00",
+      "n_segments": 117,
+      "n_active_species": 33,
+      "total_abundance": 15879.0,
+      "cv_scores": {
+        "2": 475.669369,
+        "3": 524.030462,
+        "4": 558.661648,
+        "5": 566.10391
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 214.5599962867888,
+      "nmf_iterations": 331,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 236,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1075.0
+      ],
+      "period_start": "2019-03-10 08:52:00",
+      "period_end": "2019-03-11 05:04:00",
+      "n_segments": 49,
+      "n_active_species": 26,
+      "total_abundance": 4411.0,
+      "cv_scores": {
+        "2": 175.444057,
+        "3": 216.0008,
+        "4": 244.021533,
+        "5": 245.913727
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 65.00359854989102,
+      "nmf_iterations": 493,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 237,
+      "ship": "SH2",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1084.0,
+        1085.0,
+        1086.0
+      ],
+      "period_start": "2019-12-05 01:44:00",
+      "period_end": "2019-12-07 23:46:00",
+      "n_segments": 180,
+      "n_active_species": 44,
+      "total_abundance": 33036.0,
+      "cv_scores": {
+        "2": 2285.06474,
+        "3": 2724.786151,
+        "4": 2741.30901,
+        "5": 2744.182696
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 435.0471769774351,
+      "nmf_iterations": 165,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 238,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1106.0
+      ],
+      "period_start": "2020-03-13 22:38:00",
+      "period_end": "2020-03-14 20:55:00",
+      "n_segments": 60,
+      "n_active_species": 32,
+      "total_abundance": 3626.0,
+      "cv_scores": {
+        "2": 234.115518,
+        "3": 268.217876,
+        "4": 281.84521,
+        "5": 288.433841
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 135.4461896585866,
+      "nmf_iterations": 26,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 239,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1135.0
+      ],
+      "period_start": "2021-12-01 01:49:00",
+      "period_end": "2021-12-02 00:06:00",
+      "n_segments": 60,
+      "n_active_species": 23,
+      "total_abundance": 6451.0,
+      "cv_scores": {
+        "2": 314.88413,
+        "3": 398.435953,
+        "4": 421.750192,
+        "5": 428.097731
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 108.55276336966044,
+      "nmf_iterations": 820,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 240,
+      "ship": "SH2",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        1140.0
+      ],
+      "period_start": "2022-12-06 07:40:00",
+      "period_end": "2022-12-07 06:05:00",
+      "n_segments": 60,
+      "n_active_species": 23,
+      "total_abundance": 7410.0,
+      "cv_scores": {
+        "2": 554.884893,
+        "3": 622.337616,
+        "4": 648.628193,
+        "5": 662.287429
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 67.09221851682784,
+      "nmf_iterations": 498,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 241,
+      "ship": "TA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        143.0
+      ],
+      "period_start": "2002-02-07 19:54:00",
+      "period_end": "2002-02-09 13:16:00",
+      "n_segments": 100,
+      "n_active_species": 63,
+      "total_abundance": 39181.0,
+      "cv_scores": {
+        "2": 10763.496112,
+        "3": 11040.915464,
+        "4": 12181.753914,
+        "5": 12540.654413
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 804.6309404913468,
+      "nmf_iterations": 168,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 242,
+      "ship": "TA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        144.0
+      ],
+      "period_start": "2002-02-11 05:21:00",
+      "period_end": "2002-02-12 08:00:00",
+      "n_segments": 63,
+      "n_active_species": 44,
+      "total_abundance": 60245.0,
+      "cv_scores": {
+        "2": 28316.248217,
+        "3": 37371.705947,
+        "4": 37772.137765,
+        "5": 38302.81372
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 986.1272499132607,
+      "nmf_iterations": 109,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 243,
+      "ship": "TA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        145.0,
+        146.0,
+        147.0,
+        148.0,
+        149.0
+      ],
+      "period_start": "2002-02-19 06:48:00",
+      "period_end": "2002-02-22 13:25:00",
+      "n_segments": 47,
+      "n_active_species": 45,
+      "total_abundance": 27900.0,
+      "cv_scores": {
+        "2": 14161.296958,
+        "3": 14247.236088,
+        "4": 14386.167637,
+        "5": 14910.857765
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 545.1206847959211,
+      "nmf_iterations": 89,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 244,
+      "ship": "TA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        150.0,
+        151.0
+      ],
+      "period_start": "2002-02-25 04:56:00",
+      "period_end": "2002-02-27 20:36:00",
+      "n_segments": 115,
+      "n_active_species": 73,
+      "total_abundance": 33472.0,
+      "cv_scores": {
+        "2": 2779.884354,
+        "3": 3226.679843,
+        "4": 3480.321979,
+        "5": 3684.584371
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 815.0361143216902,
+      "nmf_iterations": 621,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 245,
+      "ship": "TA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        154.0,
+        155.0
+      ],
+      "period_start": "2002-02-28 21:34:00",
+      "period_end": "2002-03-03 16:00:00",
+      "n_segments": 128,
+      "n_active_species": 96,
+      "total_abundance": 33169.0,
+      "cv_scores": {
+        "2": 3059.139744,
+        "3": 3087.503281,
+        "4": 3113.630938,
+        "5": 3134.067667
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 341.38153350168045,
+      "nmf_iterations": 805,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 246,
+      "ship": "TA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        328.0,
+        329.0,
+        330.0,
+        331.0,
+        332.0
+      ],
+      "period_start": "2006-01-30 03:29:00",
+      "period_end": "2006-02-06 11:32:00",
+      "n_segments": 363,
+      "n_active_species": 73,
+      "total_abundance": 30708.0,
+      "cv_scores": {
+        "2": 906.462188,
+        "3": 1497.072938,
+        "4": 1497.360756,
+        "5": 1498.309177
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 363.29937668781497,
+      "nmf_iterations": 76,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 247,
+      "ship": "TA",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        333.0,
+        334.0
+      ],
+      "period_start": "2006-02-18 22:55:00",
+      "period_end": "2006-02-20 05:45:00",
+      "n_segments": 64,
+      "n_active_species": 16,
+      "total_abundance": 7077.0,
+      "cv_scores": {
+        "2": 1910.976886,
+        "3": 1963.946103,
+        "4": 1972.480338,
+        "5": 1973.425843
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 72.7676481552576,
+      "nmf_iterations": 274,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 248,
+      "ship": "TA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        337.0
+      ],
+      "period_start": "2006-03-06 14:59:00",
+      "period_end": "2006-03-07 21:15:00",
+      "n_segments": 70,
+      "n_active_species": 16,
+      "total_abundance": 2690.0,
+      "cv_scores": {
+        "2": 526.871529,
+        "3": 530.161423,
+        "4": 530.413029,
+        "5": 530.620227
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 21.56724112651212,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 249,
+      "ship": "TA",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        341.0
+      ],
+      "period_start": "2006-03-11 11:39:00",
+      "period_end": "2006-03-13 05:26:00",
+      "n_segments": 87,
+      "n_active_species": 27,
+      "total_abundance": 3645.0,
+      "cv_scores": {
+        "2": 130.903464,
+        "3": 162.41733,
+        "4": 170.356608,
+        "5": 170.685082
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 55.38592582963598,
+      "nmf_iterations": 85,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 250,
+      "ship": "TA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        413.0,
+        414.0,
+        416.0,
+        417.0,
+        419.0
+      ],
+      "period_start": "2008-01-31 07:08:00",
+      "period_end": "2008-02-06 03:32:00",
+      "n_segments": 287,
+      "n_active_species": 57,
+      "total_abundance": 36062.0,
+      "cv_scores": {
+        "2": 580.790942,
+        "3": 622.989721,
+        "4": 654.464769,
+        "5": 659.629181
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 385.2239927216427,
+      "nmf_iterations": 127,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 251,
+      "ship": "TA",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        451.0,
+        453.0,
+        454.0
+      ],
+      "period_start": "2008-03-14 03:03:00",
+      "period_end": "2008-03-18 02:32:00",
+      "n_segments": 201,
+      "n_active_species": 43,
+      "total_abundance": 13019.0,
+      "cv_scores": {
+        "2": 148.976618,
+        "3": 151.397405,
+        "4": 153.788147,
+        "5": 159.385772
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 187.2546330200635,
+      "nmf_iterations": 91,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 252,
+      "ship": "TA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        525.0,
+        527.0,
+        528.0,
+        529.0,
+        530.0
+      ],
+      "period_start": "2010-02-02 02:22:00",
+      "period_end": "2010-02-09 19:55:00",
+      "n_segments": 399,
+      "n_active_species": 79,
+      "total_abundance": 65144.0,
+      "cv_scores": {
+        "2": 5297.624201,
+        "3": 5486.614562,
+        "4": 5596.713243,
+        "5": 5615.601674
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 869.8186940455236,
+      "nmf_iterations": 28,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 253,
+      "ship": "TA",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        691.0,
+        692.0,
+        693.0,
+        694.0,
+        695.0
+      ],
+      "period_start": "2013-02-05 01:29:00",
+      "period_end": "2013-02-09 23:27:00",
+      "n_segments": 235,
+      "n_active_species": 68,
+      "total_abundance": 45765.0,
+      "cv_scores": {
+        "2": 1754.816329,
+        "3": 1991.8124,
+        "4": 2002.469525,
+        "5": 2013.365433
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 376.107542677115,
+      "nmf_iterations": 32,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 254,
+      "ship": "TA",
+      "n_tows_merged": 7,
+      "tow_numbers": [
+        697.0,
+        699.0,
+        702.0,
+        703.0,
+        704.0,
+        706.0,
+        707.0
+      ],
+      "period_start": "2013-02-11 10:34:00",
+      "period_end": "2013-02-14 00:46:00",
+      "n_segments": 37,
+      "n_active_species": 26,
+      "total_abundance": 7262.0,
+      "cv_scores": {
+        "2": 1436.69644,
+        "3": 1440.218323,
+        "4": 1461.45068,
+        "5": 1479.496765
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 121.21071544557039,
+      "nmf_iterations": 242,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 255,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        264.0,
+        265.0,
+        266.0,
+        267.0
+      ],
+      "period_start": "2005-01-02 10:47:00",
+      "period_end": "2005-01-06 08:21:00",
+      "n_segments": 274,
+      "n_active_species": 55,
+      "total_abundance": 18674.0,
+      "cv_scores": {
+        "2": 255.833876,
+        "3": 393.957158,
+        "4": 393.956909,
+        "5": 394.617302
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 215.67541908462394,
+      "nmf_iterations": 271,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 256,
+      "ship": "UM",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        268.0,
+        269.0,
+        270.0,
+        271.0,
+        272.0,
+        273.0
+      ],
+      "period_start": "2005-01-15 11:11:00",
+      "period_end": "2005-01-20 17:53:00",
+      "n_segments": 358,
+      "n_active_species": 54,
+      "total_abundance": 34007.0,
+      "cv_scores": {
+        "2": 828.910138,
+        "3": 887.780585,
+        "4": 970.714896,
+        "5": 972.644611
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 465.39034004690257,
+      "nmf_iterations": 45,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 257,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        274.0,
+        275.0,
+        276.0,
+        277.0,
+        278.0
+      ],
+      "period_start": "2005-02-01 11:47:00",
+      "period_end": "2005-02-04 11:53:00",
+      "n_segments": 218,
+      "n_active_species": 49,
+      "total_abundance": 27294.0,
+      "cv_scores": {
+        "2": 666.278518,
+        "3": 807.7425,
+        "4": 940.532124,
+        "5": 990.479026
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 523.5991365583413,
+      "nmf_iterations": 17,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 258,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        279.0,
+        280.0,
+        281.0,
+        282.0
+      ],
+      "period_start": "2005-02-15 03:38:00",
+      "period_end": "2005-02-18 03:31:00",
+      "n_segments": 199,
+      "n_active_species": 55,
+      "total_abundance": 17468.0,
+      "cv_scores": {
+        "2": 391.319094,
+        "3": 422.641239,
+        "4": 468.314176,
+        "5": 469.555637
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 349.4696559628174,
+      "nmf_iterations": 55,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 259,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        307.0,
+        309.0,
+        312.0,
+        315.0
+      ],
+      "period_start": "2006-01-06 09:37:00",
+      "period_end": "2006-01-09 23:46:00",
+      "n_segments": 203,
+      "n_active_species": 48,
+      "total_abundance": 29198.0,
+      "cv_scores": {
+        "2": 656.393172,
+        "3": 928.595859,
+        "4": 942.209496,
+        "5": 948.612288
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 238.709667599879,
+      "nmf_iterations": 82,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 260,
+      "ship": "UM",
+      "n_tows_merged": 11,
+      "tow_numbers": [
+        317.0,
+        318.0,
+        319.0,
+        320.0,
+        321.0,
+        322.0,
+        323.0,
+        324.0,
+        325.0,
+        326.0,
+        327.0
+      ],
+      "period_start": "2006-01-20 20:35:00",
+      "period_end": "2006-01-26 02:37:00",
+      "n_segments": 299,
+      "n_active_species": 44,
+      "total_abundance": 57056.0,
+      "cv_scores": {
+        "2": 1345.680157,
+        "3": 1997.574735,
+        "4": 2024.987995,
+        "5": 2034.304563
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 778.6595735079469,
+      "nmf_iterations": 19,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 261,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        392.0,
+        393.0,
+        394.0,
+        395.0
+      ],
+      "period_start": "2007-12-26 08:25:00",
+      "period_end": "2007-12-30 10:54:00",
+      "n_segments": 279,
+      "n_active_species": 52,
+      "total_abundance": 30442.0,
+      "cv_scores": {
+        "2": 1079.515919,
+        "3": 1093.042124,
+        "4": 1128.546284,
+        "5": 1155.043899
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 515.9966926935721,
+      "nmf_iterations": 23,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 262,
+      "ship": "UM",
+      "n_tows_merged": 7,
+      "tow_numbers": [
+        396.0,
+        397.0,
+        398.0,
+        399.0,
+        401.0,
+        402.0,
+        403.0
+      ],
+      "period_start": "2008-01-10 06:46:00",
+      "period_end": "2008-01-16 07:29:00",
+      "n_segments": 405,
+      "n_active_species": 46,
+      "total_abundance": 23261.0,
+      "cv_scores": {
+        "2": 239.920362,
+        "3": 278.036049,
+        "4": 299.537128,
+        "5": 316.453404
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 337.7136626530471,
+      "nmf_iterations": 59,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 263,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        406.0,
+        407.0,
+        409.0,
+        410.0
+      ],
+      "period_start": "2008-01-25 01:52:00",
+      "period_end": "2008-01-28 19:48:00",
+      "n_segments": 269,
+      "n_active_species": 46,
+      "total_abundance": 35883.0,
+      "cv_scores": {
+        "2": 632.566653,
+        "3": 750.432991,
+        "4": 871.844614,
+        "5": 909.726236
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 533.9381362014904,
+      "nmf_iterations": 52,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 264,
+      "ship": "UM",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        428.0,
+        429.0,
+        430.0,
+        433.0,
+        437.0,
+        439.0
+      ],
+      "period_start": "2008-02-12 12:47:00",
+      "period_end": "2008-02-16 08:29:00",
+      "n_segments": 249,
+      "n_active_species": 52,
+      "total_abundance": 28841.0,
+      "cv_scores": {
+        "2": 325.947798,
+        "3": 328.102481,
+        "4": 374.411441,
+        "5": 421.051452
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 386.0881444708177,
+      "nmf_iterations": 590,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 265,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        482.0,
+        484.0,
+        485.0
+      ],
+      "period_start": "2009-01-09 18:23:00",
+      "period_end": "2009-01-12 18:25:00",
+      "n_segments": 211,
+      "n_active_species": 47,
+      "total_abundance": 36922.0,
+      "cv_scores": {
+        "2": 510.873582,
+        "3": 579.072835,
+        "4": 619.404018,
+        "5": 692.63772
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 472.73024511595554,
+      "nmf_iterations": 213,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 266,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        487.0,
+        489.0,
+        491.0,
+        493.0,
+        496.0
+      ],
+      "period_start": "2009-01-27 07:06:00",
+      "period_end": "2009-02-02 07:59:00",
+      "n_segments": 303,
+      "n_active_species": 51,
+      "total_abundance": 21733.0,
+      "cv_scores": {
+        "2": 182.586071,
+        "3": 270.148717,
+        "4": 306.27959,
+        "5": 316.397012
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 314.04603033783025,
+      "nmf_iterations": 34,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 267,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        566.0,
+        567.0,
+        568.0,
+        569.0,
+        570.0
+      ],
+      "period_start": "2010-12-27 02:18:00",
+      "period_end": "2010-12-30 23:18:00",
+      "n_segments": 185,
+      "n_active_species": 45,
+      "total_abundance": 41322.0,
+      "cv_scores": {
+        "2": 1345.587156,
+        "3": 1719.172086,
+        "4": 1876.501869,
+        "5": 1928.745644
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 633.1935877368397,
+      "nmf_iterations": 23,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 268,
+      "ship": "UM",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        573.0,
+        574.0
+      ],
+      "period_start": "2011-01-16 00:42:00",
+      "period_end": "2011-01-16 23:57:00",
+      "n_segments": 49,
+      "n_active_species": 27,
+      "total_abundance": 10911.0,
+      "cv_scores": {
+        "2": 806.450141,
+        "3": 954.622713,
+        "4": 1046.857218,
+        "5": 1067.217487
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 194.91508761291334,
+      "nmf_iterations": 64,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 269,
+      "ship": "UM",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        614.0
+      ],
+      "period_start": "2011-12-29 01:06:00",
+      "period_end": "2011-12-29 22:49:00",
+      "n_segments": 60,
+      "n_active_species": 28,
+      "total_abundance": 3336.0,
+      "cv_scores": {
+        "2": 281.256733,
+        "3": 309.104989,
+        "4": 317.750003,
+        "5": 318.622119
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 50.772794425391886,
+      "nmf_iterations": 564,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 270,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        618.0,
+        620.0,
+        622.0
+      ],
+      "period_start": "2011-12-31 07:31:00",
+      "period_end": "2012-01-02 19:38:00",
+      "n_segments": 121,
+      "n_active_species": 35,
+      "total_abundance": 35807.0,
+      "cv_scores": {
+        "2": 2006.390094,
+        "3": 2703.022687,
+        "4": 2741.506379,
+        "5": 2769.985675
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 238.8558335724856,
+      "nmf_iterations": 93,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 271,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        626.0,
+        627.0,
+        629.0,
+        630.0
+      ],
+      "period_start": "2012-01-27 03:28:00",
+      "period_end": "2012-01-30 05:39:00",
+      "n_segments": 167,
+      "n_active_species": 52,
+      "total_abundance": 27960.0,
+      "cv_scores": {
+        "2": 903.248191,
+        "3": 1094.541608,
+        "4": 1204.039522,
+        "5": 1233.52593
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 298.73949960028057,
+      "nmf_iterations": 214,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 272,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        680.0,
+        682.0,
+        683.0,
+        685.0
+      ],
+      "period_start": "2013-01-03 02:06:00",
+      "period_end": "2013-01-06 13:53:00",
+      "n_segments": 180,
+      "n_active_species": 43,
+      "total_abundance": 40593.0,
+      "cv_scores": {
+        "2": 3469.697834,
+        "3": 4040.567404,
+        "4": 4271.79571,
+        "5": 4293.89928
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 528.6420271129116,
+      "nmf_iterations": 40,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 273,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        687.0,
+        688.0,
+        689.0
+      ],
+      "period_start": "2013-01-18 07:42:00",
+      "period_end": "2013-01-21 08:38:00",
+      "n_segments": 207,
+      "n_active_species": 44,
+      "total_abundance": 33204.0,
+      "cv_scores": {
+        "2": 1213.831338,
+        "3": 1448.331552,
+        "4": 1527.896707,
+        "5": 1538.160503
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 345.03781598737953,
+      "nmf_iterations": 148,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 274,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        757.0,
+        758.0,
+        761.0
+      ],
+      "period_start": "2014-01-14 14:31:00",
+      "period_end": "2014-01-17 14:20:00",
+      "n_segments": 150,
+      "n_active_species": 42,
+      "total_abundance": 27393.0,
+      "cv_scores": {
+        "2": 2200.506607,
+        "3": 2569.210774,
+        "4": 2844.872566,
+        "5": 2860.152031
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 404.90224292225065,
+      "nmf_iterations": 84,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 275,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        779.0,
+        780.0,
+        781.0
+      ],
+      "period_start": "2014-01-29 09:43:00",
+      "period_end": "2014-02-01 23:01:00",
+      "n_segments": 211,
+      "n_active_species": 46,
+      "total_abundance": 56456.0,
+      "cv_scores": {
+        "2": 5096.72574,
+        "3": 7113.182274,
+        "4": 7135.661826,
+        "5": 7167.200947
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 394.6775967676355,
+      "nmf_iterations": 167,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 276,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        832.0,
+        835.0,
+        838.0,
+        839.0,
+        841.0
+      ],
+      "period_start": "2015-01-14 11:16:00",
+      "period_end": "2015-01-18 08:22:00",
+      "n_segments": 177,
+      "n_active_species": 48,
+      "total_abundance": 34839.0,
+      "cv_scores": {
+        "2": 2915.757953,
+        "3": 3438.372701,
+        "4": 3433.980416,
+        "5": 3439.88168
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 291.8860733555404,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 277,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        853.0,
+        854.0,
+        857.0,
+        858.0,
+        860.0
+      ],
+      "period_start": "2015-01-29 06:33:00",
+      "period_end": "2015-02-02 08:35:00",
+      "n_segments": 204,
+      "n_active_species": 40,
+      "total_abundance": 26157.0,
+      "cv_scores": {
+        "2": 1108.433794,
+        "3": 1351.718047,
+        "4": 1354.730322,
+        "5": 1356.202875
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 237.37746915924677,
+      "nmf_iterations": 1000,
+      "nmf_converged": false
+    },
+    {
+      "group_id": 278,
+      "ship": "UM",
+      "n_tows_merged": 5,
+      "tow_numbers": [
+        928.0,
+        929.0,
+        930.0,
+        931.0,
+        932.0
+      ],
+      "period_start": "2016-01-19 11:38:00",
+      "period_end": "2016-01-23 09:20:00",
+      "n_segments": 174,
+      "n_active_species": 56,
+      "total_abundance": 40611.0,
+      "cv_scores": {
+        "2": 1701.108637,
+        "3": 1957.244719,
+        "4": 2014.525327,
+        "5": 2032.326455
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 437.84066487820473,
+      "nmf_iterations": 217,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 279,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        933.0,
+        934.0,
+        935.0,
+        936.0
+      ],
+      "period_start": "2016-01-30 04:37:00",
+      "period_end": "2016-02-03 05:20:00",
+      "n_segments": 229,
+      "n_active_species": 45,
+      "total_abundance": 31587.0,
+      "cv_scores": {
+        "2": 891.893844,
+        "3": 1149.183408,
+        "4": 1177.261433,
+        "5": 1176.726435
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 308.1771932267512,
+      "nmf_iterations": 41,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 280,
+      "ship": "UM",
+      "n_tows_merged": 6,
+      "tow_numbers": [
+        960.0,
+        961.0,
+        962.0,
+        963.0,
+        964.0,
+        965.0
+      ],
+      "period_start": "2017-01-03 07:03:00",
+      "period_end": "2017-01-06 21:58:00",
+      "n_segments": 170,
+      "n_active_species": 41,
+      "total_abundance": 17730.0,
+      "cv_scores": {
+        "2": 512.116205,
+        "3": 586.16182,
+        "4": 624.228251,
+        "5": 638.511048
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 214.46815606142053,
+      "nmf_iterations": 122,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 281,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        973.0,
+        974.0,
+        975.0
+      ],
+      "period_start": "2017-01-22 01:05:00",
+      "period_end": "2017-01-24 20:52:00",
+      "n_segments": 186,
+      "n_active_species": 44,
+      "total_abundance": 16203.0,
+      "cv_scores": {
+        "2": 669.364172,
+        "3": 722.317744,
+        "4": 776.973471,
+        "5": 857.115425
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 397.5981255957364,
+      "nmf_iterations": 33,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 282,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        1001.0,
+        1002.0,
+        1003.0,
+        1005.0
+      ],
+      "period_start": "2018-01-03 20:49:00",
+      "period_end": "2018-01-07 20:10:00",
+      "n_segments": 176,
+      "n_active_species": 38,
+      "total_abundance": 17056.0,
+      "cv_scores": {
+        "2": 753.935759,
+        "3": 916.859842,
+        "4": 963.189193,
+        "5": 976.580498
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 260.669580817346,
+      "nmf_iterations": 111,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 283,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1009.0,
+        1011.0,
+        1013.0
+      ],
+      "period_start": "2018-01-16 03:35:00",
+      "period_end": "2018-01-19 08:07:00",
+      "n_segments": 215,
+      "n_active_species": 47,
+      "total_abundance": 24956.0,
+      "cv_scores": {
+        "2": 710.082168,
+        "3": 736.225367,
+        "4": 787.139036,
+        "5": 792.972971
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 272.92934529723993,
+      "nmf_iterations": 149,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 284,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        1039.0,
+        1042.0,
+        1044.0,
+        1045.0
+      ],
+      "period_start": "2019-01-05 17:16:00",
+      "period_end": "2019-01-09 10:49:00",
+      "n_segments": 182,
+      "n_active_species": 43,
+      "total_abundance": 20862.0,
+      "cv_scores": {
+        "2": 471.470465,
+        "3": 541.770138,
+        "4": 549.735013,
+        "5": 561.277665
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 192.80288316623611,
+      "nmf_iterations": 289,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 285,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1057.0,
+        1060.0,
+        1063.0
+      ],
+      "period_start": "2019-01-23 00:54:00",
+      "period_end": "2019-01-25 22:57:00",
+      "n_segments": 201,
+      "n_active_species": 43,
+      "total_abundance": 22610.0,
+      "cv_scores": {
+        "2": 441.276618,
+        "3": 478.439982,
+        "4": 526.906069,
+        "5": 530.209863
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 314.08712455556326,
+      "nmf_iterations": 329,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 286,
+      "ship": "UM",
+      "n_tows_merged": 4,
+      "tow_numbers": [
+        1092.0,
+        1093.0,
+        1094.0,
+        1095.0
+      ],
+      "period_start": "2020-01-11 04:57:00",
+      "period_end": "2020-01-15 02:38:00",
+      "n_segments": 190,
+      "n_active_species": 38,
+      "total_abundance": 21716.0,
+      "cv_scores": {
+        "2": 747.670415,
+        "3": 897.304637,
+        "4": 899.127608,
+        "5": 900.412869
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 186.54500387720717,
+      "nmf_iterations": 648,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 287,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1103.0,
+        1104.0,
+        1105.0
+      ],
+      "period_start": "2020-01-29 09:34:00",
+      "period_end": "2020-02-01 23:06:00",
+      "n_segments": 212,
+      "n_active_species": 38,
+      "total_abundance": 21191.0,
+      "cv_scores": {
+        "2": 453.434674,
+        "3": 613.739477,
+        "4": 667.157616,
+        "5": 666.742692
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 296.4693325974928,
+      "nmf_iterations": 14,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 288,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1144.0,
+        1145.0,
+        1146.0
+      ],
+      "period_start": "2023-01-20 02:26:00",
+      "period_end": "2023-01-23 02:15:00",
+      "n_segments": 180,
+      "n_active_species": 41,
+      "total_abundance": 27816.0,
+      "cv_scores": {
+        "2": 1071.32194,
+        "3": 1351.297155,
+        "4": 1407.77958,
+        "5": 1525.906931
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 495.6163500563321,
+      "nmf_iterations": 7,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 289,
+      "ship": "UM",
+      "n_tows_merged": 3,
+      "tow_numbers": [
+        1147.0,
+        1148.0,
+        1149.0
+      ],
+      "period_start": "2023-01-31 08:13:00",
+      "period_end": "2023-02-03 23:36:00",
+      "n_segments": 194,
+      "n_active_species": 43,
+      "total_abundance": 23785.0,
+      "cv_scores": {
+        "2": 633.43146,
+        "3": 749.621614,
+        "4": 803.677043,
+        "5": 805.465642
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 250.09829479085678,
+      "nmf_iterations": 738,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 290,
+      "ship": "YU",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        400.0
+      ],
+      "period_start": "2008-01-12 21:21:00",
+      "period_end": "2008-01-13 15:20:00",
+      "n_segments": 51,
+      "n_active_species": 18,
+      "total_abundance": 1064.0,
+      "cv_scores": {
+        "2": 235.930669,
+        "3": 236.855292,
+        "4": 238.361906,
+        "5": 238.402332
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 30.017900166267168,
+      "nmf_iterations": 65,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 291,
+      "ship": "YU",
+      "n_tows_merged": 2,
+      "tow_numbers": [
+        436.1,
+        436.2
+      ],
+      "period_start": "2008-02-15 03:01:00",
+      "period_end": "2008-02-15 21:28:00",
+      "n_segments": 47,
+      "n_active_species": 16,
+      "total_abundance": 1172.0,
+      "cv_scores": {
+        "2": 89.55993,
+        "3": 104.511681,
+        "4": 104.813454,
+        "5": 104.934179
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 23.810513324201423,
+      "nmf_iterations": 103,
+      "nmf_converged": true
+    },
+    {
+      "group_id": 292,
+      "ship": "YU",
+      "n_tows_merged": 1,
+      "tow_numbers": [
+        448.0
+      ],
+      "period_start": "2008-03-12 13:52:00",
+      "period_end": "2008-03-13 12:06:00",
+      "n_segments": 44,
+      "n_active_species": 20,
+      "total_abundance": 3212.0,
+      "cv_scores": {
+        "2": 436.470511,
+        "3": 439.817314,
+        "4": 446.988801,
+        "5": 447.671744
+      },
+      "best_k": 2,
+      "nmf_reconstruction_error": 47.27467931824015,
+      "nmf_iterations": 346,
+      "nmf_converged": true
+    }
+  ]
+}

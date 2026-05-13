@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPR NMF Analysis Summary</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #232734; --border: #2e3345;
+    --text: #e2e4ea; --text2: #9ba0b0;
+    --accent: #6c8cff; --accent2: #4ecdc4; --warn: #ffb347; --danger: #ff6b6b;
+    --ok: #51cf66; --purple: #b197fc;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'SF Mono','Fira Code','Consolas',monospace; background:var(--bg); color:var(--text); height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .dash { width:96vw; max-width:1280px; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto 1fr; gap:16px; }
+
+  /* Header spans full width */
+  .header { grid-column:1/-1; display:flex; justify-content:space-between; align-items:baseline; }
+  .header h1 { font-size:1.3rem; color:var(--accent); }
+  .header .sub { font-size:0.72rem; color:var(--text2); }
+
+  /* Stat ribbon */
+  .stats { grid-column:1/-1; display:flex; gap:12px; }
+  .stat { flex:1; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:10px 14px; text-align:center; }
+  .stat .v { font-size:1.6rem; font-weight:700; color:var(--accent); line-height:1.2; }
+  .stat .l { font-size:0.62rem; color:var(--text2); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+
+  /* Panels */
+  .panel { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 18px; overflow:hidden; }
+  .panel-title { font-size:0.7rem; color:var(--text2); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+
+  /* K distribution bars */
+  .k-row { display:flex; align-items:center; gap:8px; margin:6px 0; font-size:0.78rem; }
+  .k-label { width:36px; text-align:right; color:var(--text2); }
+  .k-track { flex:1; height:22px; background:var(--surface2); border-radius:4px; overflow:hidden; position:relative; }
+  .k-fill { height:100%; background:linear-gradient(90deg,var(--purple),var(--accent)); border-radius:4px; transition:width 0.5s; }
+  .k-pct { position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:0.68rem; color:var(--text); }
+  .k-count { width:30px; font-size:0.72rem; color:var(--text2); }
+
+  /* Method grid */
+  .method-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .m-item { background:var(--surface2); border-radius:6px; padding:8px 10px; }
+  .m-key { font-size:0.62rem; color:var(--text2); text-transform:uppercase; letter-spacing:0.5px; }
+  .m-val { font-size:0.82rem; color:var(--text); margin-top:2px; }
+
+  /* Notes */
+  .notes { grid-column:1/-1; display:flex; gap:12px; }
+  .note { flex:1; border-radius:8px; padding:10px 14px; font-size:0.76rem; line-height:1.5; }
+  .note-warn { background:var(--surface); border-left:3px solid var(--warn); }
+  .note-info { background:var(--surface); border-left:3px solid var(--accent2); }
+  .note-crit { background:var(--surface); border-left:3px solid var(--danger); }
+  .note strong { display:block; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+  .note-warn strong { color:var(--warn); }
+  .note-info strong { color:var(--accent2); }
+  .note-crit strong { color:var(--danger); }
+  .note span { color:var(--text2); }
+
+  /* Output mini */
+  .output { font-size:0.72rem; color:var(--text2); margin-top:8px; line-height:1.6; }
+  .output .dir { color:var(--accent); }
+  .output .file { color:var(--accent2); }
+</style>
+</head>
+<body>
+<div class="dash">
+
+  <div class="header">
+    <h1>CPR Per-Tow NMF</h1>
+    <span class="sub">Cross-validated rank selection &middot; 1991&ndash;2023 austral summer &middot; 295 species &middot; raw counts</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="v">50,232</div><div class="l">Segments</div></div>
+    <div class="stat"><div class="v">292</div><div class="l">Tow groups</div></div>
+    <div class="stat"><div class="v">609</div><div class="l">NMF topics</div></div>
+    <div class="stat"><div class="v">84%</div><div class="l">Converged</div></div>
+    <div class="stat"><div class="v">92.8%</div><div class="l">Best k = 2</div></div>
+  </div>
+
+  <!-- Left: K distribution -->
+  <div class="panel">
+    <div class="panel-title">CV-selected k distribution</div>
+    <div class="k-row">
+      <span class="k-label">k=2</span>
+      <div class="k-track"><div class="k-fill" style="width:92.8%"></div><span class="k-pct">92.8%</span></div>
+      <span class="k-count">271</span>
+    </div>
+    <div class="k-row">
+      <span class="k-label">k=3</span>
+      <div class="k-track"><div class="k-fill" style="width:6.2%"></div><span class="k-pct">6.2%</span></div>
+      <span class="k-count">18</span>
+    </div>
+    <div class="k-row">
+      <span class="k-label">k=4</span>
+      <div class="k-track"><div class="k-fill" style="width:2%"></div><span class="k-pct">0.7%</span></div>
+      <span class="k-count">2</span>
+    </div>
+    <div class="k-row">
+      <span class="k-label">k=5</span>
+      <div class="k-track"><div class="k-fill" style="width:1.5%"></div><span class="k-pct">0.3%</span></div>
+      <span class="k-count">1</span>
+    </div>
+
+    <div class="output">
+      <strong style="color:var(--text);font-size:0.68rem;">Output per group</strong>
+      <span class="dir">data/nmf_per_tow/</span><span class="file">group_XXXX_SS/</span><br>
+      W_raw &middot; W_normalized <span style="color:var(--text2)">(segment &times; topic)</span><br>
+      H_raw &middot; H_normalized <span style="color:var(--text2)">(topic &times; species)</span><br>
+      meta.json <span style="color:var(--text2)">&middot; summary.json at root</span>
+    </div>
+  </div>
+
+  <!-- Right: Method -->
+  <div class="panel">
+    <div class="panel-title">Method</div>
+    <div class="method-grid">
+      <div class="m-item"><div class="m-key">Rank selection</div><div class="m-val">5-fold entry-masking CV</div></div>
+      <div class="m-item"><div class="m-key">k range</div><div class="m-val">2, 3, 4, 5</div></div>
+      <div class="m-item"><div class="m-key">CV mask</div><div class="m-val">20% nonzero entries</div></div>
+      <div class="m-item"><div class="m-key">CV metric</div><div class="m-val">MSE on held-out</div></div>
+      <div class="m-item"><div class="m-key">NMF init</div><div class="m-val">nndsvd</div></div>
+      <div class="m-item"><div class="m-key">Loss</div><div class="m-val">Frobenius (L2)</div></div>
+      <div class="m-item"><div class="m-key">Max iter</div><div class="m-val">1000</div></div>
+      <div class="m-item"><div class="m-key">Regularization</div><div class="m-val">None</div></div>
+    </div>
+    <div class="method-grid" style="margin-top:8px;">
+      <div class="m-item" style="grid-column:1/-1;"><div class="m-key">Preprocessing</div><div class="m-val">Filter Nov&ndash;Mar &rarr; merge same-ship tows &lt;24h gap &rarr; drop groups &lt;5 segs &rarr; remove all-zero species per group</div></div>
+      <div class="m-item" style="grid-column:1/-1;"><div class="m-key">Normalization (post-hoc)</div><div class="m-val">W: rows &rarr; topic proportions per segment &nbsp;|&nbsp; H: rows &rarr; species distribution per topic</div></div>
+    </div>
+  </div>
+
+  <!-- Bottom notes -->
+  <div class="notes">
+    <div class="note note-info">
+      <strong>k=2 dominance</strong>
+      <span>Individual tows are short transects (~60 segs median) through relatively homogeneous water. Richer community structure emerges when comparing <em>across</em> tows via ensemble UMAP, not within single tows.</span>
+    </div>
+    <div class="note note-warn">
+      <strong>47 fits did not converge</strong>
+      <span>Hit 1000-iter ceiling. Tend to be larger groups with many species. nndsvd init helps but doesn't guarantee convergence on sparse count data.</span>
+    </div>
+    <div class="note note-crit">
+      <strong>Methodological choices</strong>
+      <span>Frobenius loss (not KL-divergence). No regularization. Only nonzero entries masked in CV. These are defensible defaults but not the only valid options.</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "group_id": 252,
+  "ship": "TA",
+  "n_tows_merged": 5,
+  "tow_numbers": [
+    525.0,
+    527.0,
+    528.0,
+    529.0,
+    530.0
+  ],
+  "period_start": "2010-02-02 02:22:00",
+  "period_end": "2010-02-09 19:55:00",
+  "n_segments": 399,
+  "n_active_species": 79,
+  "total_abundance": 65144.0,
+  "cv_scores": {
+    "2": 5297.624201,
+    "3": 5486.614562,
+    "4": 5596.713243,
+    "5": 5615.601674
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 869.8186940455236,
+  "nmf_iterations": 28,
+  "nmf_converged": true
+}

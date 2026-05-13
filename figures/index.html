@@ -12,10 +12,9 @@
   <script src="hex_res2.js"></script>
   <script src="hex_res3.js"></script>
   <script src="fronts_data.js"></script>
-  <script src="lda_k3.js"></script>
-  <script src="lda_k7.js"></script>
-  <script src="lda_k10.js"></script>
-  <script src="lda_k16.js"></script>
+  <script src="nmf_data.js"></script>
+  <script src="nmf_weights.js"></script>
+  <script src="pf_weekly_data.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -263,64 +262,76 @@
       margin-top: 3px;
     }
 
-    /* ── LDA controls ────────────────────────────────────────────── */
     .ctrl-section.disabled { opacity: 0.4; pointer-events: none; }
 
-    #comp-bar-wrap {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      padding: 8px 10px;
-      background: #21262d;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      flex-shrink: 0;
+    /* NMF topic panel styles */
+    .nmf-tow-group {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #30363d;
     }
-    #comp-bar-wrap .ctrl-label { margin-bottom: 0; }
-    #comp-bar-track {
-      height: 14px;
-      border-radius: 3px;
-      overflow: hidden;
-      display: flex;
+    .nmf-tow-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .nmf-tow-header {
+      font-size: 9px;
+      color: #58a6ff;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
     }
-    #comp-bar-labels {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3px 6px;
+    .nmf-topic {
+      margin-bottom: 5px;
     }
-    .comp-swatch {
+    .nmf-topic-label {
+      font-size: 9px;
+      color: #c9d1d9;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .nmf-species-row {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       font-size: 9px;
       color: #8b949e;
+      margin: 1px 0;
+      line-height: 1.3;
     }
-    .comp-swatch-dot {
-      width: 7px; height: 7px;
+    .nmf-species-bullet {
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
+      background: #58a6ff;
       flex-shrink: 0;
     }
-
-    /* ── Topic swatch legend ─────────────────────────────────────── */
-    #topic-swatches {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      max-height: 160px;
-      overflow-y: auto;
+    .nmf-species-name {
+      min-width: 80px;
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .topic-swatch-row {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 10px;
-      color: #c9d1d9;
-    }
-    .topic-swatch-rect {
-      width: 14px; height: 10px;
+    .nmf-bar-track {
+      flex: 1;
+      height: 6px;
+      background: #21262d;
       border-radius: 2px;
+      overflow: hidden;
+    }
+    .nmf-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #58a6ff, #1f6feb);
+      border-radius: 2px;
+    }
+    .nmf-weight-val {
+      width: 28px;
+      text-align: right;
+      font-size: 8px;
+      color: #8b949e;
       flex-shrink: 0;
     }
+    /* (LDA composition bar and topic swatch removed — replaced by NMF panel) */
 
     /* ── Front legend ──────────────────────────────────────────── */
     #front-legend {
@@ -380,19 +391,19 @@
     </select>
   </div>
 
-  <!-- Multi-year coverage toggle (hex mode only) -->
+  <!-- Multi-season coverage toggle (hex mode only) -->
   <div class="ctrl-section" id="multiyear-section" style="display:none">
     <label class="toggle-row">
       <input type="checkbox" id="multiyear-toggle">
-      Multi-Year Coverage
+      Multi-Season Coverage
     </label>
   </div>
 
-  <!-- Min years sampled filter (hex mode only) -->
+  <!-- Min seasons sampled filter (hex mode only) -->
   <div class="ctrl-section" id="minyears-section" style="display:none">
-    <div class="ctrl-label">Min Years Sampled</div>
+    <div class="ctrl-label">Min Seasons Sampled</div>
     <input type="range" id="minyears-slider" min="1" max="30" value="1">
-    <div class="slider-val">≥ <span id="minyears-val">1</span> years</div>
+    <div class="slider-val">≥ <span id="minyears-val">1</span> seasons</div>
   </div>
 
   <!-- Hex colour metric (only in hex mode, populated dynamically) -->
@@ -401,33 +412,23 @@
     <select id="hex-color-select"></select>
   </div>
 
-  <!-- LDA controls -->
-  <div class="ctrl-section" id="lda-section">
-    <div class="ctrl-label">LDA Model (K topics)</div>
-    <select id="lda-k-select">
+  <!-- NMF controls -->
+  <div class="ctrl-section" id="nmf-section">
+    <div class="ctrl-label">NMF Tow Group</div>
+    <select id="nmf-tow-select">
       <option value="">None</option>
-      <option value="3">K = 3</option>
-      <option value="7">K = 7</option>
-      <option value="10">K = 10</option>
-      <option value="16">K = 16</option>
     </select>
-  </div>
-
-  <div class="ctrl-section" id="lda-topic-section" style="display:none">
-    <div class="ctrl-label">Color by Topic</div>
-    <select id="lda-topic-select">
-      <option value="dominant">Dominant Topic</option>
-    </select>
-  </div>
-
-  <div id="comp-bar-wrap">
-    <div class="ctrl-label">Topic Composition (filtered)</div>
-    <div id="comp-bar-track"></div>
-    <div id="comp-bar-labels"></div>
+    <div id="nmf-topic-section" style="display:none; margin-top:6px;">
+      <div class="ctrl-label">Topic</div>
+      <select id="nmf-topic-select">
+        <option value="">All topics</option>
+      </select>
+    </div>
+    <div id="nmf-summary" style="font-size:10px;color:#8b949e;margin-top:2px;">Select a season</div>
   </div>
 
   <div class="ctrl-section" style="flex:1; min-height:0; display:flex; flex-direction:column;">
-    <div class="ctrl-label">Year</div>
+    <div class="ctrl-label">Austral Summer Season</div>
     <div id="year-list"></div>
   </div>
 </div>
@@ -443,6 +444,12 @@
   <!-- Legends -->
   <div id="legends">
 
+    <!-- NMF topic panel -->
+    <div class="legend-box" id="nmf-panel" style="display:none; min-width:220px; max-width:280px;">
+      <div class="legend-title" id="nmf-panel-title">NMF Topics</div>
+      <div id="nmf-topics-list"></div>
+    </div>
+
     <!-- Colour scale -->
     <div class="legend-box">
       <div class="legend-title" id="clr-title">Shannon Diversity</div>
@@ -453,12 +460,6 @@
       </div>
     </div>
 
-    <!-- Topic swatch legend (LDA dominant mode only) -->
-    <div class="legend-box" id="topic-swatch-legend" style="display:none">
-      <div class="legend-title">Dominant Topic</div>
-      <div id="topic-swatches"></div>
-    </div>
-
     <!-- Front legend -->
     <div class="legend-box" id="front-legend">
       <div class="legend-title">Ocean Fronts (Orsi 1995)</div>
@@ -467,7 +468,7 @@
 
     <!-- Size (raw mode only) -->
     <div class="legend-box" id="size-legend">
-      <div class="legend-title">Segment Length (nm)</div>
+      <div class="legend-title">Total Abundance</div>
       <svg id="size-svg" width="160" height="44"></svg>
     </div>
 
@@ -484,16 +485,11 @@
 // ─────────────────────────────────────────────────────────────────────────────
 const MONTHS     = ["January","February","March","April","May",
                     "July","August","September","October","November","December"];
-const LEN_DOMAIN = [2.5, 7.5];
-const SIZE_RANGE = [2, 7];
+const ABUND_MAX_LOG = Math.log1p(3513);
+const SIZE_RANGE   = [1.5, 7];
 const N_COLORS   = 64;
 
-const TOPIC_PALETTE = [
-  "#4c78a8","#f58518","#54a24b","#e45756","#b279a2",
-  "#72b7b2","#eeca3b","#ff9da6","#9d755d","#bab0ac",
-  "#439894","#f2a40a","#88cc6f","#e06c56","#c097c2",
-  "#9ecae1"
-];
+// (LDA TOPIC_PALETTE removed)
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CANVAS + PROJECTION
@@ -527,7 +523,7 @@ fitProjection();
 
 const geoPath   = d3.geoPath(proj, ctx);
 const bgGeoPath = d3.geoPath(proj, bgCtx);
-const rScale    = d3.scaleSqrt().domain(LEN_DOMAIN).range(SIZE_RANGE);
+const rScale    = d3.scaleSqrt().domain([0, ABUND_MAX_LOG]).range(SIZE_RANGE);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ZOOM / PAN
@@ -569,13 +565,10 @@ let landFeature = null;
 let GROUPS      = [];
 let colorLUT    = [];
 
-let currentYear   = "all";
+let currentSeason = "all";
 let currentGroup  = "";
 let colorScale    = null;
 let colorInterp   = d3.interpolateViridis;
-
-let currentLdaK   = null;
-let currentTopic  = "dominant";
 
 let viewMode      = "raw";      // "raw" | "hex"
 let hexResolution = 3;          // 2 | 3
@@ -584,19 +577,28 @@ let hexColorMetric = "shannon";
 let showMultiYear = false;
 let minYearsSampled = 1;
 
-// Hex data (parsed from hex_res{2,3}.js — year-specific records)
+// Hex data (parsed from hex_res{2,3}.js — season-specific records)
 let hexGeoRes2    = {};   // cell → {boundary, center}
 let hexGeoRes3    = {};
-let hexDataRes2   = [];   // [{cell, year, n, sh, ri, g, t, sa, fl, pc, pa, ss, ic}, ...]
+let hexDataRes2   = [];   // [{cell, season, n, sh, ri, g, t, sa, fl, pc, pa, ss, ic}, ...]
 let hexDataRes3   = [];
-let filteredHex   = [];   // year-filtered, with projected boundaries attached
+let filteredHex   = [];   // season-filtered, with projected boundaries attached
 let hexQuadtree   = null;
 let HEX_GROUPS    = [];
-let cellYearsRes2 = {};  // cell → sorted array of years
-let cellYearsRes3 = {};
+let cellSeasonsRes2 = {};  // cell → sorted array of seasons
+let cellSeasonsRes3 = {};
+
+// NMF data (parsed from nmf_data.js + nmf_weights.js)
+let nmfData       = {};   // season → [{g, ship, k, n, topics: [{id, species: [[name,w],...]}]}]
+let nmfWeights    = [];   // per-segment: [group_id, w1, w2, ...] or null
+let currentNmfGroup = null; // null | group_id (int)
+let currentNmfComp  = null; // null | component index (int)
 
 // Fronts data (parsed from fronts_data.js)
 let frontsFeatures = [];
+let pfWeeklyLons   = [];   // shared longitude array
+let pfWeeklyWeeks  = {};   // "YYYY-MM-DD" → [lat, lat, ...] (360 values)
+let pfWeeklyDates  = [];   // sorted Date objects for nearest-week lookup
 
 const graticule = d3.geoGraticule().step([30, 10])();
 
@@ -647,21 +649,185 @@ function renderFg() {
   renderFronts();
 }
 
+function findNearestPfWeek(dateStr) {
+  if (!pfWeeklyDates.length) return null;
+  const t = new Date(dateStr).getTime();
+  let best = null, bestDist = Infinity;
+  for (const d of pfWeeklyDates) {
+    const dist = Math.abs(d.getTime() - t);
+    if (dist < bestDist) { bestDist = dist; best = d; }
+  }
+  if (!best || bestDist > 14 * 86400000) return null; // max 2 weeks gap
+  const key = best.toISOString().slice(0, 10);
+  return pfWeeklyWeeks[key] || null;
+}
+
+function seasonHasPfData(season) {
+  if (!pfWeeklyDates.length || !season || season === "all") return false;
+  const [y1] = season.split("-").map(Number);
+  const start = new Date(y1, 10, 1);  // Nov 1
+  const end = new Date(y1 + 1, 2, 31); // Mar 31
+  return pfWeeklyDates.some(d => d >= start && d <= end);
+}
+
+function getSeasonPfRange(season) {
+  const [y1] = season.split("-").map(Number);
+  const start = new Date(y1, 10, 1);
+  const end = new Date(y1 + 1, 2, 31);
+  const weekKeys = Object.keys(pfWeeklyWeeks).filter(k => {
+    const d = new Date(k);
+    return d >= start && d <= end;
+  });
+  if (!weekKeys.length) return null;
+  const n = pfWeeklyLons.length;
+  const mins = new Array(n).fill(Infinity);
+  const maxs = new Array(n).fill(-Infinity);
+  for (const k of weekKeys) {
+    const lats = pfWeeklyWeeks[k];
+    for (let i = 0; i < n; i++) {
+      if (lats[i] == null) continue;
+      if (lats[i] < mins[i]) mins[i] = lats[i];
+      if (lats[i] > maxs[i]) maxs[i] = lats[i];
+    }
+  }
+  return { min: mins, max: maxs };
+}
+
+function projSafe(lon, lat) {
+  const p = proj([lon, lat]);
+  return p && isFinite(p[0]) ? p : null;
+}
+
+function drawPfLine(lats, color, width) {
+  const k = zoomT.k;
+  ctx.beginPath();
+  let started = false;
+  for (let i = 0; i < pfWeeklyLons.length; i++) {
+    if (lats[i] == null) { started = false; continue; }
+    const p = projSafe(pfWeeklyLons[i], lats[i]);
+    if (!p) { started = false; continue; }
+    if (!started) { ctx.moveTo(p[0], p[1]); started = true; }
+    else ctx.lineTo(p[0], p[1]);
+  }
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width / k;
+  ctx.stroke();
+}
+
+function drawPfBand(range) {
+  const k = zoomT.k;
+  ctx.beginPath();
+  let started = false;
+  for (let i = 0; i < pfWeeklyLons.length; i++) {
+    if (!isFinite(range.max[i])) { started = false; continue; }
+    const p = projSafe(pfWeeklyLons[i], range.max[i]);
+    if (!p) { started = false; continue; }
+    if (!started) { ctx.moveTo(p[0], p[1]); started = true; }
+    else ctx.lineTo(p[0], p[1]);
+  }
+  for (let i = pfWeeklyLons.length - 1; i >= 0; i--) {
+    if (!isFinite(range.min[i])) continue;
+    const p = projSafe(pfWeeklyLons[i], range.min[i]);
+    if (!p) continue;
+    ctx.lineTo(p[0], p[1]);
+  }
+  ctx.closePath();
+  ctx.fillStyle = "rgba(46, 204, 113, 0.12)";
+  ctx.fill();
+  drawPfLine(range.min, "rgba(46, 204, 113, 0.35)", 1);
+  drawPfLine(range.max, "rgba(46, 204, 113, 0.35)", 1);
+}
+
 function renderFronts() {
-  if (!showFronts || !frontsFeatures.length) return;
+  if (!showFronts) return;
   const k = zoomT.k;
   ctx.save();
-  ctx.globalAlpha = 1;
   ctx.translate(zoomT.x, zoomT.y);
   ctx.scale(k, k);
-  frontsFeatures.forEach(f => {
-    ctx.beginPath();
-    geoPath(f);
-    ctx.strokeStyle = f.properties.color;
-    ctx.lineWidth = 2 / k;
-    ctx.stroke();
-  });
+
+  const hasPf = seasonHasPfData(currentSeason);
+
+  if (hasPf) {
+    // Dim other Orsi fronts, skip static PF
+    ctx.globalAlpha = 0.25;
+    frontsFeatures.forEach(f => {
+      if (f.properties.id === "pf") return;
+      ctx.beginPath();
+      geoPath(f);
+      ctx.strokeStyle = f.properties.color;
+      ctx.lineWidth = 1.5 / k;
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+
+    // Check if a tow group is selected — show that week's PF
+    let towPfLine = null;
+    let towDate = null;
+    if (currentNmfGroup != null) {
+      const seg = allSegs.find(s => {
+        const w = nmfWeights[s._origIdx];
+        return w && w[0] === currentNmfGroup && s.season === currentSeason;
+      });
+      if (seg && seg.date) {
+        towPfLine = findNearestPfWeek(seg.date);
+        towDate = seg.date;
+      }
+    }
+
+    if (towPfLine) {
+      // Single week PF line matched to tow date
+      drawPfLine(towPfLine, "#2ecc71", 2.5);
+    } else {
+      // Season range band
+      const range = getSeasonPfRange(currentSeason);
+      if (range) drawPfBand(range);
+    }
+  } else {
+    // Static Orsi fronts for seasons without weekly data
+    frontsFeatures.forEach(f => {
+      ctx.beginPath();
+      geoPath(f);
+      ctx.strokeStyle = f.properties.color;
+      ctx.lineWidth = 2 / k;
+      ctx.stroke();
+    });
+  }
+
   ctx.restore();
+}
+
+function buildFrontLegend() {
+  const legendCont = document.getElementById("front-legend-items");
+  const legendTitle = document.querySelector("#front-legend .legend-title");
+  legendCont.innerHTML = "";
+
+  const hasPf = seasonHasPfData(currentSeason);
+
+  if (hasPf) {
+    const pfLabel = currentNmfGroup != null
+      ? "Polar Front (matched week)"
+      : "Polar Front (season range)";
+    legendTitle.textContent = `Ocean Fronts (${currentSeason})`;
+    frontsFeatures.forEach(f => {
+      if (f.properties.id === "pf") return;
+      const row = document.createElement("div");
+      row.className = "front-legend-row";
+      row.innerHTML = `<div class="front-legend-line" style="background:${f.properties.color};opacity:0.25"></div><span style="opacity:0.5">${f.properties.name}</span>`;
+      legendCont.appendChild(row);
+    });
+    const pfRow = document.createElement("div");
+    pfRow.className = "front-legend-row";
+    pfRow.innerHTML = `<div class="front-legend-line" style="background:#2ecc71"></div>${pfLabel}`;
+    legendCont.appendChild(pfRow);
+  } else {
+    legendTitle.textContent = "Ocean Fronts (Orsi 1995)";
+    frontsFeatures.forEach(f => {
+      const row = document.createElement("div");
+      row.className = "front-legend-row";
+      row.innerHTML = `<div class="front-legend-line" style="background:${f.properties.color}"></div>${f.properties.name}`;
+      legendCont.appendChild(row);
+    });
+  }
 }
 
 function renderPointsFg() {
@@ -753,16 +919,15 @@ Promise.resolve().then(() => {
   // --- Parse fronts ---
   if (window.FRONTS_DATA && window.FRONTS_DATA.features) {
     frontsFeatures = window.FRONTS_DATA.features;
-    const legendCont = document.getElementById("front-legend-items");
-    frontsFeatures.forEach(f => {
-      const row = document.createElement("div");
-      row.className = "front-legend-row";
-      row.innerHTML = `<div class="front-legend-line" style="background:${f.properties.color}"></div>${f.properties.name}`;
-      legendCont.appendChild(row);
-    });
+    buildFrontLegend();
+  }
+  if (window.PF_WEEKLY) {
+    pfWeeklyLons = window.PF_WEEKLY.lons;
+    pfWeeklyWeeks = window.PF_WEEKLY.weeks;
+    pfWeeklyDates = Object.keys(pfWeeklyWeeks).map(k => new Date(k)).sort((a, b) => a - b);
   }
 
-  // --- Parse hex data (year-specific) ---
+  // --- Parse hex data (season-specific) ---
   if (window.HEX_RES2) {
     HEX_GROUPS = window.HEX_RES2.groups || GROUPS;
     hexGeoRes2 = window.HEX_RES2.geo || {};
@@ -776,17 +941,25 @@ Promise.resolve().then(() => {
   projectHexGeo(hexGeoRes2);
   projectHexGeo(hexGeoRes3);
 
-  // Precompute which years each cell was sampled
+  // Precompute which seasons each cell was sampled
   hexDataRes2.forEach(d => {
-    if (!cellYearsRes2[d.cell]) cellYearsRes2[d.cell] = [];
-    cellYearsRes2[d.cell].push(d.year);
+    if (!cellSeasonsRes2[d.cell]) cellSeasonsRes2[d.cell] = [];
+    cellSeasonsRes2[d.cell].push(d.season);
   });
   hexDataRes3.forEach(d => {
-    if (!cellYearsRes3[d.cell]) cellYearsRes3[d.cell] = [];
-    cellYearsRes3[d.cell].push(d.year);
+    if (!cellSeasonsRes3[d.cell]) cellSeasonsRes3[d.cell] = [];
+    cellSeasonsRes3[d.cell].push(d.season);
   });
-  for (const c in cellYearsRes2) cellYearsRes2[c].sort();
-  for (const c in cellYearsRes3) cellYearsRes3[c].sort();
+  for (const c in cellSeasonsRes2) cellSeasonsRes2[c].sort();
+  for (const c in cellSeasonsRes3) cellSeasonsRes3[c].sort();
+
+  // --- Parse NMF data ---
+  if (window.NMF_DATA) {
+    nmfData = window.NMF_DATA;
+  }
+  if (window.NMF_WEIGHTS) {
+    nmfWeights = window.NMF_WEIGHTS;
+  }
 
   // --- Populate hex colour dropdown (summary metrics + env + taxa groups) ---
   {
@@ -843,7 +1016,7 @@ Promise.resolve().then(() => {
   });
 
   // --- Parse & project segments ---
-  allSegs = data.segments.flatMap(d => {
+  allSegs = data.segments.flatMap((d, idx) => {
     const p = proj([d[1], d[0]]);
     if (!p || !isFinite(p[0]) || !isFinite(p[1])) return [];
     return [{
@@ -851,8 +1024,10 @@ Promise.resolve().then(() => {
       segLen: d[4], shannon: d[5],
       ship: d[6], towNo: d[7], segNo: d[8],
       date: d[9], time: d[10], groups: d[11],
+      season: d[12] || "",
       px: p[0], py: p[1],
-      _baseR: rScale(d[4])
+      _baseR: rScale(Math.log1p(d[11].reduce((s, v) => s + v, 0))),
+      _origIdx: idx,
     }];
   });
 
@@ -869,16 +1044,15 @@ Promise.resolve().then(() => {
     }
   }
 
-  function buildFilteredHex(geoDict, dataArr, year) {
-    if (year !== "all") {
-      const yr = +year;
-      return dataArr.filter(d => d.year === yr).map(d => {
+  function buildFilteredHex(geoDict, dataArr, season) {
+    if (season !== "all") {
+      return dataArr.filter(d => d.season === season).map(d => {
         const geo = geoDict[d.cell];
         if (!geo) return null;
         return { ...d, _projBoundary: geo._proj, _cx: geo._cx, _cy: geo._cy };
       }).filter(Boolean);
     }
-    // "All years": aggregate per cell
+    // "All seasons": aggregate per cell
     const byCell = {};
     dataArr.forEach(d => {
       if (!byCell[d.cell]) byCell[d.cell] = [];
@@ -896,7 +1070,7 @@ Promise.resolve().then(() => {
       let totalN = 0;
       records.forEach(r => { totalN += r.n; r.g.forEach((v,i) => gSum[i] += v); });
       return {
-        cell, year: "all", n: totalN,
+        cell, season: "all", n: totalN,
         sh: meanOf(records, "sh"), ri: Math.max(...records.map(r => r.ri)),
         g: gSum,
         t: meanOf(records, "t"), sa: meanOf(records, "sa"),
@@ -952,8 +1126,6 @@ Promise.resolve().then(() => {
 
   function refreshHexColorScale() {
     const clrBox = document.getElementById("clr-svg").closest(".legend-box");
-    const swatchBox = document.getElementById("topic-swatch-legend");
-    swatchBox.style.display = "none";
     clrBox.style.display = "";
 
     const vals = filteredHex.map(h => getHexValue(h)).filter(v => v != null && isFinite(v));
@@ -994,89 +1166,130 @@ Promise.resolve().then(() => {
     hexQuadtree = d3.quadtree().x(d => d._cx).y(d => d._cy).addAll(filteredHex);
   }
 
-  // ── LDA helpers ─────────────────────────────────────────────────────────
-  function attachLdaData(k) {
-    const src = window[`LDA_K${k}`];
-    if (!src) { console.warn(`LDA_K${k} not found`); return; }
-    allSegs.forEach((d, i) => {
-      d._ldaProbs = src[i] || null;
-      if (d._ldaProbs) {
-        let best = 0, bestIdx = 0;
-        for (let j = 0; j < d._ldaProbs.length; j++) {
-          if (d._ldaProbs[j] > best) { best = d._ldaProbs[j]; bestIdx = j; }
-        }
-        d._ldaDominant = bestIdx;
-      } else {
-        d._ldaDominant = 0;
-      }
-    });
-  }
+  // ── NMF display helpers ─────────────────────────────────────────────────
+  let _lastNmfDropdownSeason = null;
 
-  function updateTopicSelectOptions(k) {
-    const sel = document.getElementById("lda-topic-select");
-    sel.innerHTML = '<option value="dominant">Dominant Topic</option>';
-    for (let t = 0; t < k; t++) {
+  function updateNmfTowDropdown(season) {
+    if (season === _lastNmfDropdownSeason) return;
+    _lastNmfDropdownSeason = season;
+
+    const towSel = document.getElementById("nmf-tow-select");
+    const topicSec = document.getElementById("nmf-topic-section");
+    const summary = document.getElementById("nmf-summary");
+    towSel.innerHTML = '<option value="">None</option>';
+    topicSec.style.display = "none";
+    currentNmfGroup = null;
+    currentNmfComp = null;
+
+    if (season === "all" || !nmfData[season]) {
+      const totalTopics = Object.values(nmfData).reduce((s, gs) => s + gs.reduce((s2, g) => s2 + g.k, 0), 0);
+      summary.textContent = season === "all"
+        ? `${totalTopics} topics across all seasons`
+        : "No NMF data for this season";
+      return;
+    }
+
+    const groups = nmfData[season];
+    const totalTopics = groups.reduce((s, g) => s + g.k, 0);
+    summary.textContent = `${totalTopics} topics from ${groups.length} tows`;
+
+    for (const group of groups) {
       const o = document.createElement("option");
-      o.value = t; o.textContent = `Topic ${t}`;
-      sel.appendChild(o);
-    }
-    currentTopic = "dominant";
-    sel.value = "dominant";
-  }
-
-  function updateTopicSwatchLegend(k) {
-    const box = document.getElementById("topic-swatch-legend");
-    const cont = document.getElementById("topic-swatches");
-    if (!currentLdaK || currentTopic !== "dominant") { box.style.display = "none"; return; }
-    box.style.display = "";
-    cont.innerHTML = "";
-    for (let t = 0; t < k; t++) {
-      const row = document.createElement("div");
-      row.className = "topic-swatch-row";
-      row.innerHTML = `<div class="topic-swatch-rect" style="background:${TOPIC_PALETTE[t]}"></div>Topic ${t}`;
-      cont.appendChild(row);
+      o.value = String(group.g);
+      o.textContent = `G${group.g} ${group.ship} · ${group.n} segs · k=${group.k}`;
+      towSel.appendChild(o);
     }
   }
 
-  function updateCompositionBar() {
-    const wrap = document.getElementById("comp-bar-wrap");
-    if (!currentLdaK || !filtered.length) { wrap.style.display = "none"; return; }
-    wrap.style.display = "flex";
-    const k = currentLdaK;
-    const means = new Array(k).fill(0);
-    let count = 0;
-    filtered.forEach(d => {
-      if (d._ldaProbs) {
-        for (let t = 0; t < k; t++) means[t] += d._ldaProbs[t];
-        count++;
+  function updateNmfTopicDropdown(groupId) {
+    const topicSel = document.getElementById("nmf-topic-select");
+    const topicSec = document.getElementById("nmf-topic-section");
+    topicSel.innerHTML = '<option value="">All topics</option>';
+
+    if (groupId == null) {
+      topicSec.style.display = "none";
+      return;
+    }
+
+    const season = currentSeason;
+    const groups = nmfData[season] || [];
+    const group = groups.find(g => g.g === groupId);
+    if (!group) { topicSec.style.display = "none"; return; }
+
+    for (let ti = 0; ti < group.topics.length; ti++) {
+      const top1 = group.topics[ti].species[0];
+      const o = document.createElement("option");
+      o.value = String(ti);
+      o.textContent = `Topic ${ti + 1}: ${top1 ? top1[0] : "?"}`;
+      topicSel.appendChild(o);
+    }
+    topicSec.style.display = "";
+  }
+
+  function updateNmfPanel(season) {
+    const panel = document.getElementById("nmf-panel");
+    const list = document.getElementById("nmf-topics-list");
+    const title = document.getElementById("nmf-panel-title");
+
+    updateNmfTowDropdown(season);
+
+    if (season === "all" || !nmfData[season]) {
+      panel.style.display = "none";
+      return;
+    }
+
+    const groups = nmfData[season];
+    title.textContent = `NMF Topics · ${season}`;
+
+    if (currentNmfGroup == null) {
+      panel.style.display = "none";
+      return;
+    }
+
+    list.innerHTML = "";
+    const showGroups = groups.filter(g => g.g === currentNmfGroup);
+
+    for (const group of showGroups) {
+      const towDiv = document.createElement("div");
+      towDiv.className = "nmf-tow-group";
+      towDiv.innerHTML = `<div class="nmf-tow-header" style="color:#58a6ff">${group.ship} · Group ${group.g} · ${group.n} segs · k=${group.k}</div>`;
+
+      for (let ti = 0; ti < group.topics.length; ti++) {
+        const topic = group.topics[ti];
+        const isCompDimmed = currentNmfComp != null && currentNmfComp !== ti;
+        const topicDiv = document.createElement("div");
+        topicDiv.className = "nmf-topic";
+        topicDiv.style.opacity = isCompDimmed ? "0.35" : "1";
+        topicDiv.innerHTML = `<div class="nmf-topic-label"${!isCompDimmed ? ' style="color:#58a6ff"' : ""}>Topic ${ti + 1}</div>`;
+
+        for (const [species, weight] of topic.species) {
+          const pct = Math.round(weight * 100);
+          const row = document.createElement("div");
+          row.className = "nmf-species-row";
+          row.innerHTML = `
+            <div class="nmf-species-bullet"></div>
+            <div class="nmf-species-name" title="${species}">${species}</div>
+            <div class="nmf-bar-track"><div class="nmf-bar-fill" style="width:${pct}%"></div></div>
+            <div class="nmf-weight-val">${weight.toFixed(2)}</div>
+          `;
+          topicDiv.appendChild(row);
+        }
+        towDiv.appendChild(topicDiv);
       }
-    });
-    if (count > 0) for (let t = 0; t < k; t++) means[t] /= count;
-    const total = means.reduce((s, v) => s + v, 0) || 1;
-
-    const track = document.getElementById("comp-bar-track");
-    track.innerHTML = "";
-    for (let t = 0; t < k; t++) {
-      const seg = document.createElement("div");
-      seg.style.cssText = `flex:${means[t]/total};background:${TOPIC_PALETTE[t]};transition:flex 0.3s;`;
-      seg.title = `Topic ${t}: ${(means[t]*100).toFixed(1)}%`;
-      track.appendChild(seg);
+      list.appendChild(towDiv);
     }
-
-    const labels = document.getElementById("comp-bar-labels");
-    labels.innerHTML = "";
-    for (let t = 0; t < k; t++) {
-      const sw = document.createElement("div");
-      sw.className = "comp-swatch";
-      sw.innerHTML = `<div class="comp-swatch-dot" style="background:${TOPIC_PALETTE[t]}"></div>T${t}: ${(means[t]*100).toFixed(0)}%`;
-      labels.appendChild(sw);
-    }
+    panel.style.display = "";
   }
 
   function getValue(d) {
-    if (currentLdaK) {
-      if (currentTopic === "dominant") return d._ldaDominant;
-      return d._ldaProbs ? d._ldaProbs[+currentTopic] : 0;
+    if (currentNmfGroup != null) {
+      const w = nmfWeights[d._origIdx];
+      if (!w || w[0] !== currentNmfGroup) return -1; // not in this tow group
+      if (currentNmfComp != null) return w[1 + currentNmfComp] || 0;
+      // no specific topic: return max weight across all components
+      let mx = 0;
+      for (let i = 1; i < w.length; i++) mx = Math.max(mx, w[i]);
+      return mx;
     }
     if (!currentGroup) return d.shannon;
     if (currentGroup === "__total__") return logVal(d.groups.reduce((s, v) => s + v, 0));
@@ -1084,37 +1297,27 @@ Promise.resolve().then(() => {
   }
 
   function refreshColorScale() {
-    const clrBox   = document.getElementById("clr-svg").closest(".legend-box");
-    const swatchBox = document.getElementById("topic-swatch-legend");
+    const clrBox = document.getElementById("clr-svg").closest(".legend-box");
+    clrBox.style.display = "";
 
-    if (currentLdaK && currentTopic === "dominant") {
-      colorLUT = TOPIC_PALETTE.slice(0, currentLdaK);
-      colorScale = null;
-      clrBox.style.display = "none";
-      updateTopicSwatchLegend(currentLdaK);
-    } else if (currentLdaK) {
-      const topicIdx = +currentTopic;
+    if (currentNmfGroup != null) {
       colorInterp = d3.interpolateYlOrRd;
       colorScale  = d3.scaleSequential(colorInterp).domain([0, 1]);
       colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
-      clrBox.style.display = "";
-      swatchBox.style.display = "none";
-      updateColorLegend(`Topic ${topicIdx} probability`, "0", "1", colorInterp);
+      // prepend a muted color at index 0 for non-matching segments (soft dim)
+      colorLUT.unshift("rgba(120,120,120,0.3)");
+      updateColorLegend("NMF Topic Weight", "0", "1.0", colorInterp);
     } else if (!currentGroup) {
       const ext = d3.extent(filtered, d => d.shannon);
       colorInterp = shannonInterp;
       colorScale  = d3.scaleSequential(colorInterp).domain(ext);
       colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
-      clrBox.style.display = "";
-      swatchBox.style.display = "none";
       updateColorLegend("Shannon Diversity", ext[0].toFixed(2), ext[1].toFixed(2), colorInterp);
     } else if (currentGroup === "__total__") {
       const origMax = d3.max(filtered, d => d.groups.reduce((s, v) => s + v, 0));
       colorInterp = d3.interpolateYlOrRd;
       colorScale  = d3.scaleSequential(colorInterp).domain([0, Math.max(0.01, logVal(origMax))]);
       colorLUT    = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
-      clrBox.style.display = "";
-      swatchBox.style.display = "none";
       updateColorLegend("Total Abundance (log scale)", 0, origMax, colorInterp);
     } else {
       const gi      = GROUPS.indexOf(currentGroup);
@@ -1122,15 +1325,20 @@ Promise.resolve().then(() => {
       colorInterp   = d3.interpolateYlOrRd;
       colorScale    = d3.scaleSequential(colorInterp).domain([0, Math.max(0.01, logVal(origMax))]);
       colorLUT      = d3.range(N_COLORS).map(i => colorScale(i / (N_COLORS - 1)));
-      clrBox.style.display = "";
-      swatchBox.style.display = "none";
       updateColorLegend(`${currentGroup} (log scale)`, 0, origMax, colorInterp);
     }
   }
 
   function presortFiltered() {
-    if (currentLdaK && currentTopic === "dominant") {
-      filtered.forEach(d => { d._ci = d._ldaDominant || 0; });
+    if (currentNmfGroup != null) {
+      filtered.forEach(d => {
+        const v = getValue(d);
+        if (v < 0) {
+          d._ci = 0; // dimmed (index 0 = prepended muted color)
+        } else {
+          d._ci = 1 + Math.round(v * (N_COLORS - 1)); // offset by 1
+        }
+      });
     } else {
       const [dMin, dMax] = colorScale.domain();
       const span = dMax - dMin || 1;
@@ -1143,18 +1351,18 @@ Promise.resolve().then(() => {
     quadtree = d3.quadtree().x(d => d.px).y(d => d.py).addAll(filtered);
   }
 
-  // ── Year list ─────────────────────────────────────────────────────────
-  const years = ["all",
-    ...d3.sort([...new Set(allSegs.map(d => d.year))], d3.ascending)];
+  // ── Season list ─────────────────────────────────────────────────────────
+  const seasons = ["all",
+    ...d3.sort([...new Set(allSegs.map(d => d.season).filter(s => s))], d3.ascending)];
 
   const yearList = document.getElementById("year-list");
-  years.forEach(y => {
+  seasons.forEach(s => {
     const div = document.createElement("div");
-    div.className = "year-item" + (y === "all" ? " active" : "");
-    div.textContent = y === "all" ? "All Years" : y;
-    div.dataset.year = y;
+    div.className = "year-item" + (s === "all" ? " active" : "");
+    div.textContent = s === "all" ? "All Seasons" : s;
+    div.dataset.year = s;
     div.addEventListener("click", () => {
-      currentYear = y;
+      currentSeason = s;
       yearList.querySelectorAll(".year-item").forEach(el => el.classList.remove("active"));
       div.classList.add("active");
       applyFilter();
@@ -1172,21 +1380,18 @@ Promise.resolve().then(() => {
       const hexResSection = document.getElementById("hex-res-section");
       const hexColorSection = document.getElementById("hex-color-section");
       const taxaSection = document.getElementById("taxa-section");
-      const ldaSection = document.getElementById("lda-section");
       const sizeLegend = document.getElementById("size-legend");
 
       const multiYearSection = document.getElementById("multiyear-section");
       const minYearsSection = document.getElementById("minyears-section");
+      const nmfSection = document.getElementById("nmf-section");
       if (viewMode === "hex") {
         hexResSection.style.display = "";
         hexColorSection.style.display = showMultiYear ? "none" : "";
         multiYearSection.style.display = "";
         minYearsSection.style.display = "";
         taxaSection.style.display = "none";
-        ldaSection.style.display = "none";
-        document.getElementById("lda-topic-section").style.display = "none";
-        document.getElementById("comp-bar-wrap").style.display = "none";
-        document.getElementById("topic-swatch-legend").style.display = "none";
+        nmfSection.style.display = "none";
         sizeLegend.style.display = "none";
       } else {
         hexResSection.style.display = "none";
@@ -1194,7 +1399,7 @@ Promise.resolve().then(() => {
         multiYearSection.style.display = "none";
         minYearsSection.style.display = "none";
         taxaSection.style.display = "";
-        ldaSection.style.display = "";
+        nmfSection.style.display = "";
         sizeLegend.style.display = "";
       }
       applyFilter();
@@ -1221,6 +1426,7 @@ Promise.resolve().then(() => {
   document.getElementById("fronts-toggle").addEventListener("change", e => {
     showFronts = e.target.checked;
     document.getElementById("front-legend").style.display = showFronts ? "" : "none";
+    if (showFronts) buildFrontLegend();
     render();
   });
 
@@ -1244,130 +1450,119 @@ Promise.resolve().then(() => {
   // ── Group dropdown ────────────────────────────────────────────────────
   gSel.addEventListener("change", () => {
     currentGroup = gSel.value;
-    applyFilter();
-  });
-
-  // ── LDA K dropdown ───────────────────────────────────────────────────
-  document.getElementById("lda-k-select").addEventListener("change", e => {
-    const val = e.target.value;
-    currentLdaK = val ? +val : null;
-    const topicSection = document.getElementById("lda-topic-section");
-    const taxaSection  = document.getElementById("taxa-section");
-
-    if (currentLdaK) {
-      attachLdaData(currentLdaK);
-      updateTopicSelectOptions(currentLdaK);
-      topicSection.style.display = "";
-      taxaSection.classList.add("disabled");
+    if (currentGroup) {
+      currentNmfGroup = null;
+      currentNmfComp = null;
+      document.getElementById("nmf-tow-select").value = "";
+      document.getElementById("nmf-topic-section").style.display = "none";
+      document.getElementById("nmf-section").classList.add("disabled");
     } else {
-      topicSection.style.display = "none";
-      document.getElementById("comp-bar-wrap").style.display = "none";
-      document.getElementById("topic-swatch-legend").style.display = "none";
-      taxaSection.classList.remove("disabled");
-      document.getElementById("clr-svg").closest(".legend-box").style.display = "";
+      document.getElementById("nmf-section").classList.remove("disabled");
     }
     applyFilter();
   });
 
-  // ── LDA topic dropdown ───────────────────────────────────────────────
-  document.getElementById("lda-topic-select").addEventListener("change", e => {
+  // ── NMF tow dropdown ────────────────────────────────────────────────
+  document.getElementById("nmf-tow-select").addEventListener("change", e => {
     const val = e.target.value;
-    currentTopic = val === "dominant" ? "dominant" : +val;
+    if (!val) {
+      currentNmfGroup = null;
+      currentNmfComp = null;
+      document.getElementById("taxa-section").classList.remove("disabled");
+    } else {
+      currentNmfGroup = +val;
+      currentNmfComp = null;
+      document.getElementById("taxa-section").classList.add("disabled");
+    }
+    updateNmfTopicDropdown(currentNmfGroup);
     applyFilter();
   });
 
-  // ── Year range formatting for tooltip ──────────────────────────────────
-  function formatYearRanges(years) {
-    if (!years.length) return "–";
-    const ranges = [];
-    let start = years[0], end = years[0];
-    for (let i = 1; i < years.length; i++) {
-      if (years[i] === end + 1) { end = years[i]; }
-      else { ranges.push(start === end ? String(start) : `${start}–${end}`); start = end = years[i]; }
-    }
-    ranges.push(start === end ? String(start) : `${start}–${end}`);
-    return ranges.join(", ");
-  }
+  // ── NMF topic dropdown ────────────────────────────────────────────────
+  document.getElementById("nmf-topic-select").addEventListener("change", e => {
+    const val = e.target.value;
+    currentNmfComp = val === "" ? null : +val;
+    applyFilter();
+  });
+
+  // (formatYearRanges removed — seasons are displayed as comma-separated strings)
 
   // ── Filter ────────────────────────────────────────────────────────────
   function applyFilter() {
     if (viewMode === "hex") {
       const geoDict = hexResolution === 2 ? hexGeoRes2 : hexGeoRes3;
       const dataArr = hexResolution === 2 ? hexDataRes2 : hexDataRes3;
-      const cellYears = hexResolution === 2 ? cellYearsRes2 : cellYearsRes3;
+      const cellSeasons = hexResolution === 2 ? cellSeasonsRes2 : cellSeasonsRes3;
 
-      // Set to filter cells by minimum years sampled
       const eligibleCells = new Set(
-        Object.entries(cellYears)
-          .filter(([, yrs]) => yrs.length >= minYearsSampled)
+        Object.entries(cellSeasons)
+          .filter(([, ss]) => ss.length >= minYearsSampled)
           .map(([cell]) => cell)
       );
 
       if (showMultiYear) {
-        // Multi-year coverage: one record per cell, colored by year count
-        filteredHex = Object.entries(cellYears)
+        filteredHex = Object.entries(cellSeasons)
           .filter(([cell]) => eligibleCells.has(cell))
-          .map(([cell, years]) => {
+          .map(([cell, ss]) => {
             const geo = geoDict[cell];
             if (!geo) return null;
             return {
-              cell, year: "coverage", n: years.length,
-              _nYears: years.length, _years: years,
+              cell, season: "coverage", n: ss.length,
+              _nSeasons: ss.length, _seasons: ss,
               sh: 0, ri: 0, g: [], t: null, sa: null, fl: null,
               pc: null, pa: null, ss: null, ic: null,
               _projBoundary: geo._proj, _cx: geo._cx, _cy: geo._cy,
             };
           }).filter(Boolean);
 
-        // Color by number of years
-        const maxYears = d3.max(filteredHex, d => d._nYears) || 1;
+        const maxSeasons = d3.max(filteredHex, d => d._nSeasons) || 1;
         colorInterp = d3.interpolateYlOrRd;
-        colorScale = d3.scaleSequential(colorInterp).domain([1, maxYears]);
-        colorLUT = d3.range(N_COLORS).map(i => colorScale(1 + (maxYears - 1) * i / (N_COLORS - 1)));
+        colorScale = d3.scaleSequential(colorInterp).domain([1, maxSeasons]);
+        colorLUT = d3.range(N_COLORS).map(i => colorScale(1 + (maxSeasons - 1) * i / (N_COLORS - 1)));
         filteredHex.forEach(h => {
-          const t = Math.max(0, Math.min(1, (h._nYears - 1) / (maxYears - 1 || 1)));
+          const t = Math.max(0, Math.min(1, (h._nSeasons - 1) / (maxSeasons - 1 || 1)));
           h._ci = Math.round(t * (N_COLORS - 1));
         });
         hexQuadtree = d3.quadtree().x(d => d._cx).y(d => d._cy).addAll(filteredHex);
         document.getElementById("clr-svg").closest(".legend-box").style.display = "";
-        document.getElementById("topic-swatch-legend").style.display = "none";
-        updateColorLegend("Years Sampled", "1", String(maxYears), colorInterp);
+        updateColorLegend("Seasons Sampled", "1", String(maxSeasons), colorInterp);
 
         document.getElementById("status-bar").textContent =
-          `Multi-year coverage  ·  ${filteredHex.length} hexagons (res ${hexResolution})` +
-          `  ·  max ${maxYears} years`;
+          `Multi-season coverage  ·  ${filteredHex.length} hexagons (res ${hexResolution})` +
+          `  ·  max ${maxSeasons} seasons`;
       } else {
-        filteredHex = buildFilteredHex(geoDict, dataArr, currentYear)
+        filteredHex = buildFilteredHex(geoDict, dataArr, currentSeason)
           .filter(h => eligibleCells.has(h.cell));
         refreshHexColorScale();
 
         document.getElementById("status-bar").textContent =
-          `${currentYear === "all" ? "All years" : currentYear}` +
+          `${currentSeason === "all" ? "All seasons" : currentSeason}` +
           `  ·  ${filteredHex.length} hexagons (res ${hexResolution})` +
           `  ·  min ${minYearsSampled}yr  ·  ${getHexMetricLabel()}`;
       }
     } else {
-      filtered = currentYear === "all"
+      filtered = currentSeason === "all"
         ? allSegs.slice()
-        : allSegs.filter(d => d.year === +currentYear);
+        : allSegs.filter(d => d.season === currentSeason);
 
       refreshColorScale();
       presortFiltered();
-      updateCompositionBar();
 
       let modeLabel;
-      if (currentLdaK) {
-        modeLabel = currentTopic === "dominant"
-          ? `LDA K=${currentLdaK} dominant`
-          : `LDA K=${currentLdaK} topic ${currentTopic}`;
+      if (currentNmfGroup != null) {
+        modeLabel = currentNmfComp != null
+          ? `NMF G${currentNmfGroup} Topic ${currentNmfComp + 1}`
+          : `NMF G${currentNmfGroup} (all topics)`;
       } else {
         modeLabel = currentGroup || "Shannon diversity";
       }
       document.getElementById("status-bar").textContent =
-        `${currentYear === "all" ? "All years" : currentYear}` +
+        `${currentSeason === "all" ? "All seasons" : currentSeason}` +
         `  ·  ${filtered.length.toLocaleString()} segments` +
         `  ·  ${modeLabel}`;
     }
+    updateNmfPanel(currentSeason);
+    if (showFronts) buildFrontLegend();
     render();
   }
 
@@ -1375,7 +1570,7 @@ Promise.resolve().then(() => {
   const tooltip = document.getElementById("tooltip");
   let hoveredKey = null;
 
-  function drawTowHighlight(seg) {
+  function drawSegHighlight(seg) {
     const k = zoomT.k;
     ctx.save();
     ctx.translate(zoomT.x, zoomT.y);
@@ -1383,12 +1578,8 @@ Promise.resolve().then(() => {
     ctx.strokeStyle = "rgba(255,255,255,0.8)";
     ctx.lineWidth = 1.5 / k;
     ctx.beginPath();
-    filtered
-      .filter(d => d.ship === seg.ship && d.towNo === seg.towNo)
-      .forEach(d => {
-        ctx.moveTo(d.px + (d._baseR + 2) / k, d.py);
-        ctx.arc(d.px, d.py, (d._baseR + 2) / k, 0, Math.PI * 2);
-      });
+    ctx.moveTo(seg.px + (seg._baseR + 2) / k, seg.py);
+    ctx.arc(seg.px, seg.py, (seg._baseR + 2) / k, 0, Math.PI * 2);
     ctx.stroke();
     ctx.restore();
   }
@@ -1472,21 +1663,20 @@ Promise.resolve().then(() => {
         tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
 
         if (showMultiYear) {
-          const cellYears = hexResolution === 2 ? cellYearsRes2 : cellYearsRes3;
-          const yrs = cellYears[hex.cell] || [];
-          const yrRanges = formatYearRanges(yrs);
+          const cellSeasons = hexResolution === 2 ? cellSeasonsRes2 : cellSeasonsRes3;
+          const ss = cellSeasons[hex.cell] || [];
           tooltip.innerHTML = `
             <div class="tip-title">H3 Hex (res ${hexResolution}) · Coverage</div>
-            <div class="tip-row">Years sampled: <span>${yrs.length}</span></div>
-            <div class="tip-row">Range: <span>${yrs.length ? yrs[0] + "–" + yrs[yrs.length-1] : "–"}</span></div>
+            <div class="tip-row">Seasons sampled: <span>${ss.length}</span></div>
+            <div class="tip-row">Range: <span>${ss.length ? ss[0] + " – " + ss[ss.length-1] : "–"}</span></div>
             <div style="margin-top:4px;border-top:1px solid #30363d;padding-top:4px">
-              <div class="tip-row" style="color:#58a6ff;font-weight:600;margin-bottom:2px">Sampled years:</div>
-              <div class="tip-row" style="line-height:1.5"><span>${yrRanges}</span></div>
+              <div class="tip-row" style="color:#58a6ff;font-weight:600;margin-bottom:2px">Sampled seasons:</div>
+              <div class="tip-row" style="line-height:1.5"><span>${ss.join(", ")}</span></div>
             </div>
           `;
         } else {
           tooltip.innerHTML = `
-            <div class="tip-title">H3 Hex (res ${hexResolution}) · ${hex.year}</div>
+            <div class="tip-title">H3 Hex (res ${hexResolution}) · ${hex.season}</div>
             <div class="tip-row">Segments: <span>${hex.n}</span></div>
             <div class="tip-row">Shannon H': <span>${hex.sh != null ? hex.sh.toFixed(3) : "–"}</span></div>
             <div class="tip-row">Richness: <span>${hex.ri} taxa</span></div>
@@ -1511,33 +1701,22 @@ Promise.resolve().then(() => {
       const found = quadtree.find(bx, by, 14 / zoomT.k);
 
       if (found) {
-        const tk = `${found.ship}-${found.towNo}`;
-        if (tk !== hoveredKey) {
-          hoveredKey = tk;
+        const sk = `${found.ship}-${found.towNo}-${found.segNo}`;
+        if (sk !== hoveredKey) {
+          hoveredKey = sk;
           renderFg();
-          drawTowHighlight(found);
+          drawSegHighlight(found);
         }
 
         const gi = currentGroup && currentGroup !== "__total__" ? GROUPS.indexOf(currentGroup) : -1;
         const totalAbund = found.groups.reduce((s, v) => s + v, 0);
-
-        let ldaHtml = "";
-        if (currentLdaK && found._ldaProbs) {
-          const k = currentLdaK;
-          const barSegs = found._ldaProbs.map((p, t) =>
-            `<div style="flex:${p};background:${TOPIC_PALETTE[t]};height:100%" title="T${t}: ${(p*100).toFixed(1)}%"></div>`
-          ).join("");
-          const domT = found._ldaDominant;
-          ldaHtml = `
-            <div class="tip-row" style="margin-top:4px">LDA K=${k} dominant: <span style="color:${TOPIC_PALETTE[domT]}">Topic ${domT}</span></div>
-            <div style="display:flex;height:8px;border-radius:3px;overflow:hidden;margin-top:4px;gap:1px">${barSegs}</div>`;
-        }
 
         tooltip.style.display = "block";
         tooltip.style.left = (e.clientX + 18) + "px";
         tooltip.style.top  = Math.max(10, e.clientY - 20) + "px";
         tooltip.innerHTML = `
           <div class="tip-title">${found.ship} · Tow ${found.towNo} · Seg ${found.segNo}</div>
+          <div class="tip-row">Season: <span>${found.season}</span></div>
           <div class="tip-row">Date &amp; time: <span>${found.date} ${found.time}</span></div>
           <div class="tip-row">Lat / Lon: <span>${found.lat.toFixed(3)}°, ${found.lon.toFixed(3)}°</span></div>
           <div class="tip-row">Month: <span>${found.monthIdx >= 0 ? MONTHS[found.monthIdx] : "–"}</span></div>
@@ -1545,7 +1724,6 @@ Promise.resolve().then(() => {
           <div class="tip-row">Shannon H': <span>${found.shannon.toFixed(3)}</span></div>
           <div class="tip-row">Total abundance: <span>${totalAbund}</span></div>
           ${gi >= 0 ? `<div class="tip-row">${currentGroup}: <span>${found.groups[gi]}</span></div>` : ""}
-          ${ldaHtml}
         `;
       } else {
         if (hoveredKey !== null) { hoveredKey = null; renderFg(); }
@@ -1609,16 +1787,16 @@ function updateColorLegend(title, minV, maxV, interp) {
 
 function setupSizeLegend() {
   const svg = d3.select("#size-svg");
-  const sizes = [2.5, 5.0, 7.5];
+  const abundVals = [10, 100, 500];
   let x = 8;
-  sizes.forEach(s => {
-    const r = rScale(s);
+  abundVals.forEach(a => {
+    const r = rScale(Math.log1p(a));
     svg.append("circle")
       .attr("cx", x + r).attr("cy", 18).attr("r", r)
       .attr("fill", "#8b949e").attr("stroke", "#c9d1d9").attr("stroke-width", 1.5);
     svg.append("text")
       .attr("x", x + r).attr("y", 38).attr("text-anchor", "middle")
-      .attr("fill", "#8b949e").attr("font-size", 9).text(s + " nm");
+      .attr("fill", "#8b949e").attr("font-size", 9).text(a);
     x += r * 2 + 14;
   });
 }

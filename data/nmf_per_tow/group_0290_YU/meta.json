@@ -1,0 +1,23 @@
+{
+  "group_id": 290,
+  "ship": "YU",
+  "n_tows_merged": 1,
+  "tow_numbers": [
+    400.0
+  ],
+  "period_start": "2008-01-12 21:21:00",
+  "period_end": "2008-01-13 15:20:00",
+  "n_segments": 51,
+  "n_active_species": 18,
+  "total_abundance": 1064.0,
+  "cv_scores": {
+    "2": 235.930669,
+    "3": 236.855292,
+    "4": 238.361906,
+    "5": 238.402332
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 30.017900166267168,
+  "nmf_iterations": 65,
+  "nmf_converged": true
+}

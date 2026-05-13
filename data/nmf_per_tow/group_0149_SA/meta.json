@@ -1,0 +1,24 @@
+{
+  "group_id": 149,
+  "ship": "SA",
+  "n_tows_merged": 2,
+  "tow_numbers": [
+    518.0,
+    519.0
+  ],
+  "period_start": "2009-12-13 23:33:00",
+  "period_end": "2009-12-17 18:10:00",
+  "n_segments": 162,
+  "n_active_species": 51,
+  "total_abundance": 194386.0,
+  "cv_scores": {
+    "2": 73300.278558,
+    "3": 75188.439393,
+    "4": 76328.912986,
+    "5": 76535.591709
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 1493.518513094922,
+  "nmf_iterations": 1000,
+  "nmf_converged": false
+}

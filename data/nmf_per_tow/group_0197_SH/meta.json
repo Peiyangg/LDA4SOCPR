@@ -1,0 +1,24 @@
+{
+  "group_id": 197,
+  "ship": "SH",
+  "n_tows_merged": 2,
+  "tow_numbers": [
+    118.0,
+    119.0
+  ],
+  "period_start": "2001-12-06 09:07:00",
+  "period_end": "2001-12-08 06:04:00",
+  "n_segments": 98,
+  "n_active_species": 24,
+  "total_abundance": 32436.0,
+  "cv_scores": {
+    "2": 4294.871093,
+    "3": 4610.742113,
+    "4": 4750.272107,
+    "5": 4788.167627
+  },
+  "best_k": 2,
+  "nmf_reconstruction_error": 232.79656754348906,
+  "nmf_iterations": 1000,
+  "nmf_converged": false
+}
